@@ -686,7 +686,7 @@ const Oneway = ({
             }}
             container
             rowSpacing={0}
-            columnSpacing={2}
+            columnSpacing={0}
           >
             <Grid
               container
@@ -715,7 +715,15 @@ const Oneway = ({
                     alignItems: "center",
                   }}
                 >
-                  <Box style={{ width: "30%", height: "100%" }}>
+                  <Box
+                    style={{
+                      width: "30%",
+                      height: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
                     <Box
                       style={{
                         display: "flex",
