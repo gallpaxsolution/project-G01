@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import "./App.css";
 import AuthProvider from "./components/Contexts/AuthProvider";
+import BookingRoute from "./components/Admin/BookingManagement/BookingRoute";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/bookingroute" element={<BookingRoute />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
