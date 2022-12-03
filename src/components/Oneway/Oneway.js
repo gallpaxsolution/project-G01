@@ -8,6 +8,8 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Calendar } from "react-date-range";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +27,9 @@ import secureLocalStorage from "react-secure-storage";
 import { useEffect } from "react";
 import FlightLandIcon from "@mui/icons-material/FlightLand";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import SearchIcon from "@mui/icons-material/Search";
+import GroupsIcon from "@mui/icons-material/Groups";
 import ServerDown from "../../images/undraw/undraw_server_down_s-4-lk.svg";
 import flightData from "../flightData";
 
@@ -42,7 +47,6 @@ const BpIcon = styled("span")(({ theme }) => ({
       ? "linear-gradient(180deg,hsla(0,0%,100%,.05),hsla(0,0%,100%,0))"
       : "linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))",
   ".Mui-focusVisible &": {
-    // outline: "2px auto rgba(19,124,189,.6)",
     outline: "2px auto #003566",
     outlineOffset: 2,
   },
@@ -59,7 +63,7 @@ const BpIcon = styled("span")(({ theme }) => ({
 }));
 
 const BpCheckedIcon = styled(BpIcon)({
-  backgroundColor: "#003566",
+  backgroundColor: "var(--primary-color)",
   backgroundImage:
     "linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))",
   "&:before": {
@@ -70,7 +74,7 @@ const BpCheckedIcon = styled(BpIcon)({
     content: '""',
   },
   "input:hover ~ &": {
-    backgroundColor: "#DC143C",
+    backgroundColor: "var(--secondary-color)",
   },
 });
 
@@ -282,7 +286,6 @@ const Oneway = ({
         }}
       >
         <Box
-          className="box-index-oneway"
           sx={{
             maxHeight: "230px",
             overflowY: "auto",
@@ -399,7 +402,6 @@ const Oneway = ({
         }}
       >
         <Box
-          className="box-index-oneway"
           sx={{
             boxShadow:
               "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
@@ -677,12 +679,13 @@ const Oneway = ({
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <Box className="new-search-body-trip" style={{ position: "relative" }}>
+      <Box style={{ position: "relative" }}>
         <form onSubmit={handleSearch}>
           <Grid
             sx={{
               mt: "20px",
               height: "82px",
+              width: "100%",
             }}
             container
             rowSpacing={0}
@@ -690,11 +693,10 @@ const Oneway = ({
           >
             <Grid
               container
-              item
               lg={6}
               style={{
                 border: "1px solid rgba(var(--third-rgb),.3)",
-                borderRadius: "5px",
+                borderRadius: "10px",
               }}
             >
               <Grid
@@ -706,6 +708,7 @@ const Oneway = ({
                 style={{
                   position: "relative",
                   borderRight: "1px solid #DEDEDE",
+                  padding: "5px",
                 }}
               >
                 <Box
@@ -713,6 +716,13 @@ const Oneway = ({
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setOpenFrom((prev) => !prev);
+                    setOpenTo(false);
+                    setOpenDate(false);
+                    setOpen(false);
                   }}
                 >
                   <Box
@@ -739,20 +749,17 @@ const Oneway = ({
                       <FlightTakeoffIcon />
                     </Box>
                   </Box>
-                  <Box
-                    style={{ width: "70%", height: "100%" }}
-                    onClick={() => {
-                      setOpenFrom((prev) => !prev);
-                      setOpenTo(false);
-                      setOpenDate(false);
-                      setOpen(false);
-                    }}
-                  >
+                  <Box style={{ width: "70%", height: "100%" }}>
                     <Box style={{ position: "relative" }}>
-                      <p style={{ color: "var(--secondary-color)" }}>
+                      <p
+                        style={{
+                          color: "var(--secondary-color)",
+                          fontWeight: "bold",
+                        }}
+                      >
                         Departure City
                       </p>
-                      <span>{faddress?.split(",")[0]}</span>
+                      {/* <span>{faddress?.split(",")[0]}</span> */}
                       {faddress?.split(",")[0] === toAddress?.split(",")[0] && (
                         <Stack
                           style={{
@@ -773,62 +780,10 @@ const Oneway = ({
                       )}
                     </Box>
 
-                    <Box>
-                      <input
-                        required
-                        readOnly
-                        value={fromSearchText}
-                        placeholder="Hazrat Shahjalal International Airport"
-                      />
+                    <Box style={{ width: "90%" }}>
+                      <span style={{ width: "100%" }}>{fromSearchText}</span>
                     </Box>
                   </Box>
-
-                  {openFrom && (
-                    <Box
-                      style={{
-                        position: "absolute",
-                        top: "100%",
-                        left: "0",
-                        width: "100%",
-                        backgroundColor: "#fff",
-                        height: "fit-content",
-                        marginTop: "-5px",
-                        borderRadius: "5px",
-                        zIndex: "10",
-                      }}
-                    >
-                      <Box
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          // paddingLeft: "20px",
-                          color: "#003566",
-                          zIndex: 10,
-                        }}
-                        backgroundColor="#fff"
-                        mt={"-55px"}
-                      >
-                        <input
-                          autoComplete="off"
-                          autoFocus
-                          onChange={formOnChange}
-                          placeholder="Search a airport..."
-                          className="crimsonPlaceholder"
-                          style={{
-                            color: "#DC143C",
-                            fontWeight: 500,
-                            paddingLeft: "20px",
-                            width: "100%",
-                            height: "40px",
-                            backgroundColor: "transparent",
-                            border: "none",
-                          }}
-                        />
-                      </Box>
-                      <Box>{fromGetSuggetion()}</Box>
-                    </Box>
-                  )}
 
                   <Box
                     onClick={handleSwapBtn}
@@ -843,10 +798,60 @@ const Oneway = ({
                     }}
                   >
                     <AiOutlineSwap
-                      style={{ color: "#fff", fontSize: "20px" }}
+                      style={{
+                        color: "var(--primary-color)",
+                        fontSize: "20px",
+                      }}
                     />
                   </Box>
                 </Box>
+                {openFrom && (
+                  <Box
+                    style={{
+                      position: "absolute",
+                      top: "105%",
+                      left: "0",
+                      right: "0",
+                      width: "100%",
+                      backgroundColor: "var(--white)",
+                      height: "fit-content",
+                      border: "1px solid var(--primary-color)",
+                      borderRadius: "5px",
+                      zIndex: "999",
+                      padding: "5px 5px 0px",
+                    }}
+                  >
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: "#003566",
+                        zIndex: 10,
+                      }}
+                      backgroundColor="#fff"
+                    >
+                      <input
+                        autoComplete="off"
+                        autoFocus
+                        onChange={formOnChange}
+                        placeholder="Search a airport..."
+                        className="customPlaceholder"
+                        style={{
+                          color: "var(--secondary-color)",
+                          fontWeight: 500,
+                          paddingLeft: "20px",
+                          width: "100%",
+                          height: "40px",
+                          backgroundColor: "transparent",
+                          border: "none",
+                          outline: "none",
+                        }}
+                      />
+                    </Box>
+                    <Box>{fromGetSuggetion()}</Box>
+                  </Box>
+                )}
               </Grid>
               <Grid
                 item
@@ -856,7 +861,7 @@ const Oneway = ({
                 lg={6}
                 style={{
                   position: "relative",
-                  borderRight: "1px solid #DEDEDE",
+                  padding: "5px",
                 }}
               >
                 <Box
@@ -864,6 +869,13 @@ const Oneway = ({
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setOpenFrom(false);
+                    setOpenTo((prev) => !prev);
+                    setOpenDate(false);
+                    setOpen(false);
                   }}
                 >
                   <Box
@@ -889,20 +901,17 @@ const Oneway = ({
                       <FlightLandIcon />
                     </Box>
                   </Box>
-                  <Box
-                    style={{ width: "70%" }}
-                    bgcolor={bgColor}
-                    onClick={() => {
-                      setOpenFrom(false);
-                      setOpenTo((prev) => !prev);
-                      setOpenDate(false);
-                      setOpen(false);
-                    }}
-                  >
+                  <Box style={{ width: "70%" }} bgcolor={bgColor}>
                     <Box style={{ position: "relative" }}>
-                      <p>Arrival City</p>
-
-                      {toAddress?.split(",")[0]}
+                      <p
+                        style={{
+                          color: "var(--secondary-color)",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Arrival City
+                      </p>
+                      {/* {toAddress?.split(",")[0]} */}
                       <span>
                         {faddress?.split(",")[0] ===
                           toAddress?.split(",")[0] && (
@@ -927,29 +936,25 @@ const Oneway = ({
                     </Box>
                     <Box
                       style={{
-                        lineHeight: "0px",
+                        width: "90%",
                       }}
                     >
-                      <input
-                        required
-                        readOnly
-                        value={toSearchText}
-                        placeholder="Dubai International Airport"
-                      />
+                      <span style={{ width: "100%" }}>{toSearchText}</span>
                     </Box>
                   </Box>
                   {openTo && (
                     <Box
                       style={{
                         position: "absolute",
-                        top: "100%",
+                        top: "105%",
                         left: "0",
                         width: "100%",
-                        backgroundColor: "#fff",
+                        backgroundColor: "var(--white)",
+                        border: "1px solid var(--primary-color",
                         height: "fit-content",
-                        marginTop: "-5px",
                         borderRadius: "5px",
-                        zIndex: "10",
+                        zIndex: "999",
+                        padding: "5px 5px 0",
                       }}
                     >
                       <Box
@@ -957,26 +962,26 @@ const Oneway = ({
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
-                          color: "#003566",
+                          color: "var(--secondary-color)",
                           zIndex: 10,
                         }}
-                        backgroundColor="#fff"
-                        mt={"-55px"}
+                        backgroundColor="var(--white)"
                       >
                         <input
                           autoComplete="off"
                           autoFocus
                           onChange={toOnChange}
-                          className="crimsonPlaceholder"
+                          className="customPlaceholder"
                           placeholder="Search a airport..."
                           style={{
-                            color: "#DC143C",
+                            color: "var(--secondary-color)",
                             fontWeight: 500,
                             paddingLeft: "20px",
                             width: "100%",
                             height: "40px",
                             backgroundColor: "transparent",
                             border: "none",
+                            outline: "none",
                           }}
                         />
                       </Box>
@@ -995,28 +1000,58 @@ const Oneway = ({
               lg={3}
               style={{
                 position: "relative",
-                height: "82px",
-                borderRight: "1px solid #DEDEDE",
+                padding: "0px 30px",
               }}
             >
-              <Box className="update-search1" bgcolor={bgColor}>
+              <Box
+                style={{
+                  border: "1px solid rgba(var(--third-rgb),.3)",
+                  borderRadius: "10px",
+                  height: "100%",
+                  width: "100%",
+                }}
+              >
                 <Box
-                  className="dashboard-main-input date12"
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
-                    justifyContent: "space-between",
-                    marginTop: "0px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    width: "100%",
                   }}
                 >
                   <Box
                     style={{
+                      width: "30%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box
+                      style={{
+                        border: "1px solid rgba(var(--third-rgb),.3)",
+                        borderRadius: "100%",
+                        color: "var(--secondary-color)",
+                        height: "40px",
+                        width: "40px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <CalendarMonthIcon />
+                    </Box>
+                  </Box>
+                  <Box
+                    style={{
                       display: "flex",
                       alignItems: "flex-start",
+                      justifyContent: "center",
                       flexDirection: "column",
-                      width: "50%",
+                      width: "70%",
+                      height: "100%",
                       cursor: "pointer",
-                      lineHeight: 1.5,
                     }}
                     onClick={() => {
                       setTimeout(() => setOpenDate((prev) => !prev), 200);
@@ -1025,96 +1060,93 @@ const Oneway = ({
                       setOpen(false);
                     }}
                   >
-                    <p>Travel Date &#10507;</p>
-                    <span className="addressTitle">{`${format(
+                    <p
+                      style={{
+                        color: "var(--secondary-color)",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Travel Date
+                    </p>
+                    <span style={{ fontSize: "14px" }}>{`${format(
                       new Date(from),
                       "dd MMM yy"
                     )}`}</span>
 
-                    <Typography
-                      variant="subtitle2"
-                      style={{ color: "#003566", fontSize: "11px" }}
+                    {/* <Typography style={{ color: "#003566", fontsize: "11px" }}>
+                      {`${format(new Date(from), "EEEE")}[Oneway]`}
+                    </Typography> */}
+                    <span
+                      style={{ color: "var(--third-color)", fontsize: "14px" }}
                     >
-                      {`${format(new Date(from), "EEEE")}`}
-                    </Typography>
-                  </Box>
-                  <Box
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      flexDirection: "column",
-                      width: "50%",
-                      cursor: "pointer",
-                      lineHeight: 1.5,
-                    }}
-                    onClick={() => setValue("return")}
-                  >
-                    <Typography
-                      sx={{
-                        color: "#8C8080 !important",
-                      }}
-                    >
-                      Return Date &#10507;
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        color: "#003566 !important",
-                        padding: "13px 0px",
-                        lineHeight: "10px",
-                      }}
-                    >
-                      Save money
-                    </Typography>
-                    <Typography
-                      sx={{
-                        color: "#003566 !important",
-                        fontSize: "11px",
-                      }}
-                    >
-                      on return flight
-                    </Typography>
+                      [Oneway]
+                    </span>
                   </Box>
                 </Box>
-                {/* <Grow in={openDate}> */}
-                {openDate && (
-                  <Box
-                    sx={{
-                      display: {
-                        lg: "block",
-                        md: "block",
-                        sm: "block",
-                        xs: "block",
-                      },
-                    }}
-                  >
-                    <Calendar
-                      color={iconColor}
-                      date={new Date(from)}
-                      onChange={handleSelect}
-                      months={1}
-                      direction="horizontal"
-                      minDate={new Date()}
-                      className="new-dashboard-calendar"
-                      name="dashboard-calendar"
-                    />
-                  </Box>
-                )}
-                {/* </Grow> */}
               </Box>
+              {openDate && (
+                <Box
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: "0",
+                    right: "0",
+                  }}
+                >
+                  <Calendar
+                    color="#ffa84d"
+                    date={new Date(from)}
+                    onChange={handleSelect}
+                    months={1}
+                    direction="horizontal"
+                    minDate={new Date()}
+                    className="new-dashboard-calendar"
+                  />
+                </Box>
+              )}
             </Grid>
+
             <Grid
               item
               xs={12}
               sm={12}
               md={4}
               lg={2}
-              style={{
-                height: "82px",
-              }}
+              style={{ position: "relative", padding: "0 10px 0 0" }}
             >
-              <Box className="update-search1" bgcolor={bgColor}>
-                <Box className="traveler-count" onClick={handleClickOpen}>
+              <Box
+                style={{
+                  position: "relative",
+                  border: "1px solid rgba(var(--third-rgb),.3)",
+                  borderRadius: "10px",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <Box
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  onClick={handleClickOpen}
+                >
+                  <Box>
+                    <Box
+                      style={{
+                        border: "1px solid rgba(var(--third-rgb),.3)",
+                        borderRadius: "100%",
+                        color: "var(--secondary-color)",
+                        height: "40px",
+                        width: "40px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <GroupsIcon />
+                    </Box>
+                  </Box>
                   <Button
                     sx={{
                       justifyContent: "flex-start",
@@ -1122,118 +1154,267 @@ const Oneway = ({
                       display: "block",
                     }}
                   >
-                    <p>Travelers & Booking Class</p>
+                    <p
+                      style={{
+                        color: "var(--secondary-color)",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Passenger
+                    </p>
                     <span> {result} Traveler</span>
                     <Typography
                       variant="subtitle2"
                       style={{
-                        color: "#003566",
-                        fontSize: "11px",
-                        lineHeight: "10px",
+                        color: "var(--third-color)",
+                        fontSize: "14px",
                       }}
                     >
-                      {className}
+                      {`[ ${className} ]`}
                     </Typography>
                   </Button>
                 </Box>
 
-                {/* <Grow in={open}> */}
                 {open && (
-                  <Box>
+                  <Box
+                    style={{ position: "absolute", top: "110%", right: "0px" }}
+                  >
                     <Box
-                      className="dialog-box"
                       sx={{
                         backgroundColor: "#FFF",
-                        padding: "5px 10px 20px 10px",
+                        padding: "10px",
                         overflow: "hidden",
-                        width: "285px",
+                        width: "300px",
+                        border: "1px solid var(--primary-color)",
+                        borderRadius: "10px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "5px",
                       }}
                     >
-                      <Box className="passenger-h3">
+                      <Box
+                        style={{
+                          textAlign: "center",
+                          marginBottom: "5px",
+                          color: "var(--third-color)",
+                        }}
+                      >
                         <h3>Passenger</h3>
                       </Box>
-                      <Box className="dialog-flex">
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          width: "100%",
+                        }}
+                      >
+                        <Box
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-start",
+                            gap: "10px",
+                            width: "50%",
+                          }}
+                        >
+                          <button
+                            onClick={adultDecrement}
+                            style={{
+                              backgroundColor: "var(--primary-color)",
+                              color: "var(--white)",
+                              border: "none",
+                              width: "20px",
+                              height: "20px",
+                              fontSize: "14px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            -
+                          </button>
+                          <h5 style={{ color: "var(--secondary-color)" }}>
+                            {adultCount}
+                          </h5>
+                          <button
+                            onClick={adultInclement}
+                            style={{
+                              backgroundColor: "var(--primary-color)",
+                              color: "var(--white)",
+                              border: "none",
+                              width: "20px",
+                              height: "20px",
+                              fontSize: "14px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            +
+                          </button>
+                        </Box>
                         <Box
                           sx={{
                             display: "flex",
-                            gap: "20px",
-                            alignItems: "center",
+                            justifyContent: "flex-start",
+                            width: "50%",
+                            flexDirection: "column",
+                            color: "var(--secondary-color)",
                           }}
-                          className="dialog-content"
                         >
-                          <Box className="dialog-content">
-                            <h5>{adultCount}</h5>
-                          </Box>
-                          <Box>
-                            <h5>Adult</h5>
-                            <span style={{ fontSize: "13px" }}>12+ yrs</span>
-                          </Box>
-                        </Box>
-                        <Box className="incre-decre">
-                          <button onClick={adultDecrement}>-</button>
-
-                          <button onClick={adultInclement}>+</button>
+                          <h5>Adult</h5>
+                          <span style={{ fontSize: "13px" }}>12+ yrs</span>
                         </Box>
                       </Box>
 
-                      <Box className="dialog-flex-child">
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          width: "100%",
+                        }}
+                      >
                         <Box
                           sx={{
                             display: "flex",
-                            gap: "20px",
-                            alignItems: "center",
+                            gap: "10px",
+                            justifyContent: "flex-start",
+                            width: "50%",
                           }}
-                          className="dialog-content"
                         >
-                          <Box className="dialog-content">
-                            <h5>{childCount}</h5>
-                          </Box>
-                          <Box>
-                            <h5>Children</h5>
-                            <span style={{ fontSize: "13px" }}>
-                              2- less than 12 yrs
-                            </span>
-                          </Box>
+                          <button
+                            onClick={adult2Decrement}
+                            style={{
+                              backgroundColor: "var(--primary-color)",
+                              color: "var(--white)",
+                              border: "none",
+                              width: "20px",
+                              height: "20px",
+                              fontSize: "14px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            -
+                          </button>
+                          <h5 style={{ color: "var(--secondary-color)" }}>
+                            {childCount}
+                          </h5>
+                          <button
+                            onClick={adult2Inclement}
+                            style={{
+                              backgroundColor: "var(--primary-color)",
+                              color: "var(--white)",
+                              border: "none",
+                              width: "20px",
+                              height: "20px",
+                              fontSize: "14px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            +
+                          </button>
                         </Box>
-                        <Box className="incre-decre">
-                          <button onClick={adult2Decrement}>-</button>
 
-                          <button onClick={adult2Inclement}>+</button>
-                        </Box>
-                      </Box>
-
-                      <Box className="dialog-flex-infant">
                         <Box
                           sx={{
                             display: "flex",
-                            gap: "20px",
-                            alignItems: "center",
+                            justifyContent: "flex-start",
+                            width: "50%",
+                            flexDirection: "column",
+                            color: "var(--secondary-color)",
                           }}
-                          className="dialog-content"
                         >
-                          <Box className="dialog-content">
-                            <h5>{infant}</h5>
-                          </Box>
-                          <Box>
-                            <h5>Infant</h5>
-                            <span style={{ fontSize: "13px" }}>
-                              0 - 23 month{" "}
-                            </span>
-                          </Box>
-                        </Box>
-                        <Box className="incre-decre">
-                          <button onClick={infantDecrement}>-</button>
-
-                          <button onClick={infantIncrement}>+</button>
+                          <h5>Children</h5>
+                          <span style={{ fontSize: "13px" }}>
+                            2- less than 12 yrs
+                          </span>
                         </Box>
                       </Box>
-                      <Box className="hr-line"></Box>
-                      <Box className="new-passengerBtn">
+
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          width: "100%",
+                        }}
+                      >
+                        <Box
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-start",
+                            gap: "10px",
+                            width: "50%",
+                          }}
+                        >
+                          <button
+                            onClick={infantDecrement}
+                            style={{
+                              backgroundColor: "var(--primary-color)",
+                              color: "var(--white)",
+                              border: "none",
+                              width: "20px",
+                              height: "20px",
+                              fontSize: "14px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            -
+                          </button>
+                          <h5 style={{ color: "var(--secondary-color)" }}>
+                            {infant}
+                          </h5>
+                          <button
+                            onClick={infantIncrement}
+                            style={{
+                              backgroundColor: "var(--primary-color)",
+                              color: "var(--white)",
+                              border: "none",
+                              width: "20px",
+                              height: "20px",
+                              fontSize: "14px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "5px",
+                            }}
+                          >
+                            +
+                          </button>
+                        </Box>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "flex-start",
+                            width: "50%",
+                            flexDirection: "column",
+                            color: "var(--secondary-color)",
+                          }}
+                        >
+                          <h5>Infant</h5>
+                          <span style={{ fontSize: "13px" }}>
+                            0 - 23 month{" "}
+                          </span>
+                        </Box>
+                      </Box>
+                      <hr />
+                      <Box>
                         <Box>
                           <FormControl>
                             <RadioGroup
-                              aria-labelledby="demo-controlled-radio-buttons-group"
-                              name="controlled-radio-buttons-group"
                               value={className}
                               row
                               onChange={handleClassName}
@@ -1265,12 +1446,13 @@ const Oneway = ({
                           </FormControl>
                         </Box>
                         <Button
-                          id="passengerSaveBtn"
                           size="small"
-                          variant="contained"
-                          color="error"
                           onClick={handleClose}
                           className="shine-effect"
+                          style={{
+                            backgroundColor: "var(--primary-color)",
+                            color: "var(--third-color)",
+                          }}
                         >
                           DONE
                         </Button>
@@ -1281,6 +1463,7 @@ const Oneway = ({
                 {/* </Grow> */}
               </Box>
             </Grid>
+
             <Grid
               lg={1}
               md={2}
@@ -1300,19 +1483,19 @@ const Oneway = ({
               >
                 <Button
                   type="submit"
-                  // disabled={
-                  //   faddress?.split(",")[0] === toAddress?.split(",")[0] &&
-                  //   !click
-                  //     ? true
-                  //     : faddress?.split(",")[0] !== toAddress?.split(",")[0] &&
-                  //       click
-                  //     ? true
-                  //     : false
-                  // }
-                  variant="contained"
-                  startIcon={<IoIosPaperPlane />}
+                  disabled={
+                    faddress?.split(",")[0] === toAddress?.split(",")[0] &&
+                    !click
+                      ? true
+                      : faddress?.split(",")[0] !== toAddress?.split(",")[0] &&
+                        click
+                      ? true
+                      : false
+                  }
+                  startIcon={<SearchIcon style={{ fontSize: "30px" }} />}
                   className="shine-effect"
                   sx={{
+                    fontSize: "16px",
                     height: "100%",
                     width: {
                       lg: "90%",
@@ -1321,13 +1504,13 @@ const Oneway = ({
                       xs: "100%",
                     },
                     mt: { lg: "0px", md: "0px", sm: "10px", xs: "10px" },
-                    backgroundColor: "#dc143c",
-                    color: "#fff",
+                    backgroundColor: "var(--primary-color)",
+                    color: "var(--white)",
                     textTransform: "capitalize",
                     display: "inline-block",
                     position: "relative",
                     "&:hover": {
-                      backgroundColor: "#dc143c",
+                      backgroundColor: "var(--primary-color)",
                       cursor: "pointer",
                     },
                   }}
