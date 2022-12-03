@@ -4,6 +4,13 @@ import Home from "./pages/Home/Home";
 import "./App.css";
 import AuthProvider from "./components/Contexts/AuthProvider";
 
+import BookingRoute from "./components/Admin/BookingManagement/BookingRoute";
+
+import Traveller from "./pages/Traveller/Traveller";
+import AddTraveller from "./components/Traveller/AddTraveller";
+import Deposite from "./pages/Deposite/Deposite";
+import BookingDetails from "./components/Admin/BookingDetails/BookingDetails";
+
 function App() {
   return (
     <div>
@@ -11,6 +18,13 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+
+            <Route path="/bookingroute" element={<BookingRoute />} />
+            <Route path="/queuedetail" element={<BookingDetails />} />
+
+            <Route path="/traveller" element={<Traveller />} />
+            <Route path="/addtraveller" element={<AddTraveller />} />
+            <Route path="/deposite" element={<Deposite />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
