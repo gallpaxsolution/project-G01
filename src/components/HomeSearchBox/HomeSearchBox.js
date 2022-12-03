@@ -142,7 +142,11 @@ const HomeSearchBox = ({ color, backgroundColor }) => {
                 },
               }}
             >
-              <TabList value={type} onChange={handleTypeChange}>
+              <TabList
+                value={type}
+                onChange={handleTypeChange}
+                TabIndicatorProps={{ style: { background: "transparent" } }}
+              >
                 <Tab
                   icon={
                     <FlightIcon

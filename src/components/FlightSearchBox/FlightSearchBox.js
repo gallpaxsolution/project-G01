@@ -72,7 +72,7 @@ const FlightSearchBox = ({
           <TabList
             value={value}
             onChange={handleChange}
-            TabIndicatorProps={{ sx: { backgroundColor: "red" } }}
+            TabIndicatorProps={{ style: { background: "transparent" } }}
           >
             <Tab
               label="One Way"
