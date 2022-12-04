@@ -1907,7 +1907,9 @@ const FlightUserInfo = ({
                     </Grid>
                   </Box>
                   <Box className="booking-btn">
-                    <button type="submit">Book Ticket</button>
+                    <button type="submit" disabled>
+                      Book Ticket
+                    </button>
                   </Box>
                 </Box>
               </form>

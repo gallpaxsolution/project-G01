@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import { DateRange } from "react-date-range";
@@ -173,7 +173,13 @@ const Roundway = ({
 
   const navigate = useNavigate();
   const location = useLocation();
-  const user = secureLocalStorage.getItem("user-info");
+  const [users, setUsers] = useState("");
+  useEffect(() => {
+    const users = secureLocalStorage.getItem("user-info");
+    if (users) {
+      setUsers(users);
+    }
+  }, []);
   const [openFrom, setOpenFrom] = useState(false);
   const [openTo, setOpenTo] = useState(false);
   // Date picker
@@ -586,73 +592,73 @@ const Roundway = ({
       className,
     });
 
-    // let body = JSON.stringify({
-    //   agentid: user.user.agentId || user?.user?.staffId || "Id",
-    //   searchtype: tripType,
-    //   DepFrom: fromSendData,
-    //   ArrTo: toSendData,
-    //   DepAirport: fromSearchText,
-    //   ArrAirport: toSearchText,
-    //   depTime: format(new Date(from), "dd MMM yy"),
-    //   returnTime: format(new Date(to), "dd MMM yy"),
-    //   adult: adultCount,
-    //   child: childCount,
-    //   infant: infant,
-    //   class: className,
-    //   searchBy: user?.user?.name || "No Record",
-    // });
-    // await fetch(
-    //   "https://api.flyfarint.com/v.1.0.0/SearchHistory/addHistory.php",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: body,
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data) {
-    //       setClick(false);
-    //       navigate("/dashboard/roundtrip", {
-    //         state: {
-    //           faddress,
-    //           toAddress,
-    //           departureDate: format(new Date(from), "dd MMM yy"),
-    //           returningDate: format(new Date(to), "dd MMM yy"),
-    //           adultCount,
-    //           childCount,
-    //           infant,
-    //           tripType,
-    //           fromSendData,
-    //           toSendData,
-    //           fromSearchText,
-    //           toSearchText,
-    //           className,
-    //           changeState,
-    //         },
-    //       });
-    //     } else {
-    //       throw new Error("Something went wrong!");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.error(err.message);
-    //     Swal.fire({
-    //       imageUrl: ServerDown,
-    //       imageWidth: 400,
-    //       imageHeight: 200,
-    //       imageAlt: "Custom image",
-    //       html: "<strong>Please contact us at support@flyfarint.com or 01755-572099, 09606912912.</strong>",
-    //       confirmButtonText: "Search Again...",
-    //       confirmButtonColor: "#dc143c",
-    //     }).then(() => {
-    //       setClick(false);
-    //       navigate(0);
-    //     });
-    //   });
+    let body = JSON.stringify({
+      agentid: users?.user?.agentId || users?.user?.staffId || "Id",
+      searchtype: tripType,
+      DepFrom: fromSendData,
+      ArrTo: toSendData,
+      DepAirport: fromSearchText,
+      ArrAirport: toSearchText,
+      depTime: format(new Date(from), "dd MMM yy"),
+      returnTime: format(new Date(to), "dd MMM yy"),
+      adult: adultCount,
+      child: childCount,
+      infant: infant,
+      class: className,
+      searchBy: users?.user?.name || "No Record",
+    });
+    await fetch(
+      "https://api.flyfarint.com/v.1.0.0/SearchHistory/addHistory.php",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: body,
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setClick(false);
+          navigate("/roundsearchresult", {
+            state: {
+              faddress,
+              toAddress,
+              departureDate: format(new Date(from), "dd MMM yy"),
+              returningDate: format(new Date(to), "dd MMM yy"),
+              adultCount,
+              childCount,
+              infant,
+              tripType,
+              fromSendData,
+              toSendData,
+              fromSearchText,
+              toSearchText,
+              className,
+              changeState,
+            },
+          });
+        } else {
+          throw new Error("Something went wrong!");
+        }
+      })
+      .catch((err) => {
+        console.error(err.message);
+        Swal.fire({
+          imageUrl: ServerDown,
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: "Custom image",
+          html: "<strong>Please contact us at support@flyfarint.com or 01755-572099, 09606912912.</strong>",
+          confirmButtonText: "Search Again...",
+          confirmButtonColor: "#dc143c",
+        }).then(() => {
+          setClick(false);
+          navigate(0);
+        });
+      });
   }
 
   const handleSelect = useCallback(({ selection: { startDate, endDate } }) => {

@@ -31,7 +31,6 @@ import Preloader from "../../components/Preloader/Preloader";
 import SessionTimer from "../../components/Shared/SessionTimer/SessionTimer";
 import styled from "@emotion/styled";
 import AirlinesNameSlider from "../../components/AirlinesNameSlider/AirlinesNameSlider";
-import Header from "../../components/Header/Header";
 import "../SearchReslut/SearchResult.css";
 
 const HtmlTooltip = styled(({ className, ...propss }) => (
@@ -131,7 +130,7 @@ const SearchResult = () => {
   const [commisionFarePrice, setCommisionFarePrice] = useState(true);
   const [defaultCommissionRate, setDefaultCommissionRate] = useState(7);
   const [defaultCommissionRateAmount, setDefaultCommissionRateAmount] =
-    useState(null);
+    useState(0);
   const [customerFare, setCustomerFare] = useState(true);
 
   //end
@@ -399,7 +398,6 @@ const SearchResult = () => {
   return (
     <>
       <Container>
-        <Header />
         <Box sx={{ position: "relative" }}>
           <Container className="flightSearchParent" maxWidth="xxl">
             <Box className="filter-parent01">
