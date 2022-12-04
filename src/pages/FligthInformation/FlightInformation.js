@@ -28,7 +28,6 @@ import Loader from "../../images/loader/Render.gif";
 import NotFound from "../../images/undraw/undraw_not_found_re_bh2e.svg";
 import FlightInfoDetails from "../../components/FlightInfoDetails/FlightInfoDetails";
 import "./FlightInformation.css";
-import Header from "../../components/Header/Header";
 
 const HtmlTooltip = styled(({ className, ...propss }) => (
   <Tooltip {...propss} classes={{ popper: className }} />

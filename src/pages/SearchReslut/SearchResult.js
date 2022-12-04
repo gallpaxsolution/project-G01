@@ -19,8 +19,6 @@ import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import secureLocalStorage from "react-secure-storage";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 import Search from "../../images/undraw/undraw_web_search_re_efla.svg";
 import SingleFlight from "../../components/SingleFlight/SingleFlight";
 import OneWayFilter from "../../components/OneWayFilter";
@@ -210,7 +208,7 @@ const SearchResult = () => {
             confirmButtonText: "Search Again...",
             confirmButtonColor: "#dc143c",
           }).then(function () {
-            navigate("/dashboard/dashboardHome");
+            navigate("/");
           });
         }
       })
@@ -225,7 +223,7 @@ const SearchResult = () => {
           confirmButtonText: "Search Again...",
           confirmButtonColor: "#dc143c",
         }).then(function () {
-          navigate("/dashboard/dashboardHome");
+          navigate("/");
         });
       });
   };
@@ -264,7 +262,7 @@ const SearchResult = () => {
             confirmButtonText: "Search Again...",
             confirmButtonColor: "#dc143c",
           }).then(function () {
-            navigate("/dashboard/dashboardHome");
+            navigate("/");
           });
         }
       })
@@ -279,7 +277,7 @@ const SearchResult = () => {
           confirmButtonText: "Search Again...",
           confirmButtonColor: "#dc143c",
         }).then(function () {
-          navigate("/dashboard/dashboardHome");
+          navigate("/");
         });
       });
   };
@@ -340,7 +338,7 @@ const SearchResult = () => {
               confirmButtonText: "Search Again...",
               confirmButtonColor: "#dc143c",
             }).then(function () {
-              navigate("/dashboard/dashboardHome");
+              navigate("/");
             });
           }
         }
@@ -356,7 +354,7 @@ const SearchResult = () => {
           confirmButtonText: "Search Again...",
           confirmButtonColor: "#dc143c",
         }).then(function () {
-          navigate("/dashboard/dashboardHome");
+          navigate("/");
         });
       });
     return () => {

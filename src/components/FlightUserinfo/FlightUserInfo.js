@@ -534,7 +534,7 @@ const FlightUserInfo = ({
                         text: "Booking done but Travelers not saved",
                         confirmButtonText: "OK",
                       }).then(function () {
-                        navigate("/dashboard/congratulation", {
+                        navigate("/congratulation", {
                           state: {
                             bookingData: data,
                             bookingInfo: bookingInfo,

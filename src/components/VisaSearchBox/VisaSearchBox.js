@@ -12,7 +12,7 @@ import "../HomeSearchBox/NewRoundTrip/NewRoundTrip.css";
 import CountryList from "../CountryList";
 import axios from "axios";
 import secureLocalStorage from "react-secure-storage";
-import ServerDown from "../../image/undraw/undraw_server_down_s-4-lk.svg";
+import ServerDown from "../../images/undraw/undraw_server_down_s-4-lk.svg";
 
 const VisaSearchBox = () => {
   const data = CountryList; // json data from flight Data
@@ -324,7 +324,7 @@ const VisaSearchBox = () => {
         confirmButtonColor: "#dc143c",
         confirmButtonText: "Search Again...",
       }).then(function () {
-        navigate("/dashboard/dashboardHome");
+        navigate("/");
       });
     }
   }

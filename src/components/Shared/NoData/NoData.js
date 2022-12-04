@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import Empty from "../../../image/undraw/undraw_empty_re_opql.svg";
+import Empty from "../../../images/undraw/undraw_empty_re_opql.svg";
 
 const NoData = () => {
   return (
