@@ -24,6 +24,7 @@ code {
   --third-rgb: 34, 34, 34;
   --white: #ffffff;
   --white-rgb: 255, 255, 255;
+  --black: #000;
 }
 
 button.shine-effect {

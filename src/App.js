@@ -15,6 +15,7 @@ import SearchResult from "./pages/SearchReslut/SearchResult";
 import FlightInformation from "./pages/FligthInformation/FlightInformation";
 import Header from "./components/Header/Header";
 import RoundSearchResult from "./pages/SearchReslut/RoundSearchResult";
+import RoundFlightUserInfo from "./components/FlightUserinfo/RoundFlightUserInfo";
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
             <Route path="/searchresult" element={<SearchResult />} />
             <Route path="/roundsearchresult" element={<RoundSearchResult />} />
             <Route path="/flightinformation" element={<FlightInformation />} />
+            <Route
+              path="/roundflightinformation"
+              element={<RoundFlightUserInfo />}
+            />
             <Route path="/traveller" element={<Traveller />} />
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/deposite" element={<Deposite />} />

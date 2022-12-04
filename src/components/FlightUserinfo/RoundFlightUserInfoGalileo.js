@@ -1,8 +1,7 @@
 import { Grid } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import Loader from "../../images/loader/Render.gif";
 import Swal from "sweetalert2";
 import CountryDropdown from "country-dropdown-with-flags-for-react";

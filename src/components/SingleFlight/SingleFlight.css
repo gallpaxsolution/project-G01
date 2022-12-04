@@ -2,27 +2,26 @@
   font-family: "Poppins", sans-serif !important;
 }
 .flight-filter1 {
-  /* box-shadow: 0px 0px 15px rgba(42, 110, 152, 0.23); */
   border-radius: 5px;
 }
 
 .fil-title {
-  color: #003566;
+  color: var(--secondary-color);
   font-size: 16px !important;
   font-weight: 500 !important;
 }
 .check-box-text09 {
-  color: #dc143c;
+  color: var(--primary-color);
 }
 .check-box-text09 .MuiFormControlLabel-label {
-  color: #dc143c;
+  color: var(--secondary-color);
   font-size: 14px !important;
 }
 .box-0 {
-  color: #003566 !important;
+  color: var(--secondary-color) !important;
 }
 .filter-bg09 {
-  background-color: #d9d9d9;
+  background-color: var(--white);
   margin-bottom: 5px;
   padding: 7px 14px;
 }
@@ -34,20 +33,20 @@
   padding-top: 0 !important;
 }
 .Accordion12 {
-  border-bottom: 2px solid #fff !important;
+  border-bottom: 2px solid var(--white) !important;
 }
 .price-slider-line .MuiSlider-rail {
-  color: #003566 !important;
+  color: var(--secondary-color) !important;
   opacity: 1 !important;
 }
 .price-slider-line .MuiSlider-track {
-  color: #dc143c !important;
+  color: var(--primary-color) !important;
 }
 .price-slider-line .MuiSlider-thumb {
-  color: #dc143c !important;
+  color: var(--primary-color) !important;
 }
 .price-slider-line .MuiSlider-valueLabel {
-  background-color: #dc143c !important;
+  background-color: var(--primary-color) !important;
 }
 .filter-parent01 .Mui-expanded {
   margin: 0 !important;
@@ -57,7 +56,12 @@
 }
 /* -----------Flight content Start------------- */
 .updatebooknowbtn {
-  background: linear-gradient(121.52deg, #5d7f9e 0%, #003566 77.49%);
+  /* background: rgba(var(--primary-rgb), 0.5); */
+  background: linear-gradient(
+    121.52deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 77.49%
+  );
   border-radius: 0px 7px 7px 0px;
   padding-top: 2px;
   padding-right: 15px;
@@ -65,7 +69,11 @@
   text-align: end;
 }
 .rupdatebooknowbtn {
-  background: linear-gradient(121.52deg, #5d7f9e 0%, #003566 77.49%);
+  background: linear-gradient(
+    121.52deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 77.49%
+  );
   border-radius: 0px 12px 12px 0px;
   padding-top: 15px;
   padding-right: 15px;
@@ -74,7 +82,11 @@
   position: relative;
 }
 .rupdatebooknowbtninfo {
-  background: linear-gradient(121.52deg, #5d7f9e 0%, #003566 77.49%);
+  background: linear-gradient(
+    121.52deg,
+    var(--primary-rgb) 0%,
+    var(--secondary-rgb) 77.49%
+  );
   border-radius: 0px 12px 12px 0px;
   padding-top: 15px;
   padding-right: 15px;
@@ -95,16 +107,16 @@
   right: 10%;
 }
 .btnbook-0 {
-  color: #fff !important;
+  color: var(--white) !important;
   border-radius: 12px 0px !important;
   padding: 5px 20px !important;
-  background-color: #dc143c !important;
+  background-color: var(--primary-color) !important;
   margin-top: 5px !important;
   font-size: 16px;
   font-weight: bold;
 }
 .btndetails-0 {
-  color: #fff !important;
+  color: var(--white) !important;
   font-size: 12px !important;
   text-transform: capitalize !important;
 }
@@ -130,7 +142,7 @@
   font-weight: 500;
 }
 .location-time0 {
-  color: #003566;
+  color: var(--secondary-color);
   font-size: 13px !important;
   font-weight: 600 !important;
 }
@@ -139,23 +151,23 @@
   font-weight: 500;
 }
 /* .stop0{
-      color: #DC143C;
+      color: var(--primary-color);
       font-size: 12px;
       font-weight: 500;
   }
   .stop0{
-      color: #DC143C;
+      color: var(--primary-color);
       font-size: 12px;
       font-weight: 500;
   } */
 .hour0 {
-  color: #003566;
+  color: var(--secondary-color);
   font-size: 12px;
   font-weight: 500;
 }
 
 .arival-text0 {
-  color: #003566;
+  color: var(--secondary-color);
   font-size: 11px;
   font-weight: 500;
   margin-top: -6px;
@@ -168,7 +180,7 @@
   justify-content: center;
 }
 .arival-text2 {
-  color: #003566;
+  color: var(--secondary-color);
   font-size: 12px;
   font-weight: 500;
   padding-top: 10px;
@@ -181,7 +193,7 @@
   column-gap: 25px;
 }
 .arival-text {
-  color: #003566;
+  color: var(--secondary-color);
   font-size: 12px;
   font-weight: 500;
   padding-top: 10px;
@@ -253,7 +265,7 @@
   margin-top: -13.52px;
   position: absolute;
   animation: segmentone ease 2s infinite;
-  color: #003566;
+  color: var(--secondary-color);
 }
 
 @keyframes segmentone {
@@ -292,7 +304,7 @@
   margin-top: -13.52px;
   position: absolute;
   animation: segmenttwo ease-out 2.5s infinite;
-  color: #003566;
+  color: var(--secondary-color);
 }
 @keyframes segmenttwo {
   0% {
@@ -326,7 +338,7 @@
   margin-top: -14px;
   position: absolute;
   animation: segmentthree ease 3s infinite;
-  color: #003566;
+  color: var(--secondary-color);
 }
 @keyframes segmentthree {
   0% {
@@ -352,7 +364,7 @@
   }
 }
 .btn0 {
-  background: linear-gradient(121.52deg, #5d7f9e 0%, #003566 77.49%);
+  background: linear-gradient(121.52deg, #ffa84d 0%, #2564b8 77.49%);
   border-radius: 0px 0px 5px 5px;
   height: 100% !important;
 }

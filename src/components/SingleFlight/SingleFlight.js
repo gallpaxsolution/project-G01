@@ -3145,53 +3145,6 @@ const SingleFlight = ({
                     },
                   }}
                 >
-                  {/* {flightData?.segment === "3" ? (
-                      <>
-                        {flightData.career ===
-                          flightData.segments[0]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[1]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[2]?.marketingcareer ? (
-                          <>{flightData?.careerName}</>
-                        ) : flightData.segments[0]?.marketingcareer !==
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer ===
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            {flightData?.segments[0]?.marketingcareerName}
-                            <br />
-                            {flightData?.segments[1]?.marketingcareerName}
-                          </>
-                        ) : flightData.segments[0]?.marketingcareer ===
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer !==
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            {" "}
-                            {flightData?.careerName}
-                            <br />
-                            {flightData?.segments[2]?.marketingcareerName}
-                          </>
-                        ) : (
-                          <>
-                            {flightData?.segments[0]?.marketingcareerName} <br />
-                            {flightData?.segments[1]?.marketingcareerName} <br />
-                            {flightData?.segments[2]?.marketingcareerName}
-                          </>
-                        )}
-                      </>
-                    ) : flightData?.segment === "2" &&
-                      flightData?.segments[0]?.marketingcareer ===
-                        flightData?.segments[1]?.marketingcareer ? (
-                      <>{flightData?.careerName}</>
-                    ) : (
-                      <>
-                        {flightData?.segments[0]?.marketingcareerName}
-                        <br />
-                        {flightData?.segments[1]?.marketingcareerName}
-                      </>
-                    )} */}
                   {flightData?.segments[0]?.marketingcareerName}
                 </Typography>
                 <Typography
@@ -4179,41 +4132,6 @@ const SingleFlight = ({
                 </Box>
               )}
             </Box>
-
-            {/* <Typography
-                sx={{
-                  fontSize: {
-                    xs: "12px",
-                    sm: "12.5px",
-                    md: "16px",
-                  },
-                  color: "#fff",
-                  pt: {
-                    sm: "5px",
-                    md: "10px",
-                  },
-                }}
-              >
-                BDT {flightData?.price}
-              </Typography>
-              <Typography
-                height={"25px"}
-                sx={{
-                  fontSize: {
-                    xs: "11.5px",
-                    sm: "11.5px",
-                    md: "13.5px",
-                  },
-                  color: "#D1E9FF",
-                }}
-              >
-                {flightData?.BasePrice ? (
-                  <del>BDT {TotalPrice}</del>
-                ) : (
-                  <del>BDT {offerPrice}</del>
-                )}
-              </Typography> */}
-
             <Button
               className="booknow-btn-0 shine-effect"
               sx={{
