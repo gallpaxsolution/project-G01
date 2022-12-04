@@ -22,7 +22,9 @@ const BookingDetails = () => {
 
   return (
     <Box>
-      {/* <Header></Header> */}
+      <Container maxWidth="lg">
+        <Header></Header>
+      </Container>
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Grid container columnSpacing={2}>
           <Grid item md={9}>

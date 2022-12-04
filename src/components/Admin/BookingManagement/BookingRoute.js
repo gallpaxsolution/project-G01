@@ -14,9 +14,11 @@ const BookingRoute = () => {
 
   return (
     <Box>
-      <Header></Header>
+      <Container maxWidth="lg">
+        <Header></Header>
+      </Container>
 
-      <Container maxWidth="xl" style={{ marginTop: "50px" }}>
+      <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Grid container justifyContent={"space-between"} alignItems={"center"}>
           <Grid item xs={6} sm={6} md={6}>
             <Typography sx={{ color: "#003566", fontSize: "23px" }} mb={2}>
