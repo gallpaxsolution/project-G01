@@ -2,26 +2,46 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import Header from "../../Header/Header";
 import FlightIcon from "@mui/icons-material/Flight";
+
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import "./BookingDetails.css";
 import flightImg from "../../../../src/images/BookingManagement/flight.png";
 
 const BookingDetails = () => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
     <Box>
-      <Header></Header>
+      {/* <Header></Header> */}
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
-        <Grid container spacing={2}>
-          <Grid item md={8}>
-            <Box style={{ backgroundColor: "#D1E9FF", padding: "6px 20px" }}>
-              <Typography
+        <Grid container columnSpacing={2}>
+          <Grid item md={9}>
+            <Box
+              style={{
+                backgroundColor: "#D1E9FF",
+                padding: "5px 15px",
+                display: "flex",
+              }}
+            >
+              <span
                 style={{
                   color: "#003566",
-                  fontSize: "13px",
-                  fontWeight: "600px",
+                  fontSize: "12px",
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
                 }}
               >
-                Reference ID: FFB1687
-              </Typography>
+                Reference Id: FFB1687
+              </span>
             </Box>
 
             <Box
@@ -34,46 +54,106 @@ const BookingDetails = () => {
             >
               <Box
                 style={{ display: "flex", alignItems: "center", gap: "8px" }}
+                // sx={{ fontWeight: 500 }}
               >
-                <span style={{ fontWeight: "bold", fontSize: "14px" }}>
+                <span
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                  }}
+                >
                   18.40
                 </span>
-                <span style={{ fontSize: "14px" }}>DAC</span>
+                <span
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: "400",
+                    fontSize: "14px",
+                  }}
+                >
+                  DAC
+                </span>
                 <FlightIcon
-                  style={{ transform: "rotate(90deg)", fontSize: "18px" }}
+                  style={{ transform: "rotate(90deg)", fontSize: "20px" }}
                 />
-                <span style={{ fontWeight: "bold", fontSize: "14px" }}>
+                <span
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                  }}
+                >
                   18.40
                 </span>
-                <span style={{ fontSize: "14px" }}>DXB</span>
-                <span style={{ color: "#003566", fontSize: "12px" }}>
+                <span
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: "400",
+                    fontSize: "14px",
+                  }}
+                >
+                  DXB
+                </span>
+                <span
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: "500",
+                    fontSize: "10px",
+                    color: "#003566",
+                  }}
+                >
                   2 Stop(s) 5h 35min
                 </span>
               </Box>
               <Box className="returnFlight1">
-                <button>Return Flight</button>
+                <button
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: "500",
+                    fontSize: "12px",
+                  }}
+                >
+                  Return Flight
+                </button>
               </Box>
             </Box>
+
             <Box
               style={{
                 display: "flex",
                 gap: "12px",
                 alignItems: "center",
-                marginTop: "10px",
+                padding: "12px 0px",
               }}
             >
-              <span>Dhaka</span>
+              <span
+                style={{
+                  fontFamily: "Poppins",
+                  fontSize: "15px",
+                }}
+              >
+                Dhaka
+              </span>
               <FlightIcon
                 style={{
                   transform: "rotate(90deg)",
-                  fontSize: "26px",
+                  fontSize: "25px",
                   color: "#2D669B",
                 }}
               />
-              <span>Dubai</span>
+              <span
+                style={{
+                  fontFamily: "Poppins",
+                  fontSize: "15px",
+                }}
+              >
+                Dubai
+              </span>
             </Box>
 
-            <Grid container spacing={2}>
+            {/*  flight information  */}
+            <Grid container spacing={1.5}>
               <Grid
                 item
                 md={6}
@@ -82,15 +162,15 @@ const BookingDetails = () => {
                 <Box
                   style={{
                     display: "flex",
-                    alignItems: "flex-end",
+                    alignItems: "center",
                     gap: "5px",
                   }}
                 >
                   <Box>
                     <img
                       style={{
-                        width: "43px",
-                        height: "43px",
+                        width: "45px",
+                        height: "45px",
                         display: "block",
                       }}
                       src={flightImg}
@@ -98,11 +178,21 @@ const BookingDetails = () => {
                   </Box>
                   <Box>
                     <Typography
-                      style={{ fontSize: "14px", paddingBottom: "1px" }}
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                      }}
                     >
                       Bangladesh Biman
                     </Typography>
-                    <Typography style={{ fontSize: "11px" }}>
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "10px",
+                        fontWeight: "500",
+                      }}
+                    >
                       <span style={{ color: "#2D669B", paddingRight: "11px" }}>
                         BG 78514 | W
                       </span>{" "}
@@ -120,7 +210,14 @@ const BookingDetails = () => {
                   justifyContent: "flex-end",
                 }}
               >
-                <Typography style={{ color: "#222222", fontSize: "11px" }}>
+                <Typography
+                  style={{
+                    color: "#222222",
+                    fontFamily: "Poppins",
+                    fontSize: "10px",
+                    fontWeight: "500",
+                  }}
+                >
                   Cabin: 7 KG, Baggage : ADT 35 KG
                 </Typography>
               </Grid>
@@ -134,14 +231,22 @@ const BookingDetails = () => {
                   <Box>
                     <Typography
                       style={{
-                        fontSize: "13px",
-                        paddingBottom: "1px",
                         color: "#888888",
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
                       }}
                     >
                       Departure Time
                     </Typography>
-                    <Typography style={{ fontSize: "13px", color: "#888888" }}>
+                    <Typography
+                      style={{
+                        color: "#888888",
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
+                      }}
+                    >
                       Airport
                     </Typography>
                   </Box>
@@ -151,19 +256,520 @@ const BookingDetails = () => {
                 <Typography
                   style={{
                     color: "#2D669B",
-                    fontSize: "13px",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
                   }}
                 >
                   Fri 28 Oct 2022 04:00 AM
                 </Typography>
-                <Typography style={{ color: "#FFA84D", fontSize: "13px" }}>
+                <Typography
+                  style={{
+                    color: "#FFA84D",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
+                  }}
+                >
+                  DAC - Dhaka-Hazrat Shahjalal International Airport Terminal: 1
+                </Typography>
+              </Grid>
+
+              <Grid
+                item
+                md={6}
+                sx={{ display: "flex", alignItems: "flex-end" }}
+              >
+                <Box>
+                  <Box>
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
+                        color: "#888888",
+                      }}
+                    >
+                      Arrival Time
+                    </Typography>
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
+                        color: "#888888",
+                      }}
+                    >
+                      Airport
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid item md={6} sx={{ textAlign: "right" }}>
+                <Typography
+                  style={{
+                    color: "#2D669B",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
+                  }}
+                >
+                  Fri 28 Oct 2022 04:00 AM
+                </Typography>
+                <Typography
+                  style={{
+                    color: "#FFA84D",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
+                  }}
+                >
                   DAC - Dhaka-Hazrat Shahjalal International Airport Terminal: 1
                 </Typography>
               </Grid>
             </Grid>
+            {/*  flight information  */}
+
+            <Box
+              style={{
+                backgroundColor: "#D1E9FF",
+                padding: "5px 15px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              my={3}
+            >
+              <span
+                style={{
+                  color: "#003566",
+                  fontSize: "11px",
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
+                }}
+              >
+                Layover Time : 4h 30min
+              </span>
+            </Box>
+
+            {/*  flight information  */}
+            <Grid container spacing={1.5}>
+              <Grid
+                item
+                md={6}
+                sx={{ display: "flex", alignItems: "flex-end" }}
+              >
+                <Box
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "5px",
+                  }}
+                >
+                  <Box>
+                    <img
+                      style={{
+                        width: "45px",
+                        height: "45px",
+                        display: "block",
+                      }}
+                      src={flightImg}
+                    />
+                  </Box>
+                  <Box>
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Bangladesh Biman
+                    </Typography>
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "10px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      <span style={{ color: "#2D669B", paddingRight: "11px" }}>
+                        BG 78514 | W
+                      </span>{" "}
+                      Flight Duration : 5h 30min
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid
+                item
+                md={6}
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Typography
+                  style={{
+                    color: "#222222",
+                    fontFamily: "Poppins",
+                    fontSize: "10px",
+                    fontWeight: "500",
+                  }}
+                >
+                  Cabin: 7 KG, Baggage : ADT 35 KG
+                </Typography>
+              </Grid>
+
+              <Grid
+                item
+                md={6}
+                sx={{ display: "flex", alignItems: "flex-end" }}
+              >
+                <Box>
+                  <Box>
+                    <Typography
+                      style={{
+                        color: "#888888",
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Departure Time
+                    </Typography>
+                    <Typography
+                      style={{
+                        color: "#888888",
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Airport
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid item md={6} sx={{ textAlign: "right" }}>
+                <Typography
+                  style={{
+                    color: "#2D669B",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
+                  }}
+                >
+                  Fri 28 Oct 2022 04:00 AM
+                </Typography>
+                <Typography
+                  style={{
+                    color: "#FFA84D",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
+                  }}
+                >
+                  DAC - Dhaka-Hazrat Shahjalal International Airport Terminal: 1
+                </Typography>
+              </Grid>
+
+              <Grid
+                item
+                md={6}
+                sx={{ display: "flex", alignItems: "flex-end" }}
+              >
+                <Box>
+                  <Box>
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
+                        color: "#888888",
+                      }}
+                    >
+                      Arrival Time
+                    </Typography>
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "11px",
+                        fontWeight: "500",
+                        color: "#888888",
+                      }}
+                    >
+                      Airport
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+              <Grid item md={6} sx={{ textAlign: "right" }}>
+                <Typography
+                  style={{
+                    color: "#2D669B",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
+                  }}
+                >
+                  Fri 28 Oct 2022 04:00 AM
+                </Typography>
+                <Typography
+                  style={{
+                    color: "#FFA84D",
+                    fontFamily: "Poppins",
+                    fontSize: "11px",
+                    fontWeight: "500",
+                  }}
+                >
+                  DAC - Dhaka-Hazrat Shahjalal International Airport Terminal: 1
+                </Typography>
+              </Grid>
+            </Grid>
+            {/*  flight information  */}
+
+            <Box
+              style={{
+                backgroundColor: "#D1E9FF",
+                padding: "5px 15px",
+                display: "flex",
+              }}
+              mt={4}
+            >
+              <span
+                style={{
+                  color: "#003566",
+                  fontSize: "12px",
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
+                }}
+              >
+                Passenger Details
+              </span>
+            </Box>
+
+            {/* passenger information  */}
+
+            <Box mt={5} className="queue-detail-passenger-detail">
+              <div>
+                <>
+                  <>
+                    <Box
+                      padding="6px 15px"
+                      backgroundColor="#FFA84D"
+                      display={"flex"}
+                      justifyContent={"space-between"}
+                    >
+                      <Typography
+                        style={{
+                          color: "#003566",
+                          fontSize: "13px",
+                          fontFamily: "Poppins",
+                          fontWeight: "500",
+                        }}
+                      >
+                        MR KHADEMUL ISLAM RIFAT
+                      </Typography>
+                    </Box>
+                    <Box border="1px solid #FFA84D" p="3px" mb={2}>
+                      <Grid
+                        container
+                        spacing={2}
+                        style={{ padding: "5px 10px" }}
+                      >
+                        <Grid item xs={4} md={2}>
+                          <h5 style={{}}>Title</h5>
+                          <h6>hgdhgfh</h6>
+                        </Grid>
+                        <Grid item xs={4} md={2}>
+                          <h5>First Name</h5>
+                          <h6>djkfjd</h6>
+                        </Grid>
+                        <Grid item xs={4} md={2}>
+                          <h5>Last Name</h5>
+                          <h6>dfdf</h6>
+                        </Grid>
+                        <Grid item xs={4} md={2}>
+                          <h5>Nationality</h5>
+                          <h6>dfdf</h6>
+                        </Grid>
+
+                        <Grid item xs={4} md={2}>
+                          <h5>Date of Birth</h5>
+                          <h6>dfdf</h6>
+                        </Grid>
+
+                        <Grid item xs={4} md={2}>
+                          <h5>Gender</h5>
+                          <h6>dfdf</h6>
+                        </Grid>
+
+                        <Grid item xs={4} md={2}>
+                          <h5>Pax Type</h5>
+                          <h6>dfdf</h6>
+                        </Grid>
+
+                        <Grid item xs={4} md={2}>
+                          <h5>Passport Number</h5>
+                          <h6>dfdf</h6>
+                        </Grid>
+                        <Grid item xs={2} md={3}>
+                          <h5>Passport Expire Date</h5>
+
+                          <h6>dfdf</h6>
+                        </Grid>
+
+                        <>
+                          <Grid item xs={2} md={2}>
+                            <h5>Passport Copy</h5>
+
+                            <h6>
+                              <a
+                                style={{
+                                  color: "#003566",
+                                  fontWeight: "500",
+                                  fontSize: "12px",
+                                  textDecoration: "none",
+                                  marginRight: "10px",
+                                }}
+                                href="#"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                View
+                              </a>
+                            </h6>
+                          </Grid>
+                          <Grid item xs={2} md={2}>
+                            <h5>Visa Copy</h5>
+
+                            <h6>
+                              <a
+                                style={{
+                                  color: "#003566",
+                                  fontWeight: "500",
+                                  fontSize: "12px",
+                                  textDecoration: "none",
+                                }}
+                                href="#"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                {" "}
+                                View
+                              </a>
+                            </h6>
+                          </Grid>
+                        </>
+                      </Grid>
+                    </Box>
+                  </>
+                </>
+              </div>
+            </Box>
+
+            {/* passenger information end */}
           </Grid>
-          <Grid item md={4}>
-            hello2
+
+          <Grid item md={3}>
+            <Box
+              style={{
+                backgroundColor: "#FFE9D2",
+                height: "40px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                style={{
+                  color: "#FFA84D",
+                  fontSize: "18px",
+                  fontFamily: "Poppins",
+                  fontWeight: "500",
+                }}
+              >
+                HOLD
+              </Typography>
+            </Box>
+
+            {/* accordion start here */}
+            <div>
+              <Accordion
+                expanded={expanded === "panel1"}
+                onChange={handleChange("panel1")}
+                style={{
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                }}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1bh-content"
+                  id="panel1bh-header"
+                >
+                  <Typography>Fare Details </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>Fare Details</Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                expanded={expanded === "panel2"}
+                onChange={handleChange("panel2")}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2bh-content"
+                  id="panel2bh-header"
+                >
+                  <Typography>PNR History</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>PNR History</Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                expanded={expanded === "panel3"}
+                onChange={handleChange("panel3")}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel3bh-content"
+                  id="panel3bh-header"
+                >
+                  <Typography>Download PDF</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>Download PDF</Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion
+                expanded={expanded === "panel4"}
+                onChange={handleChange("panel4")}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel4bh-content"
+                  id="panel4bh-header"
+                >
+                  <Typography>Fare Details</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>Fare Details</Typography>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+
+            {/* accordion end here */}
           </Grid>
         </Grid>
       </Container>

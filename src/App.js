@@ -20,10 +20,15 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+<<<<<<< HEAD
+            <Route path="/bookingroute" element={<BookingRoute />} />
+            <Route path="/bookingdetails" element={<BookingDetails />} />
+=======
             <Route path="/searchresult" element={<SearchResult />} />
             <Route path="/flightinfo" element={<FlightInformation />} />
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/queuedetail" element={<BookingDetails />} />
+>>>>>>> 10c2226bd89eec8cc0a7ba9da746de2c67d95a75
             <Route path="/traveller" element={<Traveller />} />
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/deposite" element={<Deposite />} />
