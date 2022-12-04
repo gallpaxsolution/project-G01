@@ -699,6 +699,12 @@ const BookingDetails = () => {
             </Box>
 
             {/* accordion start here */}
+
+            {/* 
+            
+            
+            
+            */}
             <div>
               <Accordion
                 expanded={expanded === "panel1"}
