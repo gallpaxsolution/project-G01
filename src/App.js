@@ -6,6 +6,8 @@ import AuthProvider from "./components/Contexts/AuthProvider";
 import Traveller from "./pages/Traveller/Traveller";
 import AddTraveller from "./components/Traveller/AddTraveller";
 import Deposite from "./pages/Deposite/Deposite";
+import AddDeposite from "./components/Deposit/AddDeposite";
+
 
 
 function App() {
@@ -18,6 +20,9 @@ function App() {
             <Route path="/traveller" element={<Traveller/>} />
             <Route path="/addtraveller" element={<AddTraveller/>} />
             <Route path="/deposite" element={<Deposite/>} />
+            <Route path="/adddeposite" element={<AddDeposite/>} />
+           
+           
           </Routes>
         </BrowserRouter>
       </AuthProvider>

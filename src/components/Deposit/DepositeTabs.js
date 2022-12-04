@@ -4,6 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import DepositTabsItems from "./DepositTabsItems";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,30 +50,31 @@ const DepositeTabs = () => {
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
+          
           onChange={handleChange}
-          sx={{background:'#2564B8'}}
+          sx={{background:'#FFFFFF'}}
         >
-          <Tab sx={{color:'#FFFFFF'}} label="All" {...a11yProps(0)} />
-          <Tab sx={{color:'#FFFFFF'}} label="Cash" {...a11yProps(1)} />
-          <Tab sx={{color:'#FFFFFF'}} label="Cheque" {...a11yProps(2)} />
-          <Tab sx={{color:'#FFFFFF'}} label="Bank Transfer" {...a11yProps(3)} />
-          <Tab sx={{color:'#FFFFFF'}} label="Mobile Banking" {...a11yProps(4)} />
+          <Tab sx={{color:'#2564B8'}} label="All" {...a11yProps(0)} />
+          <Tab sx={{color:'#2564B8'}} label="Cash" {...a11yProps(1)} />
+          <Tab sx={{color:'#2564B8'}} label="Cheque" {...a11yProps(2)} />
+          <Tab sx={{color:'#2564B8'}} label="Bank Transfer" {...a11yProps(3)} />
+          <Tab sx={{color:'#2564B8'}} label="Mobile Banking" {...a11yProps(4)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+      <DepositTabsItems/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+      <DepositTabsItems/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      <DepositTabsItems/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item four
+      <DepositTabsItems/>
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item five
+      <DepositTabsItems/>
       </TabPanel>
     </Box>
   );
