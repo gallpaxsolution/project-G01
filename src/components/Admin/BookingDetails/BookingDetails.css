@@ -1,0 +1,25 @@
+.returnFlight1 button {
+  background-color: #ffa84d;
+  border: 0px;
+  width: 125px;
+  height: 27px;
+  color: #fff !important;
+  font-size: 12px;
+}
+
+.queue-detail-passenger-detail h5 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  color: #767676;
+}
+.queue-detail-passenger-detail h6 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 25px;
+  color: #003566;
+}

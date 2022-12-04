@@ -127,16 +127,11 @@ const HomeSearchBox = ({ color, backgroundColor }) => {
                 display: "flex",
                 justifyContent: "flex-end ",
                 opacity: "1",
-                // color: "var(--secondary-color)",
-                // backgroundColor: "var(--white)",
 
                 "& button": {
                   borderRadius: "5px",
                 },
-                // "& button:hover": {
-                //   backgroundColor: "rgba(var(--secondary-rgb),.7)",
-                //   color: "var(--white)",
-                // },
+
                 "& button.Mui-selected,& button.Mui-selected >svg": {
                   color: "var(--secondary-color) !important",
                 },
@@ -145,7 +140,9 @@ const HomeSearchBox = ({ color, backgroundColor }) => {
               <TabList
                 value={type}
                 onChange={handleTypeChange}
-                TabIndicatorProps={{ style: { background: "transparent" } }}
+                TabIndicatorProps={{
+                  style: { background: "var(--secondary-color)" },
+                }}
               >
                 <Tab
                   icon={
