@@ -6,8 +6,9 @@ import FlightIcon from "@mui/icons-material/Flight";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 import "./BookingDetails.css";
 import flightImg from "../../../../src/images/BookingManagement/flight.png";
@@ -703,15 +704,39 @@ const BookingDetails = () => {
                 style={{
                   marginTop: "10px",
                   marginBottom: "10px",
+                  boxShadow: "none",
+                  boxShadow: "0px 0px 4px rgba(255, 168, 77, 0.78)",
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
+                  // expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
                 >
-                  <Typography>Fare Details </Typography>
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      alignItems: "center",
+                      height: "20px",
+                    }}
+                  >
+                    <Typography>Fare Details </Typography>
+                    <Box>
+                      {expanded === "panel1" ? (
+                        <RemoveIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      ) : (
+                        <AddIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      )}
+                    </Box>
+                  </Box>
                 </AccordionSummary>
+
                 <AccordionDetails>
                   <Typography>Fare Details</Typography>
                 </AccordionDetails>
@@ -721,14 +746,37 @@ const BookingDetails = () => {
                 onChange={handleChange("panel2")}
                 style={{
                   marginBottom: "10px",
+                  boxShadow: "none",
+                  boxShadow: "0px 0px 4px rgba(255, 168, 77, 0.78)",
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
+                  // expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2bh-content"
                   id="panel2bh-header"
                 >
-                  <Typography>PNR History</Typography>
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      alignItems: "center",
+                      height: "20px",
+                    }}
+                  >
+                    <Typography>PNR History</Typography>
+                    <Box>
+                      {expanded === "panel2" ? (
+                        <RemoveIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      ) : (
+                        <AddIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      )}
+                    </Box>
+                  </Box>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>PNR History</Typography>
@@ -739,14 +787,37 @@ const BookingDetails = () => {
                 onChange={handleChange("panel3")}
                 style={{
                   marginBottom: "10px",
+                  boxShadow: "none",
+                  boxShadow: "0px 0px 4px rgba(255, 168, 77, 0.78)",
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel3bh-content"
-                  id="panel3bh-header"
+                  // expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2bh-content"
+                  id="panel2bh-header"
                 >
-                  <Typography>Download PDF</Typography>
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      alignItems: "center",
+                      height: "20px",
+                    }}
+                  >
+                    <Typography>Download PDF</Typography>
+                    <Box>
+                      {expanded === "panel3" ? (
+                        <RemoveIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      ) : (
+                        <AddIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      )}
+                    </Box>
+                  </Box>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>Download PDF</Typography>
@@ -755,13 +826,38 @@ const BookingDetails = () => {
               <Accordion
                 expanded={expanded === "panel4"}
                 onChange={handleChange("panel4")}
+                style={{
+                  boxShadow: "none",
+                  boxShadow: "0px 0px 4px rgba(255, 168, 77, 0.78)",
+                }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel4bh-content"
-                  id="panel4bh-header"
+                  // expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2bh-content"
+                  id="panel2bh-header"
                 >
-                  <Typography>Fare Details</Typography>
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      alignItems: "center",
+                      height: "20px",
+                    }}
+                  >
+                    <Typography>Fare Details</Typography>
+                    <Box>
+                      {expanded === "panel4" ? (
+                        <RemoveIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      ) : (
+                        <AddIcon
+                          style={{ color: "#FFA84D", fontSize: "25px" }}
+                        />
+                      )}
+                    </Box>
+                  </Box>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>Fare Details</Typography>
