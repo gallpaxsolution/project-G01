@@ -22,9 +22,9 @@ const BookingDetails = () => {
 
   return (
     <Box>
-      <Container maxWidth="lg">
+      {/* <Container maxWidth="lg">
         <Header></Header>
-      </Container>
+      </Container> */}
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Grid container columnSpacing={2}>
           <Grid item md={9}>
@@ -770,6 +770,7 @@ const BookingDetails = () => {
                       BDT 144,447
                     </Typography>
                   </Box>
+
                   <Box
                     style={{
                       background: "rgba(217, 217, 217, 0.39)",
@@ -790,7 +791,6 @@ const BookingDetails = () => {
                       Price Breakdown
                     </Typography>
                   </Box>
-
                   <Box mt={2}>
                     <Typography
                       style={{
@@ -831,7 +831,7 @@ const BookingDetails = () => {
                           Tax x1
                         </Typography>
                       </Box>
-                      <Box>
+                      <Box style={{ textAlign: "right" }}>
                         <Typography
                           style={{
                             fontSize: "12px",
@@ -895,7 +895,7 @@ const BookingDetails = () => {
                           Tax x1
                         </Typography>
                       </Box>
-                      <Box>
+                      <Box style={{ textAlign: "right" }}>
                         <Typography
                           style={{
                             fontSize: "12px",
@@ -919,6 +919,7 @@ const BookingDetails = () => {
                       </Box>
                     </Box>
                   </Box>
+
                   <Box mt={2}>
                     <Typography
                       style={{
@@ -1004,7 +1005,7 @@ const BookingDetails = () => {
                         <Typography
                           mt={2}
                           style={{
-                            fontSize: "12px",
+                            fontSize: "13px",
                             color: "#888888",
                             fontFamily: "poppins",
                             fontWeight: "500",
@@ -1013,7 +1014,7 @@ const BookingDetails = () => {
                           Agent Saving
                         </Typography>
                       </Box>
-                      <Box>
+                      <Box style={{ textAlign: "right" }}>
                         <Typography
                           style={{
                             fontSize: "12px",
@@ -1078,9 +1079,9 @@ const BookingDetails = () => {
                         </Typography>
 
                         <Typography
-                          mt={2}
+                          mt={1.5}
                           style={{
-                            fontSize: "12px",
+                            fontSize: "13px",
                             color: "#2D669B",
                             fontFamily: "poppins",
                             fontWeight: "500",
@@ -1141,9 +1142,59 @@ const BookingDetails = () => {
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>PNR History</Typography>
+                  <Box className="lineParentBox">
+                    <Grid container spacing={4}>
+                      <Grid item xs={1}>
+                        <Box className="note-line">
+                          <Box
+                            style={{
+                              width: "18px",
+                              height: "18px",
+                              backgroundColor: "#FFA84D",
+                              position: "absolute",
+                              left: "-10px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </Box>
+                      </Grid>
+                      <Grid item mt="-3px" xs={10}>
+                        <Typography
+                          style={{
+                            color: "#2564B8",
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            fontFamily: "poppins",
+                          }}
+                        >
+                          Hold
+                        </Typography>
+                        <Box py={1}>
+                          <Typography
+                            sx={{
+                              color: "#FFA84D",
+                              fontSize: "11px",
+                              fontWeight: 500,
+                            }}
+                          >
+                            Syed Afridi, Zinga Lala Travel
+                          </Typography>
+                          <Typography
+                            sx={{
+                              color: "#767676",
+                              fontSize: "11px",
+                              fontWeight: 500,
+                            }}
+                          >
+                            22 Dec 2023
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Box>
                 </AccordionDetails>
               </Accordion>
+
               <Accordion
                 expanded={expanded === "panel3"}
                 onChange={handleChange("panel3")}
@@ -1194,6 +1245,7 @@ const BookingDetails = () => {
                   <Typography>Download PDF</Typography>
                 </AccordionDetails>
               </Accordion>
+
               <Accordion
                 expanded={expanded === "panel4"}
                 onChange={handleChange("panel4")}
@@ -1224,7 +1276,7 @@ const BookingDetails = () => {
                         fontWeight: "500",
                       }}
                     >
-                      Fare Details
+                      Fare Rules
                     </Typography>
                     <Box>
                       {expanded === "panel4" ? (
@@ -1240,7 +1292,302 @@ const BookingDetails = () => {
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>Fare Details</Typography>
+                  <Box
+                    style={{
+                      background: "rgba(217, 217, 217, 0.39)",
+                      padding: "2px 10px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        color: "#2D669B",
+                        fontFamily: "poppins",
+                        fontSize: "12px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Refund Penalties
+                    </Typography>
+                  </Box>
+                  <Box mt={2}>
+                    <Typography
+                      style={{
+                        color: "#110F0F",
+                        fontSize: "15px",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Adult x1
+                    </Typography>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                      mt={0.7}
+                    >
+                      <Box>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Base Fare x1
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Tax x1
+                        </Typography>
+                      </Box>
+                      <Box style={{ textAlign: "right" }}>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          500 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                  <Box mt={2}>
+                    <Typography
+                      style={{
+                        color: "#110F0F",
+                        fontSize: "15px",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Child x1
+                    </Typography>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                      mt={0.7}
+                    >
+                      <Box>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Base Fare x1
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Tax x1
+                        </Typography>
+                      </Box>
+                      <Box style={{ textAlign: "right" }}>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          500 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  <Box
+                    style={{
+                      background: "rgba(217, 217, 217, 0.39)",
+                      padding: "2px 10px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                    mt={2}
+                  >
+                    <Typography
+                      style={{
+                        color: "#2D669B",
+                        fontFamily: "poppins",
+                        fontSize: "12px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Re-issue Penalties
+                    </Typography>
+                  </Box>
+                  <Box mt={2}>
+                    <Typography
+                      style={{
+                        color: "#110F0F",
+                        fontSize: "15px",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Adult x1
+                    </Typography>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                      mt={0.7}
+                    >
+                      <Box>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Base Fare x1
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Tax x1
+                        </Typography>
+                      </Box>
+                      <Box style={{ textAlign: "right" }}>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          500 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                  <Box mt={2}>
+                    <Typography
+                      style={{
+                        color: "#110F0F",
+                        fontSize: "15px",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Child x1
+                    </Typography>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                      mt={0.7}
+                    >
+                      <Box>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Base Fare x1
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Tax x1
+                        </Typography>
+                      </Box>
+                      <Box style={{ textAlign: "right" }}>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          500 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
                 </AccordionDetails>
               </Accordion>
             </div>

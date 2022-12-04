@@ -23,3 +23,10 @@
   line-height: 25px;
   color: #003566;
 }
+
+.note-line {
+  position: relative;
+  border-left: 3px solid #d9d9d9;
+  height: 85px;
+  margin-left: 7px;
+}
