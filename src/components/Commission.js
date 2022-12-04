@@ -92,13 +92,9 @@ const Commission = ({
   setCustomerFare,
 }) => {
   const commissionData = secureLocalStorage.getItem("commissionData");
-  const [openCustomize, setOpenCustomize] = useState(
-    commissionData.openCustomize
-  );
-  const [openDefault, setOpenDefault] = useState(commissionData.openDefault);
-  const [customizeRadio, setCustomizeRadio] = useState(
-    commissionData.customizeRadio
-  );
+  const [openCustomize, setOpenCustomize] = useState(false);
+  const [openDefault, setOpenDefault] = useState(false);
+  const [customizeRadio, setCustomizeRadio] = useState(false);
   const handleAgentFare = (e) => {
     setAgentFarePrice(!agentFarePrice);
   };

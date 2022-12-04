@@ -21,7 +21,6 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-// import "./FlightSearch.css";
 import Search from "../../images/undraw/undraw_web_search_re_efla.svg";
 import SingleFlight from "../../components/SingleFlight/SingleFlight";
 import OneWayFilter from "../../components/OneWayFilter";
@@ -32,6 +31,8 @@ import Preloader from "../../components/Preloader/Preloader";
 import SessionTimer from "../../components/Shared/SessionTimer/SessionTimer";
 import styled from "@emotion/styled";
 import AirlinesNameSlider from "../../components/AirlinesNameSlider/AirlinesNameSlider";
+import Header from "../../components/Header/Header";
+import "../SearchReslut/SearchResult.css";
 
 const HtmlTooltip = styled(({ className, ...propss }) => (
   <Tooltip {...propss} classes={{ popper: className }} />
@@ -126,20 +127,12 @@ const SearchResult = () => {
   //CM Box States
 
   const [openCm, setOpenCm] = useState(false);
-  const [agentFarePrice, setAgentFarePrice] = useState(
-    commissionData.agentFarePrice
-  );
-  const [commisionFarePrice, setCommisionFarePrice] = useState(
-    commissionData?.commissionFarePrice
-  );
-  const [defaultCommissionRate, setDefaultCommissionRate] = useState(
-    commissionData?.defaultCommissionRate
-  );
+  const [agentFarePrice, setAgentFarePrice] = useState(true);
+  const [commisionFarePrice, setCommisionFarePrice] = useState(true);
+  const [defaultCommissionRate, setDefaultCommissionRate] = useState(7);
   const [defaultCommissionRateAmount, setDefaultCommissionRateAmount] =
-    useState(commissionData?.defaultCommissionRateAmount);
-  const [customerFare, setCustomerFare] = useState(
-    commissionData?.customerFare
-  );
+    useState(null);
+  const [customerFare, setCustomerFare] = useState(true);
 
   //end
   const [modifyOpen, setModifyOpen] = useState(false);
@@ -384,7 +377,8 @@ const SearchResult = () => {
     navigate,
   ]);
 
-  if (!isLoaded || Object.keys(data).length === 0) {
+  // if (!isLoaded || Object.keys(data).length === 0) {
+  if (!isLoaded) {
     return (
       <Preloader
         isNextClicked={isNextClicked}
@@ -404,7 +398,8 @@ const SearchResult = () => {
 
   return (
     <>
-      <ClickAwayListener onClickAway={handleClickAway}>
+      <Container>
+        <Header />
         <Box sx={{ position: "relative" }}>
           <Container className="flightSearchParent" maxWidth="xxl">
             <Box className="filter-parent01">
@@ -846,7 +841,7 @@ const SearchResult = () => {
             </Box>
           </Container>
         </Box>
-      </ClickAwayListener>
+      </Container>
     </>
   );
 };

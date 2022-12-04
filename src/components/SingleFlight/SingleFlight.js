@@ -10,10 +10,10 @@ import { useNavigate } from "react-router-dom";
 import toimg from "../../images/Icon/to.svg";
 import { TabContext, TabPanel } from "@material-ui/lab";
 import FlightIcon from "@mui/icons-material/Flight";
-// import "./OnewayAllFlight.css";
 import commaNumber from "comma-number";
 import secureLocalStorage from "react-secure-storage";
 import { format } from "date-fns";
+import "./SingleFlight.css";
 
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -54,18 +54,8 @@ const SingleFlight = ({
   const clientPrice = parseInt(
     flightData.system !== "Galileo" ? flightData.clientPrice : flightData.price
   );
-  const percentRate = parseInt(commissionData.defaultCommissionRate) / 100;
-  const clientFare =
-    commissionData.customizeRadio === "percent"
-      ? Math.round(clientPrice + clientPrice * percentRate)
-      : Math.round(
-          parseInt(clientPrice) +
-            parseInt(
-              commissionData.defaultCommissionRateAmount.length === 0
-                ? 0
-                : commissionData.defaultCommissionRateAmount
-            )
-        );
+  // const percentRate = parseInt(commissionData.defaultCommissionRate) / 100;
+  const clientFare = Math.round(clientPrice);
   const agentFare = Math.round(
     parseInt(
       flightData.system !== "Galileo" ? flightData.price : flightData.BasePrice
@@ -134,10 +124,7 @@ const SingleFlight = ({
     const result = num * (percentage / 100);
     return parseFloat(result.toFixed(0));
   };
-  let percntVal = calParcent(
-    parseInt(flightData.price),
-    commissionData.defaultCommissionRate
-  );
+  let percntVal = calParcent(parseInt(flightData.price), 7);
   const AgentPrice =
     parseInt(flightData.BasePrice) +
     parseInt(flightData.Taxes) -
@@ -146,11 +133,7 @@ const SingleFlight = ({
   // parseInt(flightData.clientPrice) - parseInt(flightData?.price);
   let commisonPrice = commaNumber(
     Math.abs(
-      Math.round(
-        flightData.clientPrice *
-          ((100 - commissionData.defaultCommissionRate) / 100) -
-          flightData?.price
-      )
+      Math.round(flightData.clientPrice * ((100 - 7) / 100) - flightData?.price)
     )
   );
 

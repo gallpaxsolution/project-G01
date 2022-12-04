@@ -1,0 +1,198 @@
+.right-overflow1 span.form-validation-span {
+  display: none;
+}
+
+.right-overflow1 input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+.right-overflow1 input:invalid[focused="true"] ~ span.form-validation-span {
+  display: block;
+}
+
+#select-input-info select {
+  width: 100% !important;
+  padding: 7px 10px;
+}
+
+/* todo:phoneInput */
+.right-overflow1 .react-tel-input {
+  width: 100% !important;
+  height: 50%;
+  border: 1px solid #003566;
+  border-radius: 2px;
+  color: #003566 !important;
+  /* font-family: "Poppins"; */
+  font-weight: 400;
+  font-size: 14px;
+}
+.right-overflow1 .react-tel-input .form-control {
+  /* background-color: transparent; */
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.right-overflow1 .PhoneInput input {
+  /* background-color: transparent; */
+  border: none;
+}
+/* !end */
+
+/* todo: style for label tag */
+.right-overflow1 label {
+  /* font-family: "Poppins"; */
+  font-weight: 500;
+  font-size: 18px;
+  color: #003566;
+}
+
+/* todo:country-dropdown */
+.right-overflow1 .country-select {
+  width: 100%;
+}
+.flight-h4 {
+  /* font-family: "Poppins"; */
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 50px;
+  color: #003566;
+}
+
+.adult-h4 h4 {
+  /* font-family: "Poppins"; */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  background: #dc143c;
+  text-align: center;
+  padding: 8px 0px;
+  border-radius: 0px 20px 0px 20px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.adult-info select.user-info-select {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid #003566;
+  border-radius: 2px;
+  color: #fff;
+  /* font-family: "Poppins"; */
+  font-weight: 400;
+  font-size: 14px;
+  background-color: #003566;
+}
+
+.adult-info input {
+  width: 100% !important;
+  padding: 10px 10px;
+  border: 1px solid #003566;
+  border-radius: 2px;
+  color: #003566 !important;
+  /* font-family: "Poppins"; */
+  font-weight: 400;
+  font-size: 14px;
+}
+.adult-info .span-input {
+  width: 100% !important;
+  padding: 10px 10px;
+  border: 1px solid #003566;
+  border-radius: 2px;
+  color: #003566 !important;
+  /* font-family: "Poppins"; */
+  font-weight: 400;
+  font-size: 14px;
+}
+.user-info-calendar {
+  position: absolute;
+  top: 100%;
+  left: 32px;
+  border: 1px solid #003566;
+  border-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 10;
+}
+.user-info-calendar span {
+  font-size: 14px;
+  font-weight: bold;
+}
+.user-info-calendar span.rdrWeekDay {
+  color: #e30431;
+}
+.user-info-calendar .rdrMonthName {
+  color: #003566;
+}
+.adult-info input[type="date"] {
+  position: relative;
+}
+.adult-info input[type="date"]::-webkit-calendar-picker-indicator {
+  background-position: right;
+  background-size: auto;
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.adult-info ::-webkit-input-placeholder {
+  color: #003566 !important;
+}
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.checkBox input {
+  color: #003566 !important;
+}
+
+.checkBox label {
+  color: #003566;
+  /* font-family: "Poppins"; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+#vehicle1 {
+  accent-color: #003566 !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.conatct-detail {
+  padding: 10px 0px;
+}
+
+.conatct-detail p {
+  color: #003566;
+  /* font-family: "Poppins"; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.booking-btn {
+  padding: 20px 0px;
+}
+
+.booking-btn button {
+  padding: 8px 25px;
+  background: #003566;
+  border-radius: 2px;
+  border: none;
+  color: #fff;
+  /* font-family: "Poppins"; */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+}
