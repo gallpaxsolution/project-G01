@@ -62,12 +62,15 @@ const Traveller = () => {
           <SearchRoundedIcon sx={{background:'#2564B8', color:'#FFFFFF', borderRadius:'50px',  fontSize:'40px'}} />
         </Box>
         <Button
+        
           sx={{
             width: "161px",
             height: "42px",
             background: "#FFA84D",
             color: "#FFFFFF",
-            
+            "&:hover":{
+              backgroundColor:'#2564B8'
+            }
           }}
         >
           Add Travellers

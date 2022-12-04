@@ -26,103 +26,114 @@ const AddTraveller = () => {
         </Typography>
 
         <Grid container spacing={2}>
-          <Grid item xs={4} sx={{display:'flex', flexDirection:'column', gap:7}}>
-            
-              <TextField
-                label="First/Given Name"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="First Name"
-              />
-              <TextField
-                label="Nationality"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="Bangladesh"
-              />
-              <TextField
-                label="Passport Number"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="41552122"
-              />
-                <TextField
-            label="Phone Number"
-            id="filled-start-adorment"
-            variant="standard"
-            color="warning"
-            focused
-            placeholder="+880 455451455445"
-          />
-            
+          <Grid
+            item
+            xs={4}
+            sx={{ display: "flex", flexDirection: "column", gap: 7 }}
+          >
+            <TextField
+              label="First/Given Name"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="First Name"
+            />
+            <TextField
+              label="Nationality"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="Bangladesh"
+            />
+            <TextField
+              label="Passport Number"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="41552122"
+            />
+            <TextField
+              label="Phone Number"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="+880 455451455445"
+            />
           </Grid>
-          <Grid item xs={4} sx={{display:'flex', flexDirection:'column', gap:7}}>
-        
-              <TextField
-                label="Last/Surname"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="Last Name"
-              />
-              <TextField
-                label="Passenger Type"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="Adult"
-              />
-              <TextField
-                label="Passport Expire Date"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="21 May 2022"
-              />
-              <Button sx={{border:'1px solid red'}}>Choose Passport Copy</Button>
-            
+          <Grid
+            item
+            xs={4}
+            sx={{ display: "flex", flexDirection: "column", gap: 7 }}
+          >
+            <TextField
+              label="Last/Surname"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="Last Name"
+            />
+            <TextField
+              label="Passenger Type"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="Adult"
+            />
+            <TextField
+              label="Passport Expire Date"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="21 May 2022"
+            />
+            <Button variant="contained" component="label" sx={{mt:'10px'}}>
+            Choose Passport Copy
+              <input type="file" hidden />
+            </Button>
+          
           </Grid>
-          <Grid item xs={4} sx={{display:'flex', flexDirection:'column', gap:7}}>
-        
-              <TextField
-                label="Gender"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="Gender"
-              />
+          <Grid
+            item
+            xs={4}
+            sx={{ display: "flex", flexDirection: "column", gap: 7 }}
+          >
+            <TextField
+              label="Gender"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="Gender"
+            />
 
-              <TextField
-                label="Date of Birth"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="21 May 2022"
-              />
+            <TextField
+              label="Date of Birth"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="21 May 2022"
+            />
 
-              <TextField
-                label="Email"
-                id="filled-start-adorment"
-                variant="standard"
-                color="warning"
-                focused
-                placeholder="example@gmail.com"
-              />
-            
+            <TextField
+              label="Email"
+              id="filled-start-adorment"
+              variant="standard"
+              focused
+              placeholder="example@gmail.com"
+            />
           </Grid>
         </Grid>
-        <Button sx={{background:'#222222', color:'#FFFFFF', mt:'10px'}}>Add This Traveller</Button>
+        <Button
+          sx={{
+            background: "#222222",
+            color: "#FFFFFF",
+            mt: "10px",
+            "&:hover": {
+              backgroundColor: "#2564B8",
+            },
+          }}
+        >
+          Add This Traveller
+        </Button>
       </Box>
     </Box>
   );
