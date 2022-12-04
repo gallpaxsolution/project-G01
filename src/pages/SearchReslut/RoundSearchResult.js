@@ -192,7 +192,7 @@ const RoundSearchResult = () => {
             confirmButtonText: "Search Again...",
             confirmButtonColor: "#dc143c",
           }).then(function () {
-            navigate("/dashboard/dashboardHome");
+            navigate("/");
           });
         }
       })
@@ -207,7 +207,7 @@ const RoundSearchResult = () => {
           confirmButtonText: "Search Again...",
           confirmButtonColor: "#dc143c",
         }).then(function () {
-          navigate("/dashboard/dashboardHome");
+          navigate("/");
         });
       });
   };
@@ -251,7 +251,7 @@ const RoundSearchResult = () => {
             confirmButtonText: "Search Again...",
             confirmButtonColor: "#dc143c",
           }).then(function () {
-            navigate("/dashboard/dashboardHome");
+            navigate("/");
           });
         }
       })
@@ -266,7 +266,7 @@ const RoundSearchResult = () => {
           confirmButtonText: "Search Again...",
           confirmButtonColor: "#dc143c",
         }).then(function () {
-          navigate("/dashboard/dashboardHome");
+          navigate("/");
         });
       });
   };
@@ -327,7 +327,7 @@ const RoundSearchResult = () => {
               confirmButtonText: "Search Again...",
               confirmButtonColor: "#dc143c",
             }).then(function () {
-              navigate("/dashboard/dashboardHome");
+              navigate("/");
             });
           }
         }
@@ -343,7 +343,7 @@ const RoundSearchResult = () => {
           confirmButtonText: "Search Again...",
           confirmButtonColor: "#dc143c",
         }).then(function () {
-          navigate("/dashboard/dashboardHome");
+          navigate("/");
         });
       });
     return () => {

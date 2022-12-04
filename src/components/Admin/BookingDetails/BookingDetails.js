@@ -11,7 +11,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 import "./BookingDetails.css";
-import flightImg from "../../../../src/images/BookingManagement/flight.png";
+import flightImg from "../../../images/BookingManagement/flight.png";
 
 const BookingDetails = () => {
   const [expanded, setExpanded] = React.useState(false);
