@@ -52,10 +52,7 @@ const FlightSearchBox = ({
     setValue(newValue);
   };
   return (
-    <Box
-      className="home-search-box-2"
-      sx={{ width: "100%", typography: "body1" }}
-    >
+    <Box sx={{ width: "100%" }}>
       <TabContext value={value}>
         <Box
           sx={{
@@ -79,7 +76,6 @@ const FlightSearchBox = ({
               value="oneway"
               sx={{
                 opacity: "1",
-                p: { xs: "5px 0px", md: "5px 50px" },
                 fontSize: { xs: "11px", sm: "14px" },
               }}
             />
@@ -89,7 +85,6 @@ const FlightSearchBox = ({
               value="return"
               sx={{
                 opacity: "1",
-                p: { xs: "5px 0px", md: "5px 50px" },
                 fontSize: { xs: "11px", sm: "14px" },
               }}
             />
@@ -99,7 +94,6 @@ const FlightSearchBox = ({
               value="multicity"
               sx={{
                 opacity: "1",
-                p: { xs: "5px 0px", md: "5px 50px" },
                 fontSize: { xs: "11px", sm: "14px" },
               }}
             />

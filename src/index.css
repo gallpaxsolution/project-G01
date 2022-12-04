@@ -25,3 +25,38 @@ code {
   --white: #ffffff;
   --white-rgb: 255, 255, 255;
 }
+
+button.shine-effect {
+  overflow: hidden;
+}
+
+button.shine-effect::after {
+  content: "";
+  width: 30px;
+  height: 200px;
+  position: absolute;
+  left: -20px;
+  top: 0;
+  margin-top: -20px;
+  background: var(--secondary-color);
+  opacity: 0.6;
+  filter: blur(20px);
+  animation: shine 4s infinite;
+  animation-delay: 0s;
+  transform-origin: top;
+}
+@keyframes shine {
+  from {
+    transform: translate(0) rotate(45deg);
+  }
+  to {
+    transform: translateX(120vh) rotate(45deg);
+  }
+}
+.customPlaceholder::placeholder {
+  color: var(--secondary-color) !important ;
+}
+.new-return-date-range .rdrDateDisplayWrapper,
+.new-return-date-mobile .rdrDateDisplayWrapper {
+  display: none;
+}
