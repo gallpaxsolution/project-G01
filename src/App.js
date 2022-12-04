@@ -11,6 +11,7 @@ import AddTraveller from "./components/Traveller/AddTraveller";
 import Deposite from "./pages/Deposite/Deposite";
 import BookingDetails from "./components/Admin/BookingDetails/BookingDetails";
 import SearchResult from "./pages/SearchReslut/SearchResult";
+import FlightInformation from "./pages/FligthInformation/FlightInformation";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/searchresult" element={<SearchResult />} />
+            <Route path="/flightinfo" element={<FlightInformation />} />
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/queuedetail" element={<BookingDetails />} />
             <Route path="/traveller" element={<Traveller />} />

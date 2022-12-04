@@ -55,7 +55,7 @@
 }
 
 .flight-result h4 {
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -68,7 +68,7 @@
   padding-bottom: 20px;
   font-size: 15px;
   color: #252733;
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-style: normal;
   font-weight: 500;
 }
@@ -121,7 +121,7 @@
 }
 .flight-result h3 {
   color: #252733;
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-style: normal;
   font-weight: 500;
   font-size: 12.5px;
@@ -1148,7 +1148,7 @@
 /* modify search style here */
 
 .modify-search-info h2 {
-  font-family: "poppies";
+  /* font-family: "poppies"; */
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -1158,7 +1158,7 @@
 }
 
 .modify-search h5 {
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -1167,7 +1167,7 @@
 }
 
 .modify-search-info h2 {
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -1176,7 +1176,7 @@
 }
 
 .modify-search h6 {
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -1192,7 +1192,7 @@
   padding: 2px;
   border: none;
   color: #fff;
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -1220,7 +1220,7 @@
 
 .cm-box label {
   color: #003566;
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -1323,7 +1323,7 @@
 
 .price-customization h5 {
   color: #003566;
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -1336,7 +1336,7 @@
   width: 90px;
   height: 32px;
   font-size: 12px;
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-weight: 500;
   cursor: pointer;
   border-radius: 2px;
@@ -1351,7 +1351,7 @@
   background-color: #dc143c;
   color: #fff;
   font-size: 12px;
-  font-family: "poppins";
+  /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 500;
   cursor: pointer;

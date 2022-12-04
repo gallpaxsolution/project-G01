@@ -274,7 +274,7 @@ const Oneway = ({
     setOpenTo(false);
     setTimeout(() => setOpenDate(true), 200);
   };
-
+  console.log(openTo);
   const fromGetSuggetion = () => {
     return (
       <Box
@@ -942,53 +942,53 @@ const Oneway = ({
                       <span style={{ width: "100%" }}>{toSearchText}</span>
                     </Box>
                   </Box>
-                  {openTo && (
+                </Box>
+                {openTo && (
+                  <Box
+                    style={{
+                      position: "absolute",
+                      top: "105%",
+                      left: "0",
+                      width: "100%",
+                      backgroundColor: "var(--white)",
+                      border: "1px solid var(--primary-color",
+                      height: "fit-content",
+                      borderRadius: "5px",
+                      zIndex: "999",
+                      padding: "5px 5px 0",
+                    }}
+                  >
                     <Box
                       style={{
-                        position: "absolute",
-                        top: "105%",
-                        left: "0",
-                        width: "100%",
-                        backgroundColor: "var(--white)",
-                        border: "1px solid var(--primary-color",
-                        height: "fit-content",
-                        borderRadius: "5px",
-                        zIndex: "999",
-                        padding: "5px 5px 0",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: "var(--secondary-color)",
+                        zIndex: 10,
                       }}
+                      backgroundColor="var(--white)"
                     >
-                      <Box
+                      <input
+                        autoComplete="off"
+                        autoFocus
+                        onChange={toOnChange}
+                        className="customPlaceholder"
+                        placeholder="Search a airport..."
                         style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
                           color: "var(--secondary-color)",
-                          zIndex: 10,
+                          fontWeight: 500,
+                          paddingLeft: "20px",
+                          width: "100%",
+                          height: "40px",
+                          backgroundColor: "transparent",
+                          border: "none",
+                          outline: "none",
                         }}
-                        backgroundColor="var(--white)"
-                      >
-                        <input
-                          autoComplete="off"
-                          autoFocus
-                          onChange={toOnChange}
-                          className="customPlaceholder"
-                          placeholder="Search a airport..."
-                          style={{
-                            color: "var(--secondary-color)",
-                            fontWeight: 500,
-                            paddingLeft: "20px",
-                            width: "100%",
-                            height: "40px",
-                            backgroundColor: "transparent",
-                            border: "none",
-                            outline: "none",
-                          }}
-                        />
-                      </Box>
-                      <Box>{toGetSuggetion()}</Box>
+                      />
                     </Box>
-                  )}
-                </Box>
+                    <Box>{toGetSuggetion()}</Box>
+                  </Box>
+                )}
               </Grid>
             </Grid>
 

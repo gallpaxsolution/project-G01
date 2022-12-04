@@ -42,7 +42,7 @@
 
 #passengerEcoBtn {
   background: #003566;
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -52,7 +52,7 @@
 #passengerSaveBtn {
   background: #dc143c;
   color: #ffffff;
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   font-size: 12px;
   padding: 5px 30px;
   box-shadow: none !important;
