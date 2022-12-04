@@ -1310,22 +1310,7 @@ const FlightUserInfo = ({
                           style={{ position: "relative" }}
                         >
                           <label htmlFor="cdob">Date of Birth</label>
-                          {/* <input
-                            required
-                            type="date"
-                            name="cdob"
-                            id="cdob"
-                            value={item.cdob}
-                            min={`${new Date(
-                              dateBeforeTwelveYears
-                            ).toLocaleDateString("sv")}`}
-                            max={`${new Date(
-                              dateBeforeTwoYears
-                            ).toLocaleDateString("sv")}`}
-                            onChange={(e) =>
-                              handleOnChange(e, item.type, index)
-                            }
-                          /> */}
+
                           <input
                             required
                             type="text"
@@ -1338,7 +1323,6 @@ const FlightUserInfo = ({
                           {item.openDate && (
                             <Calendar
                               color={"#003566"}
-                              // date={new Date(item.adob)}
                               onChange={(date) => {
                                 const tempFlightData = [
                                   ...flightPassengerData.child,
@@ -1396,15 +1380,6 @@ const FlightUserInfo = ({
                                   );
                                 })}
                               </select>
-                              {/* <CountryDropdown
-                          id="UNIQUE_ID"
-                          name="apassNation"
-                          preferredCountries={["bd", "in"]}
-                          value={item.apassNation}
-                          handleChange={(e) =>
-                            handleOnChange(e, item.type, index)
-                          }
-                        /> */}
                             </Grid>
 
                             <Grid item xs={12} md={6} lg={6}>
@@ -1441,19 +1416,7 @@ const FlightUserInfo = ({
                               <label htmlFor="cpassEx">
                                 Passport Expire Date
                               </label>
-                              {/* <input
-                                required
-                                type="date"
-                                name="cpassEx"
-                                id="cpassEx"
-                                value={item.cpassEx}
-                                min={`${new Date(
-                                  dateAfterSixMonths
-                                ).toLocaleDateString("sv")}`}
-                                onChange={(e) =>
-                                  handleOnChange(e, item.type, index)
-                                }
-                              /> */}
+
                               <input
                                 required
                                 type="text"
@@ -1601,20 +1564,6 @@ const FlightUserInfo = ({
                           style={{ position: "relative" }}
                         >
                           <label htmlFor="idob">Date of Birth</label>
-                          {/* <input
-                            required
-                            type="date"
-                            name="idob"
-                            id="idob"
-                            value={item.idob}
-                            min={`${new Date(
-                              dateBeforeTwoYears
-                            ).toLocaleDateString("sv")}`}
-                            max={`${new Date().toLocaleDateString("sv")}`}
-                            onChange={(e) =>
-                              handleOnChange(e, item.type, index)
-                            }
-                          /> */}
 
                           <input
                             required
@@ -1628,7 +1577,6 @@ const FlightUserInfo = ({
                           {item.openDate && (
                             <Calendar
                               color={"#003566"}
-                              // date={new Date(item.adob)}
                               onChange={(date) => {
                                 const tempFlightData = [
                                   ...flightPassengerData.infant,
@@ -1678,15 +1626,6 @@ const FlightUserInfo = ({
                                   );
                                 })}
                               </select>
-                              {/* <CountryDropdown
-                          id="UNIQUE_ID"
-                          name="apassNation"
-                          preferredCountries={["bd", "in"]}
-                          value={item.apassNation}
-                          handleChange={(e) =>
-                            handleOnChange(e, item.type, index)
-                          }
-                        /> */}
                             </Grid>
 
                             <Grid item xs={12} md={6} lg={6}>
@@ -1723,19 +1662,7 @@ const FlightUserInfo = ({
                               <label htmlFor="ipassEx">
                                 Passport Expire Date
                               </label>
-                              {/* <input
-                                required
-                                type="date"
-                                name="ipassEx"
-                                id="ipassEx"
-                                value={item.ipassEx}
-                                min={`${new Date(
-                                  dateAfterSixMonths
-                                ).toLocaleDateString("sv")}`}
-                                onChange={(e) =>
-                                  handleOnChange(e, item.type, index)
-                                }
-                              /> */}
+
                               <input
                                 required
                                 type="text"
@@ -1855,7 +1782,9 @@ const FlightUserInfo = ({
                     </Grid>
                   </Box>
                   <Box className="booking-btn">
-                    <button type="submit">Book Ticket</button>
+                    <button type="submit" disabled>
+                      Book Ticket
+                    </button>
                   </Box>
                 </Box>
               </form>
