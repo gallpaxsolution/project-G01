@@ -16,8 +16,12 @@ import FlightInformation from "./pages/FligthInformation/FlightInformation";
 import Header from "./components/Header/Header";
 import RoundSearchResult from "./pages/SearchReslut/RoundSearchResult";
 import RoundFlightUserInfo from "./components/FlightUserinfo/RoundFlightUserInfo";
+
 import BankAccount from "./pages/BankAccount/BankAccount";
 import AddBank from './components/BankAccount/AddBank';
+
+import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
+
 
 function App() {
   return (
@@ -38,12 +42,23 @@ function App() {
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
+
             <Route path="/bankaccount" element={<BankAccount/>} />
             <Route path="/addbankaccount" element={<AddBank/>} />
+
+
+            {/* -----KB------  */}
+
+
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/bookingdetails" element={<BookingDetails />} />
-            <Route path="/bookingroute" element={<BookingRoute />} />
-            <Route path="/queuedetail" element={<BookingDetails />} />
+            <Route path="/flightdetail" element={<FlightDetails />} />
+
+            {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
+            {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}
+
+            {/* -----KB------  */}
+
             <Route path="/traveller" element={<Traveller />} />
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/deposite" element={<Deposite />} />

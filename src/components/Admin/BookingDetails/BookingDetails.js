@@ -38,7 +38,7 @@ const BookingDetails = () => {
               <span
                 style={{
                   color: "#003566",
-                  fontSize: "12px",
+                  fontSize: "13px",
                   fontFamily: "Poppins",
                   fontWeight: "500",
                 }}
@@ -63,7 +63,7 @@ const BookingDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "500",
-                    fontSize: "14px",
+                    fontSize: "15px",
                   }}
                 >
                   18.40
@@ -72,7 +72,7 @@ const BookingDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "400",
-                    fontSize: "14px",
+                    fontSize: "15px",
                   }}
                 >
                   DAC
@@ -84,7 +84,7 @@ const BookingDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "500",
-                    fontSize: "14px",
+                    fontSize: "15px",
                   }}
                 >
                   18.40
@@ -93,7 +93,7 @@ const BookingDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "400",
-                    fontSize: "14px",
+                    fontSize: "15px",
                   }}
                 >
                   DXB
@@ -102,7 +102,7 @@ const BookingDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "500",
-                    fontSize: "10px",
+                    fontSize: "11px",
                     color: "#003566",
                   }}
                 >
@@ -133,7 +133,7 @@ const BookingDetails = () => {
               <span
                 style={{
                   fontFamily: "Poppins",
-                  fontSize: "15px",
+                  fontSize: "18px",
                 }}
               >
                 Dhaka
@@ -148,7 +148,7 @@ const BookingDetails = () => {
               <span
                 style={{
                   fontFamily: "Poppins",
-                  fontSize: "15px",
+                  fontSize: "18px",
                 }}
               >
                 Dubai
@@ -183,8 +183,9 @@ const BookingDetails = () => {
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "14px",
+                        fontSize: "16px",
                         fontWeight: "500",
+                        color: "#222222",
                       }}
                     >
                       Bangladesh Biman
@@ -192,7 +193,7 @@ const BookingDetails = () => {
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "10px",
+                        fontSize: "11px",
                         fontWeight: "500",
                       }}
                     >
@@ -217,7 +218,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#222222",
                     fontFamily: "Poppins",
-                    fontSize: "10px",
+                    fontSize: "11px",
                     fontWeight: "500",
                   }}
                 >
@@ -236,7 +237,7 @@ const BookingDetails = () => {
                       style={{
                         color: "#888888",
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                       }}
                     >
@@ -246,7 +247,7 @@ const BookingDetails = () => {
                       style={{
                         color: "#888888",
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                       }}
                     >
@@ -260,7 +261,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#2D669B",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
@@ -270,7 +271,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#FFA84D",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
@@ -288,7 +289,7 @@ const BookingDetails = () => {
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                         color: "#888888",
                       }}
@@ -298,7 +299,7 @@ const BookingDetails = () => {
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                         color: "#888888",
                       }}
@@ -313,7 +314,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#2D669B",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
@@ -323,7 +324,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#FFA84D",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
@@ -377,14 +378,16 @@ const BookingDetails = () => {
                         display: "block",
                       }}
                       src={flightImg}
+                      alt=".../..."
                     />
                   </Box>
                   <Box>
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "14px",
+                        fontSize: "16px",
                         fontWeight: "500",
+                        color: "#222222",
                       }}
                     >
                       Bangladesh Biman
@@ -392,7 +395,7 @@ const BookingDetails = () => {
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "10px",
+                        fontSize: "11px",
                         fontWeight: "500",
                       }}
                     >
@@ -417,7 +420,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#222222",
                     fontFamily: "Poppins",
-                    fontSize: "10px",
+                    fontSize: "11px",
                     fontWeight: "500",
                   }}
                 >
@@ -436,7 +439,7 @@ const BookingDetails = () => {
                       style={{
                         color: "#888888",
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                       }}
                     >
@@ -446,7 +449,7 @@ const BookingDetails = () => {
                       style={{
                         color: "#888888",
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                       }}
                     >
@@ -460,7 +463,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#2D669B",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
@@ -470,7 +473,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#FFA84D",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
@@ -488,7 +491,7 @@ const BookingDetails = () => {
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                         color: "#888888",
                       }}
@@ -498,7 +501,7 @@ const BookingDetails = () => {
                     <Typography
                       style={{
                         fontFamily: "Poppins",
-                        fontSize: "11px",
+                        fontSize: "13px",
                         fontWeight: "500",
                         color: "#888888",
                       }}
@@ -513,7 +516,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#2D669B",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
@@ -523,7 +526,7 @@ const BookingDetails = () => {
                   style={{
                     color: "#FFA84D",
                     fontFamily: "Poppins",
-                    fontSize: "11px",
+                    fontSize: "13px",
                     fontWeight: "500",
                   }}
                 >
