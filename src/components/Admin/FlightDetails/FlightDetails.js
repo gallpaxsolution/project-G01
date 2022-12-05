@@ -24,7 +24,7 @@ const FlightDetails = () => {
           <Typography
             style={{
               fontFamily: "Poppins",
-              fontSize: "20px",
+              fontSize: "22px",
               fontWeight: "500",
               color: "#222222",
             }}
@@ -60,7 +60,7 @@ const FlightDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "500",
-                    fontSize: "15px",
+                    fontSize: "20px",
                   }}
                 >
                   18.40
@@ -69,7 +69,7 @@ const FlightDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "400",
-                    fontSize: "15px",
+                    fontSize: "20px",
                   }}
                 >
                   DAC
@@ -81,7 +81,7 @@ const FlightDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "500",
-                    fontSize: "15px",
+                    fontSize: "20px",
                   }}
                 >
                   18.40
@@ -90,7 +90,7 @@ const FlightDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "400",
-                    fontSize: "15px",
+                    fontSize: "20px",
                   }}
                 >
                   DXB
@@ -99,7 +99,7 @@ const FlightDetails = () => {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: "500",
-                    fontSize: "11px",
+                    fontSize: "12px",
                     color: "#003566",
                   }}
                 >
@@ -111,15 +111,15 @@ const FlightDetails = () => {
               style={{ borderLeft: "2px solid #FFA84D", position: "absulote" }}
               mt={2}
             >
-              <Box style={{ display: "flex" }}>
+              <Box style={{ display: "flex", marginLeft: "10px" }}>
                 <Box className="circle1">
                   <FlightIcon
                     style={{
                       transform: "rotate(180deg)",
-                      fontSize: "25px",
+                      fontSize: "35px",
                       position: "relative",
                       top: "40px",
-                      left: "-4px",
+                      left: "-10px",
                       color: "#9C9797",
                     }}
                   />
@@ -131,7 +131,7 @@ const FlightDetails = () => {
                       style={{
                         fontFamily: "Poppins",
                         fontWeight: "500",
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: "#2564B8",
                       }}
                     >
@@ -149,7 +149,7 @@ const FlightDetails = () => {
                       style={{
                         fontFamily: "Poppins",
                         fontWeight: "500",
-                        fontSize: "12px",
+                        fontSize: "13px",
                         color: "#2564B8",
                       }}
                     >
@@ -177,8 +177,8 @@ const FlightDetails = () => {
                     <Box>
                       <img
                         style={{
-                          width: "35px",
-                          height: "35px",
+                          width: "40px",
+                          height: "40px",
                           display: "block",
                         }}
                         src={flightImg}
@@ -189,7 +189,7 @@ const FlightDetails = () => {
                       <Typography
                         style={{
                           fontFamily: "Poppins",
-                          fontSize: "13px",
+                          fontSize: "15px",
                           fontWeight: "500",
                           color: "#222222",
                         }}
@@ -199,7 +199,7 @@ const FlightDetails = () => {
                       <Typography
                         style={{
                           fontFamily: "Poppins",
-                          fontSize: "11px",
+                          fontSize: "12px",
                           fontWeight: "500",
                           color: "#FFA84D",
                         }}
@@ -213,7 +213,7 @@ const FlightDetails = () => {
                       style={{
                         fontFamily: "Poppins",
                         fontWeight: "500",
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: "#2564B8",
                       }}
                     >
@@ -231,7 +231,7 @@ const FlightDetails = () => {
                       style={{
                         fontFamily: "Poppins",
                         fontWeight: "500",
-                        fontSize: "12px",
+                        fontSize: "13px",
                         color: "#2564B8",
                       }}
                     >
@@ -259,8 +259,8 @@ const FlightDetails = () => {
                     <Box>
                       <img
                         style={{
-                          width: "35px",
-                          height: "35px",
+                          width: "40px",
+                          height: "40px",
                           display: "block",
                         }}
                         src={flightImg}
@@ -271,7 +271,7 @@ const FlightDetails = () => {
                       <Typography
                         style={{
                           fontFamily: "Poppins",
-                          fontSize: "13px",
+                          fontSize: "15px",
                           fontWeight: "500",
                           color: "#222222",
                         }}
@@ -281,7 +281,7 @@ const FlightDetails = () => {
                       <Typography
                         style={{
                           fontFamily: "Poppins",
-                          fontSize: "11px",
+                          fontSize: "12px",
                           fontWeight: "500",
                           color: "#FFA84D",
                         }}
@@ -295,7 +295,7 @@ const FlightDetails = () => {
                       style={{
                         fontFamily: "Poppins",
                         fontWeight: "500",
-                        fontSize: "12px",
+                        fontSize: "16px",
                         color: "#2564B8",
                       }}
                     >
@@ -313,7 +313,7 @@ const FlightDetails = () => {
                       style={{
                         fontFamily: "Poppins",
                         fontWeight: "500",
-                        fontSize: "12px",
+                        fontSize: "13px",
                         color: "#2564B8",
                       }}
                     >
@@ -698,7 +698,10 @@ const FlightDetails = () => {
                   </Box>
                 </AccordionSummary>
 
-                <AccordionDetails className="baggageTable1">
+                <AccordionDetails
+                  className="baggageTable1"
+                  style={{ marginTop: "15px" }}
+                >
                   <table>
                     <tr>
                       <th>Baggage</th>
@@ -710,7 +713,7 @@ const FlightDetails = () => {
                       <td>20 KG</td>
                       <td>M</td>
                     </tr>
-                    <tr>
+                    <tr style={{ background: "#fff" }}>
                       <td>Adult</td>
                       <td>20 KG</td>
                       <td>M</td>
@@ -777,17 +780,17 @@ const FlightDetails = () => {
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <Box mt={2}>
                     <Box
                       style={{
-                        width: "180px",
+                        width: "130px",
                         background: "rgba(255, 168, 77, 0.23)",
                         padding: "5px 15px",
                       }}
                     >
                       <Typography
                         style={{
-                          fontSize: "16px",
+                          fontSize: "13px",
                           color: "#FFA84D",
                           fontFamily: "poppins",
                           fontWeight: "500",
@@ -798,7 +801,7 @@ const FlightDetails = () => {
                     </Box>
                     <Typography
                       style={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         color: "#2564B8",
                         fontFamily: "poppins",
                         fontWeight: "500",
@@ -812,14 +815,14 @@ const FlightDetails = () => {
                   <Box mt={2}>
                     <Box
                       style={{
-                        width: "180px",
+                        width: "130px",
                         background: "rgba(255, 168, 77, 0.23)",
                         padding: "5px 15px",
                       }}
                     >
                       <Typography
                         style={{
-                          fontSize: "16px",
+                          fontSize: "13px",
                           color: "#FFA84D",
                           fontFamily: "poppins",
                           fontWeight: "500",
@@ -830,7 +833,7 @@ const FlightDetails = () => {
                     </Box>
                     <Typography
                       style={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         color: "#2564B8",
                         fontFamily: "poppins",
                         fontWeight: "500",
@@ -844,14 +847,14 @@ const FlightDetails = () => {
                   <Box mt={2}>
                     <Box
                       style={{
-                        width: "180px",
+                        width: "130px",
                         background: "rgba(255, 168, 77, 0.23)",
                         padding: "5px 15px",
                       }}
                     >
                       <Typography
                         style={{
-                          fontSize: "16px",
+                          fontSize: "13px",
                           color: "#FFA84D",
                           fontFamily: "poppins",
                           fontWeight: "500",
@@ -862,7 +865,7 @@ const FlightDetails = () => {
                     </Box>
                     <Typography
                       style={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         color: "#2564B8",
                         fontFamily: "poppins",
                         fontWeight: "500",
@@ -876,14 +879,14 @@ const FlightDetails = () => {
                   <Box mt={2}>
                     <Box
                       style={{
-                        width: "180px",
+                        width: "130px",
                         background: "rgba(255, 168, 77, 0.23)",
                         padding: "5px 15px",
                       }}
                     >
                       <Typography
                         style={{
-                          fontSize: "16px",
+                          fontSize: "13px",
                           color: "#FFA84D",
                           fontFamily: "poppins",
                           fontWeight: "500",
@@ -894,7 +897,7 @@ const FlightDetails = () => {
                     </Box>
                     <Typography
                       style={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         color: "#2564B8",
                         fontFamily: "poppins",
                         fontWeight: "500",
@@ -912,11 +915,11 @@ const FlightDetails = () => {
           </Grid>
         </Grid>
 
-        <Box mt={4}>
+        <Box mt={8}>
           <Typography
             style={{
               fontFamily: "Poppins",
-              fontSize: "20px",
+              fontSize: "22px",
               fontWeight: "500",
               color: "#222222",
             }}
@@ -1050,6 +1053,10 @@ const FlightDetails = () => {
               </Box>
             </form>
           </Box>
+        </Box>
+
+        <Box className="bookBtn">
+          <button>BOOK & HOLD</button>
         </Box>
       </Container>
     </Box>

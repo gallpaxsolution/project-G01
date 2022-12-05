@@ -4,7 +4,7 @@
   background-color: #2564b8;
   border-radius: 50%;
   position: relative;
-  left: -10px;
+  left: -19px;
 }
 
 .passengerInput1 p {
@@ -42,6 +42,9 @@
 .passengerInput1 input:focus {
   outline: none;
 }
+.passengerInput1 select:focus {
+  outline: none;
+}
 
 .baggageTable1 table {
   width: 100%;
@@ -56,12 +59,14 @@
   background-color: #ffffff !important;
 }
 
-.baggageTable1 table th {
+.baggageTable1 table tr th {
   background-color: #ffa84d;
   color: #fff;
   font-size: 14px;
   padding: 4px 0px;
   font-weight: 300;
+  font-weight: 500;
+  font-family: "poppins";
 }
 
 .baggageTable1 table tr td {
@@ -69,4 +74,22 @@
   font-size: 14px;
   color: #2564b8;
   padding: 4px 0px;
+}
+
+.bookBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bookBtn button {
+  border: 0px;
+  background: transparent;
+  background: #ffa84d !important;
+  width: 160px;
+  height: 35px;
+  color: #fff;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
 }
