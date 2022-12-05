@@ -1054,6 +1054,10 @@ const FlightDetails = () => {
             </form>
           </Box>
         </Box>
+
+        <Box className="bookBtn">
+          <button>BOOK & HOLD</button>
+        </Box>
       </Container>
     </Box>
   );
