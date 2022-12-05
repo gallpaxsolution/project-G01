@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from "react";
 import { Box, Button, Grid, Tab, Tabs, Container } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
@@ -15,6 +16,7 @@ import secureLocalStorage from "react-secure-storage";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import WorkIcon from "@mui/icons-material/Work";
 import { format } from "date-fns";
 import "./SingleFlight.css";
 
@@ -223,32 +225,33 @@ const SingleFlight = ({
               {flightData?.segment === "3" ? (
                 <Typography
                   sx={{
-                    color: "#003566",
+                    color: "var(--secondary-color)",
                     fontWeight: 600,
                     fontSize: "12px",
                   }}
                 >
-                  {flightData?.segments[2]?.arrivalLocation}
+                  {/* {flightData?.segments[2]?.arrivalLocation} */}
+                  {flightData?.segments[2]?.arrivalAirport}
                 </Typography>
               ) : flightData?.segment === "2" ? (
                 <Typography
                   sx={{
-                    color: "#003566",
+                    color: "var(--secondary-color)",
                     fontWeight: 600,
                     fontSize: "12px",
                   }}
                 >
-                  {flightData?.segments[1]?.arrivalLocation}
+                  {flightData?.segments[1]?.arrivalAirport}
                 </Typography>
               ) : (
                 <Typography
                   sx={{
-                    color: "#003566",
+                    color: "var(--secondary-color)",
                     fontWeight: 600,
                     fontSize: "12px",
                   }}
                 >
-                  {flightData?.segments[0]?.arrivalLocation}
+                  {flightData?.segments[0]?.arrivalAirport}
                 </Typography>
               )}
 
@@ -2504,874 +2507,685 @@ const SingleFlight = ({
 
       <Grid
         container
-        className="flight-filter1"
         sx={{
           display: {
             xs: "none",
             sm: "flex",
             md: "flex",
-            transition: "all .5s ease-in-out",
-            boxShadow:
-              "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
           },
+          transition: "all .5s ease-in-out",
+          boxShadow:
+            "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
         }}
       >
-        <Grid sm={2} md={2.7} padding="15px">
-          <Grid
-            container
-            sx={{
-              alignItems: "center",
-            }}
-          >
-            <Grid md={12} lg={12} xl={4}>
-              <Box>
-                {flightData?.system === "Sabre" ? (
-                  <Box style={{ width: "60px", height: "60px" }}>
-                    {flightData.segment === "3" ? (
-                      <>
-                        {flightData.career ===
-                          flightData.segments[0]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[1]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <img
-                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                              className="flight-icon-sab1"
-                              alt={`${flightData.career}`}
-                            />
-                          </>
-                        ) : flightData.segments[0]?.marketingcareer !==
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer ===
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <Box
-                              border={"2px solid red"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        ) : flightData.segments[0]?.marketingcareer ===
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer !==
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <Box
-                              border={"2px solid red"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[2]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        ) : (
-                          <>
-                            <Box className="mercedes-sape-s">
-                              <Box className="first-1"></Box>
-                              <Box className="img-first-1">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box className="first-2"></Box>
-                              <Box className="img-first-2">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box className="first-3"></Box>
-                              <Box className="img-first-3">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[2]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        )}
-                      </>
-                    ) : flightData.segment === "2" ? (
-                      <>
-                        {flightData.career ===
-                          flightData.segments[0]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[1]?.marketingcareer ? (
-                          <>
-                            <img
-                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                              className={`${flightData?.system?.toLowerCase()}`}
-                              alt={`${flightData.career}`}
-                            />
-                          </>
-                        ) : (
-                          <>
-                            <Box
-                              border={"2px solid red"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        )}
-                      </>
-                    ) : (
-                      <img
-                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                        className="flight-icon-sab1"
-                        alt={`${flightData.career}`}
-                      />
-                    )}
-                  </Box>
-                ) : // --------End sabre------
-                flightData.system === "Galileo" ? (
-                  <Box style={{ width: "60px" }}>
-                    {flightData.segment === "3" ? (
-                      <>
-                        {flightData.career ===
-                          flightData.segments[0]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[1]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <img
-                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                              className="flight-icon-sab2"
-                              alt={`${flightData.career}`}
-                            />
-                          </>
-                        ) : flightData.segments[0]?.marketingcareer !==
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer ===
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <Box
-                              border={"2px solid #0b8634"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        ) : flightData.segments[0]?.marketingcareer ===
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer !==
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <Box
-                              border={"2px solid #0b8634"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[2]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        ) : (
-                          <>
-                            <Box className="mercedes-sape-g">
-                              <Box className="first-1"></Box>
-                              <Box className="img-first-1">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box className="first-2"></Box>
-                              <Box className="img-first-2">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box className="first-3"></Box>
-                              <Box className="img-first-3">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[2]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        )}
-                      </>
-                    ) : flightData.segment === "2" ? (
-                      <>
-                        {flightData.career ===
-                          flightData.segments[0]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[1]?.marketingcareer ? (
-                          <>
-                            <img
-                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                              className="flight-icon-sab2"
-                              alt={`${flightData.career}`}
-                            />
-                          </>
-                        ) : (
-                          <>
-                            <Box
-                              border={"2px solid #0b8634"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        )}
-                      </>
-                    ) : (
-                      <img
-                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                        className="flight-icon-sab2"
-                        alt={`${flightData.career}`}
-                      />
-                    )}
-                  </Box>
-                ) : (
-                  //todo: flyhub
-                  <Box
-                    style={{
-                      width: "60px",
-                    }}
-                  >
-                    {flightData.segment === "3" ? (
-                      <>
-                        {flightData.career ===
-                          flightData.segments[0]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[1]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <img
-                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                              className="flight-icon-sab3"
-                              alt={`${flightData.career}`}
-                            />
-                          </>
-                        ) : flightData.segments[0]?.marketingcareer !==
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer ===
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <Box
-                              border={"2px solid #4169e1"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        ) : flightData.segments[0]?.marketingcareer ===
-                            flightData.segments[1]?.marketingcareer &&
-                          flightData.segments[1]?.marketingcareer !==
-                            flightData.segments[2]?.marketingcareer ? (
-                          <>
-                            <Box
-                              border={"2px solid #4169e1"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[2]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        ) : (
-                          <>
-                            <Box className="mercedes-sape-f">
-                              <Box className="first-1"></Box>
-                              <Box className="img-first-1">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box className="first-2"></Box>
-                              <Box className="img-first-2">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box className="first-3"></Box>
-                              <Box className="img-first-3">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
-                                  width="25px"
-                                  height="25px"
-                                  alt={`${flightData.segments[2]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        )}
-                      </>
-                    ) : flightData.segment === "2" ? (
-                      <>
-                        {flightData.career ===
-                          flightData.segments[0]?.marketingcareer &&
-                        flightData.career ===
-                          flightData.segments[1]?.marketingcareer ? (
-                          <>
-                            <img
-                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                              className="flight-icon-sab3"
-                              alt={`${flightData.career}`}
-                            />
-                          </>
-                        ) : (
-                          <>
-                            <Box
-                              border={"2px solid #4169e1"}
-                              borderRadius="50%"
-                              width="71px"
-                              height="71px"
-                              display="flex"
-                              flexDirection="column"
-                              overflow="hidden"
-                              justifyContent="center"
-                              alignItems="center"
-                              pt="8px"
-                              className="round-rotation"
-                            >
-                              <Box mb="-7px">
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[0]?.marketingcareer}`}
-                                />
-                              </Box>
-                              <Box
-                                borderBottom={"2px solid #D9D9D9"}
-                                width="100%"
-                              ></Box>
-                              <Box>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
-                                  width="30px"
-                                  height="30px"
-                                  alt={`${flightData.segments[1]?.marketingcareer}`}
-                                />
-                              </Box>
-                            </Box>
-                          </>
-                        )}
-                      </>
-                    ) : (
-                      <img
-                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                        className="flight-icon-sab3"
-                        alt={`${flightData.career}`}
-                      />
-                    )}
-                  </Box>
-                )}
-              </Box>
-            </Grid>
-
-            {/* <Grid md={12} lg={12} xl={8}>
-              <Box pl={1}>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "10px",
-                      md: "14px",
-                      lg: "15px",
-                    },
-                  }}
-                >
-                  {flightData?.segments[0]?.marketingcareerName}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#003566",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "10px",
-                      md: "12px",
-                      lg: "12px",
-                    },
-                  }}
-                >
-                  {flightData?.segment === "3" ? (
-                    <>
-                      {flightData?.segments[0]?.marketingcareer}
-                      {flightData?.segments[0]?.marketingflight.length === 5 ? (
-                        <>
-                          {flightData?.segments[0]?.marketingflight?.slice(
-                            2,
-                            5
-                          )}
-                        </>
-                      ) : (
-                        <>{flightData?.segments[0]?.marketingflight}</>
-                      )}
-                      <span style={{ color: "crimson", fontSize: "15px" }}>
-                        {" | "}
-                      </span>
-                      {flightData?.segments[1]?.marketingcareer}
-                      {flightData?.segments[1]?.marketingflight.length === 5 ? (
-                        <>
-                          {flightData?.segments[1]?.marketingflight?.slice(
-                            2,
-                            5
-                          )}
-                        </>
-                      ) : (
-                        <>{flightData?.segments[1]?.marketingflight}</>
-                      )}
-                      <span style={{ color: "crimson", fontSize: "15px" }}>
-                        {" | "}
-                      </span>
-                      <br />
-                      {flightData?.segments[2]?.marketingcareer}
-                      {flightData?.segments[2]?.marketingflight.length === 5 ? (
-                        <>
-                          {flightData?.segments[2]?.marketingflight?.slice(
-                            2,
-                            5
-                          )}
-                        </>
-                      ) : (
-                        <>{flightData?.segments[2]?.marketingflight}</>
-                      )}
-                    </>
-                  ) : flightData?.segment === "2" ? (
-                    <>
-                      {flightData?.segments[0]?.marketingcareer}
-                      {flightData?.segments[0]?.marketingflight.length === 5 ? (
-                        <>
-                          {flightData?.segments[0]?.marketingflight?.slice(
-                            2,
-                            5
-                          )}
-                        </>
-                      ) : (
-                        <>{flightData?.segments[0]?.marketingflight}</>
-                      )}
-                      <span style={{ color: "crimson", fontSize: "15px" }}>
-                        {" | "}
-                      </span>
-                      {flightData?.segments[1]?.marketingcareer}
-                      {flightData?.segments[1]?.marketingflight.length === 5 ? (
-                        <>
-                          {flightData?.segments[1]?.marketingflight?.slice(
-                            2,
-                            5
-                          )}
-                        </>
-                      ) : (
-                        <>{flightData?.segments[1]?.marketingflight}</>
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      {flightData?.segments[0]?.marketingcareer}
-                      {flightData?.segments[0]?.marketingflight.length === 5 ? (
-                        <>
-                          {flightData?.segments[0]?.marketingflight?.slice(
-                            2,
-                            5
-                          )}
-                        </>
-                      ) : (
-                        <>{flightData?.segments[0]?.marketingflight}</>
-                      )}
-                    </>
-                  )}
-                </Typography>
-              </Box>
-            </Grid> */}
-          </Grid>
-          <Box mt={0.5}>
-            {flightData?.segment === "3" ? (
-              <Box>
-                <Grid container justifyContent="left">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                    }}
-                  >
-                    {flightData?.flightduration}&nbsp;|&nbsp;
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#DC143C",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                    }}
-                  >
-                    Two Stops
-                  </Typography>
-                </Grid>
-              </Box>
-            ) : flightData?.segment === "2" ? (
-              <Box>
-                <Grid container justifyContent="left">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                    }}
-                  >
-                    {flightData?.flightduration}&nbsp;|&nbsp;
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#DC143C",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                    }}
-                  >
-                    One Stops
-                  </Typography>
-                </Grid>
-              </Box>
-            ) : (
-              <Box>
-                <Grid container justifyContent="left">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                    }}
-                  >
-                    {flightData?.flightduration}&nbsp;|&nbsp;
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#DC143C",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                    }}
-                  >
-                    Non Stops
-                  </Typography>
-                </Grid>
-              </Box>
-            )}
-          </Box>
-        </Grid>
-
-        <Grid sm={7.5} md={6.8} paddingY="15px">
+        <Grid sm={7.5} md={8} padding="15px">
           <Grid container justifyContent={"space-between"}>
+            {/* //todo:one */}
             <Grid md={4}>
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "13px",
-                      md: "15px",
-                      lg: "16px",
-                    },
-                  }}
-                >
-                  {flightData?.departure}
-                  <span> - </span>
-
-                  {flightData?.departureTime.length > 5
-                    ? `${
-                        new Date(flightData?.departureTime)
-                          .toTimeString()
-                          ?.split(":")[0]
-                      }:${
-                        new Date(flightData?.departureTime)
-                          .toTimeString()
-                          ?.split(":")[1]
-                      }`
-                    : `${flightData?.departureTime?.split(":")[0]}:${
-                        flightData?.departureTime?.split(":")[1]
-                      }`}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#003566",
-                    fontWeight: 600,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "11px",
-                      md: "13px",
-                    },
-                  }}
-                >
-                  {flightData?.segments[0]?.departureLocation}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#6c757d",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "11px",
-                      md: "13px",
-                    },
-                  }}
-                >
-                  {flightData?.departureDate}
-                </Typography>
+              <Box
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  gap: "10px",
+                }}
+              >
+                <Box>
+                  {flightData?.system === "Sabre" ? (
+                    <Box style={{ width: "60px", height: "60px" }}>
+                      {flightData.segment === "3" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer !==
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer ===
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid red"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer ===
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer !==
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid red"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : (
+                            <>
+                              <Box className="mercedes-sape-s">
+                                <Box className="first-1"></Box>
+                                <Box className="img-first-1">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-2"></Box>
+                                <Box className="img-first-2">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-3"></Box>
+                                <Box className="img-first-3">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : flightData.segment === "2" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Box
+                                border={"2px solid red"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <img
+                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                          className={`${flightData?.system?.toLowerCase()}`}
+                          alt={`${flightData.career}`}
+                        />
+                      )}
+                    </Box>
+                  ) : flightData.system === "Galileo" ? (
+                    <Box style={{ width: "60px", height: "60px" }}>
+                      {flightData.segment === "3" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer !==
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer ===
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #0b8634"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer ===
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer !==
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #0b8634"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : (
+                            <>
+                              <Box className="mercedes-sape-g">
+                                <Box className="first-1"></Box>
+                                <Box className="img-first-1">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-2"></Box>
+                                <Box className="img-first-2">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-3"></Box>
+                                <Box className="img-first-3">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : flightData.segment === "2" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className="flight-icon-sab2"
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Box
+                                border={"2px solid #0b8634"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <img
+                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                          className="flight-icon-sab2"
+                          alt={`${flightData.career}`}
+                        />
+                      )}
+                    </Box>
+                  ) : (
+                    <Box style={{ width: "60px", height: "60px" }}>
+                      {flightData.segment === "3" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer !==
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer ===
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #4169e1"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer ===
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer !==
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #4169e1"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : (
+                            <>
+                              <Box className="mercedes-sape-f">
+                                <Box className="first-1"></Box>
+                                <Box className="img-first-1">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-2"></Box>
+                                <Box className="img-first-2">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-3"></Box>
+                                <Box className="img-first-3">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : flightData.segment === "2" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Box
+                                border={"2px solid #4169e1"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <img
+                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                          className={`${flightData?.system?.toLowerCase()}`}
+                          alt={`${flightData.career}`}
+                        />
+                      )}
+                    </Box>
+                  )}
+                </Box>
+                <Box>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontWeight: 500,
+                      fontSize: {
+                        xs: "12px",
+                        sm: "13px",
+                        md: "15px",
+                        lg: "16px",
+                      },
+                    }}
+                  >
+                    {flightData?.departure}{" "}
+                    {flightData?.departureTime.length > 5
+                      ? `${
+                          new Date(flightData?.departureTime)
+                            .toTimeString()
+                            ?.split(":")[0]
+                        }:${
+                          new Date(flightData?.departureTime)
+                            .toTimeString()
+                            ?.split(":")[1]
+                        }`
+                      : `${flightData?.departureTime?.split(":")[0]}:${
+                          flightData?.departureTime?.split(":")[1]
+                        }`}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "var(--secondary-color)",
+                      fontWeight: 600,
+                      fontSize: {
+                        xs: "12px",
+                        sm: "11px",
+                        md: "13px",
+                      },
+                    }}
+                  >
+                    {/* {flightData?.segments[0]?.departureLocation} */}
+                    {flightData?.segments[0]?.departureAirport}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#6c757d",
+                      fontWeight: 500,
+                      fontSize: {
+                        xs: "12px",
+                        sm: "11px",
+                        md: "13px",
+                      },
+                    }}
+                  >
+                    {flightData?.departureDate}
+                  </Typography>
+                </Box>
               </Box>
             </Grid>
-
+            {/* //todo:two */}
             <Grid md={4}>
-              <Box textAlign={"center"}>
+              <Box textAlign={"center"} style={{ marginTop: "20px" }}>
                 <Typography>
-                  {/* ---------stops------ */}
                   {flightData?.segment === "3" ? (
                     <Box>
-                      <Grid container justifyContent="center">
+                      <Box px={1}>
+                        <FlightIcon
+                          style={{
+                            color: "var(--primary-color)",
+                            transform: "rotate(90deg)",
+                          }}
+                        />
+                      </Box>
+                      <Grid
+                        container
+                        justifyContent="center"
+                        alignItems="center"
+                        flexDirection="column"
+                      >
                         <Typography
                           sx={{
-                            color: "#003566",
+                            color: "var(--secondary-color)",
                             fontWeight: 500,
                             fontSize: {
                               xs: "12px",
@@ -3384,133 +3198,41 @@ const SingleFlight = ({
                           {flightData?.segments[1].flightduration} |{" "}
                           {flightData?.segments[2].flightduration}
                         </Typography>
+                        <Typography
+                          sx={{
+                            color: "var(--third-color)",
+                            fontWeight: 500,
+                            fontSize: {
+                              xs: "12px",
+                              sm: "10px",
+                              md: "12px",
+                            },
+                          }}
+                        >
+                          {" "}
+                          2 STOP
+                        </Typography>
                       </Grid>
-                      <Box px={1}>
-                        <div className="segment03">
-                          <div className="segment-circle">
-                            <div className="circle-0">
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      {flightData?.departure}
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <CircleIcon
-                                    sx={{
-                                      color: "#c7c7c7",
-                                      fontSize: "15px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </span>
-                              </HtmlTooltip>
-                            </div>
-                            <div className="segment-stop"></div>
-                            <div className="segment-stop"></div>
-                            <div className="circle-0">
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      {flightData?.arrival}
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <CircleIcon
-                                    sx={{
-                                      color: "#c7c7c7",
-                                      fontSize: "15px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </span>
-                              </HtmlTooltip>
-                            </div>
-                          </div>
-                          <div className="segment-flight03">
-                            <FlightIcon />
-                          </div>
-                        </div>
-                      </Box>
-                      <Typography className="arival-seg-3">
-                        <HtmlTooltip
-                          title={
-                            <React.Fragment>
-                              <Typography
-                                sx={{ color: "#fff", fontSize: "10px" }}
-                              >
-                                <span style={{ fontSize: "12px" }}>
-                                  {
-                                    flightData?.segments[0]?.arrivalLocation?.split(
-                                      ","
-                                    )[0]
-                                  }
-                                </span>
-                                <br />
-                                {flightData?.segments[1]?.marketingcareer}
-                                &nbsp;
-                                {flightData?.segments[1]?.marketingflight}{" "}
-                                <span> | </span>
-                                {flightData?.transit.transit1}
-                              </Typography>
-                            </React.Fragment>
-                          }
-                          followCursor
-                        >
-                          <Box className="arival-text">
-                            {flightData?.segments[0]?.arrival}
-                          </Box>
-                        </HtmlTooltip>
-                        <HtmlTooltip
-                          title={
-                            <React.Fragment>
-                              <Typography
-                                sx={{ color: "#fff", fontSize: "10px" }}
-                              >
-                                <span style={{ fontSize: "12px" }}>
-                                  {
-                                    flightData?.segments[1]?.arrivalLocation?.split(
-                                      ","
-                                    )[0]
-                                  }
-                                </span>
-                                <br />
-                                {flightData?.segments[2]?.marketingcareer}
-                                &nbsp;
-                                {flightData?.segments[2]?.marketingflight}
-                                <span> | </span>
-                                {flightData?.transit.transit2}
-                              </Typography>
-                            </React.Fragment>
-                          }
-                          followCursor
-                        >
-                          <Box className="arival-text">
-                            {" "}
-                            {flightData?.segments[1]?.arrival}
-                          </Box>
-                        </HtmlTooltip>
-                      </Typography>
                     </Box>
                   ) : flightData?.segment === "2" ? (
                     <Box>
-                      <Grid container justifyContent="center">
-                        {" "}
+                      <Box px={1}>
+                        <FlightIcon
+                          style={{
+                            color: "var(--primary-color)",
+                            transform: "rotate(90deg)",
+                          }}
+                        />
+                      </Box>
+                      <Grid
+                        container
+                        justifyContent="center"
+                        alignItems="center"
+                        flexDirection="column"
+                      >
                         <Typography
                           sx={{
-                            color: "#003566",
+                            color: "var(--secondary-color)",
                             fontWeight: 500,
                             fontSize: {
                               xs: "12px",
@@ -3522,103 +3244,10 @@ const SingleFlight = ({
                           {flightData?.segments[0].flightduration} |{" "}
                           {flightData?.segments[1].flightduration}
                         </Typography>
-                      </Grid>
-                      <Box px={1}>
-                        <div className="segment02">
-                          <div className="segment-circle">
-                            <div className="circle-0">
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      {flightData?.departure}
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <CircleIcon
-                                    sx={{
-                                      color: "#c7c7c7",
-                                      fontSize: "15px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </span>
-                              </HtmlTooltip>
-                            </div>
-                            <div className="segment-stop"></div>
-                            <div className="circle-0">
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      {flightData?.arrival}
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <CircleIcon
-                                    sx={{
-                                      color: "#c7c7c7",
-                                      fontSize: "15px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </span>
-                              </HtmlTooltip>
-                            </div>
-                          </div>
-                          <div className="segment-flight02">
-                            <FlightIcon />
-                          </div>
-                        </div>
-                      </Box>
-                      <Typography className="arival-seg2">
-                        <HtmlTooltip
-                          title={
-                            <React.Fragment>
-                              <Typography
-                                sx={{ color: "#fff", fontSize: "10px" }}
-                              >
-                                <span style={{ fontSize: "12px" }}>
-                                  {
-                                    flightData?.segments[0]?.arrivalLocation?.split(
-                                      ","
-                                    )[0]
-                                  }{" "}
-                                </span>
-                                <br />
-                                {flightData?.segments[1]?.marketingcareer}
-                                &nbsp;
-                                {flightData?.segments[1]?.marketingflight}
-                                <span> | </span>
-                                {flightData?.transit.transit1}
-                              </Typography>
-                            </React.Fragment>
-                          }
-                          followCursor
-                        >
-                          <Box className="arival-text2">
-                            {flightData?.segments[0]?.arrival}
-                          </Box>
-                        </HtmlTooltip>
-                      </Typography>
-                    </Box>
-                  ) : (
-                    <Box>
-                      <Grid container justifyContent="center">
-                        {" "}
+
                         <Typography
                           sx={{
-                            color: "#003566",
+                            color: "var(--third-color)",
                             fontWeight: 500,
                             fontSize: {
                               xs: "12px",
@@ -3627,248 +3256,807 @@ const SingleFlight = ({
                             },
                           }}
                         >
-                          {flightData?.segments[0].flightduration}
+                          1 STOP
                         </Typography>
-                        {/* <Typography
-                            sx={{
-                              color: "#DC143C",
-                              fontWeight: 500,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "10px",
-                                md: "12px",
-                              },
-                            }}
-                          >
-                            Non Stops
-                          </Typography> */}
                       </Grid>
+                    </Box>
+                  ) : (
+                    <Box>
                       <Box px={1}>
-                        <div className="segment-1">
-                          <div className="segment-circle">
-                            <div className="circle-0">
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      {flightData?.departure}
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <CircleIcon
-                                    sx={{
-                                      color: "#c7c7c7",
-                                      fontSize: "15px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </span>
-                              </HtmlTooltip>
-                            </div>
-                            <div className="circle-0">
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      {flightData?.arrival}
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <CircleIcon
-                                    sx={{
-                                      color: "#c7c7c7",
-                                      fontSize: "15px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </span>
-                              </HtmlTooltip>
-                            </div>
-                          </div>
-                          <div className="segment-flight1">
-                            <FlightIcon />
-                          </div>
-                        </div>
+                        <FlightIcon
+                          style={{
+                            color: "var(--primary-color)",
+                            transform: "rotate(90deg)",
+                          }}
+                        />
                       </Box>
+                      <Grid
+                        container
+                        justifyContent="center"
+                        alignItems="center"
+                        flexDirection="column"
+                      >
+                        <Typography
+                          sx={{
+                            color: "var(--secondary-color)",
+                            fontWeight: 500,
+                            fontSize: {
+                              xs: "12px",
+                              sm: "10px",
+                              md: "12px",
+                            },
+                          }}
+                        >
+                          {flightData?.segments[0].flightduration}|
+                          {flightData?.segments[0]?.arrival}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: "var(--third-color)",
+                            fontWeight: 500,
+                            fontSize: {
+                              xs: "12px",
+                              sm: "10px",
+                              md: "12px",
+                            },
+                          }}
+                        >
+                          NO STOP
+                        </Typography>
+                      </Grid>
                     </Box>
                   )}
                 </Typography>
               </Box>
             </Grid>
-
+            {/* //todo:Three */}
             <Grid md={4}>
-              <Box textAlign={"end"}>
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "13px",
-                      md: "15px",
-                      lg: "16px",
-                    },
-                  }}
-                >
-                  {flightData?.arrival}
-                  <span> - </span>
-                  {flightData?.arrivalTime.length > 5
-                    ? `${
-                        new Date(flightData?.arrivalTime)
-                          .toTimeString()
-                          ?.split(":")[0]
-                      }:${
-                        new Date(flightData?.arrivalTime)
-                          .toTimeString()
-                          ?.split(":")[1]
-                      }`
-                    : `${flightData?.arrivalTime?.split(":")[0]}:${
-                        flightData?.arrivalTime?.split(":")[1]
-                      }`}
-                </Typography>
-                {flightData?.segment === "3" ? (
+              <Box
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  gap: "10px",
+                }}
+              >
+                <Box>
+                  {flightData?.system === "Sabre" ? (
+                    <Box style={{ width: "60px", height: "60px" }}>
+                      {flightData.segment === "3" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer !==
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer ===
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid red"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer ===
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer !==
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid red"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : (
+                            <>
+                              <Box className="mercedes-sape-s">
+                                <Box className="first-1"></Box>
+                                <Box className="img-first-1">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-2"></Box>
+                                <Box className="img-first-2">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-3"></Box>
+                                <Box className="img-first-3">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : flightData.segment === "2" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Box
+                                border={"2px solid red"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <img
+                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                          className={`${flightData?.system?.toLowerCase()}`}
+                          alt={`${flightData.career}`}
+                        />
+                      )}
+                    </Box>
+                  ) : flightData.system === "Galileo" ? (
+                    <Box style={{ width: "60px", height: "60px" }}>
+                      {flightData.segment === "3" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer !==
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer ===
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #0b8634"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer ===
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer !==
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #0b8634"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : (
+                            <>
+                              <Box className="mercedes-sape-g">
+                                <Box className="first-1"></Box>
+                                <Box className="img-first-1">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-2"></Box>
+                                <Box className="img-first-2">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-3"></Box>
+                                <Box className="img-first-3">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : flightData.segment === "2" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className="flight-icon-sab2"
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Box
+                                border={"2px solid #0b8634"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <img
+                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                          className="flight-icon-sab2"
+                          alt={`${flightData.career}`}
+                        />
+                      )}
+                    </Box>
+                  ) : (
+                    <Box style={{ width: "60px", height: "60px" }}>
+                      {flightData.segment === "3" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer !==
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer ===
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #4169e1"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : flightData.segments[0]?.marketingcareer ===
+                              flightData.segments[1]?.marketingcareer &&
+                            flightData.segments[1]?.marketingcareer !==
+                              flightData.segments[2]?.marketingcareer ? (
+                            <>
+                              <Box
+                                border={"2px solid #4169e1"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          ) : (
+                            <>
+                              <Box className="mercedes-sape-f">
+                                <Box className="first-1"></Box>
+                                <Box className="img-first-1">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-2"></Box>
+                                <Box className="img-first-2">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box className="first-3"></Box>
+                                <Box className="img-first-3">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[2]?.marketingcareer}.png`}
+                                    width="25px"
+                                    height="25px"
+                                    alt={`${flightData.segments[2]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : flightData.segment === "2" ? (
+                        <>
+                          {flightData.career ===
+                            flightData.segments[0]?.marketingcareer &&
+                          flightData.career ===
+                            flightData.segments[1]?.marketingcareer ? (
+                            <>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                                className={`${flightData?.system?.toLowerCase()}`}
+                                alt={`${flightData.career}`}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <Box
+                                border={"2px solid #4169e1"}
+                                borderRadius="50%"
+                                width="71px"
+                                height="71px"
+                                display="flex"
+                                flexDirection="column"
+                                overflow="hidden"
+                                justifyContent="center"
+                                alignItems="center"
+                                pt="8px"
+                                className="round-rotation"
+                              >
+                                <Box mb="-7px">
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[0]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[0]?.marketingcareer}`}
+                                  />
+                                </Box>
+                                <Box
+                                  borderBottom={"2px solid #D9D9D9"}
+                                  width="100%"
+                                ></Box>
+                                <Box>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.segments[1]?.marketingcareer}.png`}
+                                    width="30px"
+                                    height="30px"
+                                    alt={`${flightData.segments[1]?.marketingcareer}`}
+                                  />
+                                </Box>
+                              </Box>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <img
+                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
+                          className={`${flightData?.system?.toLowerCase()}`}
+                          alt={`${flightData.career}`}
+                        />
+                      )}
+                    </Box>
+                  )}
+                </Box>
+                <Box textAlign={"end"}>
                   <Typography
                     sx={{
-                      color: "#003566",
-                      fontWeight: 600,
+                      color: "#000",
+                      fontWeight: 500,
                       fontSize: {
                         xs: "12px",
-                        sm: "11px",
-                        md: "13px",
+                        sm: "13px",
+                        md: "15px",
+                        lg: "16px",
                       },
                     }}
                   >
-                    {flightData?.segments[2]?.arrivalLocation}
+                    {flightData?.arrival}
+                    <span> - </span>
+                    {flightData?.arrivalTime.length > 5
+                      ? `${
+                          new Date(flightData?.arrivalTime)
+                            .toTimeString()
+                            ?.split(":")[0]
+                        }:${
+                          new Date(flightData?.arrivalTime)
+                            .toTimeString()
+                            ?.split(":")[1]
+                        }`
+                      : `${flightData?.arrivalTime?.split(":")[0]}:${
+                          flightData?.arrivalTime?.split(":")[1]
+                        }`}
                   </Typography>
-                ) : flightData?.segment === "2" ? (
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontWeight: 600,
-                      fontSize: {
-                        xs: "12px",
-                        sm: "11px",
-                        md: "13px",
-                      },
-                    }}
-                  >
-                    {flightData?.segments[1]?.arrivalLocation}
-                  </Typography>
-                ) : (
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontWeight: 600,
-                      fontSize: {
-                        xs: "12px",
-                        sm: "11px",
-                        md: "13px",
-                      },
-                    }}
-                  >
-                    {flightData?.segments[0]?.arrivalLocation}
-                  </Typography>
-                )}
-
-                <Typography
-                  sx={{
-                    color: "#6c757d",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "11px",
-                      md: "13px",
-                    },
-                  }}
-                >
-                  {flightData?.arrivalDate}
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-          {/* <Grid container justifyContent={"space-between"} pt={3}>
-            <Grid md={3}>
-              {flightData.system === "Sabre" ? (
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "14px",
-                      sm: "14px",
-                      md: "14px",
-                      lg: "16px",
-                    },
-                  }}
-                >
-                  {flightData?.class}
-                </Typography>
-              ) : flightData.system === "Galileo" ? (
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "12px",
-                      md: "14px",
-                      lg: "16px",
-                    },
-                  }}
-                >
-                  {flightData?.class}
-                </Typography>
-              ) : (
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "12px",
-                      md: "14px",
-                      lg: "16px",
-                    },
-                  }}
-                >
-                  Economy
-                </Typography>
-              )}
-            </Grid>
-            <Grid md={4}>
-              {(() => {
-                if (flightData?.refundable === "Refundable") {
-                  return (
+                  {flightData?.segment === "3" ? (
                     <Typography
                       sx={{
-                        color: "green",
-                        fontWeight: 500,
+                        color: "var(--secondary-color)",
+                        fontWeight: 600,
                         fontSize: {
-                          xs: "14px",
-                          sm: "12px",
-                          md: "14px",
-                          lg: "16px",
+                          xs: "12px",
+                          sm: "11px",
+                          md: "13px",
                         },
                       }}
                     >
-                      {flightData?.refundable}
+                      {flightData?.segments[2]?.arrivalAirport}
                     </Typography>
-                  );
-                } else if (flightData?.refundable === "Nonrefundable") {
-                  return (
+                  ) : flightData?.segment === "2" ? (
                     <Typography
                       sx={{
-                        color: "#DC143C",
+                        color: "var(--secondary-color)",
+                        fontWeight: 600,
+                        fontSize: {
+                          xs: "12px",
+                          sm: "11px",
+                          md: "13px",
+                        },
+                      }}
+                    >
+                      {flightData?.segments[1]?.arrivalAirport}
+                    </Typography>
+                  ) : (
+                    <Typography
+                      sx={{
+                        color: "var(--secondary-color)",
+                        fontWeight: 600,
+                        fontSize: {
+                          xs: "12px",
+                          sm: "11px",
+                          md: "13px",
+                        },
+                      }}
+                    >
+                      {flightData?.segments[0]?.arrivalAirport}
+                    </Typography>
+                  )}
+
+                  <Typography
+                    sx={{
+                      color: "#6c757d",
+                      fontWeight: 500,
+                      fontSize: {
+                        xs: "12px",
+                        sm: "11px",
+                        md: "13px",
+                      },
+                    }}
+                  >
+                    {flightData?.arrivalDate}
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+            {/* //todo:Four */}
+            <Grid
+              ms={12}
+              style={{
+                width: "100%",
+                height: "100%",
+                marginTop: "30px",
+                marginLeft: "-15px",
+              }}
+            >
+              <Grid
+                container
+                style={{
+                  width: "80%",
+                  height: "100%",
+                  backgroundColor: "rgba(var(--primary-rgb),.5)",
+                  padding: "10px 0",
+                }}
+              >
+                <Grid md={4}>
+                  {(() => {
+                    if (flightData?.refundable === "Refundable") {
+                      return (
+                        <Typography
+                          sx={{
+                            color: "var(--primary-color)",
+                            fontWeight: 500,
+                            textAlign: "center",
+                            fontSize: {
+                              xs: "14px",
+                              sm: "12px",
+                              md: "14px",
+                              lg: "16px",
+                            },
+                          }}
+                        >
+                          {flightData?.refundable}
+                        </Typography>
+                      );
+                    } else if (flightData?.refundable === "Nonrefundable") {
+                      return (
+                        <Typography
+                          sx={{
+                            color: "var(--primary-color)",
+                            fontWeight: 500,
+                            textAlign: "center",
+                            fontSize: {
+                              xs: "12px",
+                              sm: "12px",
+                              md: "14px",
+                              lg: "16px",
+                            },
+                          }}
+                        >
+                          Non Refundable
+                        </Typography>
+                      );
+                    }
+                  })()}
+                </Grid>
+                <Grid md={4}>
+                  <Box
+                    className="img-text-bag-0"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                  >
+                    <WorkIcon style={{ color: "var(--primary-color)" }} />
+                    <Typography
+                      sx={{
+                        color: "var(--primary-color)",
                         fontWeight: 500,
                         fontSize: {
                           xs: "12px",
@@ -3878,69 +4066,48 @@ const SingleFlight = ({
                         },
                       }}
                     >
-                      Non Refundable
+                      {flightData?.bags === "3" ||
+                      flightData?.bags === "2" ||
+                      flightData?.bags === "1" ? (
+                        <>{flightData?.bags?.split(" ")[0]} Piece</>
+                      ) : flightData?.bags === " " ? (
+                        <>0 Kg</>
+                      ) : (
+                        <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                      )}
                     </Typography>
-                  );
-                }
-              })()}
+                  </Box>
+                </Grid>
+                <Grid md={4}>
+                  <Box
+                    className="img-text-bag-0"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        color: "var(--primary-color)",
+                        fontWeight: 500,
+                        fontSize: {
+                          xs: "12px",
+                          sm: "12px",
+                          md: "14px",
+                          lg: "16px",
+                        },
+                      }}
+                    >
+                      {flightData?.seat || 9} Seat
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid md={2.5}>
-              <Box className="img-text-bag-0">
-                <img src={bag} alt="seat" /> &nbsp;{" "}
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "12px",
-                      md: "14px",
-                      lg: "16px",
-                    },
-                  }}
-                >
-                  {flightData?.bags === "3" ||
-                  flightData?.bags === "2" ||
-                  flightData?.bags === "1" ? (
-                    <>{flightData?.bags?.split(" ")[0]} Piece</>
-                  ) : flightData?.bags === " " ? (
-                    <>0 Kg</>
-                  ) : (
-                    <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                  )}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid md={2.5}>
-              <Box className="img-text-0">
-                <img src={seat} alt="bag" />
-                &nbsp;
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 500,
-                    fontSize: {
-                      xs: "12px",
-                      sm: "12px",
-                      md: "14px",
-                      lg: "16px",
-                    },
-                  }}
-                >
-                  {flightData?.seat || 9} Seat
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid> */}
+          </Grid>
         </Grid>
-        {/*  non stops box start */}
-        <Grid
-          sm={2.5}
-          md={2.5}
-          sx={{
-            paddingLeft: "20px",
-          }}
-        >
+        <Grid sm={2.5} md={4}>
           <Box className="updatebooknowbtn">
             <Box style={{ height: "fit-content" }}>
               <Box
@@ -3967,6 +4134,7 @@ const SingleFlight = ({
                 alignItems: "flex-end",
                 flexDirection: "column",
                 gap: "5px",
+                paddingRight: "10px",
               }}
             >
               <Box
@@ -3979,7 +4147,7 @@ const SingleFlight = ({
               >
                 <Typography
                   style={{
-                    fontSize: "10px",
+                    fontSize: "12px",
                     color: "var(--black)",
                   }}
                 >
@@ -3989,6 +4157,7 @@ const SingleFlight = ({
                   style={{
                     fontSize: "18px",
                     color: "var(--secondary-color)",
+                    fontWeight: "bold",
                   }}
                 >
                   BDT {commaNumber(clientFare)}
@@ -3996,8 +4165,9 @@ const SingleFlight = ({
                 <Typography
                   style={{
                     fontSize: "14px",
-                    color: "var(--black)",
+                    color: "var(--third-color)",
                     textDecoration: "line-through",
+                    fontWeight: "bold",
                   }}
                 >
                   BDT {commaNumber(agentFare)}
