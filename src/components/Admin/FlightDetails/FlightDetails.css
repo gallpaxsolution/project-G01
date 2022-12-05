@@ -4,7 +4,7 @@
   background-color: #2564b8;
   border-radius: 50%;
   position: relative;
-  left: -10px;
+  left: -19px;
 }
 
 .passengerInput1 p {
@@ -56,12 +56,14 @@
   background-color: #ffffff !important;
 }
 
-.baggageTable1 table th {
+.baggageTable1 table tr th {
   background-color: #ffa84d;
   color: #fff;
   font-size: 14px;
   padding: 4px 0px;
   font-weight: 300;
+  font-weight: 500;
+  font-family: "poppins";
 }
 
 .baggageTable1 table tr td {
