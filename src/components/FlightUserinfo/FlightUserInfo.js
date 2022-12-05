@@ -4,8 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loader from "../../images/loader/Render.gif";
 import Swal from "sweetalert2";
-// import PhoneInput from "react-phone-number-input";
-// import CountryDropdown from "country-dropdown-with-flags-for-react";
 import secureLocalStorage from "react-secure-storage";
 import "./FlightUserInfo.css";
 

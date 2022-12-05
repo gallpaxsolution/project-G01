@@ -28,6 +28,7 @@ import {
 } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
+import commaNumber from "comma-number";
 
 const OneWayFilter = ({
   filteredData,
@@ -40,25 +41,6 @@ const OneWayFilter = ({
   setFrom,
 }) => {
   const location = useLocation();
-  const requiredSearchData =
-    location.state !== null
-      ? location.state
-      : secureLocalStorage.getItem("search-data");
-
-  const {
-    toSendData,
-    adultCount,
-    childCount,
-    infant,
-    tripType,
-    faddress,
-    toAddress,
-    fromSendData,
-  } = requiredSearchData;
-
-  const FromAddress = faddress?.split(",");
-  const Toaddress = toAddress?.split(",");
-
   let arr = [];
   let flightprice = data;
   flightprice.map((dat) => {
@@ -213,19 +195,6 @@ const OneWayFilter = ({
       setNoData(noData);
     }
   };
-
-  // Find out How many sysytem start
-  // let systemArray = [];
-  // data.map((name) => {
-  //   systemArray.push(name.system);
-  //   return systemArray;
-  // });
-  // let systems = [];
-  // systemArray.forEach((i) => (systems[i] = false));
-  // let totalSystem = Object.keys(systems).map((item) => ({ item }));
-  // Find out How many sysytem End
-
-  // Find out How many carear name star
   const [carearFlight, setCarearFlight] = useState([]);
   let carearArray = [];
   data.map((name) => {
@@ -260,328 +229,151 @@ const OneWayFilter = ({
     setfilteredData(data);
   };
 
-  // const applyFilters = () => {
-  //   let updatedflight = data;
-  //   const selectMinPrice = selectPrice[0];
-  //   const selectMaxPrice = selectPrice[1];
-  //   if (selectPrice) {
-  //     updatedflight = updatedflight.filter(
-  //       (item) => item.price >= selectMinPrice && item.price <= selectMaxPrice
-  //     );
-  //     setfilteredData(updatedflight);
-  //   }
-  // };
-
   return (
-    <Box className="flight-filter1 filter-side-0">
-      <Grid container justifyContent={"space-between"} px={2} pt={2}>
-        <Typography
-          sx={{
-            color: "#003566",
-            fontSize: "18px",
-          }}
+    <Container>
+      <Box className="flight-filter1 filter-side-0">
+        <Grid
+          container
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          pt={2}
         >
-          FILTER
-        </Typography>
-        <Typography
-          onClick={handleResetBtn}
-          sx={{
-            cursor: "pointer",
-            color: "#fff",
-            backgroundColor: "#dc143c",
-            padding: "5px",
-            borderRadius: "5px",
-          }}
-        >
-          Reset
-        </Typography>
-      </Grid>
-      <Box px={2} py={2}>
-        <hr style={{ border: "2px solid #DC143C" }} />
-      </Box>
-      <Accordion defaultExpanded={true} className="Accordion12">
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Grid container justifyContent={"space-between"}>
-            <Typography className="fil-title">Price Range</Typography>
-          </Grid>
-        </AccordionSummary>
-        <AccordionDetails className="AccordionDetails22">
-          <Box px={2} sx={{ width: "100%" }}>
-            <Grid item className="price-slider-line">
-              <Slider
-                value={selectPrice}
-                onChange={handleChangePrice}
-                valueLabelDisplay="auto"
-                min={minPrice}
-                max={maxPrice}
-              />
-            </Grid>
+          <Typography
+            sx={{
+              color: "var(--secondary-color)",
+              fontSize: "14px",
+            }}
+          >
+            Sort & FILTER
+          </Typography>
+          <Typography
+            onClick={handleResetBtn}
+            sx={{
+              cursor: "pointer",
+              color: "var(--white)",
+              backgroundColor: "var(--primary-color)",
+              padding: "5px",
+              borderRadius: "5px",
+            }}
+          >
+            Reset
+          </Typography>
+        </Grid>
+        {/* <Box py={2}>
+          <hr style={{ border: "2px solid var(--primary-color)" }} />
+        </Box> */}
+        {/* <Accordion defaultExpanded={true} className="Accordion12">
+          <AccordionSummary
+            expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
+            id="panel1a-header"
+          >
             <Grid container justifyContent={"space-between"}>
               <Typography
-                sx={{
-                  color: "#000",
-                  fontWeight: "500",
-                  fontSize: "14px",
-                }}
+                className="fil-title"
+                style={{ color: "var(--secondary-color)" }}
               >
-                ৳ {minPrice}
-              </Typography>
-              <Typography
-                sx={{
-                  color: "#000",
-                  fontWeight: "500",
-                  fontSize: "14px",
-                }}
-              >
-                {" "}
-                ৳ {maxPrice}
+                Price Range
               </Typography>
             </Grid>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion defaultExpanded={true}>
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className="fil-title">Fare Type</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box sx={{ width: "100%" }}>
-            <FormGroup className="check-box-text09">
-              <FormControlLabel
-                value={"refundable"}
-                control={<Checkbox className="box-0" />}
-                checked={refundable}
-                onChange={handleRefundable}
-                label="Refundable"
-              />
-              <FormControlLabel
-                value={"NonRefundable"}
-                control={<Checkbox className="box-0" />}
-                checked={nonRefundable}
-                onChange={handleNonRefundable}
-                label="Non Refundable"
-              />
-            </FormGroup>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion defaultExpanded={true}>
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className="fil-title">Stops</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box sx={{ width: "100%" }}>
-            <FormGroup className="check-box-text09">
-              <FormControlLabel
-                onChange={handleDirectFlight}
-                checked={directFlight}
-                control={<Checkbox className="box-0" />}
-                label="Non Stop"
-              />
-              <FormControlLabel
-                control={<Checkbox className="box-0" />}
-                checked={oneStopFlight}
-                onChange={handleOneStopFlight}
-                label="One Stops"
-              />
-              <FormControlLabel
-                control={<Checkbox className="box-0" />}
-                checked={multiStopFlight}
-                onChange={handleMultiStopFlight}
-                label="One Plus Stops"
-              />
-            </FormGroup>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
-      {/* <Accordion defaultExpanded={false}>
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className="fil-title">Layover Airport</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box sx={{ width: "100%" }}>
-            <FormGroup className="check-box-text09">
-              <FormControlLabel
-                control={<Checkbox className="box-0" />}
-                label="Empty"
-              />
-              <FormControlLabel
-                control={<Checkbox className="box-0" />}
-                label="Empty"
-              />
-              <FormControlLabel
-                control={<Checkbox className="box-0" />}
-                label="Empty"
-              />
-            </FormGroup>
-          </Box>
-        </AccordionDetails>
-      </Accordion> */}
-      {/* <Accordion defaultExpanded={false}>
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className="fil-title">Departure Times</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography fontSize={"14px"} mb={1}>
-            {location?.state?.fromSendData} ({FromAddress[0]})
-          </Typography>
-          <Box sx={{ width: "100%" }}>
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <LocalFloristSharpIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <LightModeOutlinedIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <WbTwilightOutlinedIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <DarkModeOutlinedIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-          </Box>
-        </AccordionDetails>
-      </Accordion> */}
-      {/* <Accordion defaultExpanded={false}>
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className="fil-title">Arrival Times</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography fontSize={"14px"} mb={1}>
-            {location?.state?.toSendData} ({Toaddress[0]})
-          </Typography>
-          <Box sx={{ width: "100%" }}>
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <LocalFloristSharpIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <LightModeOutlinedIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <WbTwilightOutlinedIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              alignItems={"center"}
-              columnGap={2}
-              className="filter-bg09"
-            >
-              <DarkModeOutlinedIcon sx={{ color: "#235F83" }} />
-              <Typography className="check-box-text09">
-                00:00 - 05:59
-              </Typography>
-            </Grid>
-          </Box>
-        </AccordionDetails>
-      </Accordion> */}
-      {/* <Accordion defaultExpanded={true}>
-      <AccordionSummary
-        expandIcon={<AiFillCaretDown color="#003566" />}
-        aria-controls="panel2a-content"
-        id="panel2a-header"
-      >
-        <Typography className="fil-title">Airlines</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Box sx={{ width: "100%" }}>
-          {carearFlight.map((carear, index) => (
-            <FormControlLabel
-              name={carear.name}
-              control={
-                <Checkbox
-                  onChange={handleflightCarear}
-                  checked={carear?.check || false}
-                  className="box-0"
+          </AccordionSummary>
+          <AccordionDetails className="AccordionDetails22">
+            <Box sx={{ width: "100%" }}>
+              <Grid item className="price-slider-line">
+                <Slider
+                  value={selectPrice}
+                  onChange={handleChangePrice}
+                  valueLabelDisplay="auto"
+                  min={minPrice}
+                  max={maxPrice}
                 />
-              }
-              label={carear.name}
-            />
-          ))}
-        </Box>
-      </AccordionDetails>
-    </Accordion> */}
-    </Box>
+              </Grid>
+              <Grid container justifyContent={"space-between"}>
+                <Typography
+                  sx={{
+                    color: "var(--black)",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                  }}
+                >
+                  ৳ {commaNumber(minPrice)}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "var(--black)",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                  }}
+                >
+                  {" "}
+                  ৳ {commaNumber(maxPrice)}
+                </Typography>
+              </Grid>
+            </Box>
+          </AccordionDetails>
+        </Accordion> */}
+        <Accordion defaultExpanded={true}>
+          <AccordionSummary
+            expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
+            id="panel2a-header"
+          >
+            <Typography className="fil-title">Fare Type</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Box sx={{ width: "100%" }}>
+              <FormGroup className="check-box-text09">
+                <FormControlLabel
+                  value={"refundable"}
+                  control={<Checkbox className="box-0" />}
+                  checked={refundable}
+                  onChange={handleRefundable}
+                  label="Refundable"
+                />
+                <FormControlLabel
+                  value={"NonRefundable"}
+                  control={<Checkbox className="box-0" />}
+                  checked={nonRefundable}
+                  onChange={handleNonRefundable}
+                  label="Non Refundable"
+                />
+              </FormGroup>
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion defaultExpanded={true}>
+          <AccordionSummary
+            expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className="fil-title">Stops</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Box sx={{ width: "100%" }}>
+              <FormGroup className="check-box-text09">
+                <FormControlLabel
+                  onChange={handleDirectFlight}
+                  checked={directFlight}
+                  control={<Checkbox className="box-0" />}
+                  label="Non Stop"
+                />
+                <FormControlLabel
+                  control={<Checkbox className="box-0" />}
+                  checked={oneStopFlight}
+                  onChange={handleOneStopFlight}
+                  label="One Stops"
+                />
+                <FormControlLabel
+                  control={<Checkbox className="box-0" />}
+                  checked={multiStopFlight}
+                  onChange={handleMultiStopFlight}
+                  label="One Plus Stops"
+                />
+              </FormGroup>
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+      </Box>
+    </Container>
   );
 };
 

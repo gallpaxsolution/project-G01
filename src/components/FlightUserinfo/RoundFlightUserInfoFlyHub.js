@@ -7,13 +7,8 @@ import {
 import { Box, Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
-import Loader from "../../images/loader/Render.gif";
 import Swal from "sweetalert2";
 import PhoneInput from "react-phone-input-2";
-import CountryDropdown from "country-dropdown-with-flags-for-react";
-import "./FlightUserInfo.css";
-import CountryList from "../../../CountryList";
 import secureLocalStorage from "react-secure-storage";
 import { format } from "date-fns";
 import { Calendar } from "react-date-range";
@@ -21,7 +16,9 @@ import bookingSuccess from "../../images/undraw/undraw_travel_booking_re_6umu.sv
 import noFareFound from "../../images/undraw/undraw_not_found_re_bh2e.svg";
 import serverError from "../../images/undraw/undraw_server_down_s-4-lk.svg";
 import BookingFailed from "../../images/undraw/undraw_cancel_re_pkdm.svg";
-import SearchableDropDown from "../../../Shared/SearchableDropDown/SearchableDropDown";
+import "./FlightUserInfo.css";
+import SearchableDropDown from "../Shared/SearchableDropDown/SearchableDropDown";
+import CountryList from "../Shared/CountryList";
 
 const RoundFlightUserInfoFlyHub = ({
   userData,

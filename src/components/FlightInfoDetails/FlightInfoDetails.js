@@ -7,6 +7,7 @@ import commaNumber from "comma-number";
 import secureLocalStorage from "react-secure-storage";
 import "./FlightInfoDetails.css";
 import { useEffect, useState } from "react";
+import { Container } from "@mui/system";
 
 const FlightInfoDetails = ({
   loadData,
@@ -198,681 +199,620 @@ const FlightInfoDetails = ({
     baggagefunction();
   }, []);
   return (
-    <Box>
-      <Accordion defaultExpanded={true} className="flight-accordian1">
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Grid container justifyContent={"space-between"}>
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "16px",
-                fontWeight: 600,
-                width: "100%",
-              }}
-            >
-              Price Break Down
-              <Box className="eticket-title-line"></Box>
-            </Typography>
-          </Grid>
-        </AccordionSummary>
-        <AccordionDetails className="flight-accordian2">
-          {adultCount >= 1 && childCount >= 1 && infant >= 1 ? (
-            <Box>
+    <Container>
+      <Box>
+        <Accordion defaultExpanded={true} className="flight-accordian1">
+          <AccordionSummary
+            expandIcon={<AiFillCaretDown color="#003566" />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Grid container justifyContent={"space-between"}>
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  width: "100%",
+                }}
+              >
+                Price Break Down
+                <Box className="eticket-title-line"></Box>
+              </Typography>
+            </Grid>
+          </AccordionSummary>
+          <AccordionDetails className="flight-accordian2">
+            {adultCount >= 1 && childCount >= 1 && infant >= 1 ? (
               <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Adult x{adultCount}
-                </Typography>
-                <Grid container justifyContent="space-between">
+                <Box>
                   <Typography
                     sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    Base
+                    Adult x{adultCount}
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(adultPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(adultTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeAdult}৳
-                  </Typography>
-                </Grid>
-              </Box>
-              <Box className="eticket-hr-line"></Box>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeAdult}৳
+                    </Typography>
+                  </Grid>
+                </Box>
+                <Box className="eticket-hr-line"></Box>
 
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Child x{childCount}
-                </Typography>
-                <Grid container justifyContent="space-between">
+                <Box>
                   <Typography
                     sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    Base
+                    Child x{childCount}
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(childPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(childTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeChild}৳
-                  </Typography>
-                </Grid>
-              </Box>
-              <Box className="eticket-hr-line"></Box>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(childPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(childTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeChild}৳
+                    </Typography>
+                  </Grid>
+                </Box>
+                <Box className="eticket-hr-line"></Box>
 
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Infant x{infant}
-                </Typography>
-                <Grid container justifyContent="space-between">
+                <Box>
                   <Typography
                     sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    Base
+                    Infant x{infant}
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(infPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(infTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeInfant}৳
-                  </Typography>
-                </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(infPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(infTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeInfant}৳
+                    </Typography>
+                  </Grid>
+                </Box>
               </Box>
-            </Box>
-          ) : adultCount >= 1 && childCount >= 1 ? (
-            <Box>
+            ) : adultCount >= 1 && childCount >= 1 ? (
               <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Adult x{adultCount}
-                </Typography>
-                <Grid container justifyContent="space-between">
+                <Box>
                   <Typography
                     sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    Base
+                    Adult x{adultCount}
                   </Typography>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeAdult}৳
+                    </Typography>
+                  </Grid>
+                </Box>
+                <Box className="eticket-hr-line"></Box>
+                <Box>
                   <Typography
                     sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    {commaNumber(adultPrice)}৳
+                    Child x{childCount}
                   </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(adultTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeAdult}৳
-                  </Typography>
-                </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(childPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(childTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeChild}৳
+                    </Typography>
+                  </Grid>
+                </Box>
+                <Box className="eticket-hr-line"></Box>
               </Box>
-              <Box className="eticket-hr-line"></Box>
+            ) : adultCount >= 1 && infant >= 1 ? (
               <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Child x{childCount}
-                </Typography>
-                <Grid container justifyContent="space-between">
+                <Box>
                   <Typography
                     sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    Base
+                    Adult x{adultCount}
                   </Typography>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeAdult}৳
+                    </Typography>
+                  </Grid>
+                </Box>
+                <Box className="eticket-hr-line"></Box>
+                <Box>
                   <Typography
                     sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    {commaNumber(childPrice)}৳
+                    Infant x{infant}
                   </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(childTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeChild}৳
-                  </Typography>
-                </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(infPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(infTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeInfant}৳
+                    </Typography>
+                  </Grid>
+                </Box>
+                <Box className="eticket-hr-line"></Box>
               </Box>
-              <Box className="eticket-hr-line"></Box>
-            </Box>
-          ) : adultCount >= 1 && infant >= 1 ? (
-            <Box>
+            ) : (
               <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Adult x{adultCount}
-                </Typography>
-                <Grid container justifyContent="space-between">
+                <Box>
                   <Typography
                     sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
+                      color: "#DC143C",
+                      fontSize: "15px",
+                      fontWeight: 600,
                     }}
                   >
-                    Base
+                    Adult x{adultCount}
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(adultPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(adultTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeAdult}৳
-                  </Typography>
-                </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Base
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Taxes
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {commaNumber(adultTaxPrice)}৳
+                    </Typography>
+                  </Grid>
+                  <Grid container justifyContent="space-between">
+                    <Typography
+                      sx={{
+                        color: "#003566",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Service Fee
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {serviceFeeAdult}৳
+                    </Typography>
+                  </Grid>
+                </Box>
               </Box>
-              <Box className="eticket-hr-line"></Box>
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Infant x{infant}
-                </Typography>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Base
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(infPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(infTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeInfant}৳
-                  </Typography>
-                </Grid>
-              </Box>
-              <Box className="eticket-hr-line"></Box>
-            </Box>
-          ) : (
-            <Box>
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#DC143C",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Adult x{adultCount}
-                </Typography>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Base
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(adultPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Taxes
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {commaNumber(adultTaxPrice)}৳
-                  </Typography>
-                </Grid>
-                <Grid container justifyContent="space-between">
-                  <Typography
-                    sx={{
-                      color: "#003566",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Service Fee
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {serviceFeeAdult}৳
-                  </Typography>
-                </Grid>
-              </Box>
-            </Box>
-          )}
-          {/* -------no cut */}
-          <Box my={2} height="2px" bgcolor="#DEDEDE"></Box>
-          <Grid container justifyContent="space-between">
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              Total PAX
-            </Typography>
-            <Typography
-              sx={{
-                color: "#000",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              {adultCount + childCount + infant}&#128100;
-            </Typography>
-          </Grid>
-          <Grid container justifyContent="space-between">
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              Total Base Fare
-            </Typography>
-            <Typography
-              sx={{
-                color: "#000",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              {commaNumber(totalBaseFare)}৳
-            </Typography>
-          </Grid>
-          <Grid container justifyContent="space-between">
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              Total TAX
-            </Typography>
-            <Typography
-              sx={{
-                color: "#000",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              {commaNumber(totalTax)}৳
-            </Typography>
-          </Grid>
-
-          {couponAppliedMessage.status === "success" && (
+            )}
+            {/* -------no cut */}
+            <Box my={2} height="2px" bgcolor="#DEDEDE"></Box>
             <Grid container justifyContent="space-between">
               <Typography
                 sx={{
@@ -881,7 +821,7 @@ const FlightInfoDetails = ({
                   fontWeight: 500,
                 }}
               >
-                Coupon
+                Total PAX
               </Typography>
               <Typography
                 sx={{
@@ -890,368 +830,329 @@ const FlightInfoDetails = ({
                   fontWeight: 500,
                 }}
               >
-                {commaNumber(-100)}৳
+                {adultCount + childCount + infant}&#128100;
               </Typography>
             </Grid>
-          )}
-          <Grid container justifyContent="space-between">
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              Agent Total
-            </Typography>
-            <Typography
-              sx={{
-                color: "#000",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              {couponAppliedMessage.status === "success"
-                ? commaNumber(agentTotal - 100)
-                : commaNumber(agentTotal)}
-              ৳
-            </Typography>
-          </Grid>
-          <Grid container justifyContent="space-between">
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              Customer Total
-            </Typography>
-            <Typography
-              sx={{
-                color: "#000",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              {commaNumber(totalFare)}৳
-            </Typography>
-          </Grid>
-          <Grid container justifyContent="space-between">
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              Discount
-            </Typography>
-            <Typography
-              sx={{
-                color: "#000",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              {commaNumber(discount)}৳
-            </Typography>
-          </Grid>
-        </AccordionDetails>
-      </Accordion>
-      {/* //TODO: Baggage Policy */}
-      <Accordion defaultExpanded={false} className="flight-accordian1">
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Grid container justifyContent={"space-between"}>
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "16px",
-                fontWeight: 600,
-                width: "100%",
-              }}
-            >
-              Baggage Policy
-              <Box className="eticket-title-line"></Box>
-            </Typography>
-          </Grid>
-        </AccordionSummary>
-        <AccordionDetails className="flight-accordian2">
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "flex-between",
-              alignItems: "center",
-            }}
+            <Grid container justifyContent="space-between">
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                Total Base Fare
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#000",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                {commaNumber(totalBaseFare)}৳
+              </Typography>
+            </Grid>
+            <Grid container justifyContent="space-between">
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                Total TAX
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#000",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                {commaNumber(totalTax)}৳
+              </Typography>
+            </Grid>
+
+            {couponAppliedMessage.status === "success" && (
+              <Grid container justifyContent="space-between">
+                <Typography
+                  sx={{
+                    color: "#003566",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                  }}
+                >
+                  Coupon
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#000",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                  }}
+                >
+                  {commaNumber(-100)}৳
+                </Typography>
+              </Grid>
+            )}
+            <Grid container justifyContent="space-between">
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                Agent Total
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#000",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                {couponAppliedMessage.status === "success"
+                  ? commaNumber(agentTotal - 100)
+                  : commaNumber(agentTotal)}
+                ৳
+              </Typography>
+            </Grid>
+            <Grid container justifyContent="space-between">
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                Customer Total
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#000",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                {commaNumber(totalFare)}৳
+              </Typography>
+            </Grid>
+            <Grid container justifyContent="space-between">
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                Discount
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#000",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                }}
+              >
+                {commaNumber(discount)}৳
+              </Typography>
+            </Grid>
+          </AccordionDetails>
+        </Accordion>
+        {/* //TODO: Baggage Policy */}
+        <Accordion defaultExpanded={false} className="flight-accordian1">
+          <AccordionSummary
+            expandIcon={<AiFillCaretDown color="#003566" />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
-            <Typography
+            <Grid container justifyContent={"space-between"}>
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  width: "100%",
+                }}
+              >
+                Baggage Policy
+                <Box className="eticket-title-line"></Box>
+              </Typography>
+            </Grid>
+          </AccordionSummary>
+          <AccordionDetails className="flight-accordian2">
+            <Box
               sx={{
-                color: "#DC143C",
-                fontSize: "15px",
-                fontWeight: 600,
+                display: "flex",
+                justifyContent: "flex-between",
+                alignItems: "center",
               }}
             >
-              {searchData?.flightData?.departure?.trim()} -{" "}
-              {searchData?.flightData?.arrival?.trim()}
-            </Typography>
-          </Box>
-          <Box>
-            <Grid container justifyContent={"space-between"}>
-              <Grid item>
-                <Typography color="#000" fontSize="14px">
-                  {adultCount > 0 && (
-                    <>
-                      Adult <br />
-                    </>
-                  )}
+              <Typography
+                sx={{
+                  color: "#DC143C",
+                  fontSize: "15px",
+                  fontWeight: 600,
+                }}
+              >
+                {searchData?.flightData?.departure?.trim()} -{" "}
+                {searchData?.flightData?.arrival?.trim()}
+              </Typography>
+            </Box>
+            <Box>
+              <Grid container justifyContent={"space-between"}>
+                <Grid item>
+                  <Typography color="#000" fontSize="14px">
+                    {adultCount > 0 && (
+                      <>
+                        Adult <br />
+                      </>
+                    )}
 
-                  {childCount > 0 && (
-                    <>
-                      Child
-                      <br />
-                    </>
-                  )}
+                    {childCount > 0 && (
+                      <>
+                        Child
+                        <br />
+                      </>
+                    )}
 
-                  {infant > 0 && (
-                    <>
-                      Infant <br />
-                    </>
-                  )}
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography color="#000" fontSize="14px">
-                  {searchData?.flightData?.system === "Sabre" ? (
-                    <>
-                      {adultBaggage === 0 && (
-                        <>
-                          "0Kg"
-                          <br />
-                        </>
-                      )}
-                      {childBaggage === 0 && (
-                        <>
-                          "0Kg"
-                          <br />
-                        </>
-                      )}
-                      {infantBaggage === 0 && "0Kg"}
-                      {adultBaggage ? (
-                        <>
-                          {adultBaggage > 5 ? (
-                            <>{adultBaggage || 0}Kg </>
-                          ) : adultBaggage < 0 ? (
-                            <>0 Kg</>
-                          ) : (
-                            <>{adultBaggage || 0}Piece </>
-                          )}
-                          <br />
-                        </>
-                      ) : (
-                        <></>
-                      )}{" "}
-                      {childBaggage ? (
-                        <>
-                          {childBaggage > 5 ? (
-                            <>{childBaggage || 0}Kg </>
-                          ) : (
-                            <>{childBaggage || 0}Piece </>
-                          )}
-                          <br />
-                        </>
-                      ) : (
-                        <></>
-                      )}{" "}
-                      {infantBaggage ? (
-                        <>
-                          {infantBaggage > 5 ? (
-                            <>{infantBaggage || 0}Kg </>
-                          ) : (
-                            <>{infantBaggage || 0}Piece </>
-                          )}
-                          <br />
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                    </>
-                  ) : searchData?.flightData?.system === "FlyHub" ? (
-                    <>
-                      <Typography color="#000" fontSize="14px">
-                        {loadData?.Results[0].segments[0].Baggage === null && (
+                    {infant > 0 && (
+                      <>
+                        Infant <br />
+                      </>
+                    )}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography color="#000" fontSize="14px">
+                    {searchData?.flightData?.system === "Sabre" ? (
+                      <>
+                        {adultBaggage === 0 && (
                           <>
-                            {adultCount > 0 && (
-                              <>
-                                0Kg <br />{" "}
-                              </>
-                            )}
-                            {childCount > 0 && (
-                              <>
-                                0Kg <br />{" "}
-                              </>
-                            )}
-                            {infant > 0 && <>0Kg</>}
+                            "0Kg"
+                            <br />
                           </>
                         )}
-                        {loadData?.Results[0]?.segments[0]?.baggageDetails.map(
-                          (bag) => (
-                            <>
-                              {bag?.Checkin || "0"} <br />
-                            </>
-                          )
-                        )}
-                      </Typography>
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
-      {/* <Accordion defaultExpanded={false} className="flight-accordian1">
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Grid container justifyContent={"space-between"}>
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "16px",
-                fontWeight: 600,
-                width: "100%",
-              }}
-            >
-              Baggage Policy
-              <Box className="eticket-title-line"></Box>
-            </Typography>
-          </Grid>
-        </AccordionSummary>
-        <AccordionDetails className="flight-accordian2">
-          <Box>
-            <Grid container justifyContent={"space-between"}>
-              <Grid item>
-                <Typography color="#000" fontSize="14px">
-                  {adultCount > 0 && (
-                    <>
-                      Adult <br />
-                    </>
-                  )}
-
-                  {childCount > 0 && (
-                    <>
-                      Child
-                      <br />
-                    </>
-                  )}
-
-                  {infant > 0 && (
-                    <>
-                      Infant <br />
-                    </>
-                  )}
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography color="#000" fontSize="14px">
-                  {searchData?.flightData?.system === "Sabre" ? (
-                    <>
-                      {loadData?.groupedItineraryResponse?.baggageAllowanceDescs.map(
-                        (bag) => (
+                        {childBaggage === 0 && (
                           <>
-                            {bag?.weight !== undefined ? (
-                              <>
-                                {bag?.weight || "0"} {bag?.unit || "0"}
-                                <br />
-                              </>
+                            "0Kg"
+                            <br />
+                          </>
+                        )}
+                        {infantBaggage === 0 && "0Kg"}
+                        {adultBaggage ? (
+                          <>
+                            {adultBaggage > 5 ? (
+                              <>{adultBaggage || 0}Kg </>
+                            ) : adultBaggage < 0 ? (
+                              <>0 Kg</>
                             ) : (
-                              <>
-                                {bag?.pieceCount || "0"} Piece
-                                <br />
-                              </>
+                              <>{adultBaggage || 0}Piece </>
                             )}
+                            <br />
                           </>
-                        )
-                      )}
-                    </>
-                  ) : searchData?.flightData?.system === "FlyHub" ? (
-                    <>
-                      <Typography color="#000" fontSize="14px">
-                        {loadData?.Results[0].segments[0].Baggage === null && (
+                        ) : (
+                          <></>
+                        )}{" "}
+                        {childBaggage ? (
                           <>
-                            {adultCount > 0 && (
-                              <>
-                                0Kg <br />{" "}
-                              </>
+                            {childBaggage > 5 ? (
+                              <>{childBaggage || 0}Kg </>
+                            ) : (
+                              <>{childBaggage || 0}Piece </>
                             )}
-                            {childCount > 0 && (
-                              <>
-                                0Kg <br />{" "}
-                              </>
-                            )}
-                            {infant > 0 && <>0Kg</>}
+                            <br />
                           </>
+                        ) : (
+                          <></>
+                        )}{" "}
+                        {infantBaggage ? (
+                          <>
+                            {infantBaggage > 5 ? (
+                              <>{infantBaggage || 0}Kg </>
+                            ) : (
+                              <>{infantBaggage || 0}Piece </>
+                            )}
+                            <br />
+                          </>
+                        ) : (
+                          <></>
                         )}
-                        {loadData?.Results[0]?.segments[0]?.baggageDetails.map(
-                          (bag) => (
+                      </>
+                    ) : searchData?.flightData?.system === "FlyHub" ? (
+                      <>
+                        <Typography color="#000" fontSize="14px">
+                          {loadData?.Results[0].segments[0].Baggage ===
+                            null && (
                             <>
-                              {bag?.Checkin || "0"} <br />
+                              {adultCount > 0 && (
+                                <>
+                                  0Kg <br />{" "}
+                                </>
+                              )}
+                              {childCount > 0 && (
+                                <>
+                                  0Kg <br />{" "}
+                                </>
+                              )}
+                              {infant > 0 && <>0Kg</>}
                             </>
-                          )
-                        )}
-                      </Typography>
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                </Typography>
+                          )}
+                          {loadData?.Results[0]?.segments[0]?.baggageDetails.map(
+                            (bag) => (
+                              <>
+                                {bag?.Checkin || "0"} <br />
+                              </>
+                            )
+                          )}
+                        </Typography>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
-          </Box>
-        </AccordionDetails>
-      </Accordion> */}
-      {/* //TODO: End Baggage Policy */}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
+        {/* //TODO: End Baggage Policy */}
 
-      {/* //Todo: Cancellation Policy Section */}
-      <Accordion defaultExpanded={false} className="flight-accordian1">
-        <AccordionSummary
-          expandIcon={<AiFillCaretDown color="#003566" />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Grid container justifyContent={"space-between"}>
-            <Typography
-              sx={{
-                color: "#003566",
-                fontSize: "16px",
-                fontWeight: 600,
-                width: "100%",
-              }}
-            >
-              Cancellation Policy
-              <Box className="eticket-title-line"></Box>
+        {/* //Todo: Cancellation Policy Section */}
+        <Accordion defaultExpanded={false} className="flight-accordian1">
+          <AccordionSummary
+            expandIcon={<AiFillCaretDown color="#003566" />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Grid container justifyContent={"space-between"}>
+              <Typography
+                sx={{
+                  color: "#003566",
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  width: "100%",
+                }}
+              >
+                Cancellation Policy
+                <Box className="eticket-title-line"></Box>
+              </Typography>
+            </Grid>
+          </AccordionSummary>
+          <AccordionDetails className="flight-accordian2">
+            <Typography>
+              <ul className="eticket-list">
+                System cannot retrieve cancelation policy. please contact with
+                our reservation officer or policy can be reveal after booking.
+              </ul>
             </Typography>
-          </Grid>
-        </AccordionSummary>
-        <AccordionDetails className="flight-accordian2">
-          <Typography>
-            <ul className="eticket-list">
-              System cannot retrieve cancelation policy. please contact with our
-              reservation officer or policy can be reveal after booking.
-            </ul>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      {/* //Todo: End Cancellation Policy Section */}
-    </Box>
+          </AccordionDetails>
+        </Accordion>
+        {/* //Todo: End Cancellation Policy Section */}
+      </Box>
+    </Container>
   );
 };
 

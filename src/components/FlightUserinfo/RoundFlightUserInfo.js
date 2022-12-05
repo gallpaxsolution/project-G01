@@ -11,15 +11,12 @@ import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import CircleIcon from "@mui/icons-material/Circle";
 import FlightIcon from "@mui/icons-material/Flight";
 import seat1 from "../../images/Icon/bag.svg";
-import bag from "../../image/Icon/seat.svg";
 import { Box, Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import commaNumber from "comma-number";
 import Swal from "sweetalert2";
 import { styled } from "@mui/material/styles";
-import ReturnFlightUserInfoSabre from "../../FlightInformation/FlightUserInfo/ReturnFlightUserInfoSabre";
-import ReturnFlightUserInfoFlyHub from "../../FlightInformation/FlightUserInfo/ReturnFlightUserInfoFlyHub";
 import { AiFillCaretDown } from "react-icons/ai";
 import anemy from "../../images/anemy.png";
 import Loader from "../../images/loader/Render.gif";
@@ -773,7 +770,7 @@ const RoundFlightUserInfo = () => {
   return (
     <Box>
       {Object.keys(loadData).length !== 0 ? (
-        <Container maxWidth="xxl">
+        <Container>
           <Grid container>
             <Grid item xs={12} sm={9} md={9} lg={9}>
               <Box width={"100%"} px={"24px"}>
