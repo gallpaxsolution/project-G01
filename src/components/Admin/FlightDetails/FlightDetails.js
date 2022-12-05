@@ -172,7 +172,7 @@ const FlightDetails = () => {
                       alignItems: "center",
                       gap: "5px",
                     }}
-                    my={2}
+                    my={4}
                   >
                     <Box>
                       <img
@@ -254,7 +254,7 @@ const FlightDetails = () => {
                       alignItems: "center",
                       gap: "5px",
                     }}
-                    my={2}
+                    my={4}
                   >
                     <Box>
                       <img
@@ -336,6 +336,12 @@ const FlightDetails = () => {
           </Grid>
           <Grid item md={6}>
             {/* accordion start here */}
+
+            {/* 
+            
+            
+            
+            */}
             <div>
               <Accordion
                 expanded={expanded === "panel1"}
