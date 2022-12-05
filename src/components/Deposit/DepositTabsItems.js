@@ -8,8 +8,8 @@ const DepositTabsItems = () => {
   const rows = [createData(), createData(), createData(), createData()];
   return (
     <Box >
-      <table style={{ width: "100%", textAlign: "center", height:'40vh' }}>
-        <tr style={{ background: "#2564B8", color: "#FFFFFF" }}>
+      <table style={{ width: "100%", textAlign: "center", height:'10vh' }}>
+        <tr style={{ background: "#2564B8", color: "#FFFFFF", fontSize:'12px', fontWeight:100, padding:'8px 0px'}}>
           <th>Reff No</th>
           <th>Status</th>
           <th>Type </th>
@@ -21,7 +21,7 @@ const DepositTabsItems = () => {
         </tr>
 
         {rows?.map((data) => (
-          <tr>
+          <tr style={{fontSize:'12px', color:'black',height:'35px', padding:'8px 0px',fontSize:'12px', fontWeight:400}}>
             <td>FFD1147</td>
             <td>PENDING</td>
             <td>Cash</td>
