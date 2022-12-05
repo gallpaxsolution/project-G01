@@ -12,6 +12,9 @@ import { TabContext, TabPanel } from "@material-ui/lab";
 import FlightIcon from "@mui/icons-material/Flight";
 import commaNumber from "comma-number";
 import secureLocalStorage from "react-secure-storage";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { format } from "date-fns";
 import "./SingleFlight.css";
 
@@ -44,7 +47,6 @@ const SingleFlight = ({
   customerFare,
   setCustomerFare,
 }) => {
-  const commissionData = secureLocalStorage.getItem("commissionData");
   const [value, setValue] = useState("1");
   const [flightDetails, setFlightDetails] = useState(false);
   const handleChange = (event, newValue) => {
@@ -125,17 +127,6 @@ const SingleFlight = ({
     return parseFloat(result.toFixed(0));
   };
   let percntVal = calParcent(parseInt(flightData.price), 7);
-  const AgentPrice =
-    parseInt(flightData.BasePrice) +
-    parseInt(flightData.Taxes) -
-    parseInt(percntVal);
-
-  // parseInt(flightData.clientPrice) - parseInt(flightData?.price);
-  let commisonPrice = commaNumber(
-    Math.abs(
-      Math.round(flightData.clientPrice * ((100 - 7) / 100) - flightData?.price)
-    )
-  );
 
   const offerPrice = parseInt(flightData.price) + parseInt(percntVal);
   const paxCount = adultCount + childCount + infant;
@@ -842,7 +833,7 @@ const SingleFlight = ({
         >
           <Button
             sx={{
-              color: "#fff",
+              color: "var(--secondary-color)",
               fontWeight: 500,
               textTransform: "capitalize",
               fontSize: {
@@ -851,7 +842,15 @@ const SingleFlight = ({
             }}
             onClick={() => setFlightDetails(!flightDetails)}
           >
-            {!flightDetails ? <> Flight Details</> : <> Hide Details</>}
+            {!flightDetails ? (
+              <Typography>
+                Show Details <ArrowDropDownIcon />
+              </Typography>
+            ) : (
+              <Typography>
+                Hide Details <ArrowDropUpIcon />
+              </Typography>
+            )}
           </Button>
           <Button
             className="shine-effect"
@@ -859,7 +858,7 @@ const SingleFlight = ({
               color: "#fff",
               fontWeight: 600,
               bgcolor: "#DC143C",
-              borderRadius: "12px  0px",
+              borderRadius: "0px",
               mt: { xs: "5px" },
               p: {
                 xs: "5px 20px",
@@ -2527,16 +2526,7 @@ const SingleFlight = ({
             <Grid md={12} lg={12} xl={4}>
               <Box>
                 {flightData?.system === "Sabre" ? (
-                  <Box
-                    sx={{
-                      width: {
-                        xs: "50px",
-                        sm: "50px",
-                        md: "71px",
-                        lg: "71px",
-                      },
-                    }}
-                  >
+                  <Box style={{ width: "60px", height: "60px" }}>
                     {flightData.segment === "3" ? (
                       <>
                         {flightData.career ===
@@ -2675,7 +2665,7 @@ const SingleFlight = ({
                           <>
                             <img
                               src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData.career}.png`}
-                              className="flight-icon-sab1"
+                              className={`${flightData?.system?.toLowerCase()}`}
                               alt={`${flightData.career}`}
                             />
                           </>
@@ -2728,16 +2718,7 @@ const SingleFlight = ({
                   </Box>
                 ) : // --------End sabre------
                 flightData.system === "Galileo" ? (
-                  <Box
-                    sx={{
-                      width: {
-                        xs: "50px",
-                        sm: "50px",
-                        md: "71px",
-                        lg: "71px",
-                      },
-                    }}
-                  >
+                  <Box style={{ width: "60px" }}>
                     {flightData.segment === "3" ? (
                       <>
                         {flightData.career ===
@@ -2928,14 +2909,10 @@ const SingleFlight = ({
                     )}
                   </Box>
                 ) : (
+                  //todo: flyhub
                   <Box
-                    sx={{
-                      width: {
-                        xs: "50px",
-                        sm: "50px",
-                        md: "71px",
-                        lg: "71px",
-                      },
+                    style={{
+                      width: "60px",
                     }}
                   >
                     {flightData.segment === "3" ? (
@@ -3131,7 +3108,7 @@ const SingleFlight = ({
               </Box>
             </Grid>
 
-            <Grid md={12} lg={12} xl={8}>
+            {/* <Grid md={12} lg={12} xl={8}>
               <Box pl={1}>
                 <Typography
                   sx={{
@@ -3247,7 +3224,7 @@ const SingleFlight = ({
                   )}
                 </Typography>
               </Box>
-            </Grid>
+            </Grid> */}
           </Grid>
           <Box mt={0.5}>
             {flightData?.segment === "3" ? (
@@ -3389,7 +3366,6 @@ const SingleFlight = ({
               <Box textAlign={"center"}>
                 <Typography>
                   {/* ---------stops------ */}
-
                   {flightData?.segment === "3" ? (
                     <Box>
                       <Grid container justifyContent="center">
@@ -3408,19 +3384,6 @@ const SingleFlight = ({
                           {flightData?.segments[1].flightduration} |{" "}
                           {flightData?.segments[2].flightduration}
                         </Typography>
-                        {/* <Typography
-                            sx={{
-                              color: "#DC143C",
-                              fontWeight: 500,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "12px",
-                              },
-                            }}
-                          >
-                            Two Stops
-                          </Typography> */}
                       </Grid>
                       <Box px={1}>
                         <div className="segment03">
@@ -3500,17 +3463,6 @@ const SingleFlight = ({
                                 &nbsp;
                                 {flightData?.segments[1]?.marketingflight}{" "}
                                 <span> | </span>
-                                {/* {flightData?.segments[1]?.flightduration} */}
-                                {/* {flightData?.segment === "3" ? (
-                                    <>
-                                      {flightData?.transit.transit1} {" | "}
-                                      {flightData?.transit.transit2}
-                                    </>
-                                  ) : flightData?.segment === "2" ? (
-                                    <>{flightData?.transit.transit1}</>
-                                  ) : (
-                                    <></>
-                                  )} */}
                                 {flightData?.transit.transit1}
                               </Typography>
                             </React.Fragment>
@@ -3539,16 +3491,6 @@ const SingleFlight = ({
                                 &nbsp;
                                 {flightData?.segments[2]?.marketingflight}
                                 <span> | </span>
-                                {/* {flightData?.segment === "3" ? (
-                                    <>
-                                      {flightData?.transit.transit1} {" | "}
-                                      {flightData?.transit.transit2}
-                                    </>
-                                  ) : flightData?.segment === "2" ? (
-                                    <>{flightData?.transit.transit1}</>
-                                  ) : (
-                                    <></>
-                                  )} */}
                                 {flightData?.transit.transit2}
                               </Typography>
                             </React.Fragment>
@@ -3580,19 +3522,6 @@ const SingleFlight = ({
                           {flightData?.segments[0].flightduration} |{" "}
                           {flightData?.segments[1].flightduration}
                         </Typography>
-                        {/* <Typography
-                            sx={{
-                              color: "#DC143C",
-                              fontWeight: 500,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "12px",
-                              },
-                            }}
-                          >
-                            One Stops
-                          </Typography> */}
                       </Grid>
                       <Box px={1}>
                         <div className="segment02">
@@ -3671,16 +3600,6 @@ const SingleFlight = ({
                                 &nbsp;
                                 {flightData?.segments[1]?.marketingflight}
                                 <span> | </span>
-                                {/* {flightData?.segment === "3" ? (
-                                    <>
-                                      {flightData?.transit.transit1} {" | "}
-                                      {flightData?.transit.transit2}
-                                    </>
-                                  ) : flightData?.segment === "2" ? (
-                                    <>{flightData?.transit.transit1}</>
-                                  ) : (
-                                    <></>
-                                  )} */}
                                 {flightData?.transit.transit1}
                               </Typography>
                             </React.Fragment>
@@ -3877,7 +3796,7 @@ const SingleFlight = ({
               </Box>
             </Grid>
           </Grid>
-          <Grid container justifyContent={"space-between"} pt={3}>
+          {/* <Grid container justifyContent={"space-between"} pt={3}>
             <Grid md={3}>
               {flightData.system === "Sabre" ? (
                 <Typography
@@ -4012,171 +3931,135 @@ const SingleFlight = ({
                 </Typography>
               </Box>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Grid>
-
         {/*  non stops box start */}
-
         <Grid
           sm={2.5}
           md={2.5}
           sx={{
-            paddingLeft: { xs: "none", sm: "5px", md: "20px" },
+            paddingLeft: "20px",
           }}
         >
-          <Box className="updatebooknowbtn" style={{ paddingLeft: "12px" }}>
-            <Box height={"40px"}>
-              {customerFare && (
-                <>
-                  <Box display={"flex"} justifyContent={"space-between"}>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "12.5px",
-                          md: "17px",
-                        },
-                        color: "#fff",
-                        pt: {
-                          sm: "5px",
-                        },
-                      }}
-                    >
-                      CF
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: {
-                          xs: "12px",
-                          sm: "12.5px",
-                          md: "17px",
-                        },
-                        color: "#fff",
-                        pt: {
-                          sm: "5px",
-                        },
-                      }}
-                    >
-                      {commaNumber(clientFare)} &#2547;
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      borderBottom: "0.5px solid rgba(209, 233, 255, 0.52)",
-                    }}
-                  ></Box>
-                </>
-              )}
+          <Box className="updatebooknowbtn">
+            <Box style={{ height: "fit-content" }}>
+              <Box
+                style={{
+                  width: "100%",
+                  height: "fit-content",
+                  color: "var(--secondary-color)",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  fontSize: "12px",
+                  padding: "5px 0px 0px 2px",
+                }}
+              >
+                <BookmarkIcon /> Preferred Airline
+              </Box>
+              {/* {commaNumber(clientFare)} &#2547; */}
             </Box>
-            <Box height={"40px"} style={{ marginTop: "5px" }}>
-              {agentFarePrice && (
-                <Box display={"flex"} justifyContent={"space-between"}>
+            <Box
+              style={{
+                height: "fit-content",
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "flex-end",
+                flexDirection: "column",
+                gap: "5px",
+              }}
+            >
+              <Box
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-end",
+                  flexDirection: "column",
+                }}
+              >
+                <Typography
+                  style={{
+                    fontSize: "10px",
+                    color: "var(--black)",
+                  }}
+                >
+                  {flightData?.refundable}
+                </Typography>
+                <Typography
+                  style={{
+                    fontSize: "18px",
+                    color: "var(--secondary-color)",
+                  }}
+                >
+                  BDT {commaNumber(clientFare)}
+                </Typography>
+                <Typography
+                  style={{
+                    fontSize: "14px",
+                    color: "var(--black)",
+                    textDecoration: "line-through",
+                  }}
+                >
+                  BDT {commaNumber(agentFare)}
+                </Typography>
+              </Box>
+              <Button
+                className="shine-effect"
+                style={{
+                  color: "var(--white)",
+                  fontWeight: 600,
+                  backgroundColor: "var(--primary-color)",
+                  borderRadius: "5px",
+                  width: "fit-content",
+                }}
+                disabled={flightData?.system === "Galileo" ? true : false}
+                onClick={FlightInformation}
+              >
+                BOOK NOW
+              </Button>
+              <Button
+                style={{
+                  color: "var(--secondary-color)",
+                  fontWeight: 600,
+                  textTransform: "capitalize",
+                  width: "fit-content",
+                  paddingRight: "0px",
+                  fontSize: "12px",
+                }}
+                onClick={() => setFlightDetails(!flightDetails)}
+              >
+                {!flightDetails ? (
                   <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "12px",
-                        sm: "12px",
-                        md: "13px",
-                      },
-                      color: "#D1E9FF",
+                    style={{
+                      color: "var(--secondary-color)",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                      fontSize: "12px",
                     }}
                   >
-                    AF
+                    Show Details
+                    <ArrowDropDownIcon style={{ width: "fit-content" }} />
                   </Typography>
+                ) : (
                   <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "12px",
-                        sm: "12px",
-                        md: "13px",
-                      },
-                      color: "#D1E9FF",
+                    style={{
+                      color: "var(--secondary-color)",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                      fontSize: "12px",
                     }}
                   >
-                    {commaNumber(agentFare)} &#2547;
+                    Hide Details <ArrowDropUpIcon />
                   </Typography>
-                </Box>
-              )}
-              {commisionFarePrice && (
-                <Box display={"flex"} justifyContent={"space-between"}>
-                  <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "12px",
-                        sm: "12px",
-                        md: "13px",
-                      },
-                      color: "#D1E9FF",
-                      pb: {
-                        sm: "7px",
-                      },
-                    }}
-                  >
-                    CM
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "12px",
-                        sm: "12px",
-                        md: "13px",
-                      },
-                      color: "#D1E9FF",
-                      pb: {
-                        sm: "7px",
-                      },
-                    }}
-                  >
-                    {commaNumber(commission)} &#2547;
-                  </Typography>
-                </Box>
-              )}
+                )}
+              </Button>
+              {/* {commaNumber(commission)} &#2547; */}
             </Box>
-            <Button
-              className="booknow-btn-0 shine-effect"
-              sx={{
-                color: "#fff",
-                fontWeight: 600,
-                bgcolor: "#DC143C",
-                borderRadius: "12px  0px",
-                mt: { xs: "5px" },
-                p: {
-                  xs: "5px 20px",
-                  sm: "5px 10px",
-                  md: "5px 15px",
-                },
-                fontSize: {
-                  xs: "12px",
-                  sm: "10px",
-                  md: "16px",
-                },
-              }}
-              disabled={flightData?.system === "Galileo" ? true : false}
-              onClick={FlightInformation}
-            >
-              BOOK NOW{" "}
-            </Button>
-            <br />
-            <Button
-              sx={{
-                color: "#fff",
-                fontWeight: 600,
-                textTransform: "capitalize",
-                fontSize: {
-                  xs: "10px",
-                  sm: "10px",
-                  md: "12px",
-                },
-              }}
-              onClick={() => setFlightDetails(!flightDetails)}
-            >
-              {!flightDetails ? <> Flight Details</> : <> Hide Details</>}
-            </Button>
           </Box>
         </Grid>
-
         {/* --------------Flight Details start------------ */}
-        {/* <Box margin="auto"> */}
         {flightDetails && (
           <Box
             width="100%"

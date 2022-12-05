@@ -25,6 +25,9 @@ code {
   --white: #ffffff;
   --white-rgb: 255, 255, 255;
   --black: #000;
+  --sabre: #ff0000;
+  --galileo: #0b8634;
+  --flyhub: #4169e1;
 }
 
 button.shine-effect {
@@ -60,4 +63,26 @@ button.shine-effect::after {
 .new-return-date-range .rdrDateDisplayWrapper,
 .new-return-date-mobile .rdrDateDisplayWrapper {
   display: none;
+}
+
+.sabre {
+  border: 2px solid var(--sabre);
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.galileo {
+  border: 2px solid var(--galileo);
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.flyhub {
+  border: 2px solid var(--flyhub);
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
