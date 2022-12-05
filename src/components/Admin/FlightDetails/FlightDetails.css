@@ -42,3 +42,31 @@
 .passengerInput1 input:focus {
   outline: none;
 }
+
+.baggageTable1 table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.baggageTable1 table tr {
+  background-color: #d3e0f0;
+}
+
+.baggageTable1 table tr:hover {
+  background-color: #ffffff !important;
+}
+
+.baggageTable1 table th {
+  background-color: #ffa84d;
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 0px;
+  font-weight: 300;
+}
+
+.baggageTable1 table tr td {
+  text-align: center;
+  font-size: 14px;
+  color: #2564b8;
+  padding: 4px 0px;
+}
