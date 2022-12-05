@@ -452,9 +452,9 @@ const SearchResult = () => {
                             justifyContent: "space-around",
                           }}
                         >
-                          <SessionTimer
+                          {/* <SessionTimer
                             setChangeState={setChangeStateSession}
-                          />
+                          /> */}
                         </Button>
                       </Tooltip>
                     </Grid>
@@ -599,9 +599,9 @@ const SearchResult = () => {
                               justifyContent: "space-around",
                             }}
                           >
-                            <SessionTimer
+                            {/* <SessionTimer
                               setChangeState={setChangeStateSession}
-                            />
+                            /> */}
                           </Button>
                         </Tooltip>
                       </Grid>
