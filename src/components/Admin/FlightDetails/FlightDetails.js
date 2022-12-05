@@ -2,11 +2,23 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import FlightIcon from "@mui/icons-material/Flight";
 import flightImg from "../../../images/BookingManagement/flight.png";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import SearchIcon from "@mui/icons-material/Search";
 import "./FlightDetails.css";
 
 const FlightDetails = () => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
   return (
-    <Box>
+    <Box style={{ padding: "20px 0px" }}>
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Box>
           <Typography
@@ -30,7 +42,6 @@ const FlightDetails = () => {
             Biman Bangladeh Airlines & Malayshia Airlines
           </Typography>
         </Box>
-
         <Grid container spacing={2}>
           <Grid item md={6}>
             <Box
@@ -322,8 +333,697 @@ const FlightDetails = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item md={6}></Grid>
+          <Grid item md={6}>
+            {/* accordion start here */}
+            <div>
+              <Accordion
+                expanded={expanded === "panel1"}
+                onChange={handleChange("panel1")}
+                style={{
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                  boxShadow: "none",
+                  background: "#2564B8",
+                  borderRadius: "0px",
+                }}
+              >
+                <AccordionSummary
+                  // expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1bh-content"
+                  id="panel1bh-header"
+                >
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      alignItems: "center",
+                      height: "20px",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "#fff",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Price Breakdown
+                    </Typography>
+                    <Box>
+                      {expanded === "panel1" ? (
+                        <RemoveIcon
+                          style={{ color: "#fff", fontSize: "25px" }}
+                        />
+                      ) : (
+                        <AddIcon style={{ color: "#fff", fontSize: "25px" }} />
+                      )}
+                    </Box>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Box>
+                    <Typography
+                      style={{
+                        color: "#000000",
+                        fontFamily: "poppins",
+                        fontSize: "13px",
+                        fontWeight: "400",
+                      }}
+                    >
+                      Total Payable
+                    </Typography>
+                    <Typography
+                      style={{
+                        color: "#000000",
+                        fontFamily: "poppins",
+                        fontSize: "18px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      BDT 144,447
+                    </Typography>
+                  </Box>
+
+                  <Box
+                    style={{
+                      background: "rgba(217, 217, 217, 0.39)",
+                      padding: "2px 10px",
+                      display: "flex",
+                      alignItems: "center",
+                      margin: "8px 0px",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        color: "#2D669B",
+                        fontFamily: "poppins",
+                        fontSize: "12px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Price Breakdown
+                    </Typography>
+                  </Box>
+                  <Box mt={2}>
+                    <Typography
+                      style={{
+                        color: "#110F0F",
+                        fontSize: "15px",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Adult x1
+                    </Typography>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                      mt={0.7}
+                    >
+                      <Box>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Base Fare x1
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Tax x1
+                        </Typography>
+                      </Box>
+                      <Box style={{ textAlign: "right" }}>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          500 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                  <Box mt={2}>
+                    <Typography
+                      style={{
+                        color: "#110F0F",
+                        fontSize: "15px",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Child x1
+                    </Typography>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                      mt={0.7}
+                    >
+                      <Box>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Base Fare x1
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Tax x1
+                        </Typography>
+                      </Box>
+                      <Box style={{ textAlign: "right" }}>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          500 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  <Box mt={2}>
+                    <Typography
+                      style={{
+                        color: "#110F0F",
+                        fontSize: "15px",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Infant x1
+                    </Typography>
+                    <Box
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                      mt={0.7}
+                    >
+                      <Box>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Base Fare x1
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Tax x1
+                        </Typography>
+
+                        <Typography
+                          my={1.5}
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Total Base & Tax
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Customer Invoice Total
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Discount
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Agent Invoice Total
+                        </Typography>
+
+                        <Typography
+                          mt={2}
+                          style={{
+                            fontSize: "13px",
+                            color: "#888888",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Agent Saving
+                        </Typography>
+                      </Box>
+                      <Box style={{ textAlign: "right" }}>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          500 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+
+                        <Typography
+                          my={1.5}
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                        <Typography
+                          style={{
+                            fontSize: "12px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+
+                        <Typography
+                          mt={1.5}
+                          style={{
+                            fontSize: "13px",
+                            color: "#2D669B",
+                            fontFamily: "poppins",
+                            fontWeight: "500",
+                          }}
+                        >
+                          420 ৳
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion
+                expanded={expanded === "panel2"}
+                onChange={handleChange("panel2")}
+                style={{
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                  boxShadow: "none",
+                  background: "#2564B8",
+                  borderRadius: "0px",
+                }}
+              >
+                <AccordionSummary
+                  // expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2bh-content"
+                  id="panel2bh-header"
+                >
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      alignItems: "center",
+                      height: "20px",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "#fff",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Baggage
+                    </Typography>
+                    <Box>
+                      {expanded === "panel2" ? (
+                        <RemoveIcon
+                          style={{ color: "#fff", fontSize: "25px" }}
+                        />
+                      ) : (
+                        <AddIcon style={{ color: "#fff", fontSize: "25px" }} />
+                      )}
+                    </Box>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Box className="lineParentBox">
+                    <Grid container spacing={4}>
+                      <Grid item xs={1}>
+                        <Box className="note-line">
+                          <Box
+                            style={{
+                              width: "18px",
+                              height: "18px",
+                              backgroundColor: "#FFA84D",
+                              position: "absolute",
+                              left: "-10px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                        </Box>
+                      </Grid>
+                      <Grid item mt="-3px" xs={10}>
+                        <Typography
+                          style={{
+                            color: "#2564B8",
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            fontFamily: "poppins",
+                          }}
+                        >
+                          Hold
+                        </Typography>
+                        <Box py={1}>
+                          <Typography
+                            sx={{
+                              color: "#FFA84D",
+                              fontSize: "11px",
+                              fontWeight: 500,
+                            }}
+                          >
+                            Syed Afridi, Zinga Lala Travel
+                          </Typography>
+                          <Typography
+                            sx={{
+                              color: "#767676",
+                              fontSize: "11px",
+                              fontWeight: 500,
+                            }}
+                          >
+                            22 Dec 2023
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion
+                expanded={expanded === "panel3"}
+                onChange={handleChange("panel3")}
+                style={{
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                  boxShadow: "none",
+                  background: "#2564B8",
+                  borderRadius: "0px",
+                }}
+              >
+                <AccordionSummary
+                  // expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2bh-content"
+                  id="panel2bh-header"
+                >
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      alignItems: "center",
+                      height: "20px",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "#fff",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Policy
+                    </Typography>
+                    <Box>
+                      {expanded === "panel3" ? (
+                        <RemoveIcon
+                          style={{ color: "#fff", fontSize: "25px" }}
+                        />
+                      ) : (
+                        <AddIcon style={{ color: "#fff", fontSize: "25px" }} />
+                      )}
+                    </Box>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>Download PDF</Typography>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+            {/* accordion end here */}
+          </Grid>
         </Grid>
+
+        <Box mt={4}>
+          <Typography
+            style={{
+              fontFamily: "Poppins",
+              fontSize: "20px",
+              fontWeight: "500",
+              color: "#222222",
+            }}
+          >
+            Passenger Information Details
+          </Typography>
+          <Typography
+            style={{
+              fontFamily: "Poppins",
+              fontSize: "14px",
+              fontWeight: "500",
+              color: "#FFA84D",
+              marginTop: "5px",
+              marginBottom: "20px",
+            }}
+          >
+            ADULT: 02 | CHILD: 01
+          </Typography>
+          <Box
+            style={{
+              background: "rgba(37, 100, 184, 0.5)",
+              padding: "5px 15px",
+              display: "flex",
+            }}
+            mb={3}
+          >
+            <span
+              style={{
+                color: "#003566",
+                fontSize: "15px",
+                fontFamily: "Poppins",
+                fontWeight: "500",
+              }}
+            >
+              ADULT : 01
+            </span>
+          </Box>
+
+          <Box style={{ padding: "0px 15px" }}>
+            <form>
+              <Box className="passengerInput1">
+                <Grid container spacing={2}>
+                  <Grid item md={4}>
+                    <Typography>Find Traveler</Typography>
+                    <Box style={{ display: "flex", marginTop: "5px" }}>
+                      <input
+                        type="text"
+                        placeholder="Find traveler to auto fill"
+                      />
+                      <SearchIcon
+                        style={{
+                          position: "relative",
+                          left: "-25px",
+                          color: "#2d669b",
+                        }}
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={4} mt={1}>
+                  <Grid item md={4}>
+                    <Typography>First/Given Name</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Your First Name" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Last/Surname</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Your Last Name" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Gender</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <select name="python" id="django">
+                        <option value="Python  ">Python </option>
+                        <option value="Django">Django</option>
+                      </select>
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Nationality</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Bangladesh" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Date of Birth</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input
+                        type="text"
+                        placeholder="Find traveler to auto fill"
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Passport No</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Your Passport Number" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Expires On</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input
+                        type="text"
+                        placeholder="Find traveler to auto fill"
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Box>
+              <Box
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                mt={2}
+              >
+                <input
+                  type="checkbox"
+                  id="vehicle1"
+                  name="vehicle1"
+                  value="Bike"
+                />
+                <label
+                  for="vehicle1"
+                  style={{ color: "#72AFD3", fontSize: "13px" }}
+                >
+                  Add these travelers to My Traveler List.{" "}
+                </label>
+              </Box>
+            </form>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

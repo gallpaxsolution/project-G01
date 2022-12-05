@@ -6,3 +6,39 @@
   position: relative;
   left: -10px;
 }
+
+.passengerInput1 p {
+  color: #ffa84d;
+  font-family: "Poppins";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.passengerInput1 input {
+  border: 0px;
+  border-bottom: 1px solid #2d669b;
+  width: 100%;
+  padding-bottom: 5px;
+  color: #2564b8;
+}
+
+.passengerInput1 select {
+  border: 0px;
+  border-bottom: 1px solid #2d669b;
+  width: 100%;
+  padding-bottom: 5px;
+  color: #2564b8;
+}
+
+.passengerInput1 input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #2d669b;
+  opacity: 1; /* Firefox */
+  font-size: 11px;
+  font-family: "Poppins";
+}
+
+.passengerInput1 input:focus {
+  outline: none;
+}
