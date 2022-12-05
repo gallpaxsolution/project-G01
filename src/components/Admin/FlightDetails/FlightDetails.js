@@ -725,14 +725,19 @@ const FlightDetails = () => {
                   marginTop: "10px",
                   marginBottom: "10px",
                   boxShadow: "none",
-                  background: "#2564B8",
                   borderRadius: "0px",
+                  borderLeft: "2px solid #2564B8",
+                  borderRight: "2px solid #2564B8",
+                  borderBottom: "2px solid #2564B8",
                 }}
               >
                 <AccordionSummary
                   // expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2bh-content"
                   id="panel2bh-header"
+                  style={{
+                    background: "#2564B8",
+                  }}
                 >
                   <Box
                     style={{
@@ -753,6 +758,7 @@ const FlightDetails = () => {
                     >
                       Policy
                     </Typography>
+
                     <Box>
                       {expanded === "panel3" ? (
                         <RemoveIcon
@@ -765,7 +771,134 @@ const FlightDetails = () => {
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>Download PDF</Typography>
+                  <Box>
+                    <Box
+                      style={{
+                        width: "180px",
+                        background: "rgba(255, 168, 77, 0.23)",
+                        padding: "5px 15px",
+                      }}
+                    >
+                      <Typography
+                        style={{
+                          fontSize: "16px",
+                          color: "#FFA84D",
+                          fontFamily: "poppins",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Cancellation
+                      </Typography>
+                    </Box>
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "#2564B8",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                        marginTop: "5px",
+                        paddingLeft: "15px",
+                      }}
+                    >
+                      Refund Amount = Paid Amount - Airline Cancellation Fee
+                    </Typography>
+                  </Box>
+                  <Box mt={2}>
+                    <Box
+                      style={{
+                        width: "180px",
+                        background: "rgba(255, 168, 77, 0.23)",
+                        padding: "5px 15px",
+                      }}
+                    >
+                      <Typography
+                        style={{
+                          fontSize: "16px",
+                          color: "#FFA84D",
+                          fontFamily: "poppins",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Re-issue
+                      </Typography>
+                    </Box>
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "#2564B8",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                        marginTop: "5px",
+                        paddingLeft: "15px",
+                      }}
+                    >
+                      Re-issue Fee = Airline’s Fee + Fare Difference
+                    </Typography>
+                  </Box>
+                  <Box mt={2}>
+                    <Box
+                      style={{
+                        width: "180px",
+                        background: "rgba(255, 168, 77, 0.23)",
+                        padding: "5px 15px",
+                      }}
+                    >
+                      <Typography
+                        style={{
+                          fontSize: "16px",
+                          color: "#FFA84D",
+                          fontFamily: "poppins",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Refund
+                      </Typography>
+                    </Box>
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "#2564B8",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                        marginTop: "5px",
+                        paddingLeft: "15px",
+                      }}
+                    >
+                      Refund Amount = Paid Amount - Airline Cancellation Fee
+                    </Typography>
+                  </Box>
+                  <Box mt={2}>
+                    <Box
+                      style={{
+                        width: "180px",
+                        background: "rgba(255, 168, 77, 0.23)",
+                        padding: "5px 15px",
+                      }}
+                    >
+                      <Typography
+                        style={{
+                          fontSize: "16px",
+                          color: "#FFA84D",
+                          fontFamily: "poppins",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Void
+                      </Typography>
+                    </Box>
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "#2564B8",
+                        fontFamily: "poppins",
+                        fontWeight: "500",
+                        marginTop: "5px",
+                        paddingLeft: "15px",
+                      }}
+                    >
+                      Re-issue Fee = Airline’s Fee + Fare Difference
+                    </Typography>
+                  </Box>
                 </AccordionDetails>
               </Accordion>
             </div>
