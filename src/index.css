@@ -15,6 +15,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 :root {
   --primary-color: #ffa84d;
   --primary-rgb: 255, 168, 77;
@@ -81,6 +82,8 @@ button.shine-effect::after {
   width: 100%;
   object-fit: cover;
 }
+
+
 .flyhub {
   /* border: 2px solid var(--flyhub); */
   border: 2px solid var(--white);

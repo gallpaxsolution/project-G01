@@ -21,6 +21,7 @@ import BankAccount from "./pages/BankAccount/BankAccount";
 import AddBank from './components/BankAccount/AddBank';
 
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
+import SignIn from "./components/Admin/SignIn/SignIn";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/bookingdetails" element={<BookingDetails />} />
             <Route path="/flightdetail" element={<FlightDetails />} />
+            <Route path="/signin" element={<SignIn />} />
 
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}
