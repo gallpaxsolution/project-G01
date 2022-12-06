@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import React from 'react'
 import { Typography } from '@mui/material';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
@@ -16,11 +16,11 @@ const BankAccount = () => {
         
       ];
   return (
-    <Box sx={{margin:'40px 180px'}}>
-         
-         <Box
+    <Box >
+      <Container maxWidth="lg" style={{ marginTop: "50px" }}>
+      <Box
         sx={{
-          margin: "30px 48px",
+          margin: "30px 0px",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
@@ -58,8 +58,7 @@ const BankAccount = () => {
       
       </Box>
 
-        <Box
-          sx={{ margin:'3rem' }}
+        {/* <Box
         >
           <table style={{ width:'100%', textAlign:'center', }}>
             <tr style={{ background:'#2564B8', color:'#FFFFFF',fontSize:'12px', fontWeight:300, padding:'8px 0px'}}>
@@ -86,7 +85,36 @@ const BankAccount = () => {
               </tr>
             ))}
           </table>
-        </Box>
+        </Box> */}
+
+ <Box className="balance-transaction" marginTop={"20px"}>
+        <table>
+          <tr>
+          <th>Holder Name</th>
+              <th>Bank Name</th>
+              <th>Account Number</th>
+              <th>Branch Name</th>
+              <th>Address</th>
+              <th>Swift</th>
+              <th>Routing</th>
+              <th>Action</th>
+          </tr>
+          <tr>
+          <td>Sayed Afridi</td>
+                <td>Dutch Bangla Bank </td>
+                <td>51151515355</td>
+                <td>Shamoli Branch</td>
+                <td>Shamoli, Dhaka</td>
+                <td>12556</td>
+                <td>44544</td>
+                <td><DeleteSharpIcon/></td>
+          </tr>
+        </table>
+      </Box>
+
+      </Container>
+         
+     
     </Box>
   )
 }

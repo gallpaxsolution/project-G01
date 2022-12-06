@@ -2,6 +2,7 @@ import React from "react";
 import {
   Box,
   Button,
+  Container,
   FormControl,
   MenuItem,
   Select,
@@ -18,10 +19,12 @@ const Deposite = () => {
     setSelect(event.target.value);
   };
   return (
-    <Box sx={{ margin: "40px 180px" }}>
+    <Box>
+      <Container  maxWidth="lg" style={{ marginTop: "50px" }}>
+
       <Box
         sx={{
-          margin: "30px 60px",
+          margin: "30px 0px",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
@@ -75,9 +78,12 @@ const Deposite = () => {
           </Button>
         </Box>
       </Box>
-      <Box sx={{ margin: "30px 60px" }}>
+      <Box>
         <DepositeTabs />
       </Box>
+
+      </Container>
+     
     </Box>
   );
 };

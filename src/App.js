@@ -18,10 +18,17 @@ import RoundSearchResult from "./pages/SearchReslut/RoundSearchResult";
 import RoundFlightUserInfo from "./components/FlightUserinfo/RoundFlightUserInfo";
 
 import BankAccount from "./pages/BankAccount/BankAccount";
-import AddBank from './components/BankAccount/AddBank';
+import AddBank from "./components/BankAccount/AddBank";
 
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
+import SignIn from "./components/Admin/SignIn/SignIn";
+<<<<<<< HEAD
+import GeneralLedger from "./pages/General Ledger/GeneralLedger";
+import AddStaff from "./components/GeneralLedger/AddStaff";
 
+=======
+import MyStaff from "./components/Admin/MyAccount/MyStaff";
+>>>>>>> dd6f86a3c86ffbb92fa6059807d369eaa1fc6967
 
 function App() {
   return (
@@ -43,16 +50,24 @@ function App() {
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
 
+<<<<<<< HEAD
             <Route path="/bankaccount" element={<BankAccount/>} />
             <Route path="/addbankaccount" element={<AddBank/>} />
+            <Route path="/generalledger" element={<GeneralLedger/>} />
+            <Route path="/addStaff" element={<AddStaff/>} />
 
+=======
+            <Route path="/bankaccount" element={<BankAccount />} />
+            <Route path="/addbankaccount" element={<AddBank />} />
+>>>>>>> dd6f86a3c86ffbb92fa6059807d369eaa1fc6967
 
             {/* -----KB------  */}
-
 
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/bookingdetails" element={<BookingDetails />} />
             <Route path="/flightdetail" element={<FlightDetails />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/mystaff" element={<MyStaff />} />
 
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}

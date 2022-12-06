@@ -1,18 +1,19 @@
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Box } from "@mui/material";
 import Header from "../Header/Header";
 
+
 const AddTraveller = () => {
   return (
-    <Box sx={{margin:'40px 180px'}}>
-      
+    <Box>
+      <Container maxWidth="lg" style={{ marginTop: "50px" }}>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          margin: "30px 60px",
+          margin: "30px 0px",
           gap: 4,
         }}
       >
@@ -136,6 +137,8 @@ const AddTraveller = () => {
           Add This Traveller
         </Button>
       </Box>
+      </Container>
+      
     </Box>
   );
 };

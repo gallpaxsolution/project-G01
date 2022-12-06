@@ -1,15 +1,14 @@
+
+import { Box, Button, Container, Typography } from '@mui/material'
 import React from 'react'
-import { Box, Container } from '@mui/material';
-import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import { TextField } from '@mui/material';
-import { Button } from '@mui/material';
 
-const AddBank = () => {
+const AddStaff = () => {
   return (
     <Box>
-      <Container maxWidth="lg" style={{ marginTop: "50px" }}>
-      <Box
+        <Container maxWidth="lg" style={{ marginTop: "50px" }}>
+        <Box
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -19,7 +18,7 @@ const AddBank = () => {
       }}
     >
       <Typography sx={{ fontWeight: "500px", fontSize: "23px", color: "#003566" }}>
-        Add Bank Account
+        Add Staff Account
       </Typography>
 
       <Grid container spacing={2}>
@@ -29,25 +28,18 @@ const AddBank = () => {
           sx={{ display: "flex", flexDirection: "column", gap: 7 }}
         >
           <TextField
-            label="Account Holder Name"
+            label="Staff Name"
             id="filled-start-adorment"
             variant="standard"
             focused
             placeholder="First Name"
           />
           <TextField
-            label="Branch Name"
+            label="Role"
             id="filled-start-adorment"
             variant="standard"
             focused
             placeholder="Bangladesh"
-          />
-          <TextField
-            label="Swift Code"
-            id="filled-start-adorment"
-            variant="standard"
-            focused
-            placeholder="41552122"
           />
         
         </Grid>
@@ -57,14 +49,14 @@ const AddBank = () => {
           sx={{ display: "flex", flexDirection: "column", gap: 7 }}
         >
           <TextField
-            label="Bank Name"
+            label="Email"
             id="filled-start-adorment"
             variant="standard"
             focused
             placeholder="Last Name"
           />
           <TextField
-            label="Address"
+            label="Username"  
             id="filled-start-adorment"
             variant="standard"
             focused
@@ -78,7 +70,7 @@ const AddBank = () => {
           sx={{ display: "flex", flexDirection: "column", gap: 7 }}
         >
           <TextField
-            label="Acount Number"
+            label="Phone Number"
             id="filled-start-adorment"
             variant="standard"
             focused
@@ -86,7 +78,7 @@ const AddBank = () => {
           />
 
           <TextField
-            label="Routing Number"
+            label="Password"
             id="filled-start-adorment"
             variant="standard"
             focused
@@ -108,11 +100,9 @@ const AddBank = () => {
         Add This Account
       </Button>
     </Box>
-      </Container>
-      
-   
-  </Box>
+        </Container>
+    </Box>
   )
 }
 
-export default AddBank
+export default AddStaff
