@@ -14,13 +14,13 @@ const Traveller = () => {
 
       <Typography
         variant="span"
-        sx={{ fontWeight: 500, fontSize: "23px", margin: "30px 60px",color: "#003566"}}
+        sx={{ fontWeight: 500, fontSize: "23px", margin: "30px 0px",color: "#003566"}}
       >
         Traveller
       </Typography>
       <Box
         sx={{
-          margin: "30px 60px",
+          margin: "30px 0px",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
