@@ -18,11 +18,11 @@ import RoundSearchResult from "./pages/SearchReslut/RoundSearchResult";
 import RoundFlightUserInfo from "./components/FlightUserinfo/RoundFlightUserInfo";
 
 import BankAccount from "./pages/BankAccount/BankAccount";
-import AddBank from './components/BankAccount/AddBank';
+import AddBank from "./components/BankAccount/AddBank";
 
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
 import SignIn from "./components/Admin/SignIn/SignIn";
-
+import MyStaff from "./components/Admin/MyAccount/MyStaff";
 
 function App() {
   return (
@@ -44,17 +44,16 @@ function App() {
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
 
-            <Route path="/bankaccount" element={<BankAccount/>} />
-            <Route path="/addbankaccount" element={<AddBank/>} />
-
+            <Route path="/bankaccount" element={<BankAccount />} />
+            <Route path="/addbankaccount" element={<AddBank />} />
 
             {/* -----KB------  */}
-
 
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/bookingdetails" element={<BookingDetails />} />
             <Route path="/flightdetail" element={<FlightDetails />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/mystaff" element={<MyStaff />} />
 
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}

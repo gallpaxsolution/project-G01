@@ -34,8 +34,8 @@ const SignIn = () => {
                       background: "rgba(255, 168, 77, 0.25)",
                       width: "100%",
                       height: "34px",
-
-                      padding: "0px 10px",
+                      boxSizing: "border-box",
+                      paddingLeft: "10px",
                       color: "#FFA84D",
                     }}
                     placeholder="Enter Your Username"
@@ -49,9 +49,9 @@ const SignIn = () => {
                       background: "rgba(255, 168, 77, 0.25)",
                       width: "100%",
                       height: "34px",
-
-                      padding: "0px 10px",
                       color: "#FFA84D",
+                      boxSizing: "border-box",
+                      paddingLeft: "10px",
                     }}
                     placeholder="Enter Your Password"
                   />
