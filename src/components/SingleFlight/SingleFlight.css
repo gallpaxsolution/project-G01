@@ -120,7 +120,7 @@
   width: 20px;
 }
 .code-time0 {
-  color: #000;
+  color: var(--black);
   font-size: 17px;
   font-weight: 500;
 }
@@ -185,28 +185,24 @@
 
 /* -----------Flight content------------- */
 .flight-icon-sab1 {
-  border: 2px solid #ff0000;
+  border: 2px solid var(--sabre);
   border-radius: 50%;
   margin-top: 5px;
   width: 100%;
 }
 .flight-icon-sab2 {
-  border: 2px solid #0b8634;
+  border: 2px solid var(--galileo);
   border-radius: 50%;
   margin-top: 5px;
   width: 100%;
 }
 .flight-icon-sab3 {
-  border: 2px solid #4169e1;
+  border: 2px solid var(--flyhub);
   border-radius: 50%;
   margin-top: 5px;
   width: 100%;
 }
-/* .filter-side-0 {
-    position: -webkit-sticky;
-    position: sticky !important;
-    top: -820px !important;
-  } */
+
 .filter-side-0 {
   top: 0px !important;
   overflow-y: scroll;
@@ -214,11 +210,6 @@
   max-height: 100vh;
   overflow-x: hidden;
 }
-/* .flight-all01{
-    overflow-y: scroll;
-    max-height: 100vh;
-    overflow-x: hidden;
-  } */
 
 .filter-side-0::-webkit-scrollbar {
   display: none;
@@ -229,7 +220,7 @@
   position: relative;
   height: 2px;
   width: 100%;
-  background-color: #c7c7c7;
+  background-color: var(--gray);
   margin-top: 10px;
 }
 
@@ -272,13 +263,13 @@
   position: relative;
   height: 2px;
   width: 100%;
-  background-color: #c7c7c7;
+  background-color: var(--gray);
   margin-top: 10px;
 }
 .segment-stop {
   width: 20px;
   height: 5px;
-  background-color: crimson;
+  background-color: var(--primary-color);
   margin-top: -1.5px;
   border-radius: 5px;
 }
@@ -313,7 +304,7 @@
   position: relative;
   height: 2px;
   width: 100%;
-  background-color: #c7c7c7;
+  background-color: var(--gray);
   margin-top: 10px;
 }
 .segment-flight03 {

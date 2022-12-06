@@ -28,6 +28,7 @@ import Commission from "../../components/Commission";
 import Preloader from "../../components/Preloader/Preloader";
 import SessionTimer from "../../components/Shared/SessionTimer/SessionTimer";
 import styled from "@emotion/styled";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import AirlinesNameSlider from "../../components/AirlinesNameSlider/AirlinesNameSlider";
 import "../SearchReslut/SearchResult.css";
 
@@ -413,7 +414,10 @@ const SearchResult = () => {
                 >
                   <Grid className="modify-search-info" container md={6}>
                     <Box style={{ width: "100%" }}>
-                      <h2>Showing Results for </h2>
+                      <FlightTakeoffIcon />
+                      <Typography style={{ color: "var(--secondary-color)" }}>
+                        Flight Search Result
+                      </Typography>
                     </Box>
                     <h5>
                       {tripType === "oneway"
@@ -458,7 +462,7 @@ const SearchResult = () => {
                         </Button>
                       </Tooltip>
                     </Grid>
-                    <Grid xs={4} sm={2} md={2.5} lg={2.5}>
+                    {/* <Grid xs={4} sm={2} md={2.5} lg={2.5}>
                       <HtmlTooltip
                         title={format(new Date(yesterday), "dd MMM")}
                       >
@@ -479,8 +483,8 @@ const SearchResult = () => {
                           Previous Day
                         </Button>
                       </HtmlTooltip>
-                    </Grid>
-                    <Grid xs={3} sm={1.5} md={2} lg={2}>
+                    </Grid> */}
+                    {/* <Grid xs={3} sm={1.5} md={2} lg={2}>
                       <HtmlTooltip title={format(new Date(tomorrow), "dd MMM")}>
                         <Button
                           style={{
@@ -493,16 +497,16 @@ const SearchResult = () => {
                           Next Day
                         </Button>
                       </HtmlTooltip>
-                    </Grid>
+                    </Grid> */}
                     {/*  cm button popup work here */}
-                    <Grid xs={2} sm={1} md={2} lg={2} className="cm-parent-box">
+                    {/* <Grid xs={2} sm={1} md={2} lg={2} className="cm-parent-box">
                       <Commission
                         agentFarePrice={agentFarePrice}
                         setAgentFarePrice={setAgentFarePrice}
                         commisionFarePrice={commisionFarePrice}
                         setCommisionFarePrice={setCommisionFarePrice}
                       />
-                    </Grid>
+                    </Grid> */}
                     {/*  cm button popup work end here */}
                     <Grid xs={5} sm={2} md={3} lg={3}>
                       <button
@@ -547,48 +551,88 @@ const SearchResult = () => {
                 </Grid>
 
                 <Grid container item xs={12} sm={12} md={12} lg={9.6}>
+                  {/* //todo: show search result section*/}
                   <Grid
-                    mt={4}
-                    className="modify-search"
                     container
+                    className="modify-search"
                     spacing={2}
-                    display="flex"
                     alignItems="center"
+                    justifyContent="center"
+                    mt={4}
                     style={{ paddingLeft: "18px" }}
-                    position="static"
-                    top="20px"
                   >
-                    <Grid className="modify-search-info" container md={6}>
-                      <Box style={{ width: "100%" }}>
-                        <h2>Showing Results for </h2>
-                      </Box>
-                      <h5>
-                        {tripType === "oneway"
+                    <Grid className="modify-search-info" item md={8} lg={8}>
+                      <Box>
+                        <Box
+                          style={{
+                            width: "100%",
+                            height: "fit-content",
+                            display: "flex",
+                            justifyContent: "flex-start",
+                            alignItems: "center",
+                            gap: "5px",
+                          }}
+                        >
+                          <FlightTakeoffIcon
+                            style={{
+                              width: "25px",
+                              height: "25px",
+                              padding: "5px",
+                              backgroundColor: "var(--primary-color)",
+                              color: "var(--white)",
+                              borderRadius: "100%",
+                            }}
+                          />
+                          <Typography
+                            style={{
+                              color: "var(--secondary-color)",
+                              fontSize: "24px",
+                            }}
+                          >
+                            Flight Search Result
+                          </Typography>
+                        </Box>
+                        <h6>
+                          {fromSearchText.trim()}
+                          <span> - </span>
+                          {toSearchText.trim()} ({className})
+                        </h6>
+                        <h5>
+                          {/* {tripType === "oneway"
                           ? "One Way"
                           : tripType === "return"
                           ? "Return"
                           : "Multi City"}{" "}
-                        Flight<span> | </span>
-                        {adultCount > 0 && `Adult(${adultCount})`}
+                        Flight<span> | </span> */}
+                          {/* {adultCount > 0 && `Adult(${adultCount})`}
                         {childCount > 0 && `Children(${childCount})`}
-                        {infant > 0 && `Infant(${infant})`} <span> | </span>
-                        {className} <span>|</span>{" "}
-                        {format(
-                          new Date(
-                            isNextClicked || isPrevClicked
-                              ? fromSearchDate
-                              : departureDate
-                          ),
-                          "dd MMM yyyy"
-                        )}
-                      </h5>
-                      <h6>
-                        {fromSearchText.trim()} <span>|</span>{" "}
-                        {toSearchText.trim()}
-                      </h6>
+                        {infant > 0 && `Infant(${infant})`} <span> | </span> */}
+                          {format(
+                            new Date(
+                              isNextClicked || isPrevClicked
+                                ? fromSearchDate
+                                : departureDate
+                            ),
+                            "dd MMM yyyy"
+                          )}
+                        </h5>
+                      </Box>
                     </Grid>
-                    <Grid container columnGap={1} rowGap={1} md={6}>
-                      <Grid xs={2} sm={1} md={2} lg={2}>
+                    <Grid
+                      container
+                      md={4}
+                      lg={4}
+                      justifyContent="flex-end"
+                      spacing={2}
+                    >
+                      {/* //todo:session timer  */}
+                      <Grid
+                        xs={6}
+                        sm={6}
+                        md={6}
+                        lg={3}
+                        style={{ padding: "0px 5px" }}
+                      >
                         <Tooltip title="Session Time">
                           <Button
                             style={{
@@ -605,7 +649,7 @@ const SearchResult = () => {
                           </Button>
                         </Tooltip>
                       </Grid>
-                      <Grid xs={3} sm={1.5} md={2} lg={2}>
+                      {/* <Grid xs={3} sm={1.5} md={2} lg={2}>
                         <HtmlTooltip
                           title={format(new Date(yesterday), "dd MMM")}
                         >
@@ -626,8 +670,8 @@ const SearchResult = () => {
                             Previous Day
                           </Button>
                         </HtmlTooltip>
-                      </Grid>
-                      <Grid xs={3} sm={1.5} md={2} lg={2}>
+                      </Grid> */}
+                      {/* <Grid xs={3} sm={1.5} md={2} lg={2}>
                         <HtmlTooltip
                           title={format(new Date(tomorrow), "dd MMM")}
                         >
@@ -642,9 +686,9 @@ const SearchResult = () => {
                             Next Day
                           </Button>
                         </HtmlTooltip>
-                      </Grid>
+                      </Grid> */}
                       {/*  cm button popup work here */}
-                      <Grid
+                      {/* <Grid
                         xs={2}
                         sm={1}
                         md={2}
@@ -669,15 +713,21 @@ const SearchResult = () => {
                           customerFare={customerFare}
                           setCustomerFare={setCustomerFare}
                         />
-                      </Grid>
+                      </Grid> */}
                       {/*  cm button popup work end here */}
-                      <Grid xs={5.8} sm={2} md={3} lg={3}>
-                        <button
+                      {/* //todo: modify search button */}
+                      <Grid xs={6} sm={6} md={6} lg={6}>
+                        <Button
                           onClick={modifyHandleOpen}
-                          style={{ backgroundColor: "#DC143C" }}
+                          style={{
+                            backgroundColor: "var(--secondary-color)",
+                            color: "var(--white)",
+                            padding: "5px 10px",
+                            cursor: "pointer",
+                          }}
                         >
                           Modify Search
-                        </button>
+                        </Button>
 
                         <Modal open={modifyOpen} onClose={modifyHandleClose}>
                           <Container>
@@ -722,7 +772,14 @@ const SearchResult = () => {
                           </Container>
                         </Modal>
                       </Grid>
-                      <Grid item xs={5.8} sm={2} md={3} lg={3}>
+                      {/* <Grid item xs={5.8} sm={2} md={3} lg={3} sx={{
+                            display: {
+                              xs: "block",
+                              sm: "block",
+                              md: "block",
+                              lg: "none",
+                            },
+                          }}>
                         <Box
                           sx={{
                             display: {
@@ -744,20 +801,23 @@ const SearchResult = () => {
                             setFrom={setFrom}
                           />
                         </Box>
-                      </Grid>
+                      </Grid> */}
                     </Grid>
                   </Grid>
+                  {/* //todo:airline slider */}
                   <Grid
                     my={2}
                     mx={"auto"}
-                    height={"50px"}
-                    position="static"
                     item
                     xs={12}
                     sm={12}
                     md={12}
                     lg={12}
-                    width="100%"
+                    style={{
+                      width: "100%",
+                      height: "50px",
+                      background: "rgba(var(--primary-rgb),.5)",
+                    }}
                   >
                     <AirlinesNameSlider
                       data={data}
@@ -766,7 +826,7 @@ const SearchResult = () => {
                       setfilteredData={setData2}
                     />
                   </Grid>
-
+                  {/* //todo:main search result */}
                   <Grid
                     item
                     xs={12}
@@ -814,6 +874,7 @@ const SearchResult = () => {
                       </>
                     )}
                   </Grid>
+                  {/* //todo: pagination*/}
                   <Grid item lg={12} md={12} sm={12} xs={12}>
                     <Box
                       sx={{
@@ -828,6 +889,7 @@ const SearchResult = () => {
                           count={pageCount}
                           onChange={handlePageChange}
                           shape="rounded"
+                          color="primary"
                         />
                       </Stack>
                     </Box>
