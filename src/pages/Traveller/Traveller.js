@@ -1,25 +1,17 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import { Box, Button, Input } from "@mui/material";
+import { Box, Button, Container, Input } from "@mui/material";
 import { Typography } from "@mui/material";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
 
 
 const Traveller = () => {
-    function createData(){
-        return{};
-    }
-    const rows = [
-        createData(),
-        createData(),
-        createData(),
-   
-        
-      ];
   return (
   
-    <Box sx={{margin:'40px 180px'}}>
+    <Box>
+      <Container maxWidth="lg" style={{ marginTop: "50px" }} >
+
       <Typography
         variant="span"
         sx={{ fontWeight: 500, fontSize: "23px", margin: "30px 60px",color: "#003566"}}
@@ -66,7 +58,7 @@ const Traveller = () => {
       
       </Box>
 
-      <Box
+      {/* <Box
           sx={{ margin:'4rem' }}
         >
           <table style={{ width:'100%', textAlign:'center', }}>
@@ -100,7 +92,67 @@ const Traveller = () => {
               </tr>
             ))}
           </table>
-        </Box>
+        </Box> */}
+             <Box className="balance-transaction" marginTop={"20px"}>
+        <table>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Type</th>
+            <th>DOB</th>
+            <th>Nationality</th>
+            <th>Passport No</th>
+            <th>Passport Expire Date</th>
+            <th>Passport Copy</th>
+            <th>Emali</th>
+            <th>Phone </th>
+          </tr>
+          <tr>
+                <td>01</td>
+                <td>Sayed Afridi</td>
+                <td>Male </td>
+                <td>RoundWay</td>
+                <td>12 Oct 2022</td>
+                <td>Bangladesh</td>
+                <td>BD515151</td>
+                <td>12 Oct 2022</td>
+                <td>View</td>
+                <td>syedafridi0@gmail.com</td>
+                <td>1551555151</td>
+            {/* <td style={{}}>
+              <a href={`#`}>
+                <PhoneIcon
+                  style={{
+                    color: "#FFA84D",
+                    fontSize: "20px",
+                    marginRight: "5px",
+                  }}
+                />
+              </a>
+              <a href={`#`} target="_blank">
+                <WhatsAppIcon
+                  style={{
+                    color: "green",
+                    fontSize: "21px",
+                    marginRight: "5px",
+                  }}
+                />
+              </a>
+
+              <a style={{ cursor: "pointer" }}>
+                <EventNoteIcon
+                  onClick={() => handleOpen()}
+                  style={{ color: "#2564B8", fontSize: "20px" }}
+                />
+              </a>
+            </td> */}
+          </tr>
+        </table>
+      </Box>
+
+      </Container>
+     
     </Box>
   );
 };

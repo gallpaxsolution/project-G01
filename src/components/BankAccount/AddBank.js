@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import { TextField } from '@mui/material';
@@ -7,14 +7,14 @@ import { Button } from '@mui/material';
 
 const AddBank = () => {
   return (
-    <Box sx={{margin:'40px 180px'}}>
-      
-    <Box
+    <Box>
+      <Container maxWidth="lg" style={{ marginTop: "50px" }}>
+      <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        margin: "30px 60px",
+        margin: "30px 0px",
         gap: 4,
       }}
     >
@@ -100,7 +100,6 @@ const AddBank = () => {
           color: "#FFFFFF",
           width: "370px",
           mt: "4rem",
-          ml: "1rem",
           "&:hover": {
             backgroundColor: "#2564B8",
           },
@@ -109,6 +108,9 @@ const AddBank = () => {
         Add This Account
       </Button>
     </Box>
+      </Container>
+      
+   
   </Box>
   )
 }

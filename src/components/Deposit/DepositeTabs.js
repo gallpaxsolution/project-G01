@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import DepositTabsItems from "./DepositTabsItems";
+import { Container } from "@mui/material";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,7 +47,8 @@ const DepositeTabs = () => {
     setValue(newValue);
   };
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box>
+      <Container  maxWidth="lg" style={{ marginTop: "50px" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -76,6 +78,9 @@ const DepositeTabs = () => {
       <TabPanel value={value} index={4}>
       <DepositTabsItems/>
       </TabPanel>
+
+      </Container>
+
     </Box>
   );
 };
