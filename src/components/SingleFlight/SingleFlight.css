@@ -54,14 +54,11 @@
 /* -----------Flight content Start------------- */
 .updatebooknowbtn {
   background: rgba(var(--secondary-rgb), 0.4);
-  border-radius: 0px 7px 7px 0px;
-  padding: 0px 5px 2px 0px;
   height: 100% !important;
+  width: 100%;
 }
 .rupdatebooknowbtn {
   background: rgba(var(--secondary-rgb), 0.2);
-  border-radius: 0px 7px 7px 0px;
-  border-radius: 0px 12px 12px 0px;
   padding: 5px 15px 15px 5px;
   height: 100% !important;
   text-align: end;

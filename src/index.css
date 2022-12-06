@@ -67,14 +67,16 @@ button.shine-effect::after {
 }
 
 .sabre {
-  border: 2px solid var(--sabre);
+  /* border: 2px solid var(--sabre); */
+  border: 2px solid var(--white);
   border-radius: 100%;
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 .galileo {
-  border: 2px solid var(--galileo);
+  /* border: 2px solid var(--galileo); */
+  border: 2px solid var(--white);
   border-radius: 100%;
   height: 100%;
   width: 100%;
@@ -83,7 +85,8 @@ button.shine-effect::after {
 
 
 .flyhub {
-  border: 2px solid var(--flyhub);
+  /* border: 2px solid var(--flyhub); */
+  border: 2px solid var(--white);
   border-radius: 100%;
   height: 100%;
   width: 100%;

@@ -5,8 +5,8 @@ import Header from "../Header/Header";
 
 const AddTraveller = () => {
   return (
-    <Box>
-      <Header />
+    <Box sx={{margin:'40px 180px'}}>
+      
       <Box
         sx={{
           display: "flex",
@@ -16,7 +16,7 @@ const AddTraveller = () => {
           gap: 4,
         }}
       >
-        <Typography sx={{ fontWeight: "500px", fontSize: "32px" }}>
+        <Typography sx={{ fontWeight: "500px", fontSize: "23px", color: "#003566" }}>
           Add Travellers
         </Typography>
         <Typography
@@ -126,7 +126,8 @@ const AddTraveller = () => {
           sx={{
             background: "#222222",
             color: "#FFFFFF",
-            mt: "10px",
+            width: "370px",
+            mt: "4rem",
             "&:hover": {
               backgroundColor: "#2564B8",
             },
