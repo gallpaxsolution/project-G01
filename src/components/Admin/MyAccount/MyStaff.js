@@ -778,7 +778,12 @@ const MyStaff = () => {
             ) : (
               <TableContainer>
                 <Table>
-                  <TableHead style={{ backgroundColor: "crimson" }}>
+                  <TableHead
+                    style={{
+                      backgroundColor: "crimson",
+                      height: "0px !important",
+                    }}
+                  >
                     <TableRow>
                       <TableCell align="left" style={{ color: "#fff" }}>
                         Name{" "}
