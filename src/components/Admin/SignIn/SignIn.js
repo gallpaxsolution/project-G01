@@ -7,8 +7,6 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const SignIn = () => {
   return (
     <Box>
-      {/*
-       */}
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Grid container spacing={2} style={{ justifyContent: "center" }}>
           <Grid item xs={12} md={5}>
