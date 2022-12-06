@@ -17,6 +17,7 @@ import Header from "./components/Header/Header";
 import RoundSearchResult from "./pages/SearchReslut/RoundSearchResult";
 import RoundFlightUserInfo from "./components/FlightUserinfo/RoundFlightUserInfo";
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
+import SignIn from "./components/Admin/SignIn/SignIn";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/bookingdetails" element={<BookingDetails />} />
             <Route path="/flightdetail" element={<FlightDetails />} />
+            <Route path="/signin" element={<SignIn />} />
 
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}

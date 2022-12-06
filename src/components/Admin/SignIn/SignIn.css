@@ -1,0 +1,28 @@
+.signInInput1 input {
+  background: transparent;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.signInInput1 input:focus {
+  outline: none;
+}
+
+.signInInput1 input::placeholder {
+  color: #ffa84d;
+  opacity: 1;
+  font-size: 13px;
+  font-family: "Poppins";
+}
+
+.loginBtn1 button {
+  background-color: #2564b8;
+  width: 100% !important;
+  border: none;
+  height: 35px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "poppins";
+  border-radius: 3px;
+  cursor: pointer;
+}
