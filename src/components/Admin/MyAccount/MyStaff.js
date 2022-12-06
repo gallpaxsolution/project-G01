@@ -18,7 +18,15 @@ import secureLocalStorage from "react-secure-storage";
 import { format } from "date-fns";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import PhoneInput from "react-phone-input-2";
+import { makeStyles } from "@material-ui/core/styles";
 import "./MyStaff.css";
+
+const useStyles = makeStyles({
+  tableRow: {
+    height: "20px",
+  },
+});
+
 function Row(props) {
   const navigate = useNavigate();
   const { row } = props;
@@ -513,6 +521,8 @@ const MyStaff = () => {
       });
   }, [agentID]);
 
+  const classes = useStyles();
+
   return (
     <Box>
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
@@ -522,11 +532,15 @@ const MyStaff = () => {
               Staff Information
             </Typography>
             <Typography
-              bgcolor="#003566"
+              bgcolor="#FFA84D"
               color={"#fff"}
-              p={"5px 25px"}
+              p={"7px 30px"}
               onClick={handleOpen}
-              style={{ cursor: "pointer", borderRadius: "5px" }}
+              style={{
+                cursor: "pointer",
+                borderRadius: "5px",
+                fontSize: "14px",
+              }}
             >
               ADD STAFF
             </Typography>
@@ -780,11 +794,11 @@ const MyStaff = () => {
                 <Table>
                   <TableHead
                     style={{
-                      backgroundColor: "crimson",
+                      backgroundColor: "#2564b8",
                       height: "0px !important",
                     }}
                   >
-                    <TableRow>
+                    <TableRow className={classes.tableRow}>
                       <TableCell align="left" style={{ color: "#fff" }}>
                         Name{" "}
                       </TableCell>
