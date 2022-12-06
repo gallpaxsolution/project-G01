@@ -22,6 +22,8 @@ import AddBank from './components/BankAccount/AddBank';
 
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
 import SignIn from "./components/Admin/SignIn/SignIn";
+import GeneralLedger from "./pages/General Ledger/GeneralLedger";
+import AddStaff from "./components/GeneralLedger/AddStaff";
 
 
 function App() {
@@ -46,6 +48,8 @@ function App() {
 
             <Route path="/bankaccount" element={<BankAccount/>} />
             <Route path="/addbankaccount" element={<AddBank/>} />
+            <Route path="/generalledger" element={<GeneralLedger/>} />
+            <Route path="/addStaff" element={<AddStaff/>} />
 
 
             {/* -----KB------  */}
