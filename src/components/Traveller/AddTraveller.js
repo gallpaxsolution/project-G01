@@ -1,144 +1,170 @@
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Box } from "@mui/material";
+import "./AddTraveller.css";
 import Header from "../Header/Header";
-
 
 const AddTraveller = () => {
   return (
     <Box>
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          margin: "30px 0px",
-          gap: 4,
-        }}
-      >
-        <Typography sx={{ fontWeight: "500px", fontSize: "23px", color: "#003566" }}>
-          Add Travellers
-        </Typography>
-        <Typography
-          sx={{ fontWeight: "500px", fontSize: "20px", color: "#2564B8" }}
-        >
-          You can find all travellers here
-        </Typography>
-
-        <Grid container spacing={2}>
-          <Grid
-            item
-            xs={4}
-            sx={{ display: "flex", flexDirection: "column", gap: 7 }}
-          >
-            <TextField
-              label="First/Given Name"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="First Name"
-            />
-            <TextField
-              label="Nationality"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="Bangladesh"
-            />
-            <TextField
-              label="Passport Number"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="41552122"
-            />
-            <TextField
-              label="Phone Number"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="+880 455451455445"
-            />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{ display: "flex", flexDirection: "column", gap: 7 }}
-          >
-            <TextField
-              label="Last/Surname"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="Last Name"
-            />
-            <TextField
-              label="Passenger Type"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="Adult"
-            />
-            <TextField
-              label="Passport Expire Date"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="21 May 2022"
-            />
-            <Button variant="contained" component="label" sx={{mt:'10px'}}>
-            Choose Passport Copy
-              <input type="file" hidden />
-            </Button>
-          
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{ display: "flex", flexDirection: "column", gap: 7 }}
-          >
-            <TextField
-              label="Gender"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="Gender"
-            />
-
-            <TextField
-              label="Date of Birth"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="21 May 2022"
-            />
-
-            <TextField
-              label="Email"
-              id="filled-start-adorment"
-              variant="standard"
-              focused
-              placeholder="example@gmail.com"
-            />
-          </Grid>
-        </Grid>
-        <Button
+        <Box
           sx={{
-            background: "#222222",
-            color: "#FFFFFF",
-            width: "370px",
-            mt: "4rem",
-            "&:hover": {
-              backgroundColor: "#2564B8",
-            },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            margin: "30px 0px",
+            // gap: 4,
           }}
         >
-          Add This Traveller
-        </Button>
-      </Box>
+          <Grid container spacing={2}>
+            <Box>
+              <Typography
+                style={{
+                  fontFamily: "poppins",
+                  fontWeight: "600px",
+                  fontSize: "22px",
+                  color: "#222222",
+                }}
+                mb={0.5}
+              >
+                Add Travelers
+              </Typography>
+              <Typography
+                sx={{ fontWeight: "500px", fontSize: "16px", color: "#2564B8" }}
+                mb={5}
+              >
+                You can add your favorites travelers here
+              </Typography>
+            </Box>
+
+            <form>
+              <Box className="passengerInput1">
+                <Grid container spacing={4}>
+                  <Grid item md={4}>
+                    <Typography>First/Given Name</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Your First Name" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Last/Surname</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Your Last Name" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Gender</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <select name="Male" id="Male">
+                        <option value="Select  ">Select </option>
+                        <option value="Male">Male </option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </Box>
+                  </Grid>
+
+                  <Grid item md={4}>
+                    <Typography>Nationality</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Bangladesh" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Passenger Type</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <select name="Adult" id="Adult">
+                        <option value="Select">Select </option>
+                        <option value="Adult">Adult </option>
+                        <option value="Child">Child</option>
+                        <option value="Infant">Infant</option>
+                      </select>
+                    </Box>
+                  </Grid>
+
+                  <Grid item md={4}>
+                    <Typography>Date of Birth</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input
+                        type="date"
+                        placeholder="Find traveler to auto fill"
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Passport No</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input type="text" placeholder="Your Passport Number" />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Passport Expire Date</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input
+                        type="date"
+                        placeholder="Find traveler to auto fill"
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Email</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input
+                        type="email"
+                        placeholder="Find traveler to auto fill"
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Contact Number</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input
+                        type="email"
+                        placeholder="Find traveler to auto fill"
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography>Choose Passport Copy</Typography>
+                    <Box style={{ marginTop: "5px" }}>
+                      <input
+                        style={{
+                          backgroundColor: "#2564B8",
+                          color: "#fff",
+                          display: "flex",
+                          alignItems: "center",
+                          padding: "5px 10px",
+                          boxSizing: "border-box",
+                        }}
+                        type="file"
+                        placeholder="Find traveler to auto fill"
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Box>
+              <Button
+                sx={{
+                  fontFamily: "poppins",
+                  fontWeight: "400",
+                  fontSize: "14px",
+                  textTransform: "capitalize",
+                  borderRadius: "2px",
+                  background: "#222222",
+                  color: "#FFFFFF",
+                  width: "370px",
+                  mt: "3rem",
+                  "&:hover": {
+                    backgroundColor: "#222222",
+                  },
+                }}
+              >
+                Add This Traveler
+              </Button>
+            </form>
+          </Grid>
+        </Box>
       </Container>
-      
     </Box>
   );
 };

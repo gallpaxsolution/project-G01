@@ -26,6 +26,8 @@ import GeneralLedger from "./pages/General Ledger/GeneralLedger";
 import AddStaff from "./components/GeneralLedger/AddStaff";
 
 import MyStaff from "./components/Admin/MyAccount/MyStaff";
+import GeneralLedgerRoute from "./pages/General Ledger/GeneralLedgerRoute";
+import AddDepositRoute from "./components/Deposit/AddDepositRoute/AddDepositRoute";
 
 function App() {
   return (
@@ -59,15 +61,22 @@ function App() {
             {/*  */}
             <Route path="/traveller" element={<Traveller />} />
             <Route path="/addtraveller" element={<AddTraveller />} />
-            <Route path="/deposite" element={<Deposite />} />
-            {/* <Route path="/traveller" element={<Traveller />} /> */}
-            <Route path="/addtraveller" element={<AddTraveller />} />
-            <Route path="/deposite" element={<Deposite />} />
-            <Route path="/adddeposite" element={<AddDeposite />} />
             <Route path="/bankaccount" element={<BankAccount />} />
             <Route path="/addbankaccount" element={<AddBank />} />
-            <Route path="/generalledger" element={<GeneralLedger />} />
-            <Route path="/addStaff" element={<AddStaff />} />
+            <Route
+              path="/generalledgerroute"
+              element={<GeneralLedgerRoute />}
+            />
+
+            {/* <Route path="/generalledger" element={<GeneralLedger />} /> */}
+            {/* <Route path="/addStaff" element={<AddStaff />} /> */}
+
+            {/* <Route path="/deposite" element={<Deposite />} /> */}
+            {/* <Route path="/traveller" element={<Traveller />} /> */}
+            {/* <Route path="/addtraveller" element={<AddTraveller />} /> */}
+            
+            <Route path="/deposite" element={<Deposite />} />
+            <Route path="/adddeposite" element={<AddDeposite />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

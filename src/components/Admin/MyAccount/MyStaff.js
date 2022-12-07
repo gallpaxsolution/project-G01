@@ -528,7 +528,7 @@ const MyStaff = () => {
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Box m={"24px"}>
           <Grid container justifyContent={"space-between"}>
-            <Typography color={"#003566"} fontSize="18px" fontWeight={500}>
+            <Typography color={"#222222"} fontSize="18px" fontWeight={500}>
               Staff Information
             </Typography>
             <Typography
@@ -799,9 +799,15 @@ const MyStaff = () => {
                     }}
                   >
                     <TableRow className={classes.tableRow}>
+                      {/* <TableCell align="left" style={{ color: "#fff" }}>
+                        Sl no{" "}
+                      </TableCell> */}
                       <TableCell align="left" style={{ color: "#fff" }}>
                         Name{" "}
                       </TableCell>
+                      {/* <TableCell align="left" style={{ color: "#fff" }}>
+                        Status{" "}
+                      </TableCell> */}
                       <TableCell align="left" style={{ color: "#fff" }}>
                         Email
                       </TableCell>

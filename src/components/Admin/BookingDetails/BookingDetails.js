@@ -1594,8 +1594,15 @@ const BookingDetails = () => {
                 </AccordionDetails>
               </Accordion>
             </div>
-
             {/* accordion end here */}
+
+            <Box className="issueTicket" mt={2}>
+              <button>Issue Ticket</button>
+            </Box>
+
+            <Box className="issueCancel" mt={1}>
+              <button>Cancel Ticket</button>
+            </Box>
           </Grid>
         </Grid>
       </Container>

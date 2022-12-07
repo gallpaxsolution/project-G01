@@ -9,6 +9,7 @@ import { Button } from "@mui/material";
 import ChequeTab from "./AddDepositTabs/ChequeTab";
 import BankTab from "./AddDepositTabs/BankTab";
 import MobileTab from "./AddDepositTabs/MobileTab";
+import { Container } from "@mui/system";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -50,53 +51,61 @@ const AddDeposite = () => {
   };
 
   return (
-    <Box sx={{ margin: "40px 230px" }}>
-      <Typography
-        sx={{ fontWeight: 500, fontSize: "32px", color: "#003566", mb: "20px" }}
-      >
-        Add Deposit
-      </Typography>
-
-      <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
+    <Box>
+      <Container maxWidth="lg" style={{ marginTop: "50px" }}>
+        <Box>
+          <Typography
+            sx={{
+              fontWeight: 500,
+              fontSize: "25px",
+              color: "#222222",
+              mb: "18px",
+              padding: "0px 22px",
+            }}
           >
-            <Tab label="Cash" {...a11yProps(0)} />
-            <Tab label="Cheque" {...a11yProps(1)} />
-            <Tab label="Bank Transfer" {...a11yProps(2)} />
-            <Tab label="Mobile Banking" {...a11yProps(3)} />
-          </Tabs>
+            Add Deposit
+          </Typography>
+          <Box sx={{ borderBottom: 1, borderColor: "transparent" }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+            >
+              <Tab label="Cash" {...a11yProps(0)} />
+              <Tab label="Cheque" {...a11yProps(1)} />
+              <Tab label="Bank Transfer" {...a11yProps(2)} />
+              <Tab label="Mobile Banking" {...a11yProps(3)} />
+            </Tabs>
+          </Box>
+          <TabPanel value={value} index={0}>
+            <CashTab />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <ChequeTab />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <BankTab />
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            <MobileTab />
+          </TabPanel>
         </Box>
-        <TabPanel value={value} index={0}>
-          <CashTab />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <ChequeTab />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <BankTab />
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          <MobileTab />
-        </TabPanel>
-      </Box>
-      <Button
-        sx={{
-          background: "#222222",
-          color: "#FFFFFF",
-          width: "370px",
-          mt: "4rem",
-          ml: "1rem",
-          "&:hover": {
-            backgroundColor: "#2564B8",
-          },
-        }}
-      >
-        Send Deposit Request
-      </Button>
+
+        {/* <Button
+          sx={{
+            background: "#222222",
+            color: "#FFFFFF",
+            width: "370px",
+            mt: "4rem",
+            ml: "1rem",
+            "&:hover": {
+              backgroundColor: "#2564B8",
+            },
+          }}
+        >
+          Send Deposit Request
+        </Button> */}
+      </Container>
     </Box>
   );
 };

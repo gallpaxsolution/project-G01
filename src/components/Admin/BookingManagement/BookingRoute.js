@@ -1,6 +1,5 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
-import Header from "../../Header/Header";
 import BookingAll from "../BookingPage/BookingAll";
 import BookingHold from "../BookingPage/BookingHold";
 import IssueRequest from "../BookingPage/IssueRequest";
@@ -31,12 +30,11 @@ const BookingRoute = () => {
       {/* <Container maxWidth="lg">
         <Header></Header>
       </Container> */}
-
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Grid container justifyContent={"space-between"} alignItems={"center"}>
           <Grid item xs={6} sm={6} md={6}>
             <Typography sx={{ color: "#003566", fontSize: "23px" }} mb={2}>
-              Booking Managment
+              Booking Management
             </Typography>
             {/* <Box className="searchList1">
             <input
