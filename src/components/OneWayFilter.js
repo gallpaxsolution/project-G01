@@ -230,39 +230,39 @@ const OneWayFilter = ({
   };
 
   return (
-    <Container>
-      <Box className="flight-filter1 filter-side-0">
-        <Grid
-          container
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          pt={2}
+    // <Container>
+    <Box className="flight-filter1 filter-side-0">
+      <Grid
+        container
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        pt={2}
+      >
+        <Typography
+          sx={{
+            color: "var(--secondary-color)",
+            fontSize: "14px",
+          }}
         >
-          <Typography
-            sx={{
-              color: "var(--secondary-color)",
-              fontSize: "14px",
-            }}
-          >
-            Sort & FILTER
-          </Typography>
-          <Typography
-            onClick={handleResetBtn}
-            sx={{
-              cursor: "pointer",
-              color: "var(--white)",
-              backgroundColor: "var(--primary-color)",
-              padding: "5px",
-              borderRadius: "5px",
-            }}
-          >
-            Reset
-          </Typography>
-        </Grid>
-        {/* <Box py={2}>
+          Sort & FILTER
+        </Typography>
+        <Typography
+          onClick={handleResetBtn}
+          sx={{
+            cursor: "pointer",
+            color: "var(--white)",
+            backgroundColor: "var(--primary-color)",
+            padding: "5px",
+            borderRadius: "5px",
+          }}
+        >
+          Reset
+        </Typography>
+      </Grid>
+      {/* <Box py={2}>
           <hr style={{ border: "2px solid var(--primary-color)" }} />
         </Box> */}
-        {/* <Accordion defaultExpanded={true} className="Accordion12">
+      {/* <Accordion defaultExpanded={true} className="Accordion12">
           <AccordionSummary
             expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
             id="panel1a-header"
@@ -311,69 +311,69 @@ const OneWayFilter = ({
             </Box>
           </AccordionDetails>
         </Accordion> */}
-        <Accordion defaultExpanded={true}>
-          <AccordionSummary
-            expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
-            id="panel2a-header"
-          >
-            <Typography className="fil-title">Fare Type</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Box sx={{ width: "100%" }}>
-              <FormGroup className="check-box-text09">
-                <FormControlLabel
-                  value={"refundable"}
-                  control={<Checkbox className="box-0" />}
-                  checked={refundable}
-                  onChange={handleRefundable}
-                  label="Refundable"
-                />
-                <FormControlLabel
-                  value={"NonRefundable"}
-                  control={<Checkbox className="box-0" />}
-                  checked={nonRefundable}
-                  onChange={handleNonRefundable}
-                  label="Non Refundable"
-                />
-              </FormGroup>
-            </Box>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion defaultExpanded={true}>
-          <AccordionSummary
-            expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography className="fil-title">Stops</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Box sx={{ width: "100%" }}>
-              <FormGroup className="check-box-text09">
-                <FormControlLabel
-                  onChange={handleDirectFlight}
-                  checked={directFlight}
-                  control={<Checkbox className="box-0" />}
-                  label="Non Stop"
-                />
-                <FormControlLabel
-                  control={<Checkbox className="box-0" />}
-                  checked={oneStopFlight}
-                  onChange={handleOneStopFlight}
-                  label="One Stops"
-                />
-                <FormControlLabel
-                  control={<Checkbox className="box-0" />}
-                  checked={multiStopFlight}
-                  onChange={handleMultiStopFlight}
-                  label="One Plus Stops"
-                />
-              </FormGroup>
-            </Box>
-          </AccordionDetails>
-        </Accordion>
-      </Box>
-    </Container>
+      <Accordion defaultExpanded={true}>
+        <AccordionSummary
+          expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
+          id="panel2a-header"
+        >
+          <Typography className="fil-title">Fare Type</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box sx={{ width: "100%" }}>
+            <FormGroup className="check-box-text09">
+              <FormControlLabel
+                value={"refundable"}
+                control={<Checkbox className="box-0" />}
+                checked={refundable}
+                onChange={handleRefundable}
+                label="Refundable"
+              />
+              <FormControlLabel
+                value={"NonRefundable"}
+                control={<Checkbox className="box-0" />}
+                checked={nonRefundable}
+                onChange={handleNonRefundable}
+                label="Non Refundable"
+              />
+            </FormGroup>
+          </Box>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion defaultExpanded={true}>
+        <AccordionSummary
+          expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography className="fil-title">Stops</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box sx={{ width: "100%" }}>
+            <FormGroup className="check-box-text09">
+              <FormControlLabel
+                onChange={handleDirectFlight}
+                checked={directFlight}
+                control={<Checkbox className="box-0" />}
+                label="Non Stop"
+              />
+              <FormControlLabel
+                control={<Checkbox className="box-0" />}
+                checked={oneStopFlight}
+                onChange={handleOneStopFlight}
+                label="One Stops"
+              />
+              <FormControlLabel
+                control={<Checkbox className="box-0" />}
+                checked={multiStopFlight}
+                onChange={handleMultiStopFlight}
+                label="One Plus Stops"
+              />
+            </FormGroup>
+          </Box>
+        </AccordionDetails>
+      </Accordion>
+    </Box>
+    // </Container>
   );
 };
 

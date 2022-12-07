@@ -52,7 +52,6 @@ function App() {
             <Route path="/flightdetail" element={<FlightDetails />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/mystaff" element={<MyStaff />} />
-
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}
 

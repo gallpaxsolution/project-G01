@@ -384,6 +384,7 @@ const RoundSearchResult = () => {
     <Box>
       <Container className="flightSearchParent">
         <Grid container justifyContent="space-between">
+          {/* //todo: filter*/}
           <Grid
             lg={2.2}
             sx={{
@@ -404,6 +405,7 @@ const RoundSearchResult = () => {
             />
           </Grid>
           <Grid container item rowSpacing={2} xs={12} sm={12} md={12} lg={9.6}>
+            {/* //todo: Flight Search Result section */}
             <Grid
               mt={4}
               className="modify-search modify-search-round"
@@ -465,7 +467,7 @@ const RoundSearchResult = () => {
                         justifyContent: "space-around",
                       }}
                     >
-                      <SessionTimer setChangeState={setChangeState} />
+                      {/* <SessionTimer setChangeState={setChangeState} /> */}
                     </Button>
                   </Tooltip>
                 </Grid>
@@ -515,7 +517,7 @@ const RoundSearchResult = () => {
                     </Button>
                   </HtmlTooltip>
                 </Grid>
-                {/*  cm button popup work here */}
+                {/*  //todo:cm button popup work here */}
                 <Grid
                   item
                   xs={2}
@@ -541,7 +543,7 @@ const RoundSearchResult = () => {
                     setCustomerFare={setCustomerFare}
                   />
                 </Grid>
-                {/*  cm button popup work end here */}
+                {/*  //todo:cm button popup work end here */}
                 <Grid item xs={5.8} sm={2} md={3} lg={3}>
                   <button
                     onClick={modifyHandleOpen}
@@ -593,6 +595,7 @@ const RoundSearchResult = () => {
                     </Container>
                   </Modal>
                 </Grid>
+                {/* //todo: filter drawer for mobile */}
                 <Grid
                   item
                   xs={5.8}
@@ -625,6 +628,7 @@ const RoundSearchResult = () => {
                 </Grid>
               </Grid>
             </Grid>
+            {/* //todo: AirLine Slider */}
             <Grid
               mt={2}
               width="50%"
@@ -642,7 +646,7 @@ const RoundSearchResult = () => {
                 setfilteredData={setData2}
               />
             </Grid>
-
+            {/* //todo:Search Result Section */}
             <Grid item xs={12} sm={12} md={12} lg={12}>
               {data2.length === 0 ? (
                 <Typography fontSize={"50px"} textAlign="center">
@@ -677,6 +681,7 @@ const RoundSearchResult = () => {
                 </>
               )}
             </Grid>
+            {/* //todo: Pagination section */}
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <Box
                 sx={{

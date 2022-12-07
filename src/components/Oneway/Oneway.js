@@ -794,6 +794,16 @@ const Oneway = ({
                         sm: "none",
                         xs: "none",
                       },
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "25px",
+                      height: "25px",
+                      padding: "5px",
+                      border: "1px solid var(--gray)",
+                      backgroundColor: "var(--white)",
+                      borderRadius: "50%",
+                      position: "absolute",
+                      left: "93%",
                       zIndex: 11,
                     }}
                   >
