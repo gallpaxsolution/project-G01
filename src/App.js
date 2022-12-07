@@ -74,6 +74,7 @@ function App() {
             {/* <Route path="/deposite" element={<Deposite />} /> */}
             {/* <Route path="/traveller" element={<Traveller />} /> */}
             {/* <Route path="/addtraveller" element={<AddTraveller />} /> */}
+            
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
           </Routes>
