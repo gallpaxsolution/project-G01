@@ -230,18 +230,19 @@ const OneWayFilter = ({
   };
 
   return (
-    // <Container>
     <Box className="flight-filter1 filter-side-0">
       <Grid
         container
         justifyContent={"space-between"}
         alignItems={"center"}
         pt={2}
+        pl={2}
       >
         <Typography
           sx={{
             color: "var(--secondary-color)",
-            fontSize: "14px",
+            fontSize: "16px",
+            fontWeight: "600",
           }}
         >
           Sort & FILTER
@@ -342,7 +343,6 @@ const OneWayFilter = ({
       <Accordion defaultExpanded={true}>
         <AccordionSummary
           expandIcon={<AiFillCaretDown color="var(--secondary-color)" />}
-          aria-controls="panel2a-content"
           id="panel2a-header"
         >
           <Typography className="fil-title">Stops</Typography>
@@ -373,7 +373,6 @@ const OneWayFilter = ({
         </AccordionDetails>
       </Accordion>
     </Box>
-    // </Container>
   );
 };
 

@@ -52,7 +52,7 @@ const RoundFlightInfoDetails = ({
 
   const submitCoupon = (e) => {
     e.preventDefault();
-    let url = "https://api.flyfarint.com/v.1.0.0/Coupon/check.php";
+    let url = "https://api.flyfarint.net/v.1.0.0/Coupon/check.php";
     let body = JSON.stringify({
       agentId,
       coupon,

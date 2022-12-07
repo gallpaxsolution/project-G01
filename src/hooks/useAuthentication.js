@@ -14,7 +14,7 @@ const useAuthentication = () => {
     //   email: loginData.email,
     //   password: loginData.password,
     // });
-    // let url = `https://api.flyfarint.com/v.1.0.0/Auth/login.php`;
+    // let url = `https://api.flyfarint.net/v.1.0.0/Auth/login.php`;
     // fetch(url, {
     //   method: "POST",
     //   headers: {
@@ -42,7 +42,7 @@ const useAuthentication = () => {
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     const state = secureLocalStorage.getItem("state");
-  //     let url = `https://api.flyfarint.com/v.1.0.0/Auth/login.php`;
+  //     let url = `https://api.flyfarint.net/v.1.0.0/Auth/login.php`;
   //     if (state !== null) {
   //       fetch(url, {
   //         method: "POST",

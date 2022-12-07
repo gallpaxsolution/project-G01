@@ -43,14 +43,14 @@ const VisaSearchBox = () => {
   useEffect(() => {
     const fetchAllData = async () => {
       const resFromSuggest = await axios(
-        `https://api.flyfarint.com/v.1.0.0/Visa/all.php?allcountry`
+        `https://api.flyfarint.net/v.1.0.0/Visa/all.php?allcountry`
       );
       setFromSuggest(resFromSuggest.data);
       setFilteredData(resFromSuggest.data);
 
       resFromSuggest.data.map(async (item, index) => {
         const restoSuggest = await axios(
-          `https://api.flyfarint.com/v.1.0.0/Visa/all.php?country=${item.country.trim()}`
+          `https://api.flyfarint.net/v.1.0.0/Visa/all.php?country=${item.country.trim()}`
         );
 
         setToSuggest(restoSuggest.data);
@@ -79,7 +79,7 @@ const VisaSearchBox = () => {
 
   const fromSuggestedText = async (name) => {
     const restoSuggest = await axios(
-      `https://api.flyfarint.com/v.1.0.0/Visa/all.php?country=${name.trim()}`
+      `https://api.flyfarint.net/v.1.0.0/Visa/all.php?country=${name.trim()}`
     );
     setToSuggest(restoSuggest.data);
     setToFilteredData(restoSuggest.data);

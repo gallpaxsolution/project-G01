@@ -13,6 +13,10 @@ import FlightIcon from "@mui/icons-material/Flight";
 import commaNumber from "comma-number";
 import { format } from "date-fns";
 import secureLocalStorage from "react-secure-storage";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import WorkIcon from "@mui/icons-material/Work";
 
 const HtmlTooltip = styled(({ className, ...propss }) => (
   <Tooltip {...propss} classes={{ popper: className }} />
@@ -4127,7 +4131,6 @@ const RoundSingleFlight = (props) => {
                                 <th>Class</th>
                                 <th>Check-In</th>
                               </tr>
-
                               <tr>
                                 <td>Departure</td>
                                 <td>
@@ -4214,798 +4217,1723 @@ const RoundSingleFlight = (props) => {
             )}
           </Box>
         </Box>
-        {/* --------for mobile End--------- */}
+        {/* --------//todo:for mobile End--------- */}
 
         <Box
           className="flight-filter1"
           sx={{ display: { xs: "none", sm: "block", md: "block" } }}
         >
           <Grid container sx={{ display: { xs: "none", sm: "flex" } }}>
-            <Grid sm={9.5}>
-              {/* --------Go start -------- */}
-              <Grid container>
-                <Grid item sm={3} md={4} px="15px" pt="15px">
-                  <Grid
-                    container
-                    sx={{
-                      alignItems: "start",
+            <Grid item sm={8} md={8} lg={8} style={{ padding: "10px 0px" }}>
+              {/*//todo:Go start*/}
+              <Grid container justifyContent={"space-between"}>
+                {/* //todo: one */}
+                <Grid item md={4}>
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "5px",
+                      height: "100%",
+                      width: "100%",
                     }}
                   >
-                    <Grid item sm={12} md={12} lg={4}>
-                      <Box>
-                        {system === "Sabre" ? (
-                          <Box
-                            sx={{
-                              width: {
-                                xs: "50px",
-                                sm: "50px",
-                                md: "71px",
-                                lg: "71px",
-                              },
-                            }}
-                          >
-                            {segment === "3" ? (
-                              <>
-                                {career === segments?.go[0]?.marketingcareer &&
-                                career === segments?.go[1]?.marketingcareer &&
-                                career === segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab1"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : segments?.go[0]?.marketingcareer !==
-                                    segments?.go[1]?.marketingcareer &&
-                                  segments?.go[1]?.marketingcareer ===
-                                    segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid red"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                      className="round-rotation"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : segments?.go[0]?.marketingcareer ===
-                                    segments?.go[1]?.marketingcareer &&
-                                  segments?.go[1]?.marketingcareer !==
-                                    segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid red"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                      className="round-rotation"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box className="mercedes-sape-s">
-                                      <Box className="first-1"></Box>
-                                      <Box className="img-first-1">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-2"></Box>
-                                      <Box className="img-first-2">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-3"></Box>
-                                      <Box className="img-first-3">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : segment === "2" ||
-                              segment === "22" ||
-                              segment === "21" ? (
-                              <>
-                                {career === segments?.go[0]?.marketingcareer &&
-                                career === segments?.go[1]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab1"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box
-                                      border={"2px solid red"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                      className="round-rotation"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : (
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                className="flight-icon-sab1"
-                                alt={`${career}`}
-                              />
-                            )}
-                          </Box>
-                        ) : system === "Galileo" ? (
-                          <Box
-                            sx={{
-                              width: {
-                                xs: "50px",
-                                sm: "50px",
-                                md: "71px",
-                                lg: "71px",
-                              },
-                            }}
-                          >
-                            {segment === "3" ? (
-                              <>
-                                {career === segments?.[0]?.marketingcareer &&
-                                career === segments?.go[1]?.marketingcareer &&
-                                career === segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab2"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : segments?.go[0]?.marketingcareer !==
-                                    segments?.go[1]?.marketingcareer &&
-                                  segments?.go[1]?.marketingcareer ===
-                                    segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #0b8634"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : segments?.go[0]?.marketingcareer ===
-                                    segments?.go[1]?.marketingcareer &&
-                                  segments?.go[1]?.marketingcareer !==
-                                    segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #0b8634"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box className="mercedes-sape-g">
-                                      <Box className="first-1"></Box>
-                                      <Box className="img-first-1">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-2"></Box>
-                                      <Box className="img-first-2">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-3"></Box>
-                                      <Box className="img-first-3">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : segment === "2" ||
-                              segment === "22" ||
-                              segment === "21" ? (
-                              <>
-                                {career === segments?.go[0]?.marketingcareer &&
-                                career === segments?.go[1]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab2"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box
-                                      border={"2px solid #0b8634"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : (
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                className="flight-icon-sab2"
-                                alt={`${career}`}
-                              />
-                            )}
-                          </Box>
-                        ) : (
-                          <Box
-                            sx={{
-                              width: {
-                                xs: "50px",
-                                sm: "50px",
-                                md: "71px",
-                                lg: "71px",
-                              },
-                            }}
-                          >
-                            {segment === "3" ? (
-                              <>
-                                {career === segments?.go[0]?.marketingcareer &&
-                                career === segments?.go[1]?.marketingcareer &&
-                                career === segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab3"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : (career ===
-                                    !segments?.go[0]?.marketingcareer &&
-                                    career ===
-                                      segments?.go[1]?.marketingcareer) ||
-                                  (career ===
-                                    segments?.go[0]?.marketingcareer &&
-                                    career ===
-                                      !segments?.go[1]?.marketingcareer) ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #4169e1"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : career ===
-                                    segments?.go[0]?.marketingcareer ||
-                                  career ===
-                                    !segments?.go[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #4169e1"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box className="mercedes-sape-f">
-                                      <Box className="first-1"></Box>
-                                      <Box className="img-first-1">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-2"></Box>
-                                      <Box className="img-first-2">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-3"></Box>
-                                      <Box className="img-first-3">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.go[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : segment === "2" ||
-                              segment === "22" ||
-                              segment === "21" ? (
-                              <>
-                                {career === segments?.go[0]?.marketingcareer &&
-                                career === segments?.go[1]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab3"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box
-                                      border={"2px solid #4169e1"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.go[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : (
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                className="flight-icon-sab3"
-                                alt={`${career}`}
-                              />
-                            )}
-                          </Box>
-                        )}
-                      </Box>
-                    </Grid>
-                    <Grid item sm={12} md={12} lg={8}>
-                      <Box pl={1}>
-                        <Typography
+                    <Box>
+                      {system === "Sabre" ? (
+                        <Box
                           sx={{
-                            color: "#DC143C",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "10px",
-                              md: "14px",
-                              lg: "14px",
-                            },
-                          }}
-                        >
-                          {/* {careerName} */}
-                          {/* --------start- */}
-                          {/* {segment === "3" ? (
-                                  <>
-                                    {career === segments?.go[0]?.marketingcareer &&
-                                    career === segments?.go[1]?.marketingcareer &&
-                                    career === segments?.go[2]?.marketingcareer ? (
-                                      <>{careerName}</>
-                                    ) : (career ===
-                                        !segments?.go[0]?.marketingcareer &&
-                                        career ===
-                                          segments?.go[1]?.marketingcareer) ||
-                                      (career === segments?.go[0]?.marketingcareer &&
-                                        career ===
-                                          !segments?.go[1]?.marketingcareer) ? (
-                                      <>
-                                        {segments?.go[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.go[1]?.marketingcareerName}
-                                      </>
-                                    ) : career === segments?.go[0]?.marketingcareer &&
-                                      career === !segments?.go[2]?.marketingcareer ? (
-                                      <>
-                                        {segments?.go[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.go[2]?.marketingcareerName}
-                                      </>
-                                    ) : career === segments?.go[0]?.marketingcareer ||
-                                      career === !segments?.go[2]?.marketingcareer ? (
-                                      <>
-                                        {segments?.go[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.go[2]?.marketingcareerName}
-                                      </>
-                                    ) : (
-                                      <>
-                                        {segments?.go[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.go[1]?.marketingcareerName}
-                                        <br />
-                                        {segments?.go[2]?.marketingcareerName}
-                                      </>
-                                    )}
-                                  </>
-                                ) : segment === "2" ||
-                                  segment === "22" ||
-                                  segment === "21" ? (
-                                  <>
-                                    {career === segments?.go[0]?.marketingcareer &&
-                                    career === segments?.go[1]?.marketingcareer ? (
-                                      <>{careerName}</>
-                                    ) : (
-                                      <>
-                                        {segments?.go[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.go[1]?.marketingcareerName}
-                                      </>
-                                    )}
-                                  </>
-                                ) : (
-                                  <>{careerName}</>
-                                )} */}
-                          {/* {segment === "3" ? (
-                                  <>{segments.go[0]?.marketingcareerName}</>
-                                ) : segment === "2" ? (
-                                  <>{segments.go[0]?.marketingcareerName}</>
-                                ) : (
-                                  <>{careerName}</>
-                                )} */}
-                          {segments.go[0]?.marketingcareerName || careerName}
-                          {/* --------end- */}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            color: "#003566",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "10px",
-                              md: "12px",
-                              lg: "12px",
-                            },
+                            width: "60px",
+                            height: "60px",
                           }}
                         >
                           {segment === "3" ? (
                             <>
-                              {segments.go[0]?.marketingcareer}&nbsp;
-                              {segments.go[0]?.marketingflight} {" | "}
-                              {segments.go[1]?.marketingcareer}&nbsp;
-                              {segments.go[1]?.marketingflight} {" | "}
-                              {segments.go[2]?.marketingcareer}&nbsp;
-                              {segments.go[2]?.marketingflight}
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer &&
+                              career === segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.go[0]?.marketingcareer !==
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer ===
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                    className="round-rotation"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.go[0]?.marketingcareer ===
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer !==
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                    className="round-rotation"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-s">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
                             </>
                           ) : segment === "2" ||
-                            segment === "21" ||
-                            segment === "22" ? (
+                            segment === "22" ||
+                            segment === "21" ? (
                             <>
-                              {segments.go[0]?.marketingcareer}&nbsp;
-                              {segments.go[0]?.marketingflight} {" | "}
-                              {segments.go[1]?.marketingcareer}&nbsp;
-                              {segments.go[1]?.marketingflight}
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                    className="round-rotation"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
                             </>
                           ) : (
-                            <>
-                              {segments.go[0]?.marketingcareer}&nbsp;
-                              {segments.go[0]?.marketingflight}
-                            </>
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${career}`}
+                            />
                           )}
-                        </Typography>
-                      </Box>
-                      <Box pl={1}>
-                        {segment === "3" ? (
-                          <Typography color="#003566" fontSize="12px">
-                            {goflightduration}&nbsp;|&nbsp;
-                            <spans style={{ color: "#dc143c" }}>Two Stop</spans>
-                          </Typography>
-                        ) : segment === "2" ||
-                          segment === "12" ||
-                          segment === "22" ? (
-                          <Typography color="#003566" fontSize="12px">
-                            {goflightduration}&nbsp;|&nbsp;
-                            <spans style={{ color: "#dc143c" }}>One Stop</spans>
-                          </Typography>
-                        ) : (
-                          <Typography color="#003566" fontSize="12px">
-                            {goflightduration}&nbsp;|&nbsp;
-                            <spans style={{ color: "#dc143c" }}>Non Stop</spans>
-                          </Typography>
-                        )}
-                      </Box>
-                    </Grid>
-                  </Grid>
-                </Grid>
-
-                <Grid item sm={9} md={8} paddingY="15px">
-                  <Grid container justifyContent={"space-between"}>
-                    <Grid item md={3.5}>
-                      <Box>
-                        <Typography
+                        </Box>
+                      ) : system === "Galileo" ? (
+                        <Box
                           sx={{
-                            color: "#000",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "13px",
-                              md: "15px",
-                              lg: "16px",
-                            },
+                            width: "60px",
+                            height: "60px",
                           }}
                         >
-                          {/* {godeparture} */}
-                          {segments.go[0]?.departure}
-                          <span> - </span>
-                          {system === "Galileo"
-                            ? `${
-                                new Date(godepartureTime)
-                                  .toTimeString()
-                                  ?.split(":")[0]
-                              }:${
-                                new Date(godepartureTime)
-                                  .toTimeString()
-                                  ?.split(":")[1]
-                              }`
-                            : `${godepartureTime?.split(":")[0]}:${
-                                godepartureTime?.split(":")[1]
-                              }`}
-                        </Typography>
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer &&
+                              career === segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.go[0]?.marketingcareer !==
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer ===
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.go[0]?.marketingcareer ===
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer !==
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-g">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "21" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${career}`}
+                            />
+                          )}
+                        </Box>
+                      ) : (
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer &&
+                              career === segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    cclassName={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (career ===
+                                  !segments?.go[0]?.marketingcareer &&
+                                  career ===
+                                    segments?.go[1]?.marketingcareer) ||
+                                (career === segments?.go[0]?.marketingcareer &&
+                                  career ===
+                                    !segments?.go[1]?.marketingcareer) ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : career === segments?.go[0]?.marketingcareer ||
+                                career === !segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-f">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "21" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${career}`}
+                            />
+                          )}
+                        </Box>
+                      )}
+                    </Box>
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#000",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "13px",
+                            md: "15px",
+                            lg: "16px",
+                          },
+                        }}
+                      >
+                        {/* {godeparture} */}
+                        {segments.go[0]?.departure}
+                        <span> - </span>
+                        {system === "Galileo"
+                          ? `${
+                              new Date(godepartureTime)
+                                .toTimeString()
+                                ?.split(":")[0]
+                            }:${
+                              new Date(godepartureTime)
+                                .toTimeString()
+                                ?.split(":")[1]
+                            }`
+                          : `${godepartureTime?.split(":")[0]}:${
+                              godepartureTime?.split(":")[1]
+                            }`}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#003566",
+                          fontWeight: 600,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "11px",
+                            md: "13px",
+                          },
+                        }}
+                      >
+                        {segments.go[0]?.departureLocation}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#6c757d",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "11px",
+                            md: "13px",
+                          },
+                        }}
+                      >
+                        {godepartureDate}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+                {/* //todo:two */}
+                <Grid item md={4}>
+                  <Box textAlign={"center"}>
+                    <Typography>
+                      {segment === "3" ? (
+                        <Box>
+                          <Box>
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
+                          </Box>
+                          <Grid container justifyContent="center">
+                            <Typography
+                              sx={{
+                                color: "#003566",
+                                fontWeight: 500,
+                                fontSize: {
+                                  xs: "12px",
+                                  sm: "10px",
+                                  md: "12px",
+                                },
+                              }}
+                            >
+                              {segments?.go[0]?.flightduration}
+                              &nbsp;|&nbsp;
+                              {segments?.go[1]?.flightduration}
+                              &nbsp;|&nbsp;
+                              {segments?.go[2]?.flightduration}&nbsp;|&nbsp;TWO
+                              STOP
+                            </Typography>
+                          </Grid>
+                          {/* <Box px={1}>
+                            <div className="segment03">
+                              <div className="segment-circle">
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segments.go[0].departure}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                                <div className="segment-stop"></div>
+                                <div className="segment-stop"></div>
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segment === "1" ||
+                                          segment === "12" ||
+                                          segment === "13" ? (
+                                            <>{segments.go[0]?.arrival}</>
+                                          ) : segment === "2" ||
+                                            segment === "21" ||
+                                            segment === "22" ||
+                                            segment === "23" ? (
+                                            <>{segments.go[1]?.arrival}</>
+                                          ) : segment === "3" ||
+                                            segment === "31" ||
+                                            segment === "32" ||
+                                            segment === "33" ? (
+                                            <>{segments.go[2]?.arrival}</>
+                                          ) : (
+                                            <>{goarrival}</>
+                                          )}
+                                          {goarrival}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                              </div>
+                              <div className="segment-flight03">
+                                <FlightIcon />
+                              </div>
+                            </div>
+                          </Box>
+                          <Typography className="arival-seg-3">
+                            <HtmlTooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography
+                                    sx={{
+                                      color: "#fff",
+                                      fontSize: "10px",
+                                    }}
+                                  >
+                                    <span style={{ fontSize: "12px" }}>
+                                      {
+                                        segments.go[0]?.arrivalLocation?.split(
+                                          ","
+                                        )[0]
+                                      }
+                                    </span>
+                                    <br />
+                                    {segments.go[1]?.marketingcareer}
+                                    {segments.go[1]?.marketingflight}{" "}
+                                    <span> | </span>
+                                    Transit: {transit?.go?.transit1}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                              followCursor
+                            >
+                              <Box className="arival-text">
+                                {segments.go[0]?.arrival}
+                              </Box>
+                            </HtmlTooltip>
+                            <HtmlTooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography
+                                    sx={{
+                                      color: "#fff",
+                                      fontSize: "10px",
+                                    }}
+                                  >
+                                    <span style={{ fontSize: "12px" }}>
+                                      {
+                                        segments.go[1]?.arrivalLocation?.split(
+                                          ","
+                                        )[0]
+                                      }
+                                    </span>
+                                    <br />
+                                    {segments.go[2]?.marketingcareer}
+                                    {segments.go[2]?.marketingflight}
+                                    <span> | </span>
+                                    Transit: {transit?.go?.transit2}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                              followCursor
+                            >
+                              <Box className="arival-text">
+                                {" "}
+                                {segments.go[1]?.arrival}
+                              </Box>
+                            </HtmlTooltip>
+                          </Typography> */}
+                        </Box>
+                      ) : segment === "2" || segment === "21" ? (
+                        <Box>
+                          <Box>
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
+                          </Box>
+                          <Grid container justifyContent="center">
+                            <Typography
+                              sx={{
+                                color: "#003566",
+                                fontWeight: 500,
+                                fontSize: {
+                                  xs: "12px",
+                                  sm: "10px",
+                                  md: "12px",
+                                },
+                              }}
+                            >
+                              {segments?.go[0]?.flightduration}
+                              &nbsp;|&nbsp;
+                              {segments?.go[1]?.flightduration}&nbsp;|&nbsp;ONE
+                              STOP
+                            </Typography>
+                          </Grid>
+                          {/* <Box px={1}>
+                            <div className="segment02">
+                              <div className="segment-circle">
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segments.go[0].departure}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                                <div className="segment-stop"></div>
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segment === "1" ||
+                                          segment === "12" ||
+                                          segment === "13" ? (
+                                            <>{segments.go[0]?.arrival}</>
+                                          ) : segment === "2" ||
+                                            segment === "21" ||
+                                            segment === "22" ||
+                                            segment === "23" ? (
+                                            <>{segments.go[1]?.arrival}</>
+                                          ) : segment === "3" ||
+                                            segment === "31" ||
+                                            segment === "32" ||
+                                            segment === "33" ? (
+                                            <>{segments.go[2]?.arrival}</>
+                                          ) : (
+                                            <>{goarrival}</>
+                                          )}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                              </div>
+                              <div className="segment-flight02">
+                                <FlightIcon />
+                              </div>
+                            </div>
+                          </Box>
+                          <Typography className="arival-seg2">
+                            <HtmlTooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography
+                                    sx={{
+                                      color: "#fff",
+                                      fontSize: "10px",
+                                    }}
+                                  >
+                                    <span style={{ fontSize: "12px" }}>
+                                      {
+                                        segments.go[0]?.arrivalLocation?.split(
+                                          ","
+                                        )[0]
+                                      }{" "}
+                                    </span>
+                                    <br />
+                                    {segments.go[1]?.marketingcareer}
+                                    {segments.go[1]?.marketingflight}
+                                    <span> | </span>
+                                    Transit: {transit?.go?.transit1}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                              followCursor
+                            >
+                              <Box className="arival-text2">
+                                {segments.go[0]?.arrival}
+                              </Box>
+                            </HtmlTooltip>
+                          </Typography> */}
+                        </Box>
+                      ) : (
+                        <Box>
+                          <Box>
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
+                          </Box>
+                          <Grid container justifyContent="center">
+                            <Typography
+                              sx={{
+                                color: "#003566",
+                                fontWeight: 500,
+                                fontSize: {
+                                  xs: "12px",
+                                  sm: "10px",
+                                  md: "12px",
+                                },
+                              }}
+                            >
+                              {goflightduration} | NO STOP
+                            </Typography>
+                          </Grid>
+                          {/* <Box px={1}>
+                            <div className="segment-1">
+                              <div className="segment-circle">
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segments.go[0].departure}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segment === "1" ||
+                                          segment === "12" ||
+                                          segment === "13" ? (
+                                            <>{segments.go[0]?.arrival}</>
+                                          ) : segment === "2" ||
+                                            segment === "21" ||
+                                            segment === "22" ||
+                                            segment === "23" ? (
+                                            <>{segments.go[1]?.arrival}</>
+                                          ) : segment === "3" ||
+                                            segment === "31" ||
+                                            segment === "32" ||
+                                            segment === "33" ? (
+                                            <>{segments.go[2]?.arrival}</>
+                                          ) : (
+                                            <>{goarrival}</>
+                                          )}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                              </div>
+                              <div className="segment-flight1">
+                                <FlightIcon />
+                              </div>
+                            </div>
+                          </Box> */}
+                        </Box>
+                      )}
+                    </Typography>
+                  </Box>
+                </Grid>
+                {/*//todo:three  */}
+                <Grid item md={4}>
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "5px",
+                      height: "100%",
+                      width: "100%",
+                    }}
+                  >
+                    <Box>
+                      {system === "Sabre" ? (
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer &&
+                              career === segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.go[0]?.marketingcareer !==
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer ===
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                    className="round-rotation"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.go[0]?.marketingcareer ===
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer !==
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                    className="round-rotation"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-s">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "21" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                    className="round-rotation"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${career}`}
+                            />
+                          )}
+                        </Box>
+                      ) : system === "Galileo" ? (
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer &&
+                              career === segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.go[0]?.marketingcareer !==
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer ===
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.go[0]?.marketingcareer ===
+                                  segments?.go[1]?.marketingcareer &&
+                                segments?.go[1]?.marketingcareer !==
+                                  segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-g">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "21" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${career}`}
+                            />
+                          )}
+                        </Box>
+                      ) : (
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer &&
+                              career === segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    cclassName={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (career ===
+                                  !segments?.go[0]?.marketingcareer &&
+                                  career ===
+                                    segments?.go[1]?.marketingcareer) ||
+                                (career === segments?.go[0]?.marketingcareer &&
+                                  career ===
+                                    !segments?.go[1]?.marketingcareer) ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : career === segments?.go[0]?.marketingcareer ||
+                                career === !segments?.go[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-f">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.go[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "21" ? (
+                            <>
+                              {career === segments?.go[0]?.marketingcareer &&
+                              career === segments?.go[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.go[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${career}`}
+                            />
+                          )}
+                        </Box>
+                      )}
+                    </Box>
+                    <Box textAlign={"start"}>
+                      <Typography
+                        sx={{
+                          color: "#000",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "13px",
+                            md: "15px",
+                            lg: "16px",
+                          },
+                        }}
+                      >
+                        {/* {goarrival} */}
+                        {segment === "1" ? (
+                          <>{segments.go[0]?.arrival}</>
+                        ) : segment === "2" ? (
+                          <>{segments.go[1]?.arrival}</>
+                        ) : segment === "3" ? (
+                          <>{segments.go[2]?.arrival}</>
+                        ) : (
+                          <>{goarrival}</>
+                        )}
+                        <span> - </span>
+
+                        {system === "Galileo"
+                          ? `${
+                              new Date(goarrivalTime)
+                                .toTimeString()
+                                ?.split(":")[0]
+                            }:${
+                              new Date(goarrivalTime)
+                                .toTimeString()
+                                ?.split(":")[1]
+                            }`
+                          : `${goarrivalTime?.split(":")[0]}:${
+                              goarrivalTime?.split(":")[1]
+                            }`}
+                      </Typography>
+                      {segment === "3" ? (
                         <Typography
                           sx={{
                             color: "#003566",
@@ -5017,12 +5945,13 @@ const RoundSingleFlight = (props) => {
                             },
                           }}
                         >
-                          {segments.go[0]?.departureLocation}
+                          {segments.go[2]?.arrivalLocation}
                         </Typography>
+                      ) : segment === "2" || segment === "21" ? (
                         <Typography
                           sx={{
-                            color: "#6c757d",
-                            fontWeight: 500,
+                            color: "#003566",
+                            fontWeight: 600,
                             fontSize: {
                               xs: "12px",
                               sm: "11px",
@@ -5030,507 +5959,13 @@ const RoundSingleFlight = (props) => {
                             },
                           }}
                         >
-                          {godepartureDate}
+                          {segments.go[1]?.arrivalLocation}
                         </Typography>
-                      </Box>
-                    </Grid>
-
-                    <Grid item md={5}>
-                      <Box textAlign={"center"}>
-                        <Typography>
-                          {/* ---------stops------ */}
-
-                          {segment === "3" ? (
-                            <Box>
-                              <Grid container justifyContent="center">
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontWeight: 500,
-                                    fontSize: {
-                                      xs: "12px",
-                                      sm: "10px",
-                                      md: "12px",
-                                    },
-                                  }}
-                                >
-                                  {segments?.go[0]?.flightduration}
-                                  &nbsp;|&nbsp;
-                                  {segments?.go[1]?.flightduration}
-                                  &nbsp;|&nbsp;
-                                  {segments?.go[2]?.flightduration}
-                                </Typography>
-                              </Grid>
-                              <Box px={1}>
-                                <div className="segment03">
-                                  <div className="segment-circle">
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segments.go[0].departure}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                    <div className="segment-stop"></div>
-                                    <div className="segment-stop"></div>
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segment === "1" ||
-                                              segment === "12" ||
-                                              segment === "13" ? (
-                                                <>{segments.go[0]?.arrival}</>
-                                              ) : segment === "2" ||
-                                                segment === "21" ||
-                                                segment === "22" ||
-                                                segment === "23" ? (
-                                                <>{segments.go[1]?.arrival}</>
-                                              ) : segment === "3" ||
-                                                segment === "31" ||
-                                                segment === "32" ||
-                                                segment === "33" ? (
-                                                <>{segments.go[2]?.arrival}</>
-                                              ) : (
-                                                <>{goarrival}</>
-                                              )}
-                                              {goarrival}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                  </div>
-                                  <div className="segment-flight03">
-                                    <FlightIcon />
-                                  </div>
-                                </div>
-                              </Box>
-                              <Typography className="arival-seg-3">
-                                <HtmlTooltip
-                                  title={
-                                    <React.Fragment>
-                                      <Typography
-                                        sx={{
-                                          color: "#fff",
-                                          fontSize: "10px",
-                                        }}
-                                      >
-                                        <span style={{ fontSize: "12px" }}>
-                                          {
-                                            segments.go[0]?.arrivalLocation?.split(
-                                              ","
-                                            )[0]
-                                          }
-                                        </span>
-                                        <br />
-                                        {segments.go[1]?.marketingcareer}
-                                        {segments.go[1]?.marketingflight}{" "}
-                                        <span> | </span>
-                                        Transit: {transit?.go?.transit1}
-                                      </Typography>
-                                    </React.Fragment>
-                                  }
-                                  followCursor
-                                >
-                                  <Box className="arival-text">
-                                    {segments.go[0]?.arrival}
-                                  </Box>
-                                </HtmlTooltip>
-                                <HtmlTooltip
-                                  title={
-                                    <React.Fragment>
-                                      <Typography
-                                        sx={{
-                                          color: "#fff",
-                                          fontSize: "10px",
-                                        }}
-                                      >
-                                        <span style={{ fontSize: "12px" }}>
-                                          {
-                                            segments.go[1]?.arrivalLocation?.split(
-                                              ","
-                                            )[0]
-                                          }
-                                        </span>
-                                        <br />
-                                        {segments.go[2]?.marketingcareer}
-                                        {segments.go[2]?.marketingflight}
-                                        <span> | </span>
-                                        Transit: {transit?.go?.transit2}
-                                      </Typography>
-                                    </React.Fragment>
-                                  }
-                                  followCursor
-                                >
-                                  <Box className="arival-text">
-                                    {" "}
-                                    {segments.go[1]?.arrival}
-                                  </Box>
-                                </HtmlTooltip>
-                              </Typography>
-                            </Box>
-                          ) : segment === "2" || segment === "21" ? (
-                            <Box>
-                              <Grid container justifyContent="center">
-                                {" "}
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontWeight: 500,
-                                    fontSize: {
-                                      xs: "12px",
-                                      sm: "10px",
-                                      md: "12px",
-                                    },
-                                  }}
-                                >
-                                  {segments?.go[0]?.flightduration}
-                                  &nbsp;|&nbsp;
-                                  {segments?.go[1]?.flightduration}
-                                </Typography>
-                              </Grid>
-                              <Box px={1}>
-                                <div className="segment02">
-                                  <div className="segment-circle">
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segments.go[0].departure}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                    <div className="segment-stop"></div>
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segment === "1" ||
-                                              segment === "12" ||
-                                              segment === "13" ? (
-                                                <>{segments.go[0]?.arrival}</>
-                                              ) : segment === "2" ||
-                                                segment === "21" ||
-                                                segment === "22" ||
-                                                segment === "23" ? (
-                                                <>{segments.go[1]?.arrival}</>
-                                              ) : segment === "3" ||
-                                                segment === "31" ||
-                                                segment === "32" ||
-                                                segment === "33" ? (
-                                                <>{segments.go[2]?.arrival}</>
-                                              ) : (
-                                                <>{goarrival}</>
-                                              )}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                  </div>
-                                  <div className="segment-flight02">
-                                    <FlightIcon />
-                                  </div>
-                                </div>
-                              </Box>
-                              <Typography className="arival-seg2">
-                                <HtmlTooltip
-                                  title={
-                                    <React.Fragment>
-                                      <Typography
-                                        sx={{
-                                          color: "#fff",
-                                          fontSize: "10px",
-                                        }}
-                                      >
-                                        <span style={{ fontSize: "12px" }}>
-                                          {
-                                            segments.go[0]?.arrivalLocation?.split(
-                                              ","
-                                            )[0]
-                                          }{" "}
-                                        </span>
-                                        <br />
-                                        {segments.go[1]?.marketingcareer}
-                                        {segments.go[1]?.marketingflight}
-                                        <span> | </span>
-                                        Transit: {transit?.go?.transit1}
-                                      </Typography>
-                                    </React.Fragment>
-                                  }
-                                  followCursor
-                                >
-                                  <Box className="arival-text2">
-                                    {segments.go[0]?.arrival}
-                                  </Box>
-                                </HtmlTooltip>
-                              </Typography>
-                            </Box>
-                          ) : (
-                            <Box>
-                              <Grid container justifyContent="center">
-                                {" "}
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontWeight: 500,
-                                    fontSize: {
-                                      xs: "12px",
-                                      sm: "10px",
-                                      md: "12px",
-                                    },
-                                  }}
-                                >
-                                  {goflightduration}
-                                </Typography>
-                              </Grid>
-                              <Box px={1}>
-                                <div className="segment-1">
-                                  <div className="segment-circle">
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segments.go[0].departure}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segment === "1" ||
-                                              segment === "12" ||
-                                              segment === "13" ? (
-                                                <>{segments.go[0]?.arrival}</>
-                                              ) : segment === "2" ||
-                                                segment === "21" ||
-                                                segment === "22" ||
-                                                segment === "23" ? (
-                                                <>{segments.go[1]?.arrival}</>
-                                              ) : segment === "3" ||
-                                                segment === "31" ||
-                                                segment === "32" ||
-                                                segment === "33" ? (
-                                                <>{segments.go[2]?.arrival}</>
-                                              ) : (
-                                                <>{goarrival}</>
-                                              )}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                  </div>
-                                  <div className="segment-flight1">
-                                    <FlightIcon />
-                                  </div>
-                                </div>
-                              </Box>
-                            </Box>
-                          )}
-                        </Typography>
-                      </Box>
-                    </Grid>
-
-                    <Grid item md={3.5}>
-                      <Box textAlign={"end"}>
+                      ) : (
                         <Typography
                           sx={{
-                            color: "#000",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "13px",
-                              md: "15px",
-                              lg: "16px",
-                            },
-                          }}
-                        >
-                          {/* {goarrival} */}
-                          {segment === "1" ? (
-                            <>{segments.go[0]?.arrival}</>
-                          ) : segment === "2" ? (
-                            <>{segments.go[1]?.arrival}</>
-                          ) : segment === "3" ? (
-                            <>{segments.go[2]?.arrival}</>
-                          ) : (
-                            <>{goarrival}</>
-                          )}
-                          <span> - </span>
-
-                          {system === "Galileo"
-                            ? `${
-                                new Date(goarrivalTime)
-                                  .toTimeString()
-                                  ?.split(":")[0]
-                              }:${
-                                new Date(goarrivalTime)
-                                  .toTimeString()
-                                  ?.split(":")[1]
-                              }`
-                            : `${goarrivalTime?.split(":")[0]}:${
-                                goarrivalTime?.split(":")[1]
-                              }`}
-                        </Typography>
-                        {segment === "3" ? (
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontWeight: 600,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "13px",
-                              },
-                            }}
-                          >
-                            {segments.go[2]?.arrivalLocation}
-                          </Typography>
-                        ) : segment === "2" || segment === "21" ? (
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontWeight: 600,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "13px",
-                              },
-                            }}
-                          >
-                            {segments.go[1]?.arrivalLocation}
-                          </Typography>
-                        ) : (
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontWeight: 600,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "13px",
-                              },
-                            }}
-                          >
-                            {segments.go[0]?.arrivalLocation}
-                          </Typography>
-                        )}
-
-                        <Typography
-                          sx={{
-                            color: "#6c757d",
-                            fontWeight: 500,
+                            color: "#003566",
+                            fontWeight: 600,
                             fontSize: {
                               xs: "12px",
                               sm: "11px",
@@ -5538,802 +5973,1651 @@ const RoundSingleFlight = (props) => {
                             },
                           }}
                         >
-                          {goarrivalDate}
+                          {segments.go[0]?.arrivalLocation}
                         </Typography>
-                      </Box>
-                    </Grid>
-                  </Grid>
+                      )}
+
+                      <Typography
+                        sx={{
+                          color: "#6c757d",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "11px",
+                            md: "13px",
+                          },
+                        }}
+                      >
+                        {goarrivalDate}
+                      </Typography>
+                    </Box>
+                  </Box>
                 </Grid>
               </Grid>
-              {/* --------Go End -------- */}
-              {/* -------- Retunr Start -------- */}
-              <Grid container>
-                <Grid item sm={3} md={4} px="15px" pt="15px">
-                  <Grid
-                    container
-                    sx={{
-                      alignItems: "start",
+              {/*//todo:Go End*/}
+              {/*//todo:Return Start*/}
+
+              <Grid container justifyContent={"space-between"}>
+                {/* //todo:one */}
+                <Grid item md={4}>
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "5px",
+                      width: "100%",
+                      height: "100%",
                     }}
                   >
-                    <Grid item sm={12} md={12} lg={4}>
-                      <Box>
-                        {system === "Sabre" ? (
-                          <Box
-                            sx={{
-                              width: {
-                                xs: "50px",
-                                sm: "50px",
-                                md: "71px",
-                                lg: "71px",
-                              },
-                            }}
-                          >
-                            {segment === "3" ? (
-                              <>
-                                {career ===
-                                  segments?.back[0]?.marketingcareer &&
-                                career === segments?.back[1]?.marketingcareer &&
-                                career ===
-                                  segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab1"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : segments?.back[0]?.marketingcareer !==
-                                    segments?.back[1]?.marketingcareer &&
-                                  segments?.back[1]?.marketingcareer ===
-                                    segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid red"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : segments?.back[0]?.marketingcareer ===
-                                    segments?.back[1]?.marketingcareer &&
-                                  segments?.back[1]?.marketingcareer !==
-                                    segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid red"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box className="mercedes-sape-s">
-                                      <Box className="first-1"></Box>
-                                      <Box className="img-first-1">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-2"></Box>
-                                      <Box className="img-first-2">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-3"></Box>
-                                      <Box className="img-first-3">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : segment === "2" ||
-                              segment === "22" ||
-                              segment === "12" ? (
-                              <>
-                                {career ===
-                                  segments?.back[0]?.marketingcareer &&
-                                career ===
-                                  segments?.back[1]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab1"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box
-                                      border={"2px solid red"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : (
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                className="flight-icon-sab1"
-                                alt={`${segments?.back[0]?.marketingcareer}`}
-                              />
-                            )}
-                          </Box>
-                        ) : system === "Galileo" ? (
-                          <Box
-                            sx={{
-                              width: {
-                                xs: "50px",
-                                sm: "50px",
-                                md: "71px",
-                                lg: "71px",
-                              },
-                            }}
-                          >
-                            {segment === "3" ? (
-                              <>
-                                {career ===
-                                  segments?.back[0]?.marketingcareer &&
-                                career === segments?.back[1]?.marketingcareer &&
-                                career ===
-                                  segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab2"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : segments?.back[0]?.marketingcareer !==
-                                    segments?.back[1]?.marketingcareer &&
-                                  segments?.back[1]?.marketingcareer ===
-                                    segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #0b8634"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : segments?.back[0]?.marketingcareer ===
-                                    segments?.back[1]?.marketingcareer &&
-                                  segments?.back[1]?.marketingcareer !==
-                                    segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #0b8634"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box className="mercedes-sape-g">
-                                      <Box className="first-1"></Box>
-                                      <Box className="img-first-1">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-2"></Box>
-                                      <Box className="img-first-2">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-3"></Box>
-                                      <Box className="img-first-3">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : segment === "2" ||
-                              segment === "22" ||
-                              segment === "12" ? (
-                              <>
-                                {career ===
-                                  segments?.back[0]?.marketingcareer &&
-                                career ===
-                                  segments?.back[1]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab2"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box
-                                      border={"2px solid #0b8634"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : (
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                className="flight-icon-sab2"
-                                alt={`${segments?.back[0]?.marketingcareer}`}
-                              />
-                            )}
-                          </Box>
-                        ) : (
-                          // ----- gali end
-                          <Box
-                            sx={{
-                              width: {
-                                xs: "50px",
-                                sm: "50px",
-                                md: "71px",
-                                lg: "71px",
-                              },
-                            }}
-                          >
-                            {segment === "3" ? (
-                              <>
-                                {career ===
-                                  segments?.back[0]?.marketingcareer &&
-                                career === segments?.back[1]?.marketingcareer &&
-                                career ===
-                                  segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab3"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : segments?.back[0]?.marketingcareer !==
-                                    segments?.back[1]?.marketingcareer &&
-                                  segments?.back[1]?.marketingcareer ===
-                                    segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #4169e1"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : segments?.back[0]?.marketingcareer ===
-                                    segments?.back[1]?.marketingcareer &&
-                                  segments?.back[1]?.marketingcareer !==
-                                    segments?.back[2]?.marketingcareer ? (
-                                  <>
-                                    <Box
-                                      border={"2px solid #4169e1"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box className="mercedes-sape-f">
-                                      <Box className="first-1"></Box>
-                                      <Box className="img-first-1">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-2"></Box>
-                                      <Box className="img-first-2">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box className="first-3"></Box>
-                                      <Box className="img-first-3">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
-                                          width="25px"
-                                          height="25px"
-                                          alt={`${segments?.back[2]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : segment === "2" ||
-                              segment === "22" ||
-                              segment === "12" ? (
-                              <>
-                                {career ===
-                                  segments?.back[0]?.marketingcareer &&
-                                career ===
-                                  segments?.back[1]?.marketingcareer ? (
-                                  <>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
-                                      className="flight-icon-sab3"
-                                      alt={`${career}`}
-                                    />
-                                  </>
-                                ) : (
-                                  <>
-                                    <Box
-                                      border={"2px solid #4169e1"}
-                                      borderRadius="50%"
-                                      width="71px"
-                                      height="71px"
-                                      display="flex"
-                                      flexDirection="column"
-                                      overflow="hidden"
-                                      justifyContent="center"
-                                      alignItems="center"
-                                      pt="8px"
-                                    >
-                                      <Box mb="-7px">
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[0]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                      <Box
-                                        borderBottom={"2px solid #D9D9D9"}
-                                        width="100%"
-                                      ></Box>
-                                      <Box>
-                                        <img
-                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
-                                          width="30px"
-                                          height="30px"
-                                          alt={`${segments?.back[1]?.marketingcareer}`}
-                                        />
-                                      </Box>
-                                    </Box>
-                                  </>
-                                )}
-                              </>
-                            ) : (
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
-                                className="flight-icon-sab3"
-                                alt={`${segments?.back[0]?.marketingcareer}`}
-                              />
-                            )}
-                          </Box>
-                        )}
-                      </Box>
-                    </Grid>
-                    <Grid item sm={12} md={12} lg={8}>
-                      <Box pl={1}>
-                        <Typography
+                    <Box>
+                      {system === "Sabre" ? (
+                        <Box
                           sx={{
-                            color: "#DC143C",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "10px",
-                              md: "14px",
-                              lg: "14px",
-                            },
-                          }}
-                        >
-                          {/* {careerName} */}
-                          {/* --------start- */}
-                          {/* {segment === "3" ? (
-                                  <>
-                                    {career === segments?.back[0]?.marketingcareer &&
-                                    career === segments?.back[1]?.marketingcareer &&
-                                    career === segments?.back[2]?.marketingcareer ? (
-                                      <>{careerName}</>
-                                    ) : (career ===
-                                        !segments?.back[0]?.marketingcareer &&
-                                        career ===
-                                          segments?.back[1]?.marketingcareer) ||
-                                      (career ===
-                                        segments?.back[0]?.marketingcareer &&
-                                        career ===
-                                          !segments?.back[1]?.marketingcareer) ? (
-                                      <>
-                                        {segments?.back[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.back[1]?.marketingcareerName}
-                                      </>
-                                    ) : segments?.back[0]?.marketingcareer ===
-                                        segments?.back[1]?.marketingcareer ||
-                                      (career ===
-                                        segments?.back[0]?.marketingcareer &&
-                                        career ===
-                                          !segments?.back[2]?.marketingcareer) ? (
-                                      <>
-                                        {segments?.back[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.back[2]?.marketingcareerName}
-                                      </>
-                                    ) : (
-                                      <>
-                                        {segments?.back[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.back[1]?.marketingcareerName}
-                                      </>
-                                    )}
-                                  </>
-                                ) : segment === "2" ||
-                                  segment === "22" ||
-                                  segment === "21" ? (
-                                  <>
-                                    {career === segments?.back[0]?.marketingcareer &&
-                                    career === segments?.back[1]?.marketingcareer ? (
-                                      <>{careerName}</>
-                                    ) : (
-                                      <>
-                                        {segments?.back[0]?.marketingcareerName}
-                                        <br />
-                                        {segments?.back[1]?.marketingcareerName}
-                                      </>
-                                    )}
-                                  </>
-                                ) : (
-                              
-                                )} */}
-
-                          {/* {segment === "3" ? (
-                                  <>{segments.back[0]?.marketingcareerName}</>
-                                ) : segment === "2" ? (
-                                  <>{segments.back[0]?.marketingcareerName}</>
-                                ) : (
-                                  <>{careerName}</>
-                                )} */}
-                          {segments.back[0]?.marketingcareerName || careerName}
-                          {/* --------end- */}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            color: "#003566",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "10px",
-                              md: "12px",
-                              lg: "12px",
-                            },
+                            width: "60px",
+                            height: "60px",
                           }}
                         >
                           {segment === "3" ? (
                             <>
-                              {segments.back[0]?.marketingcareer}&nbsp;
-                              {segments.back[0]?.marketingflight} {" | "}
-                              {segments.back[1]?.marketingcareer}&nbsp;
-                              {segments.back[1]?.marketingflight} {" | "}
-                              {segments.back[2]?.marketingcareer}&nbsp;
-                              {segments.back[2]?.marketingflight}
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer &&
+                              career === segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.back[0]?.marketingcareer !==
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.back[0]?.marketingcareer ===
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer !==
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-s">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
                             </>
                           ) : segment === "2" ||
-                            segment === "12" ||
-                            segment === "22" ? (
+                            segment === "22" ||
+                            segment === "12" ? (
                             <>
-                              {segments.back[0]?.marketingcareer}&nbsp;
-                              {segments.back[0]?.marketingflight} {" | "}
-                              {segments.back[1]?.marketingcareer}&nbsp;
-                              {segments.back[1]?.marketingflight}
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
                             </>
                           ) : (
-                            <>
-                              {segments.back[0]?.marketingcareer}&nbsp;
-                              {segments.back[0]?.marketingflight}
-                            </>
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${segments?.back[0]?.marketingcareer}`}
+                            />
                           )}
-                        </Typography>
-                      </Box>
-                      <Box pl={1}>
-                        {segment === "3" ? (
-                          <Typography color="#003566" fontSize="12px">
-                            {backflightduration}&nbsp;|&nbsp;
-                            <spans style={{ color: "#dc143c" }}>Two Stop</spans>
-                          </Typography>
-                        ) : segment === "2" ||
-                          segment === "12" ||
-                          segment === "22" ? (
-                          <Typography color="#003566" fontSize="12px">
-                            {backflightduration}&nbsp;|&nbsp;
-                            <spans style={{ color: "#dc143c" }}>One Stop</spans>
-                          </Typography>
-                        ) : (
-                          <Typography color="#003566" fontSize="12px">
-                            {backflightduration}&nbsp;|&nbsp;
-                            <spans style={{ color: "#dc143c" }}>Non Stop</spans>
-                          </Typography>
-                        )}
-                      </Box>
-                    </Grid>
-                  </Grid>
-                </Grid>
-
-                <Grid item sm={9} md={8} paddingY="5px">
-                  <Grid container justifyContent={"space-between"}>
-                    <Grid item md={3.5}>
-                      <Box>
-                        <Typography
+                        </Box>
+                      ) : system === "Galileo" ? (
+                        <Box
                           sx={{
-                            color: "#000",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "13px",
-                              md: "15px",
-                              lg: "16px",
-                            },
+                            width: "60px",
+                            height: "60px",
                           }}
                         >
-                          {/* {backdeparture} */}
-                          {segments?.back[0]?.departure}
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer &&
+                              career === segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.back[0]?.marketingcareer !==
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.back[0]?.marketingcareer ===
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer !==
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-g">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "12" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${segments?.back[0]?.marketingcareer}`}
+                            />
+                          )}
+                        </Box>
+                      ) : (
+                        // ----- gali end
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer &&
+                              career === segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.back[0]?.marketingcareer !==
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.back[0]?.marketingcareer ===
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer !==
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-f">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "12" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${segments?.back[0]?.marketingcareer}`}
+                            />
+                          )}
+                        </Box>
+                      )}
+                    </Box>
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#000",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "13px",
+                            md: "15px",
+                            lg: "16px",
+                          },
+                        }}
+                      >
+                        {/* {backdeparture} */}
+                        {segments?.back[0]?.departure}
 
-                          <span> - </span>
-                          {system === "Galileo"
-                            ? `${
-                                new Date(backdepartureTime)
-                                  .toTimeString()
-                                  ?.split(":")[0]
-                              }:${
-                                new Date(backdepartureTime)
-                                  .toTimeString()
-                                  ?.split(":")[1]
-                              }`
-                            : `${backdepartureTime?.split(":")[0]}:${
-                                backdepartureTime?.split(":")[1]
-                              }`}
-                        </Typography>
+                        <span> - </span>
+                        {system === "Galileo"
+                          ? `${
+                              new Date(backdepartureTime)
+                                .toTimeString()
+                                ?.split(":")[0]
+                            }:${
+                              new Date(backdepartureTime)
+                                .toTimeString()
+                                ?.split(":")[1]
+                            }`
+                          : `${backdepartureTime?.split(":")[0]}:${
+                              backdepartureTime?.split(":")[1]
+                            }`}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#003566",
+                          fontWeight: 600,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "11px",
+                            md: "13px",
+                          },
+                        }}
+                      >
+                        {segments.back[0]?.departureLocation}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#6c757d",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "11px",
+                            md: "13px",
+                          },
+                        }}
+                      >
+                        {backdepartureDate}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+                {/* //todo:two */}
+                <Grid item md={4}>
+                  <Box textAlign={"center"}>
+                    <Typography>
+                      {/* ---------stops------ */}
+                      {segment === "3" ? (
+                        <Box>
+                          <Box px={1}>
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
+                          </Box>
+                          <Grid container justifyContent="center">
+                            <Typography
+                              sx={{
+                                color: "#003566",
+                                fontWeight: 500,
+                                fontSize: {
+                                  xs: "12px",
+                                  sm: "10px",
+                                  md: "12px",
+                                },
+                              }}
+                            >
+                              {segments?.back[0]?.flightduration}
+                              &nbsp;|&nbsp;
+                              {segments?.back[1]?.flightduration}
+                              &nbsp;|&nbsp;
+                              {segments?.back[2]?.flightduration}
+                              &nbsp;|&nbsp;TWO STOP
+                            </Typography>
+                          </Grid>
+                          {/* <Box px={1}>
+                            <div className="segment03">
+                              <div className="segment-circle">
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segments?.back[0]?.departure}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                                <div className="segment-stop"></div>
+                                <div className="segment-stop"></div>
+                                <div className="circle-0">
+                                  <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segment === "1" ||
+                                          segment === "12" ||
+                                          segment === "13" ? (
+                                            <>{segments.back[0]?.arrival}</>
+                                          ) : segment === "2" ||
+                                            segment === "21" ||
+                                            segment === "22" ||
+                                            segment === "23" ? (
+                                            <>{segments.back[1]?.arrival}</>
+                                          ) : segment === "3" ||
+                                            segment === "31" ||
+                                            segment === "32" ||
+                                            segment === "33" ? (
+                                            <>{segments.back[2]?.arrival}</>
+                                          ) : (
+                                            <>{backarrival}</>
+                                          )}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                                </div>
+                              </div>
+                              <div className="segment-flight03">
+                                <FlightIcon />
+                              </div>
+                            </div>
+                          </Box>
+                          <Typography className="arival-seg-3">
+                            <HtmlTooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography
+                                    sx={{
+                                      color: "#fff",
+                                      fontSize: "10px",
+                                    }}
+                                  >
+                                    <span style={{ fontSize: "12px" }}>
+                                      {
+                                        segments.back[0]?.arrivalLocation?.split(
+                                          ","
+                                        )[0]
+                                      }
+                                    </span>
+                                    <br />
+                                    {segments.back[1]?.marketingcareer}
+                                    {segments.back[1]?.marketingflight}{" "}
+                                    <span> | </span>
+                                    Transit: {transit?.back?.transit1}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                              followCursor
+                            >
+                              <Box className="arival-text">
+                                {segments.back[0]?.arrival}
+                              </Box>
+                            </HtmlTooltip>
+                            <HtmlTooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography
+                                    sx={{
+                                      color: "#fff",
+                                      fontSize: "10px",
+                                    }}
+                                  >
+                                    <span style={{ fontSize: "12px" }}>
+                                      {
+                                        segments.back[1]?.arrivalLocation?.split(
+                                          ","
+                                        )[0]
+                                      }
+                                    </span>
+                                    <br />
+                                    {segments.back[2]?.marketingcareer}
+                                    {segments.back[2]?.marketingflight}
+                                    <span> | </span>
+                                    Transit: {transit?.back?.transit2}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                              followCursor
+                            >
+                              <Box className="arival-text">
+                                {" "}
+                                {segments.back[1]?.arrival}
+                              </Box>
+                            </HtmlTooltip>
+                          </Typography> */}
+                        </Box>
+                      ) : segment === "2" || segment === "12" ? (
+                        <Box>
+                          <Box px={1}>
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
+                          </Box>
+                          <Grid container justifyContent="center">
+                            {" "}
+                            <Typography
+                              sx={{
+                                color: "#003566",
+                                fontWeight: 500,
+                                fontSize: {
+                                  xs: "12px",
+                                  sm: "10px",
+                                  md: "12px",
+                                },
+                              }}
+                            >
+                              {segments?.back[0]?.flightduration}
+                              &nbsp;|&nbsp;
+                              {segments?.back[1]?.flightduration}
+                              &nbsp;|&nbsp;ONE STOP
+                            </Typography>
+                          </Grid>
+
+                          {/* <Box>
+                            <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segments?.back[0]?.departure}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+
+                             <HtmlTooltip
+                                    title={
+                                      <React.Fragment>
+                                        <Typography
+                                          sx={{
+                                            color: "#fff",
+                                            fontSize: "10px",
+                                          }}
+                                        >
+                                          {segment === "1" ||
+                                          segment === "12" ||
+                                          segment === "13" ? (
+                                            <>{segments.back[0]?.arrival}</>
+                                          ) : segment === "2" ||
+                                            segment === "21" ||
+                                            segment === "22" ||
+                                            segment === "23" ? (
+                                            <>{segments.back[1]?.arrival}</>
+                                          ) : segment === "3" ||
+                                            segment === "31" ||
+                                            segment === "32" ||
+                                            segment === "33" ? (
+                                            <>{segments.back[2]?.arrival}</>
+                                          ) : (
+                                            <>{backarrival}</>
+                                          )}
+                                        </Typography>
+                                      </React.Fragment>
+                                    }
+                                    followCursor
+                                  >
+                                    <span>
+                                      <CircleIcon
+                                        sx={{
+                                          color: "#c7c7c7",
+                                          fontSize: "15px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </span>
+                                  </HtmlTooltip>
+                          </Box> */}
+                          {/* <Typography className="arival-seg2">
+                            <HtmlTooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography
+                                    sx={{
+                                      color: "#fff",
+                                      fontSize: "10px",
+                                    }}
+                                  >
+                                    <span style={{ fontSize: "12px" }}>
+                                      {
+                                        segments.back[0]?.arrivalLocation?.split(
+                                          ","
+                                        )[0]
+                                      }{" "}
+                                    </span>
+                                    <br />
+                                    {segments.back[1]?.marketingcareer}
+                                    {segments.back[1]?.marketingflight}
+                                    <span> | </span>
+                                    Transit: {transit?.back?.transit1}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                            
+                            >
+                              <Box className="arival-text2">
+                                {segments.back[0]?.arrival}
+                              </Box>
+                            </HtmlTooltip>
+                          </Typography> */}
+                        </Box>
+                      ) : (
+                        <Box>
+                          <Box px={1}>
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
+                          </Box>
+                          <Grid container justifyContent="center">
+                            <Typography
+                              sx={{
+                                color: "var(--secondary-color)",
+                                fontWeight: 500,
+                                fontSize: {
+                                  xs: "12px",
+                                  sm: "10px",
+                                  md: "12px",
+                                },
+                              }}
+                            >
+                              {backflightduration} | NO STOP
+                            </Typography>
+                          </Grid>
+                        </Box>
+                      )}
+                    </Typography>
+                  </Box>
+                </Grid>
+                {/* //todo:three */}
+                <Grid item md={4}>
+                  <Box
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      display: "flex",
+                      gap: "5px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box>
+                      {system === "Sabre" ? (
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer &&
+                              career === segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.back[0]?.marketingcareer !==
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.back[0]?.marketingcareer ===
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer !==
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-s">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "12" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid red"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${segments?.back[0]?.marketingcareer}`}
+                            />
+                          )}
+                        </Box>
+                      ) : system === "Galileo" ? (
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer &&
+                              career === segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.back[0]?.marketingcareer !==
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.back[0]?.marketingcareer ===
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer !==
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-g">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "12" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #0b8634"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${segments?.back[0]?.marketingcareer}`}
+                            />
+                          )}
+                        </Box>
+                      ) : (
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer &&
+                              career === segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : segments?.back[0]?.marketingcareer !==
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : segments?.back[0]?.marketingcareer ===
+                                  segments?.back[1]?.marketingcareer &&
+                                segments?.back[1]?.marketingcareer !==
+                                  segments?.back[2]?.marketingcareer ? (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              ) : (
+                                <>
+                                  <Box className="mercedes-sape-f">
+                                    <Box className="first-1"></Box>
+                                    <Box className="img-first-1">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-2"></Box>
+                                    <Box className="img-first-2">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box className="first-3"></Box>
+                                    <Box className="img-first-3">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                        width="25px"
+                                        height="25px"
+                                        alt={`${segments?.back[2]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "22" ||
+                            segment === "12" ? (
+                            <>
+                              {career === segments?.back[0]?.marketingcareer &&
+                              career === segments?.back[1]?.marketingcareer ? (
+                                <>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                    className={`${system.toLowerCase()}`}
+                                    alt={`${career}`}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  <Box
+                                    border={"2px solid #4169e1"}
+                                    borderRadius="50%"
+                                    width="71px"
+                                    height="71px"
+                                    display="flex"
+                                    flexDirection="column"
+                                    overflow="hidden"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    pt="8px"
+                                  >
+                                    <Box mb="-7px">
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[0]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                    <Box
+                                      borderBottom={"2px solid #D9D9D9"}
+                                      width="100%"
+                                    ></Box>
+                                    <Box>
+                                      <img
+                                        src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                        width="30px"
+                                        height="30px"
+                                        alt={`${segments?.back[1]?.marketingcareer}`}
+                                      />
+                                    </Box>
+                                  </Box>
+                                </>
+                              )}
+                            </>
+                          ) : (
+                            <img
+                              src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                              className={`${system.toLowerCase()}`}
+                              alt={`${segments?.back[0]?.marketingcareer}`}
+                            />
+                          )}
+                        </Box>
+                      )}
+                    </Box>
+                    <Box textAlign={"start"}>
+                      <Typography
+                        sx={{
+                          color: "#000",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "13px",
+                            md: "15px",
+                            lg: "16px",
+                          },
+                        }}
+                      >
+                        {segment === "1" ||
+                        segment === "12" ||
+                        segment === "13" ? (
+                          <>{segments.back[0]?.arrival}</>
+                        ) : segment === "2" ||
+                          segment === "21" ||
+                          segment === "22" ||
+                          segment === "23" ? (
+                          <>{segments.back[1]?.arrival}</>
+                        ) : segment === "3" ||
+                          segment === "31" ||
+                          segment === "32" ||
+                          segment === "33" ? (
+                          <>{segments.back[2]?.arrival}</>
+                        ) : (
+                          <>{backarrival}</>
+                        )}
+                        <span> - </span>
+
+                        {system === "Galileo"
+                          ? `${
+                              new Date(backarrivalTime)
+                                .toTimeString()
+                                ?.split(":")[0]
+                            }:${
+                              new Date(backarrivalTime)
+                                .toTimeString()
+                                ?.split(":")[1]
+                            }`
+                          : `${backarrivalTime?.split(":")[0]}:${
+                              backarrivalTime?.split(":")[1]
+                            }`}
+                      </Typography>
+                      {segment === "3" ? (
                         <Typography
                           sx={{
                             color: "#003566",
@@ -6345,12 +7629,13 @@ const RoundSingleFlight = (props) => {
                             },
                           }}
                         >
-                          {segments.back[0]?.departureLocation}
+                          {segments.back[2]?.arrivalLocation}
                         </Typography>
+                      ) : segment === "2" || segment === "12" ? (
                         <Typography
                           sx={{
-                            color: "#6c757d",
-                            fontWeight: 500,
+                            color: "#003566",
+                            fontWeight: 600,
                             fontSize: {
                               xs: "12px",
                               sm: "11px",
@@ -6358,514 +7643,13 @@ const RoundSingleFlight = (props) => {
                             },
                           }}
                         >
-                          {backdepartureDate}
+                          {segments.back[1]?.arrivalLocation}
                         </Typography>
-                      </Box>
-                    </Grid>
-
-                    <Grid item md={5}>
-                      <Box textAlign={"center"}>
-                        <Typography>
-                          {/* ---------stops------ */}
-
-                          {segment === "3" ? (
-                            <Box>
-                              <Grid container justifyContent="center">
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontWeight: 500,
-                                    fontSize: {
-                                      xs: "12px",
-                                      sm: "10px",
-                                      md: "12px",
-                                    },
-                                  }}
-                                >
-                                  {segments?.back[0]?.flightduration}
-                                  &nbsp;|&nbsp;
-                                  {segments?.back[1]?.flightduration}
-                                  &nbsp;|&nbsp;
-                                  {segments?.back[2]?.flightduration}
-                                </Typography>
-                              </Grid>
-                              <Box px={1}>
-                                <div className="segment03">
-                                  <div className="segment-circle">
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segments?.back[0]?.departure}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                    <div className="segment-stop"></div>
-                                    <div className="segment-stop"></div>
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segment === "1" ||
-                                              segment === "12" ||
-                                              segment === "13" ? (
-                                                <>{segments.back[0]?.arrival}</>
-                                              ) : segment === "2" ||
-                                                segment === "21" ||
-                                                segment === "22" ||
-                                                segment === "23" ? (
-                                                <>{segments.back[1]?.arrival}</>
-                                              ) : segment === "3" ||
-                                                segment === "31" ||
-                                                segment === "32" ||
-                                                segment === "33" ? (
-                                                <>{segments.back[2]?.arrival}</>
-                                              ) : (
-                                                <>{backarrival}</>
-                                              )}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                  </div>
-                                  <div className="segment-flight03">
-                                    <FlightIcon />
-                                  </div>
-                                </div>
-                              </Box>
-                              <Typography className="arival-seg-3">
-                                <HtmlTooltip
-                                  title={
-                                    <React.Fragment>
-                                      <Typography
-                                        sx={{
-                                          color: "#fff",
-                                          fontSize: "10px",
-                                        }}
-                                      >
-                                        <span style={{ fontSize: "12px" }}>
-                                          {
-                                            segments.back[0]?.arrivalLocation?.split(
-                                              ","
-                                            )[0]
-                                          }
-                                        </span>
-                                        <br />
-                                        {segments.back[1]?.marketingcareer}
-                                        {segments.back[1]?.marketingflight}{" "}
-                                        <span> | </span>
-                                        Transit: {transit?.back?.transit1}
-                                      </Typography>
-                                    </React.Fragment>
-                                  }
-                                  followCursor
-                                >
-                                  <Box className="arival-text">
-                                    {segments.back[0]?.arrival}
-                                  </Box>
-                                </HtmlTooltip>
-                                <HtmlTooltip
-                                  title={
-                                    <React.Fragment>
-                                      <Typography
-                                        sx={{
-                                          color: "#fff",
-                                          fontSize: "10px",
-                                        }}
-                                      >
-                                        <span style={{ fontSize: "12px" }}>
-                                          {
-                                            segments.back[1]?.arrivalLocation?.split(
-                                              ","
-                                            )[0]
-                                          }
-                                        </span>
-                                        <br />
-                                        {segments.back[2]?.marketingcareer}
-                                        {segments.back[2]?.marketingflight}
-                                        <span> | </span>
-                                        Transit: {transit?.back?.transit2}
-                                      </Typography>
-                                    </React.Fragment>
-                                  }
-                                  followCursor
-                                >
-                                  <Box className="arival-text">
-                                    {" "}
-                                    {segments.back[1]?.arrival}
-                                  </Box>
-                                </HtmlTooltip>
-                              </Typography>
-                            </Box>
-                          ) : segment === "2" || segment === "12" ? (
-                            <Box>
-                              <Grid container justifyContent="center">
-                                {" "}
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontWeight: 500,
-                                    fontSize: {
-                                      xs: "12px",
-                                      sm: "10px",
-                                      md: "12px",
-                                    },
-                                  }}
-                                >
-                                  {segments?.back[0]?.flightduration}
-                                  &nbsp;|&nbsp;
-                                  {segments?.back[1]?.flightduration}
-                                </Typography>
-                              </Grid>
-                              <Box px={1}>
-                                <div className="segment02">
-                                  <div className="segment-circle">
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segments?.back[0]?.departure}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                    <div className="segment-stop"></div>
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segment === "1" ||
-                                              segment === "12" ||
-                                              segment === "13" ? (
-                                                <>{segments.back[0]?.arrival}</>
-                                              ) : segment === "2" ||
-                                                segment === "21" ||
-                                                segment === "22" ||
-                                                segment === "23" ? (
-                                                <>{segments.back[1]?.arrival}</>
-                                              ) : segment === "3" ||
-                                                segment === "31" ||
-                                                segment === "32" ||
-                                                segment === "33" ? (
-                                                <>{segments.back[2]?.arrival}</>
-                                              ) : (
-                                                <>{backarrival}</>
-                                              )}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                  </div>
-                                  <div className="segment-flight02">
-                                    <FlightIcon />
-                                  </div>
-                                </div>
-                              </Box>
-                              <Typography className="arival-seg2">
-                                <HtmlTooltip
-                                  title={
-                                    <React.Fragment>
-                                      <Typography
-                                        sx={{
-                                          color: "#fff",
-                                          fontSize: "10px",
-                                        }}
-                                      >
-                                        <span style={{ fontSize: "12px" }}>
-                                          {
-                                            segments.back[0]?.arrivalLocation?.split(
-                                              ","
-                                            )[0]
-                                          }{" "}
-                                        </span>
-                                        <br />
-                                        {segments.back[1]?.marketingcareer}
-                                        {segments.back[1]?.marketingflight}
-                                        <span> | </span>
-                                        Transit: {transit?.back?.transit1}
-                                      </Typography>
-                                    </React.Fragment>
-                                  }
-                                  followCursor
-                                >
-                                  <Box className="arival-text2">
-                                    {segments.back[0]?.arrival}
-                                  </Box>
-                                </HtmlTooltip>
-                              </Typography>
-                            </Box>
-                          ) : (
-                            <Box>
-                              <Grid container justifyContent="center">
-                                {" "}
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontWeight: 500,
-                                    fontSize: {
-                                      xs: "12px",
-                                      sm: "10px",
-                                      md: "12px",
-                                    },
-                                  }}
-                                >
-                                  {backflightduration}
-                                </Typography>
-                              </Grid>
-                              <Box px={1} className="round-rotate-0">
-                                <div className="segment-1">
-                                  <div className="segment-circle">
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segments?.back[0]?.departure}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                    <div className="circle-0">
-                                      <HtmlTooltip
-                                        title={
-                                          <React.Fragment>
-                                            <Typography
-                                              sx={{
-                                                color: "#fff",
-                                                fontSize: "10px",
-                                              }}
-                                            >
-                                              {segment === "1" ||
-                                              segment === "12" ||
-                                              segment === "13" ? (
-                                                <>{segments.back[0]?.arrival}</>
-                                              ) : segment === "2" ||
-                                                segment === "21" ||
-                                                segment === "22" ||
-                                                segment === "23" ? (
-                                                <>{segments.back[1]?.arrival}</>
-                                              ) : segment === "3" ||
-                                                segment === "31" ||
-                                                segment === "32" ||
-                                                segment === "33" ? (
-                                                <>{segments.back[2]?.arrival}</>
-                                              ) : (
-                                                <>{backarrival}</>
-                                              )}
-                                            </Typography>
-                                          </React.Fragment>
-                                        }
-                                        followCursor
-                                      >
-                                        <span>
-                                          <CircleIcon
-                                            sx={{
-                                              color: "#c7c7c7",
-                                              fontSize: "15px",
-                                              cursor: "pointer",
-                                            }}
-                                          />
-                                        </span>
-                                      </HtmlTooltip>
-                                    </div>
-                                  </div>
-                                  <div className="segment-flight1">
-                                    <FlightIcon />
-                                  </div>
-                                </div>
-                              </Box>
-                            </Box>
-                          )}
-                        </Typography>
-                      </Box>
-                    </Grid>
-
-                    <Grid item md={3.5}>
-                      <Box textAlign={"end"}>
+                      ) : (
                         <Typography
                           sx={{
-                            color: "#000",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "13px",
-                              md: "15px",
-                              lg: "16px",
-                            },
-                          }}
-                        >
-                          {/* {backarrival} */}
-                          {segment === "1" ||
-                          segment === "12" ||
-                          segment === "13" ? (
-                            <>{segments.back[0]?.arrival}</>
-                          ) : segment === "2" ||
-                            segment === "21" ||
-                            segment === "22" ||
-                            segment === "23" ? (
-                            <>{segments.back[1]?.arrival}</>
-                          ) : segment === "3" ||
-                            segment === "31" ||
-                            segment === "32" ||
-                            segment === "33" ? (
-                            <>{segments.back[2]?.arrival}</>
-                          ) : (
-                            <>{backarrival}</>
-                          )}
-                          <span> - </span>
-
-                          {system === "Galileo"
-                            ? `${
-                                new Date(backarrivalTime)
-                                  .toTimeString()
-                                  ?.split(":")[0]
-                              }:${
-                                new Date(backarrivalTime)
-                                  .toTimeString()
-                                  ?.split(":")[1]
-                              }`
-                            : `${backarrivalTime?.split(":")[0]}:${
-                                backarrivalTime?.split(":")[1]
-                              }`}
-                        </Typography>
-                        {segment === "3" ? (
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontWeight: 600,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "13px",
-                              },
-                            }}
-                          >
-                            {segments.back[2]?.arrivalLocation}
-                          </Typography>
-                        ) : segment === "2" || segment === "12" ? (
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontWeight: 600,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "13px",
-                              },
-                            }}
-                          >
-                            {segments.back[1]?.arrivalLocation}
-                          </Typography>
-                        ) : (
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontWeight: 600,
-                              fontSize: {
-                                xs: "12px",
-                                sm: "11px",
-                                md: "13px",
-                              },
-                            }}
-                          >
-                            {segments.back[0]?.arrivalLocation}
-                          </Typography>
-                        )}
-
-                        <Typography
-                          sx={{
-                            color: "#6c757d",
-                            fontWeight: 500,
+                            color: "#003566",
+                            fontWeight: 600,
                             fontSize: {
                               xs: "12px",
                               sm: "11px",
@@ -6873,13 +7657,48 @@ const RoundSingleFlight = (props) => {
                             },
                           }}
                         >
-                          {backarrivalDate}
+                          {segments.back[0]?.arrivalLocation}
                         </Typography>
-                      </Box>
-                    </Grid>
-                  </Grid>
-                  <Grid container justifyContent={"space-between"} py={"10px"}>
-                    <Grid item md={3}>
+                      )}
+
+                      <Typography
+                        sx={{
+                          color: "#6c757d",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "11px",
+                            md: "13px",
+                          },
+                        }}
+                      >
+                        {backarrivalDate}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+              {/*//todo:Return End*/}
+              {/* //todo:Baggage Information */}
+              <Grid
+                ms={12}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  marginTop: "10px",
+                  marginLeft: "-15px",
+                }}
+              >
+                <Grid
+                  container
+                  style={{
+                    width: "80%",
+                    height: "100%",
+                    backgroundColor: "rgba(var(--primary-rgb),.5)",
+                    padding: "10px 0",
+                  }}
+                >
+                  {/* <Grid item md={3}>
                       {system === "Sabre" ? (
                         <Typography
                           sx={{
@@ -6926,112 +7745,239 @@ const RoundSingleFlight = (props) => {
                           Economy
                         </Typography>
                       )}
-                    </Grid>
-                    <Grid item md={4}>
-                      {(() => {
-                        if (refundable === "Refundable") {
-                          return (
-                            <Typography
-                              sx={{
-                                color: "green",
-                                fontWeight: 500,
-                                fontSize: {
-                                  xs: "14px",
-                                  sm: "12px",
-                                  md: "14px",
-                                  lg: "16px",
-                                },
-                              }}
-                            >
-                              {refundable}
-                            </Typography>
-                          );
-                        } else if (
-                          refundable === "Nonrefundable" ||
-                          refundable === "Non Refundable"
-                        ) {
-                          return (
-                            <Typography
-                              sx={{
-                                color: "#DC143C",
-                                fontWeight: 500,
-                                fontSize: {
-                                  xs: "12px",
-                                  sm: "12px",
-                                  md: "14px",
-                                  lg: "16px",
-                                },
-                              }}
-                            >
-                              Non Refundable
-                            </Typography>
-                          );
-                        }
-                      })()}
-                    </Grid>
-                    <Grid item md={2.5}>
-                      <Box className="img-text-bag-0">
-                        <img src={bag} alt="seat" /> &nbsp;{" "}
-                        <Typography
-                          sx={{
-                            color: "#000",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "16px",
-                            },
-                          }}
-                        >
-                          {bags === "1" || bags === "2" || bags === "3" ? (
-                            <>{bags} Piece</>
-                          ) : bags === "" ? (
-                            <>0 Kg</>
-                          ) : (
-                            <>{bags?.slice(0, 2) || 0} Kg</>
-                          )}
-                        </Typography>
-                      </Box>
-                    </Grid>
-                    <Grid item md={2.5}>
-                      <Box className="img-text-0">
-                        <img src={seat1} alt="bag" />
-                        &nbsp;
-                        <Typography
-                          sx={{
-                            color: "#000",
-                            fontWeight: 500,
-                            fontSize: {
-                              xs: "12px",
-                              sm: "12px",
-                              md: "14px",
-                              lg: "16px",
-                            },
-                          }}
-                        >
-                          {/* {seat||9} Seat */}
-                          {system === "FlyHub" ? (
-                            <> 9 Seat</>
-                          ) : (
-                            <> {seat || 9} Seat</>
-                          )}
-                        </Typography>
-                      </Box>
-                    </Grid>
+                    </Grid> */}
+                  <Grid item md={4}>
+                    {(() => {
+                      if (refundable === "Refundable") {
+                        return (
+                          <Typography
+                            sx={{
+                              color: "var(--primary-color)",
+                              fontWeight: 500,
+                              fontSize: {
+                                xs: "14px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "16px",
+                              },
+                              textAlign: "center",
+                            }}
+                          >
+                            {refundable}
+                          </Typography>
+                        );
+                      } else if (
+                        refundable === "Nonrefundable" ||
+                        refundable === "Non Refundable"
+                      ) {
+                        return (
+                          <Typography
+                            sx={{
+                              color: "var(--primary-color)",
+                              fontWeight: 500,
+                              textAlign: "center",
+                              fontSize: {
+                                xs: "12px",
+                                sm: "12px",
+                                md: "14px",
+                                lg: "16px",
+                              },
+                            }}
+                          >
+                            Non Refundable
+                          </Typography>
+                        );
+                      }
+                    })()}
+                  </Grid>
+                  <Grid item md={4}>
+                    <Box
+                      className="img-text-bag-0"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "5px",
+                      }}
+                    >
+                      <WorkIcon style={{ color: "var(--primary-color)" }} />
+                      <Typography
+                        sx={{
+                          color: "var(--primary-color)",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "16px",
+                          },
+                        }}
+                      >
+                        {bags === "1" || bags === "2" || bags === "3" ? (
+                          <>{bags} Piece</>
+                        ) : bags === "" ? (
+                          <>0 Kg</>
+                        ) : (
+                          <>{bags?.slice(0, 2) || 0} Kg</>
+                        )}
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Box
+                      className="img-text-bag-0"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          color: "var(--primary-color)",
+                          fontWeight: 500,
+                          fontSize: {
+                            xs: "12px",
+                            sm: "12px",
+                            md: "14px",
+                            lg: "16px",
+                          },
+                        }}
+                      >
+                        {system === "FlyHub" ? (
+                          <> 9 Seat</>
+                        ) : (
+                          <> {seat || 9} Seat</>
+                        )}
+                      </Typography>
+                    </Box>
                   </Grid>
                 </Grid>
               </Grid>
-              {/* -------- Retunr End -------- */}
             </Grid>
-            <Grid
-              sm={2.5}
-              sx={{
-                paddingLeft: { xs: "none", sm: "5px", md: "20px" },
-              }}
-            >
-              <Box className="rupdatebooknowbtn" pl="12px">
-                <Box height={"40px"}>
+
+            <Grid item sm={4} md={4} lg={4}>
+              <Box className="rupdatebooknowbtn">
+                <Box style={{ height: "fit-content" }}>
+                  <Box
+                    style={{
+                      width: "100%",
+                      height: "fit-content",
+                      color: "var(--secondary-color)",
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      fontSize: "12px",
+                      padding: "5px 0px 0px 2px",
+                    }}
+                  >
+                    <BookmarkIcon /> Preferred Airline
+                  </Box>
+                  {/* {commaNumber(clientFare)} &#2547; */}
+                </Box>
+                <Box
+                  style={{
+                    height: "fit-content",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-end",
+                    flexDirection: "column",
+                    gap: "5px",
+                    paddingRight: "10px",
+                  }}
+                >
+                  <Box
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "flex-end",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        fontSize: "12px",
+                        color: "var(--third-color)",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {refundable}
+                    </Typography>
+                    <Typography
+                      style={{
+                        fontSize: "18px",
+                        color: "var(--secondary-color)",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      BDT {commaNumber(clientFare)}
+                    </Typography>
+                    <Typography
+                      style={{
+                        fontSize: "14px",
+                        color: "var(--third-color)",
+                        textDecoration: "line-through",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      BDT {commaNumber(agentFare)}
+                    </Typography>
+                  </Box>
+                  <Button
+                    className="shine-effect"
+                    style={{
+                      color: "var(--white)",
+                      fontWeight: 600,
+                      backgroundColor: "var(--primary-color)",
+                      borderRadius: "5px",
+                      width: "fit-content",
+                    }}
+                    disabled={system === "Galileo" ? true : false}
+                    onClick={RoundTripFlightInfo}
+                  >
+                    BOOK NOW
+                  </Button>
+                  <Button
+                    style={{
+                      color: "var(--secondary-color)",
+                      fontWeight: 600,
+                      textTransform: "capitalize",
+                      width: "fit-content",
+                      paddingRight: "0px",
+                      fontSize: "12px",
+                    }}
+                    onClick={() => setFlightDetails(!flightDetails)}
+                  >
+                    {!flightDetails ? (
+                      <Typography
+                        style={{
+                          color: "var(--secondary-color)",
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                          fontSize: "12px",
+                        }}
+                      >
+                        Show Details
+                        <ArrowDropDownIcon style={{ width: "fit-content" }} />
+                      </Typography>
+                    ) : (
+                      <Typography
+                        style={{
+                          color: "var(--secondary-color)",
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                          fontSize: "12px",
+                        }}
+                      >
+                        Hide Details <ArrowDropUpIcon />
+                      </Typography>
+                    )}
+                  </Button>
+                  {/* {commaNumber(commission)} &#2547; */}
+                </Box>
+                {/* <Box height={"40px"}>
                   {customerFare && (
                     <>
                       <Box display={"flex"} justifyContent={"space-between"}>
@@ -7179,83 +8125,44 @@ const RoundSingleFlight = (props) => {
                   >
                     {!flightDetails ? <> Flight Details</> : <> Hide Details</>}
                   </Button>
-                </Box>
+                </Box> */}
               </Box>
             </Grid>
           </Grid>
+          {/* --------------Flight Details start------------ */}
           {flightDetails && (
-            <Box
-              className="accordion-cursor flight-search-accordion flight-details-btn"
-              Accordion
-              style={{ boxShadow: "none" }}
-            >
-              <Container maxWidth="xxl">
-                <Box className="accordion-border"></Box>
-              </Container>
-
-              <Box className="accordian-center">
-                <Box
-                  className="tab-list-width"
-                  sx={{
-                    maxWidth: { sm: 500, md: 500, lg: 800, xl: 900 },
-                    bgcolor: "background.paper",
-                  }}
-                >
-                  <TabContext value={value}>
-                    <Tabs
-                      className="tablist-btn"
-                      value={value}
-                      onChange={handleChange}
-                      variant="scrollable"
-                      scrollButtons
-                      allowScrollButtonsMobile
-                      aria-label="scrollable force tabs example"
+            <Container>
+              <Box sx={{ width: "100%", marginTop: "10px" }}>
+                <TabContext value={value}>
+                  <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    sx={{
+                      "& button": {
+                        backgroundColor: "var(--secondary-color)",
+                        color: "var(--white)",
+                        width: "20%",
+                        height: "100%",
+                        fontSize: ".7vw",
+                      },
+                      "& button.Mui-selected": {
+                        backgroundColor: "var(--primary-color)",
+                        color: "var(--white)",
+                      },
+                    }}
+                    TabIndicatorProps={{ style: { display: "none" } }}
+                  >
+                    <Tab
                       sx={{
+                        margin: "auto",
                         minHeight: "0px",
                         height: "35px",
-                        padding: "0px",
-                        margin: "0px",
-                        fontSize: "10px",
-                        "@media screen and (max-width: 320px)": {
-                          minHeight: "0px",
-                          height: "25px",
-                          fontSize: "10px",
-                        },
                       }}
-                    >
-                      <Tab
-                        sx={{
-                          margin: "auto",
-                          minHeight: "0px",
-                          height: "35px",
-                          "@media screen and (max-width: 320px)": {
-                            minHeight: "10px",
-                            height: "10px",
-                            fontSize: "10px",
-                            color: "#9dccfb !important",
-                          },
-                        }}
-                        className="tabList"
-                        label="Flight Details"
-                        value="1"
-                      />
-                      <Tab
-                        sx={{
-                          margin: "auto",
-                          minHeight: "0px",
-                          height: "35px",
-                          "@media screen and (max-width: 320px)": {
-                            minHeight: "10px",
-                            height: "10px",
-                            fontSize: "10px",
-                            color: "#9dccfb !important",
-                          },
-                        }}
-                        className="tabList"
-                        label="Fare Summery"
-                        value="2"
-                      />
-                      {/* <Tab
+                      label="Flight Details"
+                      value="1"
+                    />
+                    <Tab label="Fare Summery" value="2" />
+                    {/* <Tab
                               sx={{
                                 margin: "auto",
                                 minHeight: "0px",
@@ -7271,2492 +8178,2267 @@ const RoundSingleFlight = (props) => {
                               label="Price Breakdown"
                               value="3"
                             /> */}
-                      <Tab
-                        sx={{
-                          margin: "auto",
-                          minHeight: "0px",
-                          height: "35px",
-                          "@media screen and (max-width: 320px)": {
-                            minHeight: "10px",
-                            height: "10px",
-                            fontSize: "10px",
-                            color: "#9dccfb !important",
-                          },
-                        }}
-                        className="tabList"
-                        label="commission & Invoice"
-                        value="4"
-                      />
-                      <Tab
-                        sx={{
-                          margin: "auto",
-                          minHeight: "0px",
-                          height: "35px",
-                          "@media screen and (max-width: 320px)": {
-                            minHeight: "10px",
-                            height: "10px",
-                            fontSize: "10px",
-                            color: "#9dccfb !important",
-                          },
-                        }}
-                        className="tabList"
-                        label="refund"
-                        value="5"
-                      />
-                      <Tab
-                        sx={{
-                          margin: "auto",
-                          minHeight: "0px",
-                          height: "35px",
-                          "@media screen and (max-width: 320px)": {
-                            minHeight: "10px",
-                            height: "10px",
-                            fontSize: "10px",
-                            color: "#9dccfb !important",
-                          },
-                        }}
-                        className="tabList"
-                        label="reissue"
-                        value="6"
-                      />
-                      <Tab
-                        sx={{
-                          margin: "auto",
-                          minHeight: "0px",
-                          height: "35px",
-                          "@media screen and (max-width: 320px)": {
-                            minHeight: "10px",
-                            height: "10px",
-                            fontSize: "10px",
-                            color: "#9dccfb !important",
-                          },
-                        }}
-                        className="tabList"
-                        label="Baggage"
-                        value="7"
-                      />
-                    </Tabs>
+                    <Tab label="commission & Invoice" value="4" />
+                    <Tab label="Policy" value="5" />
+                    {/* <Tab label="reissue" value="6" /> */}
+                    <Tab label="Baggage" value="6" />
+                  </Tabs>
 
-                    <TabPanel className="tabs-details" value="1">
-                      {/* Flight Details */}
-                      {/* ---------------For 3 Segmnet --------------- */}
-                      {segment === "3" ? (
-                        <>
-                          {/* ----------start go  --*/}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                  <TabPanel className="tabs-details" value="1">
+                    {/* Flight Details */}
+                    {/* ---------------For 3 Segmnet --------------- */}
+                    {segment === "3" ? (
+                      <>
+                        {/* ----------start go  --*/}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.go[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {segments.go[2]?.arrivalLocation?.split(",")[0]}
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
+                              {segments.go[0]?.departureLocation?.split(",")[0]}
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.go[2]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
-                                      alt={`${segments.go[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[0].departure})-
-                                      {segments.go[0]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[0]?.arrival})-
-                                      {segments.go[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[0]?.marketingcareer}{" "}
-                                      {segments.go[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
+                                    alt={`${segments.go[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[0].departure})-
+                                    {segments.go[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[0]?.arrival})-
+                                    {segments.go[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[0]?.marketingcareer}{" "}
+                                    {segments.go[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[0]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.go?.transit1}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>Transit Time&nbsp;{transit?.go?.transit1}</span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[1]?.marketingcareer}.png`}
-                                      alt={`${segments.go[1]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[1]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[1]?.departure})-
-                                      {segments.go[1]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[1]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[1]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[1]?.arrival})-
-                                      {segments.go[1]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[1]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[1]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[1]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[1]?.marketingcareer}{" "}
-                                      {segments.go[1]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[1]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[1]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[1]?.marketingcareer}.png`}
+                                    alt={`${segments.go[1]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[1]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[1]?.departure})-
+                                    {segments.go[1]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[1]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[1]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[1]?.arrival})-
+                                    {segments.go[1]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[1]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[1]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[1]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[1]?.marketingcareer}{" "}
+                                    {segments.go[1]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[1]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[1]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.go?.transit2}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>Transit Time&nbsp;{transit?.go?.transit2}</span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[2]?.marketingcareer}.png`}
-                                      alt={`${segments.go[2]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[2]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[2]?.departure})-
-                                      {segments.go[2]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[2]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[2]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[2]?.arrival})-
-                                      {segments.go[2]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[2]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[2]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[2]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[2]?.marketingcareer}{" "}
-                                      {segments.go[2]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[2]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[2]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[2]?.marketingcareer}.png`}
+                                    alt={`${segments.go[2]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[2]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[2]?.departure})-
+                                    {segments.go[2]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[2]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[2]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[2]?.arrival})-
+                                    {segments.go[2]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[2]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[2]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[2]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[2]?.marketingcareer}{" "}
+                                    {segments.go[2]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[2]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[2]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
+                        </Box>
 
-                          {/* ---------------Back start--------------- */}
-                          <Box sx={{ border: "1px dashed #003566" }}></Box>
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                        {/* ---------------Back start--------------- */}
+                        <Box sx={{ border: "1px dashed #003566" }}></Box>
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[2]?.arrivalLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
+                              {
+                                segments.back[0]?.departureLocation?.split(
+                                  ","
+                                )[0]
+                              }
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.back[2]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
-                                      alt={`${segments.back[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[0]?.departure})-
-                                      {segments.back[0]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[0]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[0]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[0]?.arrival})-
-                                      {segments.back[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[0]?.marketingcareer}{" "}
-                                      {segments.back[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
+                                    alt={`${segments.back[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[0]?.departure})-
+                                    {segments.back[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[0]?.arrival})-
+                                    {segments.back[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[0]?.marketingcareer}{" "}
+                                    {segments.back[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[0]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.back?.transit1}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>
+                            Transit Time&nbsp;{transit?.back?.transit1}
+                          </span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[1]?.marketingcareer}.png`}
-                                      alt={`${segments.back[1]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[1]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[1]?.departure})-
-                                      {segments.back[1]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[1]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[1]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[1]?.arrival})-
-                                      {segments.back[1]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[1]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[1]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[1]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[1]?.marketingcareer}{" "}
-                                      {segments.back[1]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[1]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[1]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[1]?.marketingcareer}.png`}
+                                    alt={`${segments.back[1]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[1]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[1]?.departure})-
+                                    {segments.back[1]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[1]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[1]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[1]?.arrival})-
+                                    {segments.back[1]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[1]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[1]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[1]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[1]?.marketingcareer}{" "}
+                                    {segments.back[1]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[1]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[1]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.back?.transit2}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>
+                            Transit Time&nbsp;{transit?.back?.transit2}
+                          </span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[2]?.marketingcareer}.png`}
-                                      alt={`${segments.back[2]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[2]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[2]?.departure})-
-                                      {segments.back[2]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[2]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[2]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      {" "}
-                                      ({segments.back[2]?.arrival})-
-                                      {segments.back[2]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[2]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[2]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[2]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[2]?.marketingcareer}{" "}
-                                      {segments.back[2]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[2]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[2]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[2]?.marketingcareer}.png`}
+                                    alt={`${segments.back[2]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[2]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[2]?.departure})-
+                                    {segments.back[2]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[2]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[2]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    {" "}
+                                    ({segments.back[2]?.arrival})-
+                                    {segments.back[2]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[2]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[2]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[2]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[2]?.marketingcareer}{" "}
+                                    {segments.back[2]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[2]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[2]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
+                        </Box>
 
-                          {/* ---------------Back End--------------- */}
-                        </>
-                      ) : segment === "21" ? (
-                        <>
-                          {/* ---------------For 21 Segmnet --------------- */}
-                          {/* ---------------Go data start--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                        {/* ---------------Back End--------------- */}
+                      </>
+                    ) : segment === "21" ? (
+                      <>
+                        {/* ---------------For 21 Segmnet --------------- */}
+                        {/* ---------------Go data start--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.go[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {segments.go[1]?.arrivalLocation?.split(",")[0]}
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
-                                      alt={`${segments.go[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[0]?.departure})-
-                                      {segments.go[0]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[0]?.arrival})-
-                                      {segments.go[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[0]?.marketingcareer}{" "}
-                                      {segments.go[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                              </Grid>
-                            </Box>
-                          </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.go?.transit1}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[1]?.marketingcareer}.png`}
-                                      alt={`${segments.go[1]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[1]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[1]?.departure})-
-                                      {segments.go[1]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[1]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[1]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[1]?.arrival})-
-                                      {segments.go[1]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[1]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[1]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[1]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[1]?.marketingcareer}{" "}
-                                      {segments.go[1]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[1]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[1]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                              </Grid>
-                            </Box>
-                          </Box>
-                          {/* ---------------Go data End--------------- */}
-                          <Box sx={{ border: "1px dashed #003566" }}></Box>
-                          {/* ---------------Return data Start--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                              {segments.go[0]?.departureLocation?.split(",")[0]}
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                }}
-                              >
-                                {
-                                  segments.back[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                }}
-                              >
-                                {
-                                  segments.back[0]?.arrivalLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
-                                      alt={`${segments.back[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[0]?.departure})-
-                                      {segments.back[0]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[0]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[0]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[0]?.arrival})-
-                                      {segments.back[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[0]?.marketingcareer}{" "}
-                                      {segments.back[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                              </Grid>
-                            </Box>
+                              {segments.go[1]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
                           </Box>
-                          {/* ---------------Return data End--------------- */}
-                        </>
-                      ) : segment === "2" || segment === "2" ? (
-                        <>
-                          {/* ---------------Go Data Start--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.go[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {segments.go[1]?.arrivalLocation?.split(",")[0]}
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
-                                      alt={`${segments.go[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[0]?.departure})-
-                                      {segments.go[0]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[0]?.arrival})-
-                                      {segments.go[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[0]?.marketingcareer}{" "}
-                                      {segments.go[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
+                                    alt={`${segments.go[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[0]?.departure})-
+                                    {segments.go[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
-                          </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.go?.transit1}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[1]?.marketingcareer}.png`}
-                                      alt={`${segments.go[1]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[1]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[1]?.departure})-
-                                      {segments.go[1]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[1]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[1]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[1]?.arrival})-
-                                      {segments.go[1]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[1]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[1]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[1]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[1]?.marketingcareer}{" "}
-                                      {segments.go[1]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[1]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[1]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[0]?.arrival})-
+                                    {segments.go[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[0]?.marketingcareer}{" "}
+                                    {segments.go[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[0]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                          {/* ---------------Go Data End--------------- */}
-                          <Box sx={{ border: "1px dashed #003566" }}></Box>
-                          {/* ---------------Back Data Start--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>Transit Time&nbsp;{transit?.go?.transit1}</span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[1]?.arrivalLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
-                                      alt={`${segments.back[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[0]?.departure})-
-                                      {segments.back[0]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[0]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[0]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[0]?.arrival})-
-                                      {segments.back[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[0]?.marketingcareer}{" "}
-                                      {segments.back[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[1]?.marketingcareer}.png`}
+                                    alt={`${segments.go[1]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[1]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[1]?.departure})-
+                                    {segments.go[1]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[1]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[1]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
-                          </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.back?.transit1}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[1]?.marketingcareer}.png`}
-                                      alt={`${segments.back[1]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[1]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[1]?.departure})-
-                                      {segments.back[1]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[1]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[1]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[1]?.arrival})-
-                                      {segments.back[1]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[1]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[1]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[1]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[1]?.marketingcareer}{" "}
-                                      {segments.back[1]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[1]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[1]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[1]?.arrival})-
+                                    {segments.go[1]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[1]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[1]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[1]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[1]?.marketingcareer}{" "}
+                                    {segments.go[1]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[1]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[1]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                          {/* ---------------Back Data End--------------- */}
-                        </>
-                      ) : segment === "12" ? (
-                        <>
-                          {/* ---------------GO Data start--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                        </Box>
+                        {/* ---------------Go data End--------------- */}
+                        <Box sx={{ border: "1px dashed #003566" }}></Box>
+                        {/* ---------------Return data Start--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                              }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.go[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {segments.go[0]?.arrivalLocation?.split(",")[0]}
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
-                                      alt={`${segments.go[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[0]?.departure})-
-                                      {segments.go[0]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[0]?.arrival})-
-                                      {segments.go[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[0]?.marketingcareer}{" "}
-                                      {segments.go[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                              </Grid>
-                            </Box>
-                          </Box>
-                          {/* ---------------GO Data End--------------- */}
-                          <Box sx={{ border: "1px dashed #003566" }}></Box>
-                          {/* ---------------Back Data start--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                              {
+                                segments.back[0]?.departureLocation?.split(
+                                  ","
+                                )[0]
+                              }
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                              }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[1]?.arrivalLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
-                                      alt={`${segments.back[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[0]?.departure})-
-                                      {segments.back[0]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[0]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[0]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[0]?.arrival})-
-                                      {segments.back[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[0]?.marketingcareer}{" "}
-                                      {segments.back[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[0]?.bookingcode}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                              </Grid>
-                            </Box>
+                              {segments.back[0]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
                           </Box>
-                          <Box className="border-content-round">
-                            <span>
-                              Transit Time&nbsp;{transit?.back?.transit1}
-                            </span>
-                          </Box>
-                          <Box className="roundsegment-2">
-                            <Box className="single-flight-parent">
-                              <Grid
-                                className="single-flight-details"
-                                sx={{
-                                  justifyContent: "space-between",
-                                  alignItems: "flex-start",
-                                }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
-                              >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[1]?.marketingcareer}.png`}
-                                      alt={`${segments.back[1]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[1]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[1]?.departure})-{" "}
-                                      {segments.back[1]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments?.back[1]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments?.back[1]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[1]?.arrival})-
-                                      {segments.back[1]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[1]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[1]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[1]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[1]?.marketingcareer}{" "}
-                                      {segments.back[1]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[1]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[1]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                              </Grid>
-                            </Box>
-                          </Box>
-                          {/* ---------------Back Data End--------------- */}
-                        </>
-                      ) : (
-                        <>
-                          {/* ---------------For 1 Segmnet --------}}------- */}
-                          {/* ---------------Go data--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.go[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {segments.go[0]?.arrivalLocation?.split(",")[0]}
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
-                                      alt={`${segments.go[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.go[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.go[0]?.departure})-
-                                      {segments.go[0]?.departureAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.departureLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.departureTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.go[0]?.arrival})-
-                                      {segments.go[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.go[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.go[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.go[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.go[0]?.marketingcareer}{" "}
-                                      {segments.go[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.go[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.go[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
+                                    alt={`${segments.back[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[0]?.departure})-
+                                    {segments.back[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[0]?.arrival})-
+                                    {segments.back[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[0]?.marketingcareer}{" "}
+                                    {segments.back[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[0]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                          <Box sx={{ border: "1px dashed #003566" }}></Box>
-                          {/* ---------------Back data--------------- */}
-                          <Box className="roundsegment-2">
-                            <Box
-                              display="flex"
-                              justifyContent={"center"}
-                              alignItems="center"
-                              pb={2}
-                              gap={2}
+                        </Box>
+                        {/* ---------------Return data End--------------- */}
+                      </>
+                    ) : segment === "2" || segment === "2" ? (
+                      <>
+                        {/* ---------------Go Data Start--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
                             >
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[0]?.departureLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                              <img src={toimg} alt="to" />
-                              <Typography
-                                sx={{
-                                  fontSize: "16px",
-                                  color: "#003566",
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {
-                                  segments.back[0]?.arrivalLocation?.split(
-                                    ","
-                                  )[0]
-                                }
-                              </Typography>
-                            </Box>
-                            <Box className="single-flight-parent">
+                              {segments.go[0]?.departureLocation?.split(",")[0]}
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.go[1]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
                               <Grid
-                                className="single-flight-details"
                                 sx={{
-                                  justifyContent: "space-between",
+                                  display: "flex",
                                   alignItems: "flex-start",
                                 }}
-                                container
-                                spacing={{ xs: 2, md: 3 }}
-                                columns={{ xs: 4, sm: 8, md: 12 }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
                               >
-                                <Grid
-                                  sx={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                  }}
-                                  item
-                                  xs={2}
-                                  sm={3}
-                                  md={4.5}
-                                >
-                                  <Box textAlign="center" paddingRight={2}>
-                                    <img
-                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
-                                      alt={`${segments.back[0]?.marketingcareer}`}
-                                    />
-                                    <Typography
-                                      width="100px"
-                                      fontSize="12px"
-                                      fontWeight={500}
-                                      textAlign="center"
-                                      paddingRight={2}
-                                    >
-                                      {segments.back[0]?.marketingcareerName}
-                                    </Typography>
-                                  </Box>
-                                  <Box className="flight-content-detail">
-                                    <h4>Departure From</h4>
-                                    <h5>
-                                      ({segments.back[0]?.departure})-
-                                      {segments.back[0]?.departureAirport}
-                                    </h5>
-                                    <h5>
-                                      {segments.back[0]?.departureLocation}
-                                    </h5>
-                                    <h5>
-                                      {format(
-                                        new Date(
-                                          segments.back[0]?.departureTime
-                                        ),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Arrival To</h4>
-                                    <h5>
-                                      ({segments.back[0]?.arrival})-
-                                      {segments.back[0]?.arrivalAirport}
-                                    </h5>
-                                    <h5>{segments.back[0]?.arrivalLocation}</h5>
-                                    <h5>
-                                      {format(
-                                        new Date(segments.back[0]?.arrivalTime),
-                                        "dd MMM yyyy hh:mm a"
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
-                                <Grid item xs={2} sm={2} md={3}>
-                                  <Box className="flight-content-detail">
-                                    <h4>Duration</h4>
-                                    <h5>{segments.back[0]?.flightduration}</h5>
-                                    <h5 style={{ color: "tomato" }}>
-                                      {segments.back[0]?.marketingcareer}{" "}
-                                      {segments.back[0]?.marketingflight}{" "}
-                                    </h5>
-                                    <h5>
-                                      Class: {segments.back[0]?.bookingcode}{" "}
-                                      &nbsp;
-                                      <span style={{ color: "crimson" }}>
-                                        Seat: {segments.back[0]?.seat || 9}
-                                      </span>
-                                    </h5>
-                                    <h5>
-                                      Baggage:{" "}
-                                      {bags === "3" ||
-                                      bags === "2" ||
-                                      bags === "1" ? (
-                                        <>{bags?.split(" ")[0]} Piece</>
-                                      ) : bags === " " ? (
-                                        <>0 Kg</>
-                                      ) : (
-                                        <>{bags?.slice(0, 2) || 0} Kg</>
-                                      )}
-                                    </h5>
-                                  </Box>
-                                </Grid>
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
+                                    alt={`${segments.go[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[0]?.departure})-
+                                    {segments.go[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
                               </Grid>
-                            </Box>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[0]?.arrival})-
+                                    {segments.go[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[0]?.marketingcareer}{" "}
+                                    {segments.go[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[0]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Box>
-                        </>
-                      )}
-                    </TabPanel>
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>Transit Time&nbsp;{transit?.go?.transit1}</span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[1]?.marketingcareer}.png`}
+                                    alt={`${segments.go[1]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[1]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[1]?.departure})-
+                                    {segments.go[1]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[1]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[1]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[1]?.arrival})-
+                                    {segments.go[1]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[1]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[1]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[1]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[1]?.marketingcareer}{" "}
+                                    {segments.go[1]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[1]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[1]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                        {/* ---------------Go Data End--------------- */}
+                        <Box sx={{ border: "1px dashed #003566" }}></Box>
+                        {/* ---------------Back Data Start--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {
+                                segments.back[0]?.departureLocation?.split(
+                                  ","
+                                )[0]
+                              }
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.back[1]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
+                                    alt={`${segments.back[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[0]?.departure})-
+                                    {segments.back[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[0]?.arrival})-
+                                    {segments.back[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[0]?.marketingcareer}{" "}
+                                    {segments.back[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[0]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>
+                            Transit Time&nbsp;{transit?.back?.transit1}
+                          </span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[1]?.marketingcareer}.png`}
+                                    alt={`${segments.back[1]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[1]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[1]?.departure})-
+                                    {segments.back[1]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[1]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[1]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[1]?.arrival})-
+                                    {segments.back[1]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[1]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[1]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[1]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[1]?.marketingcareer}{" "}
+                                    {segments.back[1]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[1]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[1]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                        {/* ---------------Back Data End--------------- */}
+                      </>
+                    ) : segment === "12" ? (
+                      <>
+                        {/* ---------------GO Data start--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.go[0]?.departureLocation?.split(",")[0]}
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.go[0]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
+                                    alt={`${segments.go[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[0]?.departure})-
+                                    {segments.go[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[0]?.arrival})-
+                                    {segments.go[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[0]?.marketingcareer}{" "}
+                                    {segments.go[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[0]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                        {/* ---------------GO Data End--------------- */}
+                        <Box sx={{ border: "1px dashed #003566" }}></Box>
+                        {/* ---------------Back Data start--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {
+                                segments.back[0]?.departureLocation?.split(
+                                  ","
+                                )[0]
+                              }
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.back[1]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
+                                    alt={`${segments.back[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[0]?.departure})-
+                                    {segments.back[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[0]?.arrival})-
+                                    {segments.back[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[0]?.marketingcareer}{" "}
+                                    {segments.back[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[0]?.bookingcode}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                        <Box className="border-content-round">
+                          <span>
+                            Transit Time&nbsp;{transit?.back?.transit1}
+                          </span>
+                        </Box>
+                        <Box className="roundsegment-2">
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[1]?.marketingcareer}.png`}
+                                    alt={`${segments.back[1]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[1]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[1]?.departure})-{" "}
+                                    {segments.back[1]?.departureAirport}
+                                  </h5>
+                                  <h5>
+                                    {segments?.back[1]?.departureLocation}
+                                  </h5>
+                                  <h5>
+                                    {format(
+                                      new Date(
+                                        segments?.back[1]?.departureTime
+                                      ),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[1]?.arrival})-
+                                    {segments.back[1]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[1]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[1]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[1]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[1]?.marketingcareer}{" "}
+                                    {segments.back[1]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[1]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[1]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                        {/* ---------------Back Data End--------------- */}
+                      </>
+                    ) : (
+                      <>
+                        {/* ---------------For 1 Segmnet --------}}------- */}
+                        {/* ---------------Go data--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.go[0]?.departureLocation?.split(",")[0]}
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.go[0]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.go[0]?.marketingcareer}.png`}
+                                    alt={`${segments.go[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.go[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.go[0]?.departure})-
+                                    {segments.go[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.go[0]?.arrival})-
+                                    {segments.go[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.go[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.go[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.go[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.go[0]?.marketingcareer}{" "}
+                                    {segments.go[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.go[0]?.bookingcode} &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.go[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                        <Box sx={{ border: "1px dashed #003566" }}></Box>
+                        {/* ---------------Back data--------------- */}
+                        <Box className="roundsegment-2">
+                          <Box
+                            display="flex"
+                            justifyContent={"center"}
+                            alignItems="center"
+                            pb={2}
+                            gap={2}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {
+                                segments.back[0]?.departureLocation?.split(
+                                  ","
+                                )[0]
+                              }
+                            </Typography>
+                            <img src={toimg} alt="to" />
+                            <Typography
+                              sx={{
+                                fontSize: "16px",
+                                color: "#003566",
+                                fontWeight: 600,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {segments.back[0]?.arrivalLocation?.split(",")[0]}
+                            </Typography>
+                          </Box>
+                          <Box className="single-flight-parent">
+                            <Grid
+                              className="single-flight-details"
+                              sx={{
+                                justifyContent: "space-between",
+                                alignItems: "flex-start",
+                              }}
+                              container
+                              spacing={{ xs: 2, md: 3 }}
+                              columns={{ xs: 4, sm: 8, md: 12 }}
+                            >
+                              <Grid
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                }}
+                                item
+                                xs={2}
+                                sm={3}
+                                md={4.5}
+                              >
+                                <Box textAlign="center" paddingRight={2}>
+                                  <img
+                                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments.back[0]?.marketingcareer}.png`}
+                                    alt={`${segments.back[0]?.marketingcareer}`}
+                                  />
+                                  <Typography
+                                    width="100px"
+                                    fontSize="12px"
+                                    fontWeight={500}
+                                    textAlign="center"
+                                    paddingRight={2}
+                                  >
+                                    {segments.back[0]?.marketingcareerName}
+                                  </Typography>
+                                </Box>
+                                <Box className="flight-content-detail">
+                                  <h4>Departure From</h4>
+                                  <h5>
+                                    ({segments.back[0]?.departure})-
+                                    {segments.back[0]?.departureAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.departureLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.departureTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Arrival To</h4>
+                                  <h5>
+                                    ({segments.back[0]?.arrival})-
+                                    {segments.back[0]?.arrivalAirport}
+                                  </h5>
+                                  <h5>{segments.back[0]?.arrivalLocation}</h5>
+                                  <h5>
+                                    {format(
+                                      new Date(segments.back[0]?.arrivalTime),
+                                      "dd MMM yyyy hh:mm a"
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                              <Grid item xs={2} sm={2} md={3}>
+                                <Box className="flight-content-detail">
+                                  <h4>Duration</h4>
+                                  <h5>{segments.back[0]?.flightduration}</h5>
+                                  <h5 style={{ color: "tomato" }}>
+                                    {segments.back[0]?.marketingcareer}{" "}
+                                    {segments.back[0]?.marketingflight}{" "}
+                                  </h5>
+                                  <h5>
+                                    Class: {segments.back[0]?.bookingcode}{" "}
+                                    &nbsp;
+                                    <span style={{ color: "crimson" }}>
+                                      Seat: {segments.back[0]?.seat || 9}
+                                    </span>
+                                  </h5>
+                                  <h5>
+                                    Baggage:{" "}
+                                    {bags === "3" ||
+                                    bags === "2" ||
+                                    bags === "1" ? (
+                                      <>{bags?.split(" ")[0]} Piece</>
+                                    ) : bags === " " ? (
+                                      <>0 Kg</>
+                                    ) : (
+                                      <>{bags?.slice(0, 2) || 0} Kg</>
+                                    )}
+                                  </h5>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Box>
+                        </Box>
+                      </>
+                    )}
+                  </TabPanel>
 
-                    <TabPanel value="2" className="tab-class">
-                      <Box className="tab-table" sx={{ m: "5px 0px" }}>
-                        <Box className="flight-search-table">
-                          <table>
-                            <tr>
-                              <th>Pax Type</th>
-                              <th>Base Fare</th>
-                              <th>Tax</th>
-                              <th>Total</th>
-                              <th>Pax Count</th>
-                              <th>Service Fee</th>
-                              <th>Sub Total</th>
-                            </tr>
+                  <TabPanel value="2" className="tab-class">
+                    <Box className="tab-table" sx={{ m: "5px 0px" }}>
+                      <Box className="flight-search-table">
+                        <table>
+                          <tr>
+                            <th>Pax Type</th>
+                            <th>Base Fare</th>
+                            <th>Tax</th>
+                            <th>Total</th>
+                            <th>Pax Count</th>
+                            <th>Service Fee</th>
+                            <th>Sub Total</th>
+                          </tr>
 
-                            {adultCount > 0 && childCount > 0 && infant > 0 ? (
-                              <>
-                                <tr>
-                                  <td>Adult add</td>
-                                  <td>{pricebreakdown[0].BaseFare}</td>
-                                  <td>{pricebreakdown[0]?.Tax}</td>
-                                  <td>
-                                    {parseInt(pricebreakdown[0]?.BaseFare) +
-                                      parseInt(pricebreakdown[0]?.Tax)}
-                                  </td>
-                                  <td>{pricebreakdown[0]?.PaxCount}</td>
-                                  <td>{pricebreakdown[0]?.ServiceFee}</td>
-                                  <td>
-                                    {(parseInt(pricebreakdown[0]?.BaseFare) +
-                                      parseInt(pricebreakdown[0]?.Tax) +
-                                      parseInt(pricebreakdown[0]?.ServiceFee)) *
-                                      pricebreakdown[0]?.PaxCount}
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Child</td>
-                                  <td>{pricebreakdown[1]?.BaseFare}</td>
-                                  <td>{pricebreakdown[1]?.Tax}</td>
-                                  <td>
-                                    {parseInt(pricebreakdown[1]?.BaseFare) +
-                                      parseInt(pricebreakdown[1]?.Tax)}
-                                  </td>
-                                  <td>{pricebreakdown[1]?.PaxCount}</td>
+                          {adultCount > 0 && childCount > 0 && infant > 0 ? (
+                            <>
+                              <tr>
+                                <td>Adult add</td>
+                                <td>{pricebreakdown[0].BaseFare}</td>
+                                <td>{pricebreakdown[0]?.Tax}</td>
+                                <td>
+                                  {parseInt(pricebreakdown[0]?.BaseFare) +
+                                    parseInt(pricebreakdown[0]?.Tax)}
+                                </td>
+                                <td>{pricebreakdown[0]?.PaxCount}</td>
+                                <td>{pricebreakdown[0]?.ServiceFee}</td>
+                                <td>
+                                  {(parseInt(pricebreakdown[0]?.BaseFare) +
+                                    parseInt(pricebreakdown[0]?.Tax) +
+                                    parseInt(pricebreakdown[0]?.ServiceFee)) *
+                                    pricebreakdown[0]?.PaxCount}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Child</td>
+                                <td>{pricebreakdown[1]?.BaseFare}</td>
+                                <td>{pricebreakdown[1]?.Tax}</td>
+                                <td>
+                                  {parseInt(pricebreakdown[1]?.BaseFare) +
+                                    parseInt(pricebreakdown[1]?.Tax)}
+                                </td>
+                                <td>{pricebreakdown[1]?.PaxCount}</td>
 
-                                  <td>{pricebreakdown[1]?.ServiceFee}</td>
-                                  <td>
-                                    {(parseInt(pricebreakdown[1]?.BaseFare) +
-                                      parseInt(pricebreakdown[1]?.Tax) +
-                                      parseInt(pricebreakdown[1]?.ServiceFee)) *
-                                      pricebreakdown[1]?.PaxCount}
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Infant</td>
-                                  <td>{pricebreakdown[2]?.BaseFare}</td>
-                                  <td>{pricebreakdown[2]?.Tax}</td>
-                                  <td>
-                                    {parseInt(pricebreakdown[2]?.BaseFare) +
-                                      parseInt(pricebreakdown[2]?.Tax)}
-                                  </td>
-                                  <td>{pricebreakdown[2]?.PaxCount}</td>
+                                <td>{pricebreakdown[1]?.ServiceFee}</td>
+                                <td>
+                                  {(parseInt(pricebreakdown[1]?.BaseFare) +
+                                    parseInt(pricebreakdown[1]?.Tax) +
+                                    parseInt(pricebreakdown[1]?.ServiceFee)) *
+                                    pricebreakdown[1]?.PaxCount}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Infant</td>
+                                <td>{pricebreakdown[2]?.BaseFare}</td>
+                                <td>{pricebreakdown[2]?.Tax}</td>
+                                <td>
+                                  {parseInt(pricebreakdown[2]?.BaseFare) +
+                                    parseInt(pricebreakdown[2]?.Tax)}
+                                </td>
+                                <td>{pricebreakdown[2]?.PaxCount}</td>
 
-                                  <td>{pricebreakdown[2]?.ServiceFee}</td>
-                                  <td>
-                                    {(parseInt(pricebreakdown[2]?.BaseFare) +
-                                      parseInt(pricebreakdown[2]?.Tax) +
-                                      parseInt(pricebreakdown[2]?.ServiceFee)) *
-                                      pricebreakdown[2]?.PaxCount}
-                                  </td>
-                                </tr>
-                              </>
-                            ) : adultCount > 0 && childCount > 0 ? (
-                              <>
-                                <tr>
-                                  <td>Adult</td>
-                                  <td>{pricebreakdown[0].BaseFare}</td>
-                                  <td>{pricebreakdown[0]?.Tax}</td>
-                                  <td>
-                                    {parseInt(pricebreakdown[0]?.BaseFare) +
-                                      parseInt(pricebreakdown[0]?.Tax)}
-                                  </td>
-                                  <td>{pricebreakdown[0]?.PaxCount}</td>
-                                  <td>{pricebreakdown[0]?.ServiceFee}</td>
-                                  <td>
-                                    {(parseInt(pricebreakdown[0]?.BaseFare) +
-                                      parseInt(pricebreakdown[0]?.Tax) +
-                                      parseInt(pricebreakdown[0]?.ServiceFee)) *
-                                      pricebreakdown[0]?.PaxCount}
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>Child</td>
-                                  <td>{pricebreakdown[1]?.BaseFare}</td>
-                                  <td>{pricebreakdown[1]?.Tax}</td>
-                                  <td>
-                                    {parseInt(pricebreakdown[1]?.BaseFare) +
-                                      parseInt(pricebreakdown[1]?.Tax)}
-                                  </td>
-                                  <td>{pricebreakdown[1]?.PaxCount}</td>
-
-                                  <td>{pricebreakdown[1]?.ServiceFee}</td>
-                                  <td>
-                                    {(parseInt(pricebreakdown[1]?.BaseFare) +
-                                      parseInt(pricebreakdown[1]?.Tax) +
-                                      parseInt(pricebreakdown[1]?.ServiceFee)) *
-                                      pricebreakdown[1]?.PaxCount}
-                                  </td>
-                                </tr>
-                              </>
-                            ) : adultCount > 0 && infant > 0 ? (
-                              <>
-                                <tr>
-                                  <td>Adult</td>
-                                  <td>{pricebreakdown[0].BaseFare}</td>
-                                  <td>{pricebreakdown[0]?.Tax}</td>
-                                  <td>
-                                    {parseInt(pricebreakdown[0]?.BaseFare) +
-                                      parseInt(pricebreakdown[0]?.Tax)}
-                                  </td>
-                                  <td>{pricebreakdown[0]?.PaxCount}</td>
-                                  <td>{pricebreakdown[0]?.ServiceFee}</td>
-                                  <td>
-                                    {(parseInt(pricebreakdown[0]?.BaseFare) +
-                                      parseInt(pricebreakdown[0]?.Tax) +
-                                      parseInt(pricebreakdown[0]?.ServiceFee)) *
-                                      pricebreakdown[0]?.PaxCount}
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Infant</td>
-                                  <td>{pricebreakdown[1]?.BaseFare}</td>
-                                  <td>{pricebreakdown[1]?.Tax}</td>
-                                  <td>
-                                    {parseInt(pricebreakdown[1]?.BaseFare) +
-                                      parseInt(pricebreakdown[1]?.Tax)}
-                                  </td>
-                                  <td>{pricebreakdown[1]?.PaxCount}</td>
-
-                                  <td>{pricebreakdown[1]?.ServiceFee}</td>
-                                  <td>
-                                    {(parseInt(pricebreakdown[1]?.BaseFare) +
-                                      parseInt(pricebreakdown[1]?.Tax) +
-                                      parseInt(pricebreakdown[1]?.ServiceFee)) *
-                                      pricebreakdown[1]?.PaxCount}
-                                  </td>
-                                </tr>
-                              </>
-                            ) : (
+                                <td>{pricebreakdown[2]?.ServiceFee}</td>
+                                <td>
+                                  {(parseInt(pricebreakdown[2]?.BaseFare) +
+                                    parseInt(pricebreakdown[2]?.Tax) +
+                                    parseInt(pricebreakdown[2]?.ServiceFee)) *
+                                    pricebreakdown[2]?.PaxCount}
+                                </td>
+                              </tr>
+                            </>
+                          ) : adultCount > 0 && childCount > 0 ? (
+                            <>
                               <tr>
                                 <td>Adult</td>
                                 <td>{pricebreakdown[0].BaseFare}</td>
@@ -9774,254 +10456,344 @@ const RoundSingleFlight = (props) => {
                                     pricebreakdown[0]?.PaxCount}
                                 </td>
                               </tr>
-                            )}
-                          </table>
-                        </Box>
-                      </Box>
-                    </TabPanel>
 
-                    <TabPanel value="4" className="tab-class">
-                      <Box className="tab-table" sx={{ m: "5px 0px" }}>
-                        <Box className="flight-search-table">
-                          <table>
-                            <tr>
-                              <th>Customer Invoice</th>
-                              <th>Commission</th>
-                              <th>Agent Invoice</th>
-                              <th>Profit Amount</th>
-                            </tr>
+                              <tr>
+                                <td>Child</td>
+                                <td>{pricebreakdown[1]?.BaseFare}</td>
+                                <td>{pricebreakdown[1]?.Tax}</td>
+                                <td>
+                                  {parseInt(pricebreakdown[1]?.BaseFare) +
+                                    parseInt(pricebreakdown[1]?.Tax)}
+                                </td>
+                                <td>{pricebreakdown[1]?.PaxCount}</td>
 
-                            <tr>
-                              <td>{clientFare}</td>
-                              <td>7%</td>
-                              <td>{agentFare}</td>
-                              <td>{commission}</td>
-                            </tr>
-                          </table>
-                        </Box>
-                      </Box>
-                    </TabPanel>
+                                <td>{pricebreakdown[1]?.ServiceFee}</td>
+                                <td>
+                                  {(parseInt(pricebreakdown[1]?.BaseFare) +
+                                    parseInt(pricebreakdown[1]?.Tax) +
+                                    parseInt(pricebreakdown[1]?.ServiceFee)) *
+                                    pricebreakdown[1]?.PaxCount}
+                                </td>
+                              </tr>
+                            </>
+                          ) : adultCount > 0 && infant > 0 ? (
+                            <>
+                              <tr>
+                                <td>Adult</td>
+                                <td>{pricebreakdown[0].BaseFare}</td>
+                                <td>{pricebreakdown[0]?.Tax}</td>
+                                <td>
+                                  {parseInt(pricebreakdown[0]?.BaseFare) +
+                                    parseInt(pricebreakdown[0]?.Tax)}
+                                </td>
+                                <td>{pricebreakdown[0]?.PaxCount}</td>
+                                <td>{pricebreakdown[0]?.ServiceFee}</td>
+                                <td>
+                                  {(parseInt(pricebreakdown[0]?.BaseFare) +
+                                    parseInt(pricebreakdown[0]?.Tax) +
+                                    parseInt(pricebreakdown[0]?.ServiceFee)) *
+                                    pricebreakdown[0]?.PaxCount}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Infant</td>
+                                <td>{pricebreakdown[1]?.BaseFare}</td>
+                                <td>{pricebreakdown[1]?.Tax}</td>
+                                <td>
+                                  {parseInt(pricebreakdown[1]?.BaseFare) +
+                                    parseInt(pricebreakdown[1]?.Tax)}
+                                </td>
+                                <td>{pricebreakdown[1]?.PaxCount}</td>
 
-                    <TabPanel value="6" className="cancelation-1">
-                      <Grid
-                        className="cancellation-content"
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">Time Frame </Typography>
-                          <Typography variant="h4">
-                            (From Scheduled flight Departure)
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Airline Fee + Flyfarint Fee{" "}
-                          </Typography>
-                          <Typography variant="h4">(Per Passenger)</Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Grid
-                        className=" cancellation-content-cus "
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            0 hours to 72 hours
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Adult : Airline Policy + 200
-                          </Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Grid
-                        className=" cancellation-content-cus2  "
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            72 hours to 335 hours
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Adult : Airline Policy + 200
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                      <Grid
-                        className="cancellation-content"
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">Time Frame </Typography>
-                          <Typography variant="h4">
-                            (From Scheduled flight Departure)
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Airline Fee + Flyfarint Fee{" "}
-                          </Typography>
-                          <Typography variant="h4">(Per Passenger)</Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Grid
-                        className="cancellation-content-cus3 "
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            All Flight Departure
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Adult : Airline Policy + No-Show Charge + 200
-                          </Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Box className="warning-box" mb={2}>
-                        <Typography fontSize={"12px"} className="alert">
-                          *Important: This destination may have COVID-19 travel
-                          restriction in place, including specific restriction
-                          for loading. Check any nation,local and health
-                          advisories for this destination before you book.
-                        </Typography>
-                      </Box>
-                    </TabPanel>
-
-                    <TabPanel value="5" className="cancelation-1">
-                      <Grid
-                        className="cancellation-content"
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">Time Frame </Typography>
-                          <Typography variant="h4">
-                            (From Scheduled flight Departure)
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Airline Fee + Flyfarint Fee{" "}
-                          </Typography>
-                          <Typography variant="h4">(Per Passenger)</Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Grid
-                        className=" cancellation-content-cus "
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            0 hours to 72 hours
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Adult : Airline Policy + 200
-                          </Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Grid
-                        className=" cancellation-content-cus2  "
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            72 hours to 335 hours
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Adult : Airline Policy + 200
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                      <Grid
-                        className="cancellation-content"
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">Time Frame </Typography>
-                          <Typography variant="h4">
-                            (From Scheduled flight Departure)
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Airline Fee + Flyfarint Fee{" "}
-                          </Typography>
-                          <Typography variant="h4">(Per Passenger)</Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Grid
-                        className="cancellation-content-cus3 "
-                        container
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                      >
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            All Flight Departure
-                          </Typography>
-                        </Grid>
-
-                        <Grid item xs={4} sm={4} md={6}>
-                          <Typography variant="h4">
-                            Adult : Airline Policy + No-Show Charge + 200
-                          </Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Box className="warning-box" mb={2}>
-                        <Typography fontSize={"12px"} className="alert">
-                          *Important: This destination may have COVID-19 travel
-                          restriction in place, including specific restriction
-                          for loading. Check any nation,local and health
-                          advisories for this destination before you book.
-                        </Typography>
-                      </Box>
-                    </TabPanel>
-
-                    <TabPanel value="7" className="tab-class">
-                      <Box className="tab-table" sx={{ m: "5px 0px" }}>
-                        <Box className="flight-search-table">
-                          <table>
-                            <tr>
-                              <th>Baggage</th>
-                              <th>Check-In</th>
-                              <th>Cabin</th>
-                            </tr>
-
+                                <td>{pricebreakdown[1]?.ServiceFee}</td>
+                                <td>
+                                  {(parseInt(pricebreakdown[1]?.BaseFare) +
+                                    parseInt(pricebreakdown[1]?.Tax) +
+                                    parseInt(pricebreakdown[1]?.ServiceFee)) *
+                                    pricebreakdown[1]?.PaxCount}
+                                </td>
+                              </tr>
+                            </>
+                          ) : (
                             <tr>
                               <td>Adult</td>
+                              <td>{pricebreakdown[0].BaseFare}</td>
+                              <td>{pricebreakdown[0]?.Tax}</td>
+                              <td>
+                                {parseInt(pricebreakdown[0]?.BaseFare) +
+                                  parseInt(pricebreakdown[0]?.Tax)}
+                              </td>
+                              <td>{pricebreakdown[0]?.PaxCount}</td>
+                              <td>{pricebreakdown[0]?.ServiceFee}</td>
+                              <td>
+                                {(parseInt(pricebreakdown[0]?.BaseFare) +
+                                  parseInt(pricebreakdown[0]?.Tax) +
+                                  parseInt(pricebreakdown[0]?.ServiceFee)) *
+                                  pricebreakdown[0]?.PaxCount}
+                              </td>
+                            </tr>
+                          )}
+                        </table>
+                      </Box>
+                    </Box>
+                  </TabPanel>
+
+                  <TabPanel value="3" className="tab-class">
+                    <Box className="tab-table" sx={{ m: "5px 0px" }}>
+                      <Box className="flight-search-table">
+                        <table>
+                          <tr>
+                            <th>Customer Invoice</th>
+                            <th>Commission</th>
+                            <th>Agent Invoice</th>
+                            <th>Profit Amount</th>
+                          </tr>
+
+                          <tr>
+                            <td>{clientFare}</td>
+                            <td>7%</td>
+                            <td>{agentFare}</td>
+                            <td>{commission}</td>
+                          </tr>
+                        </table>
+                      </Box>
+                    </Box>
+                  </TabPanel>
+
+                  {/* <TabPanel value="4" className="cancelation-1">
+                    <Grid
+                      className="cancellation-content"
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">Time Frame </Typography>
+                        <Typography variant="h4">
+                          (From Scheduled flight Departure)
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Airline Fee + Flyfarint Fee{" "}
+                        </Typography>
+                        <Typography variant="h4">(Per Passenger)</Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Grid
+                      className=" cancellation-content-cus "
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          0 hours to 72 hours
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Adult : Airline Policy + 200
+                        </Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Grid
+                      className=" cancellation-content-cus2  "
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          72 hours to 335 hours
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Adult : Airline Policy + 200
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      className="cancellation-content"
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">Time Frame </Typography>
+                        <Typography variant="h4">
+                          (From Scheduled flight Departure)
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Airline Fee + Flyfarint Fee{" "}
+                        </Typography>
+                        <Typography variant="h4">(Per Passenger)</Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Grid
+                      className="cancellation-content-cus3 "
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          All Flight Departure
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Adult : Airline Policy + No-Show Charge + 200
+                        </Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Box className="warning-box" mb={2}>
+                      <Typography fontSize={"12px"} className="alert">
+                        *Important: This destination may have COVID-19 travel
+                        restriction in place, including specific restriction for
+                        loading. Check any nation,local and health advisories
+                        for this destination before you book.
+                      </Typography>
+                    </Box>
+                  </TabPanel> */}
+
+                  <TabPanel value="4" className="cancelation-1">
+                    <Grid
+                      className="cancellation-content"
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">Time Frame </Typography>
+                        <Typography variant="h4">
+                          (From Scheduled flight Departure)
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Airline Fee + Flyfarint Fee{" "}
+                        </Typography>
+                        <Typography variant="h4">(Per Passenger)</Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Grid
+                      className=" cancellation-content-cus "
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          0 hours to 72 hours
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Adult : Airline Policy + 200
+                        </Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Grid
+                      className=" cancellation-content-cus2  "
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          72 hours to 335 hours
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Adult : Airline Policy + 200
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid
+                      className="cancellation-content"
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">Time Frame </Typography>
+                        <Typography variant="h4">
+                          (From Scheduled flight Departure)
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Airline Fee + Flyfarint Fee{" "}
+                        </Typography>
+                        <Typography variant="h4">(Per Passenger)</Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Grid
+                      className="cancellation-content-cus3 "
+                      container
+                      columns={{ xs: 4, sm: 8, md: 12 }}
+                    >
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          All Flight Departure
+                        </Typography>
+                      </Grid>
+
+                      <Grid item xs={4} sm={4} md={6}>
+                        <Typography variant="h4">
+                          Adult : Airline Policy + No-Show Charge + 200
+                        </Typography>
+                      </Grid>
+                    </Grid>
+
+                    <Box className="warning-box" mb={2}>
+                      <Typography fontSize={"12px"} className="alert">
+                        *Important: This destination may have COVID-19 travel
+                        restriction in place, including specific restriction for
+                        loading. Check any nation,local and health advisories
+                        for this destination before you book.
+                      </Typography>
+                    </Box>
+                  </TabPanel>
+
+                  <TabPanel value="5" className="tab-class">
+                    <Box className="tab-table" sx={{ m: "5px 0px" }}>
+                      <Box className="flight-search-table">
+                        <table>
+                          <tr>
+                            <th>Baggage</th>
+                            <th>Check-In</th>
+                            <th>Cabin</th>
+                          </tr>
+
+                          <tr>
+                            <td>Adult</td>
+                            <td>
+                              {bags === "3" || bags === "2" || bags === "1" ? (
+                                <>{bags?.split(" ")[0]} Piece</>
+                              ) : bags === " " ? (
+                                <>0 Kg</>
+                              ) : (
+                                <>{bags?.slice(0, 2) || 0} Kg</>
+                              )}
+                            </td>
+                            <td>{props?.roundData?.class || "Economy"}</td>
+                          </tr>
+                          {childCount > 0 && (
+                            <tr>
+                              <td>Child</td>
                               <td>
                                 {bags === "3" ||
                                 bags === "2" ||
@@ -10035,48 +10807,31 @@ const RoundSingleFlight = (props) => {
                               </td>
                               <td>{props?.roundData?.class || "Economy"}</td>
                             </tr>
-                            {childCount > 0 && (
-                              <tr>
-                                <td>Child</td>
-                                <td>
-                                  {bags === "3" ||
-                                  bags === "2" ||
-                                  bags === "1" ? (
-                                    <>{bags?.split(" ")[0]} Piece</>
-                                  ) : bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </td>
-                                <td>{props?.roundData?.class || "Economy"}</td>
-                              </tr>
-                            )}
-                            {infant > 0 && (
-                              <tr>
-                                <td>Infant</td>
-                                <td>
-                                  {bags === "3" ||
-                                  bags === "2" ||
-                                  bags === "1" ? (
-                                    <>{bags?.split(" ")[0]} Piece</>
-                                  ) : bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </td>
-                                <td>{props?.roundData?.class || "Economy"}</td>
-                              </tr>
-                            )}
-                          </table>
-                        </Box>
+                          )}
+                          {infant > 0 && (
+                            <tr>
+                              <td>Infant</td>
+                              <td>
+                                {bags === "3" ||
+                                bags === "2" ||
+                                bags === "1" ? (
+                                  <>{bags?.split(" ")[0]} Piece</>
+                                ) : bags === " " ? (
+                                  <>0 Kg</>
+                                ) : (
+                                  <>{bags?.slice(0, 2) || 0} Kg</>
+                                )}
+                              </td>
+                              <td>{props?.roundData?.class || "Economy"}</td>
+                            </tr>
+                          )}
+                        </table>
                       </Box>
-                    </TabPanel>
-                  </TabContext>
-                </Box>
+                    </Box>
+                  </TabPanel>
+                </TabContext>
               </Box>
-            </Box>
+            </Container>
           )}
         </Box>
         {/* --------new content end--------- */}

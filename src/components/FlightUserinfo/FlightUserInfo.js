@@ -436,7 +436,7 @@ const FlightUserInfo = ({
     e.preventDefault();
     setIsLoaded(false);
     e.target.reset();
-    let url = "https://api.flyfarint.com/v.1.0.0/Galileo/AirBooking.php";
+    let url = "https://api.flyfarint.net/v.1.0.0/Galileo/AirBooking.php";
 
     await fetch(url, {
       method: "POST",
@@ -482,7 +482,7 @@ const FlightUserInfo = ({
             timelimit: subtractHours(3, new Date(limitTime)),
           };
           let url =
-            "https://api.flyfarint.com/v.1.0.0/AirBooking/PreBooking.php";
+            "https://api.flyfarint.net/v.1.0.0/AirBooking/PreBooking.php";
           fetch(url, {
             method: "POST",
             headers: {
@@ -495,7 +495,7 @@ const FlightUserInfo = ({
             .then((bookingDetails) => {
               if (bookingDetails.status === "success") {
                 let url =
-                  "https://api.flyfarint.com/v.1.0.0/AirMaterials/AddPax.php";
+                  "https://api.flyfarint.net/v.1.0.0/AirMaterials/AddPax.php";
                 let body = {
                   ...flightPassengerData,
                   bookingId: bookingDetails.BookingId,

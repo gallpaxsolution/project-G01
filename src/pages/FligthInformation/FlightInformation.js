@@ -72,7 +72,7 @@ const FlightInformation = (props) => {
   let url;
   let body;
   if (location.state?.flightData?.system === "Sabre") {
-    url = "https://api.flyfarint.com/v.1.0.0/Sabre/AirPrice.php";
+    url = "https://api.flyfarint.net/v.1.0.0/Sabre/AirPrice.php";
     body = {
       adultCount: adultCount,
       childCount: childCount,
@@ -168,13 +168,13 @@ const FlightInformation = (props) => {
             ],
     };
   } else if (location.state?.flightData.system === "FlyHub") {
-    url = "https://api.flyfarint.com/v.1.0.0/FlyHub/AirPrice.php";
+    url = "https://api.flyfarint.net/v.1.0.0/FlyHub/AirPrice.php";
     body = {
       SearchID: location.state?.flightData?.SearchID,
       ResultID: location.state?.flightData?.ResultID,
     };
   } else if (location.state?.flightData.system === "Galileo") {
-    url = "https://api.flyfarint.com/v.1.0.0/Galileo/AirPrice.php";
+    url = "https://api.flyfarint.net/v.1.0.0/Galileo/AirPrice.php";
     body = {
       adultCount: adultCount,
       childCount: childCount,

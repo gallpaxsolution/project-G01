@@ -34,7 +34,7 @@ const FileUploadSection = ({ handleCloseUpdateModal, passengerData }) => {
     });
     setUpdateDocument(newDocument);
 
-    let url = `https://api.flyfarint.com/v.1.0.0/AirBooking/addDocs.php?paxId=${paxId}&${field}`;
+    let url = `https://api.flyfarint.net/v.1.0.0/AirBooking/addDocs.php?paxId=${paxId}&${field}`;
     // console.log(url);
     const formData = new FormData();
     formData.append("file", value);
