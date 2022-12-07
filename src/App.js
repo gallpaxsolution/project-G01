@@ -22,13 +22,10 @@ import AddBank from "./components/BankAccount/AddBank";
 
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
 import SignIn from "./components/Admin/SignIn/SignIn";
-<<<<<<< HEAD
 import GeneralLedger from "./pages/General Ledger/GeneralLedger";
 import AddStaff from "./components/GeneralLedger/AddStaff";
 
-=======
 import MyStaff from "./components/Admin/MyAccount/MyStaff";
->>>>>>> dd6f86a3c86ffbb92fa6059807d369eaa1fc6967
 
 function App() {
   return (
@@ -50,16 +47,10 @@ function App() {
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
 
-<<<<<<< HEAD
             <Route path="/bankaccount" element={<BankAccount/>} />
             <Route path="/addbankaccount" element={<AddBank/>} />
             <Route path="/generalledger" element={<GeneralLedger/>} />
             <Route path="/addStaff" element={<AddStaff/>} />
-
-=======
-            <Route path="/bankaccount" element={<BankAccount />} />
-            <Route path="/addbankaccount" element={<AddBank />} />
->>>>>>> dd6f86a3c86ffbb92fa6059807d369eaa1fc6967
 
             {/* -----KB------  */}
 

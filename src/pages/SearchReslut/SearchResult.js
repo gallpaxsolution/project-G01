@@ -604,9 +604,6 @@ const SearchResult = () => {
                           ? "Return"
                           : "Multi City"}{" "}
                         Flight<span> | </span> */}
-                          {/* {adultCount > 0 && `Adult(${adultCount})`}
-                        {childCount > 0 && `Children(${childCount})`}
-                        {infant > 0 && `Infant(${infant})`} <span> | </span> */}
                           {format(
                             new Date(
                               isNextClicked || isPrevClicked
@@ -615,6 +612,10 @@ const SearchResult = () => {
                             ),
                             "dd MMM yyyy"
                           )}
+                          <span> | </span>{" "}
+                          {adultCount > 0 && `Adult(${adultCount})`}
+                          {childCount > 0 && `Children(${childCount})`}
+                          {infant > 0 && `Infant(${infant})`}
                         </h5>
                       </Box>
                     </Grid>
