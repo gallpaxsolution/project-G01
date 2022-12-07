@@ -1,9 +1,9 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
+import Checkbox from "@mui/material/Checkbox";
 import "./SignIn.css";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
 const SignIn = () => {
   return (
     <Box>
@@ -24,7 +24,7 @@ const SignIn = () => {
                 >
                   Sign In
                 </Typography>
-                <Box className="signInInput1" mb={2.5}>
+                <Box className="signInInput1" mb={2}>
                   <input
                     type="text"
                     style={{
@@ -39,7 +39,7 @@ const SignIn = () => {
                     placeholder="Enter Your Username"
                   />
                 </Box>
-                <Box className="signInInput1" mb={2.5}>
+                <Box className="signInInput1" mb={1}>
                   <input
                     type="password"
                     style={{
@@ -55,16 +55,29 @@ const SignIn = () => {
                   />
                 </Box>
                 <Box
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
                   mb={4.5}
                 >
-                  <Box style={{ display: "flex", gap: "10px" }}>
-                    <input
+                  <Box
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    {/* <input
                       type="checkbox"
                       id="vehicle1"
                       name="vehicle1"
                       value="Bike"
-                    ></input>
+                    /> */}
+
+                    <Checkbox {...label} />
+
                     <label for="vehicle1" style={{ color: "#FFA84D" }}>
                       {" "}
                       Remember me

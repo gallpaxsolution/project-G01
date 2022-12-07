@@ -799,9 +799,15 @@ const MyStaff = () => {
                     }}
                   >
                     <TableRow className={classes.tableRow}>
+                      {/* <TableCell align="left" style={{ color: "#fff" }}>
+                        Sl no{" "}
+                      </TableCell> */}
                       <TableCell align="left" style={{ color: "#fff" }}>
                         Name{" "}
                       </TableCell>
+                      {/* <TableCell align="left" style={{ color: "#fff" }}>
+                        Status{" "}
+                      </TableCell> */}
                       <TableCell align="left" style={{ color: "#fff" }}>
                         Email
                       </TableCell>
