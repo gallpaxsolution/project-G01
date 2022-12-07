@@ -42,15 +42,8 @@ function App() {
               path="/roundflightinformation"
               element={<RoundFlightUserInfo />}
             />
-            <Route path="/traveller" element={<Traveller />} />
-            <Route path="/addtraveller" element={<AddTraveller />} />
-            <Route path="/deposite" element={<Deposite />} />
-            <Route path="/adddeposite" element={<AddDeposite />} />
-
-            <Route path="/bankaccount" element={<BankAccount/>} />
-            <Route path="/addbankaccount" element={<AddBank/>} />
-            <Route path="/generalledger" element={<GeneralLedger/>} />
-            <Route path="/addStaff" element={<AddStaff/>} />
+            <Route path="/bankaccount" element={<BankAccount />} />
+            <Route path="/addbankaccount" element={<AddBank />} />
 
             {/* -----KB------  */}
             <Route path="/bookingroute" element={<BookingRoute />} />
@@ -63,9 +56,18 @@ function App() {
 
             {/* -----KB------  */}
 
+            {/*  */}
             <Route path="/traveller" element={<Traveller />} />
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/deposite" element={<Deposite />} />
+            {/* <Route path="/traveller" element={<Traveller />} /> */}
+            <Route path="/addtraveller" element={<AddTraveller />} />
+            <Route path="/deposite" element={<Deposite />} />
+            <Route path="/adddeposite" element={<AddDeposite />} />
+            <Route path="/bankaccount" element={<BankAccount />} />
+            <Route path="/addbankaccount" element={<AddBank />} />
+            <Route path="/generalledger" element={<GeneralLedger />} />
+            <Route path="/addStaff" element={<AddStaff />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
