@@ -87,7 +87,7 @@ const RoundFlightUserInfoSabre = ({
   const [travellers, setTravellers] = useState([]);
   let agentId = users?.user?.agentId;
   useEffect(() => {
-    let url = `https://api.flyfarint.com/v.1.0.0/AirMaterials/AllTraveler.php?search=all&agentId=${agentId}`;
+    let url = `https://api.flyfarint.net/v.1.0.0/AirMaterials/AllTraveler.php?search=all&agentId=${agentId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -436,7 +436,7 @@ const RoundFlightUserInfoSabre = ({
     e.preventDefault();
     setIsLoaded(false);
     e.target.reset();
-    let url = "https://api.flyfarint.com/v.1.0.0/Sabre/AirBooking.php";
+    let url = "https://api.flyfarint.net/v.1.0.0/Sabre/AirBooking.php";
     await fetch(url, {
       method: "POST",
       headers: {
@@ -525,7 +525,7 @@ const RoundFlightUserInfoSabre = ({
           //   })
           // );
           let url =
-            "https://api.flyfarint.com/v.1.0.0/AirBooking/PreBooking.php";
+            "https://api.flyfarint.net/v.1.0.0/AirBooking/PreBooking.php";
           fetch(url, {
             method: "POST",
             headers: {
@@ -540,7 +540,7 @@ const RoundFlightUserInfoSabre = ({
               // console.log(JSON.stringify(bookingInfo));
               if (bookingDetails.status === "success") {
                 let url =
-                  "https://api.flyfarint.com/v.1.0.0/AirBooking/saveBooking.php";
+                  "https://api.flyfarint.net/v.1.0.0/AirBooking/saveBooking.php";
                 fetch(url, {
                   method: "POST",
                   headers: {
@@ -558,7 +558,7 @@ const RoundFlightUserInfoSabre = ({
                   .then((data) => {
                     if (data.status === "success") {
                       let url =
-                        "https://api.flyfarint.com/v.1.0.0/AirMaterials/AddPax.php";
+                        "https://api.flyfarint.net/v.1.0.0/AirMaterials/AddPax.php";
                       let body = {
                         ...flightPassengerData,
                         bookingId: bookingDetails.BookingId,
@@ -649,7 +649,7 @@ const RoundFlightUserInfoSabre = ({
                   .catch((err) => {
                     console.log(err.message);
                     let url =
-                      "https://api.flyfarint.com/v.1.0.0/AirBooking/AirCancel.php";
+                      "https://api.flyfarint.net/v.1.0.0/AirBooking/AirCancel.php";
                     let body = JSON.stringify({
                       bookingId: bookingDetails.BookingId,
                       cancelBy: users?.user?.name,
@@ -692,7 +692,7 @@ const RoundFlightUserInfoSabre = ({
               console.log(err.message);
               //todo: booking failed section
               let url =
-                "https://api.flyfarint.com/v.1.0.0/AirBooking/BookingFailed.php";
+                "https://api.flyfarint.net/v.1.0.0/AirBooking/BookingFailed.php";
               let body = JSON.stringify({
                 agentId: users?.user?.agentId || "Agent",
                 staffId: users?.user?.staffId || "Staff",
@@ -772,7 +772,7 @@ const RoundFlightUserInfoSabre = ({
         console.log(err.message);
         //todo: booking failed section
         let url =
-          "https://api.flyfarint.com/v.1.0.0/AirBooking/BookingFailed.php";
+          "https://api.flyfarint.net/v.1.0.0/AirBooking/BookingFailed.php";
         let body = JSON.stringify({
           agentId: users?.user?.agentId || "Agent",
           staffId: users?.user?.staffId || "Staff",
