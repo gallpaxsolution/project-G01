@@ -2726,6 +2726,1357 @@ const junk = () => {
             </Box>
           </Container> */}
       //todo:-------
+      {/* <Grid item sm={3} md={4} px="15px" pt="15px">
+                  <Grid
+                    container
+                    sx={{
+                      alignItems: "start",
+                    }}
+                  >
+                    <Grid item sm={12} md={12} lg={4}>
+                      <Box>
+                        {system === "Sabre" ? (
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "60px",
+                            }}
+                          >
+                            {segment === "3" ? (
+                              <>
+                                {career === segments?.go[0]?.marketingcareer &&
+                                career === segments?.go[1]?.marketingcareer &&
+                                career === segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : segments?.go[0]?.marketingcareer !==
+                                    segments?.go[1]?.marketingcareer &&
+                                  segments?.go[1]?.marketingcareer ===
+                                    segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid red"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                      className="round-rotation"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : segments?.go[0]?.marketingcareer ===
+                                    segments?.go[1]?.marketingcareer &&
+                                  segments?.go[1]?.marketingcareer !==
+                                    segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid red"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                      className="round-rotation"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box className="mercedes-sape-s">
+                                      <Box className="first-1"></Box>
+                                      <Box className="img-first-1">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-2"></Box>
+                                      <Box className="img-first-2">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-3"></Box>
+                                      <Box className="img-first-3">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : segment === "2" ||
+                              segment === "22" ||
+                              segment === "21" ? (
+                              <>
+                                {career === segments?.go[0]?.marketingcareer &&
+                                career === segments?.go[1]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box
+                                      border={"2px solid red"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                      className="round-rotation"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : (
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                className={`${system.toLowerCase()}`}
+                                alt={`${career}`}
+                              />
+                            )}
+                          </Box>
+                        ) : system === "Galileo" ? (
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "60px",
+                            }}
+                          >
+                            {segment === "3" ? (
+                              <>
+                                {career === segments?.[0]?.marketingcareer &&
+                                career === segments?.go[1]?.marketingcareer &&
+                                career === segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : segments?.go[0]?.marketingcareer !==
+                                    segments?.go[1]?.marketingcareer &&
+                                  segments?.go[1]?.marketingcareer ===
+                                    segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #0b8634"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : segments?.go[0]?.marketingcareer ===
+                                    segments?.go[1]?.marketingcareer &&
+                                  segments?.go[1]?.marketingcareer !==
+                                    segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #0b8634"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box className="mercedes-sape-g">
+                                      <Box className="first-1"></Box>
+                                      <Box className="img-first-1">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-2"></Box>
+                                      <Box className="img-first-2">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-3"></Box>
+                                      <Box className="img-first-3">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : segment === "2" ||
+                              segment === "22" ||
+                              segment === "21" ? (
+                              <>
+                                {career === segments?.go[0]?.marketingcareer &&
+                                career === segments?.go[1]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box
+                                      border={"2px solid #0b8634"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : (
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                className={`${system.toLowerCase()}`}
+                                alt={`${career}`}
+                              />
+                            )}
+                          </Box>
+                        ) : (
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "60px",
+                            }}
+                          >
+                            {segment === "3" ? (
+                              <>
+                                {career === segments?.go[0]?.marketingcareer &&
+                                career === segments?.go[1]?.marketingcareer &&
+                                career === segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      cclassName={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : (career ===
+                                    !segments?.go[0]?.marketingcareer &&
+                                    career ===
+                                      segments?.go[1]?.marketingcareer) ||
+                                  (career ===
+                                    segments?.go[0]?.marketingcareer &&
+                                    career ===
+                                      !segments?.go[1]?.marketingcareer) ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #4169e1"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : career ===
+                                    segments?.go[0]?.marketingcareer ||
+                                  career ===
+                                    !segments?.go[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #4169e1"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box className="mercedes-sape-f">
+                                      <Box className="first-1"></Box>
+                                      <Box className="img-first-1">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-2"></Box>
+                                      <Box className="img-first-2">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-3"></Box>
+                                      <Box className="img-first-3">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[2]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.go[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : segment === "2" ||
+                              segment === "22" ||
+                              segment === "21" ? (
+                              <>
+                                {career === segments?.go[0]?.marketingcareer &&
+                                career === segments?.go[1]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box
+                                      border={"2px solid #4169e1"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.go[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.go[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : (
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                className={`${system.toLowerCase()}`}
+                                alt={`${career}`}
+                              />
+                            )}
+                          </Box>
+                        )}
+                      </Box>
+                    </Grid>
+                    <Grid item sm={12} md={12} lg={8}>
+                      <Box pl={1}>
+                        <Typography
+                          sx={{
+                            color: "#DC143C",
+                            fontWeight: 500,
+                            fontSize: {
+                              xs: "12px",
+                              sm: "10px",
+                              md: "14px",
+                              lg: "14px",
+                            },
+                          }}
+                        >
+                          {segments.go[0]?.marketingcareerName || careerName}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: "#003566",
+                            fontWeight: 500,
+                            fontSize: {
+                              xs: "12px",
+                              sm: "10px",
+                              md: "12px",
+                              lg: "12px",
+                            },
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {segments.go[0]?.marketingcareer}&nbsp;
+                              {segments.go[0]?.marketingflight} {" | "}
+                              {segments.go[1]?.marketingcareer}&nbsp;
+                              {segments.go[1]?.marketingflight} {" | "}
+                              {segments.go[2]?.marketingcareer}&nbsp;
+                              {segments.go[2]?.marketingflight}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "21" ||
+                            segment === "22" ? (
+                            <>
+                              {segments.go[0]?.marketingcareer}&nbsp;
+                              {segments.go[0]?.marketingflight} {" | "}
+                              {segments.go[1]?.marketingcareer}&nbsp;
+                              {segments.go[1]?.marketingflight}
+                            </>
+                          ) : (
+                            <>
+                              {segments.go[0]?.marketingcareer}&nbsp;
+                              {segments.go[0]?.marketingflight}
+                            </>
+                          )}
+                        </Typography>
+                      </Box>
+                      <Box pl={1}>
+                        {segment === "3" ? (
+                          <Typography color="#003566" fontSize="12px">
+                            {goflightduration}&nbsp;|&nbsp;
+                            <spans style={{ color: "#dc143c" }}>Two Stop</spans>
+                          </Typography>
+                        ) : segment === "2" ||
+                          segment === "12" ||
+                          segment === "22" ? (
+                          <Typography color="#003566" fontSize="12px">
+                            {goflightduration}&nbsp;|&nbsp;
+                            <spans style={{ color: "#dc143c" }}>One Stop</spans>
+                          </Typography>
+                        ) : (
+                          <Typography color="#003566" fontSize="12px">
+                            {goflightduration}&nbsp;|&nbsp;
+                            <spans style={{ color: "#dc143c" }}>Non Stop</spans>
+                          </Typography>
+                        )}
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </Grid> */}
+      {/* //todo:--------- */}
+      {/* <Grid item sm={3} md={4} px="15px" pt="15px">
+                  <Grid
+                    container
+                    sx={{
+                      alignItems: "start",
+                    }}
+                  >
+                    <Grid item sm={12} md={12} lg={4}>
+                      <Box>
+                        {system === "Sabre" ? (
+                          <Box
+                            sx={{
+                              width: {
+                                xs: "50px",
+                                sm: "50px",
+                                md: "71px",
+                                lg: "71px",
+                              },
+                            }}
+                          >
+                            {segment === "3" ? (
+                              <>
+                                {career ===
+                                  segments?.back[0]?.marketingcareer &&
+                                career === segments?.back[1]?.marketingcareer &&
+                                career ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : segments?.back[0]?.marketingcareer !==
+                                    segments?.back[1]?.marketingcareer &&
+                                  segments?.back[1]?.marketingcareer ===
+                                    segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid red"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : segments?.back[0]?.marketingcareer ===
+                                    segments?.back[1]?.marketingcareer &&
+                                  segments?.back[1]?.marketingcareer !==
+                                    segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid red"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box className="mercedes-sape-s">
+                                      <Box className="first-1"></Box>
+                                      <Box className="img-first-1">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-2"></Box>
+                                      <Box className="img-first-2">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-3"></Box>
+                                      <Box className="img-first-3">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : segment === "2" ||
+                              segment === "22" ||
+                              segment === "12" ? (
+                              <>
+                                {career ===
+                                  segments?.back[0]?.marketingcareer &&
+                                career ===
+                                  segments?.back[1]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box
+                                      border={"2px solid red"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : (
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                className={`${system.toLowerCase()}`}
+                                alt={`${segments?.back[0]?.marketingcareer}`}
+                              />
+                            )}
+                          </Box>
+                        ) : system === "Galileo" ? (
+                          <Box
+                            sx={{
+                              width: {
+                                xs: "50px",
+                                sm: "50px",
+                                md: "71px",
+                                lg: "71px",
+                              },
+                            }}
+                          >
+                            {segment === "3" ? (
+                              <>
+                                {career ===
+                                  segments?.back[0]?.marketingcareer &&
+                                career === segments?.back[1]?.marketingcareer &&
+                                career ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : segments?.back[0]?.marketingcareer !==
+                                    segments?.back[1]?.marketingcareer &&
+                                  segments?.back[1]?.marketingcareer ===
+                                    segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #0b8634"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : segments?.back[0]?.marketingcareer ===
+                                    segments?.back[1]?.marketingcareer &&
+                                  segments?.back[1]?.marketingcareer !==
+                                    segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #0b8634"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box className="mercedes-sape-g">
+                                      <Box className="first-1"></Box>
+                                      <Box className="img-first-1">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-2"></Box>
+                                      <Box className="img-first-2">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-3"></Box>
+                                      <Box className="img-first-3">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : segment === "2" ||
+                              segment === "22" ||
+                              segment === "12" ? (
+                              <>
+                                {career ===
+                                  segments?.back[0]?.marketingcareer &&
+                                career ===
+                                  segments?.back[1]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box
+                                      border={"2px solid #0b8634"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : (
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                className={`${system.toLowerCase()}`}
+                                alt={`${segments?.back[0]?.marketingcareer}`}
+                              />
+                            )}
+                          </Box>
+                        ) : (
+                          // ----- gali end
+                          <Box
+                            sx={{
+                              width: {
+                                xs: "50px",
+                                sm: "50px",
+                                md: "71px",
+                                lg: "71px",
+                              },
+                            }}
+                          >
+                            {segment === "3" ? (
+                              <>
+                                {career ===
+                                  segments?.back[0]?.marketingcareer &&
+                                career === segments?.back[1]?.marketingcareer &&
+                                career ===
+                                  segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : segments?.back[0]?.marketingcareer !==
+                                    segments?.back[1]?.marketingcareer &&
+                                  segments?.back[1]?.marketingcareer ===
+                                    segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #4169e1"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : segments?.back[0]?.marketingcareer ===
+                                    segments?.back[1]?.marketingcareer &&
+                                  segments?.back[1]?.marketingcareer !==
+                                    segments?.back[2]?.marketingcareer ? (
+                                  <>
+                                    <Box
+                                      border={"2px solid #4169e1"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box className="mercedes-sape-f">
+                                      <Box className="first-1"></Box>
+                                      <Box className="img-first-1">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-2"></Box>
+                                      <Box className="img-first-2">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box className="first-3"></Box>
+                                      <Box className="img-first-3">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[2]?.marketingcareer}.png`}
+                                          width="25px"
+                                          height="25px"
+                                          alt={`${segments?.back[2]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : segment === "2" ||
+                              segment === "22" ||
+                              segment === "12" ? (
+                              <>
+                                {career ===
+                                  segments?.back[0]?.marketingcareer &&
+                                career ===
+                                  segments?.back[1]?.marketingcareer ? (
+                                  <>
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${career}.png`}
+                                      className={`${system.toLowerCase()}`}
+                                      alt={`${career}`}
+                                    />
+                                  </>
+                                ) : (
+                                  <>
+                                    <Box
+                                      border={"2px solid #4169e1"}
+                                      borderRadius="50%"
+                                      width="71px"
+                                      height="71px"
+                                      display="flex"
+                                      flexDirection="column"
+                                      overflow="hidden"
+                                      justifyContent="center"
+                                      alignItems="center"
+                                      pt="8px"
+                                    >
+                                      <Box mb="-7px">
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[0]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                      <Box
+                                        borderBottom={"2px solid #D9D9D9"}
+                                        width="100%"
+                                      ></Box>
+                                      <Box>
+                                        <img
+                                          src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[1]?.marketingcareer}.png`}
+                                          width="30px"
+                                          height="30px"
+                                          alt={`${segments?.back[1]?.marketingcareer}`}
+                                        />
+                                      </Box>
+                                    </Box>
+                                  </>
+                                )}
+                              </>
+                            ) : (
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${segments?.back[0]?.marketingcareer}.png`}
+                                className={`${system.toLowerCase()}`}
+                                alt={`${segments?.back[0]?.marketingcareer}`}
+                              />
+                            )}
+                          </Box>
+                        )}
+                      </Box>
+                    </Grid>
+                    <Grid item sm={12} md={12} lg={8}>
+                      <Box pl={1}>
+                        <Typography
+                          sx={{
+                            color: "#DC143C",
+                            fontWeight: 500,
+                            fontSize: {
+                              xs: "12px",
+                              sm: "10px",
+                              md: "14px",
+                              lg: "14px",
+                            },
+                          }}
+                        >
+                          {segments.back[0]?.marketingcareerName || careerName}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: "#003566",
+                            fontWeight: 500,
+                            fontSize: {
+                              xs: "12px",
+                              sm: "10px",
+                              md: "12px",
+                              lg: "12px",
+                            },
+                          }}
+                        >
+                          {segment === "3" ? (
+                            <>
+                              {segments.back[0]?.marketingcareer}&nbsp;
+                              {segments.back[0]?.marketingflight} {" | "}
+                              {segments.back[1]?.marketingcareer}&nbsp;
+                              {segments.back[1]?.marketingflight} {" | "}
+                              {segments.back[2]?.marketingcareer}&nbsp;
+                              {segments.back[2]?.marketingflight}
+                            </>
+                          ) : segment === "2" ||
+                            segment === "12" ||
+                            segment === "22" ? (
+                            <>
+                              {segments.back[0]?.marketingcareer}&nbsp;
+                              {segments.back[0]?.marketingflight} {" | "}
+                              {segments.back[1]?.marketingcareer}&nbsp;
+                              {segments.back[1]?.marketingflight}
+                            </>
+                          ) : (
+                            <>
+                              {segments.back[0]?.marketingcareer}&nbsp;
+                              {segments.back[0]?.marketingflight}
+                            </>
+                          )}
+                        </Typography>
+                      </Box>
+                      <Box pl={1}>
+                        {segment === "3" ? (
+                          <Typography color="#003566" fontSize="12px">
+                            {backflightduration}&nbsp;|&nbsp;
+                            <spans style={{ color: "#dc143c" }}>Two Stop</spans>
+                          </Typography>
+                        ) : segment === "2" ||
+                          segment === "12" ||
+                          segment === "22" ? (
+                          <Typography color="#003566" fontSize="12px">
+                            {backflightduration}&nbsp;|&nbsp;
+                            <spans style={{ color: "#dc143c" }}>One Stop</spans>
+                          </Typography>
+                        ) : (
+                          <Typography color="#003566" fontSize="12px">
+                            {backflightduration}&nbsp;|&nbsp;
+                            <spans style={{ color: "#dc143c" }}>Non Stop</spans>
+                          </Typography>
+                        )}
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </Grid> */}
     </div>
   );
 };

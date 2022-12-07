@@ -1114,7 +1114,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 26px;
-  color: #235f83;
+  color: var(--secondary-color);
   display: block;
 }
 
@@ -1124,7 +1124,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 28px;
-  color: #888888;
+  color: var(--gray);
 }
 
 .modify-search-info h2 {
@@ -1133,7 +1133,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 21px;
-  color: #003566;
+  color: var(--secondary-color);
 }
 
 .modify-search h6 {
@@ -1142,7 +1142,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
-  color: #003566;
+  color: var(--secondary-color);
 }
 
 .modify-search button {
@@ -1152,7 +1152,7 @@
   cursor: pointer;
   padding: 2px;
   border: none;
-  color: #fff;
+  color: var(--white);
   /* font-family: "poppins"; */
   font-style: normal;
   font-weight: 500;

@@ -26,6 +26,7 @@ import styled from "@emotion/styled";
 import FlightSearchBox from "../../components/FlightSearchBox/FlightSearchBox";
 import SessionTimer from "../../components/Shared/SessionTimer/SessionTimer";
 import RoundPreloader from "../../components/Preloader/RoundPreloader";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 
 const HtmlTooltip = styled(({ className, ...propss }) => (
   <Tooltip {...propss} classes={{ popper: className }} />
@@ -417,22 +418,47 @@ const RoundSearchResult = () => {
               position="static"
             >
               <Grid className="modify-search-info" container md={6}>
-                <Box style={{ width: "100%" }}>
-                  <h2>Showing Results for </h2>
+                <Box
+                  style={{
+                    width: "100%",
+                    height: "fit-content",
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    gap: "5px",
+                  }}
+                >
+                  <FlightTakeoffIcon
+                    style={{
+                      width: "25px",
+                      height: "25px",
+                      padding: "5px",
+                      backgroundColor: "var(--primary-color)",
+                      color: "var(--white)",
+                      borderRadius: "100%",
+                    }}
+                  />
+                  <Typography
+                    style={{
+                      color: "var(--secondary-color)",
+                      fontSize: "24px",
+                    }}
+                  >
+                    Flight Search Result
+                  </Typography>
                 </Box>
+                <h6>
+                  {fromSearchText.trim()} <span>|</span> {toSearchText.trim()}(
+                  {className})
+                </h6>
                 <h5>
-                  {tripType === "oneway"
+                  {/* {tripType === "oneway"
                     ? "One Way"
                     : tripType === "return"
                     ? "Return"
                     : "Multi City"}{" "}
-                  Flight<span> | </span>{" "}
-                  {adultCount > 0 && `Adult(${adultCount})`}
-                  {childCount > 0 && `Children(${childCount})`}
-                  {infant > 0 && `Infant(${infant})`}
-                  <span> | </span>
-                  {className}
-                  <span> | </span>
+                  Flight<span> | </span>{" "} */}
+
                   {format(
                     new Date(
                       isNextClicked || isPrevClicked
@@ -450,18 +476,26 @@ const RoundSearchResult = () => {
                     ),
                     "dd MMM yyyy"
                   )}
+                  <span> | </span>
+                  {adultCount > 0 && `Adult(${adultCount})`}
+                  {childCount > 0 && `Children(${childCount})`}
+                  {infant > 0 && `Infant(${infant})`}
                 </h5>
-                <h6>
-                  {fromSearchText.trim()} <span>|</span> {toSearchText.trim()}
-                </h6>
               </Grid>
-              <Grid container columnGap={0.5} rowGap={1} md={6}>
+              <Grid
+                container
+                columnGap={0.5}
+                rowGap={1}
+                md={6}
+                justifyContent={"flex-end"}
+              >
+                {/* //todo:session timer */}
                 <Grid item xs={2} sm={1} md={2} lg={2}>
                   <Tooltip title="Session Time">
                     <Button
                       style={{
-                        border: "1.2px solid #DC143C",
-                        color: "#dc143c",
+                        border: "1.2px solid var(--secondary-color)",
+                        color: "var(--secondary-color)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-around",
@@ -471,7 +505,8 @@ const RoundSearchResult = () => {
                     </Button>
                   </Tooltip>
                 </Grid>
-                <Grid item xs={4} sm={2} md={2.5} lg={2.5}>
+                {/* //todo:previous day */}
+                {/* <Grid item xs={4} sm={2} md={2.5} lg={2.5}>
                   <HtmlTooltip
                     title={`${format(
                       new Date(yesterdayDepartureDate),
@@ -496,8 +531,9 @@ const RoundSearchResult = () => {
                       Previous Day
                     </Button>
                   </HtmlTooltip>
-                </Grid>
-                <Grid item xs={3} sm={1.5} md={2.5} lg={2.5}>
+                </Grid> */}
+                {/* //todo:next day */}
+                {/* <Grid item xs={3} sm={1.5} md={2.5} lg={2.5}>
                   <HtmlTooltip
                     title={`${format(
                       new Date(tomorrowDepartureDate),
@@ -516,9 +552,9 @@ const RoundSearchResult = () => {
                       Next Day
                     </Button>
                   </HtmlTooltip>
-                </Grid>
+                </Grid> */}
                 {/*  //todo:cm button popup work here */}
-                <Grid
+                {/* <Grid
                   item
                   xs={2}
                   sm={1}
@@ -542,15 +578,18 @@ const RoundSearchResult = () => {
                     customerFare={customerFare}
                     setCustomerFare={setCustomerFare}
                   />
-                </Grid>
-                {/*  //todo:cm button popup work end here */}
-                <Grid item xs={5.8} sm={2} md={3} lg={3}>
-                  <button
+                </Grid> */}
+                {/*  //todo:modify search  */}
+                <Grid item xs={5.8} sm={2} md={3} lg={4}>
+                  <Button
                     onClick={modifyHandleOpen}
-                    style={{ backgroundColor: "#DC143C" }}
+                    style={{
+                      backgroundColor: "var(--primary-color)",
+                      color: "var(--white)",
+                    }}
                   >
                     Modify Search
-                  </button>
+                  </Button>
 
                   <Modal open={modifyOpen} onClose={modifyHandleClose}>
                     <Container>
@@ -596,7 +635,7 @@ const RoundSearchResult = () => {
                   </Modal>
                 </Grid>
                 {/* //todo: filter drawer for mobile */}
-                <Grid
+                {/* <Grid
                   item
                   xs={5.8}
                   sm={2}
@@ -625,7 +664,7 @@ const RoundSearchResult = () => {
                       setNoData={setNoData}
                     />
                   </Box>
-                </Grid>
+                </Grid> */}
               </Grid>
             </Grid>
             {/* //todo: AirLine Slider */}

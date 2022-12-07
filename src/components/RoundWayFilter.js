@@ -261,21 +261,28 @@ const RoundWayFilter = ({
 
   return (
     <Box className="flight-filter1 filter-side-0">
-      <Grid container justifyContent={"space-between"} px={2} pt={2}>
+      <Grid
+        container
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        pt={2}
+        pl={2}
+      >
         <Typography
           sx={{
-            color: "#003566",
-            fontSize: "18px",
+            color: "var(--secondary-color)",
+            fontSize: "16px",
+            fontWeight: "600",
           }}
         >
-          Sort & Filter
+          Sort & FILTER
         </Typography>
         <Typography
           onClick={handleResetBtn}
           sx={{
             cursor: "pointer",
-            color: "#fff",
-            backgroundColor: "#dc143c",
+            color: "var(--white)",
+            backgroundColor: "var(--primary-color)",
             padding: "5px",
             borderRadius: "5px",
           }}
@@ -283,10 +290,8 @@ const RoundWayFilter = ({
           Reset
         </Typography>
       </Grid>
-      <Box px={2} py={2}>
-        <hr style={{ border: "2px solid #DC143C" }} />
-      </Box>
-      <Accordion defaultExpanded={true} className="Accordion12">
+      {/* //todo: price range */}
+      {/* <Accordion defaultExpanded={true} className="Accordion12">
         <AccordionSummary
           expandIcon={<AiFillCaretDown color="#003566" />}
           aria-controls="panel1a-content"
@@ -330,7 +335,8 @@ const RoundWayFilter = ({
             </Grid>
           </Box>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
+      {/* //todo:Fare Type */}
       <Accordion defaultExpanded={true}>
         <AccordionSummary
           expandIcon={<AiFillCaretDown color="#003566" />}
@@ -360,6 +366,7 @@ const RoundWayFilter = ({
           </Box>
         </AccordionDetails>
       </Accordion>
+      {/* //todo: Stops */}
       <Accordion defaultExpanded={true}>
         <AccordionSummary
           expandIcon={<AiFillCaretDown color="#003566" />}

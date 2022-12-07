@@ -637,8 +637,8 @@ const SearchResult = () => {
                         <Tooltip title="Session Time">
                           <Button
                             style={{
-                              border: "1.2px solid #DC143C",
-                              color: "#dc143c",
+                              border: "1.2px solid var(--secondary-color)",
+                              color: "var(--secondary-color)",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "space-around",
