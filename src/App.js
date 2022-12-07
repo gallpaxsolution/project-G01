@@ -22,6 +22,9 @@ import AddBank from "./components/BankAccount/AddBank";
 
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
 import SignIn from "./components/Admin/SignIn/SignIn";
+import GeneralLedger from "./pages/General Ledger/GeneralLedger";
+import AddStaff from "./components/GeneralLedger/AddStaff";
+
 import MyStaff from "./components/Admin/MyAccount/MyStaff";
 
 function App() {
@@ -39,9 +42,8 @@ function App() {
               path="/roundflightinformation"
               element={<RoundFlightUserInfo />}
             />
-          
-
-      
+            <Route path="/bankaccount" element={<BankAccount />} />
+            <Route path="/addbankaccount" element={<AddBank />} />
 
             {/* -----KB------  */}
 
@@ -56,9 +58,7 @@ function App() {
 
             {/* -----KB------  */}
 
-
             {/*  */}
-
             <Route path="/traveller" element={<Traveller />} />
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/deposite" element={<Deposite />} />
@@ -68,7 +68,8 @@ function App() {
             <Route path="/adddeposite" element={<AddDeposite />} />
             <Route path="/bankaccount" element={<BankAccount />} />
             <Route path="/addbankaccount" element={<AddBank />} />
-
+            <Route path="/generalledger" element={<GeneralLedger />} />
+            <Route path="/addStaff" element={<AddStaff />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import seat from "../../images/Icon/seat.svg";
 import bag from "../../images/Icon/bag.svg";
 import { useNavigate } from "react-router-dom";
-import toimg from "../../images/Icon/to.svg";
 import { TabContext, TabPanel } from "@material-ui/lab";
 import FlightIcon from "@mui/icons-material/Flight";
 import commaNumber from "comma-number";
@@ -230,7 +229,6 @@ const SingleFlight = ({
                     fontSize: "12px",
                   }}
                 >
-                  {/* {flightData?.segments[2]?.arrivalLocation} */}
                   {flightData?.segments[2]?.arrivalAirport}
                 </Typography>
               ) : flightData?.segment === "2" ? (
@@ -881,9 +879,9 @@ const SingleFlight = ({
               Accordion
               style={{ boxShadow: "none" }}
             >
-              <Container maxWidth="xxl">
+              {/* <Container maxWidth="xxl">
                 <Box className="accordion-border"></Box>
-              </Container>
+              </Container> */}
 
               <Box className="accordian-center">
                 <Box
@@ -1053,7 +1051,12 @@ const SingleFlight = ({
                                 )[0]
                               }
                             </Typography>
-                            <img src={toimg} alt="to" />
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
                             <Typography
                               sx={{
                                 fontSize: "16px",
@@ -1491,7 +1494,12 @@ const SingleFlight = ({
                                 )[0]
                               }
                             </Typography>
-                            <img src={toimg} alt="to" />
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
                             <Typography
                               sx={{
                                 fontSize: "16px",
@@ -1795,7 +1803,12 @@ const SingleFlight = ({
                                 )[0]
                               }
                             </Typography>
-                            <img src={toimg} alt="to" />
+                            <FlightIcon
+                              style={{
+                                transform: "rotate(90deg)",
+                                color: "var(--primary-color)",
+                              }}
+                            />
                             <Typography
                               sx={{
                                 fontSize: "16px",
@@ -3989,7 +4002,7 @@ const SingleFlight = ({
               style={{
                 width: "100%",
                 height: "100%",
-                marginTop: "30px",
+                marginTop: "10px",
                 marginLeft: "-15px",
               }}
             >
@@ -4148,7 +4161,8 @@ const SingleFlight = ({
                 <Typography
                   style={{
                     fontSize: "12px",
-                    color: "var(--black)",
+                    color: "var(--third-color)",
+                    fontWeight: "bold",
                   }}
                 >
                   {flightData?.refundable}
@@ -4231,1086 +4245,983 @@ const SingleFlight = ({
         </Grid>
         {/* --------------Flight Details start------------ */}
         {flightDetails && (
-          <Box
-            width="100%"
-            className="accordion-cursor flight-search-accordion flight-details-btn"
-            Accordion
-            style={{ boxShadow: "none" }}
-          >
-            <Container maxWidth="xxl">
-              <Box className="accordion-border"></Box>
-            </Container>
-
-            <Box className="accordian-center">
-              <Box
-                className="tab-list-width"
-                sx={{
-                  maxWidth: { sm: 500, md: 500, lg: 800, xl: 900 },
-                  bgcolor: "background.paper",
-                }}
-              >
-                <TabContext value={value}>
-                  <Tabs
-                    className="tablist-btn"
-                    value={value}
-                    onChange={handleChange}
-                    variant="scrollable"
-                    scrollButtons
-                    allowScrollButtonsMobile
-                    aria-label="scrollable force tabs example"
-                    sx={{
-                      minHeight: "0px",
-                      height: "35px",
-                      padding: "0px",
-                      margin: "0px",
-                      fontSize: "10px",
-                      "@media screen and (max-width: 320px)": {
-                        minHeight: "0px",
-                        height: "25px",
-                        fontSize: "10px",
-                      },
-                    }}
-                  >
-                    <Tab
-                      sx={{
-                        margin: "auto",
-                        minHeight: "0px",
-                        height: "35px",
-                        "@media screen and (max-width: 320px)": {
-                          minHeight: "10px",
-                          height: "10px",
-                          fontSize: "10px",
-                          color: "#9dccfb !important",
-                        },
-                      }}
-                      className="tabList"
-                      label="Flight Details"
-                      value="1"
-                    />
-                    <Tab
-                      sx={{
-                        margin: "auto",
-                        minHeight: "0px",
-                        height: "35px",
-                        "@media screen and (max-width: 320px)": {
-                          minHeight: "10px",
-                          height: "10px",
-                          fontSize: "10px",
-                          color: "#9dccfb !important",
-                        },
-                      }}
-                      className="tabList"
-                      label="Fare Summery"
-                      value="2"
-                    />
-
-                    <Tab
-                      sx={{
-                        margin: "auto",
-                        minHeight: "0px",
-                        height: "35px",
-                        "@media screen and (max-width: 320px)": {
-                          minHeight: "10px",
-                          height: "10px",
-                          fontSize: "10px",
-                          color: "#9dccfb !important",
-                        },
-                      }}
-                      className="tabList"
-                      label="Commission & Invoice"
-                      value="3"
-                    />
-                    <Tab
-                      sx={{
-                        margin: "auto",
-                        minHeight: "0px",
-                        height: "35px",
-                        "@media screen and (max-width: 320px)": {
-                          minHeight: "10px",
-                          height: "10px",
-                          fontSize: "10px",
-                          color: "#9dccfb !important",
-                        },
-                      }}
-                      className="tabList"
-                      label="Refund"
-                      value="5"
-                    />
-                    <Tab
-                      sx={{
-                        margin: "auto",
-                        minHeight: "0px",
-                        height: "35px",
-                        "@media screen and (max-width: 320px)": {
-                          minHeight: "10px",
-                          height: "10px",
-                          fontSize: "10px",
-                          color: "#9dccfb !important",
-                        },
-                      }}
-                      className="tabList"
-                      label="reIssue"
-                      value="4"
-                    />
-                    <Tab
-                      sx={{
-                        margin: "auto",
-                        minHeight: "0px",
-                        height: "35px",
-                        "@media screen and (max-width: 320px)": {
-                          minHeight: "10px",
-                          height: "10px",
-                          fontSize: "10px",
-                          color: "#9dccfb !important",
-                        },
-                      }}
-                      className="tabList"
-                      label="Baggage"
-                      value="7"
-                    />
-                  </Tabs>
-
-                  <TabPanel className="tabs-details" value="1">
-                    {flightData?.segment === "3" ? (
-                      // 3  segment data show here
-                      <Box className="segment-2">
-                        <Box
-                          display="flex"
-                          justifyContent={"center"}
-                          alignItems="center"
-                          pb={2}
-                          gap={2}
+          <Container>
+            <Box sx={{ width: "100%", marginTop: "10px" }}>
+              <TabContext value={value}>
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  sx={{
+                    "& button": {
+                      backgroundColor: "var(--secondary-color)",
+                      color: "var(--white)",
+                      width: "20%",
+                      height: "100%",
+                      fontSize: ".7vw",
+                    },
+                    "& button.Mui-selected": {
+                      backgroundColor: "var(--primary-color)",
+                      color: "var(--white)",
+                    },
+                  }}
+                  TabIndicatorProps={{ style: { display: "none" } }}
+                >
+                  <Tab label="Flight Details" value="1" />
+                  <Tab label="Fare Summery" value="2" />
+                  <Tab label="Commission & Invoice" value="3" />
+                  {/* <Tab label="reIssue" value="4" /> */}
+                  <Tab label="Policy" value="4" />
+                  <Tab label="Baggage" value="5" />
+                </Tabs>
+                {/* //todo:Flight Details */}
+                <TabPanel className="tabs-details" value="1">
+                  {flightData?.segment === "3" ? (
+                    // 3  segment data show here
+                    <Box className="segment-2">
+                      <Box
+                        display="flex"
+                        justifyContent={"center"}
+                        alignItems="center"
+                        pb={2}
+                        gap={2}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "var(secondary-color)",
+                            fontWeight: 600,
+                          }}
                         >
-                          <Typography
-                            sx={{
-                              fontSize: "16px",
-                              color: "#003566",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {
-                              flightData?.segments[0]?.departureLocation?.split(
-                                ","
-                              )[0]
-                            }
-                          </Typography>
-                          <img src={toimg} alt="to" />
-                          <Typography
-                            sx={{
-                              fontSize: "16px",
-                              color: "#003566",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {
-                              flightData?.segments[2]?.arrivalLocation?.split(
-                                ","
-                              )[0]
-                            }
-                          </Typography>
-                        </Box>
-                        <Box className="single-flight-parent">
-                          <Grid
-                            className="single-flight-details"
-                            sx={{
-                              justifyContent: "space-between",
-                              alignItems: "flex-start",
-                            }}
-                            container
-                            spacing={{ xs: 2, md: 3, lg: 3 }}
-                            columns={{ xs: 4, sm: 8, md: 12 }}
-                          >
-                            <Grid
-                              sx={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                              }}
-                              item
-                              xs={2}
-                              sm={3}
-                              md={4.5}
-                              className="flight-content-gap"
-                            >
-                              <Box textAlign="center" paddingRight={2}>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[0].marketingcareer}.png`}
-                                  alt={`${flightData?.segments[0].marketingcareer}`}
-                                />
-                                <Typography
-                                  width="100px"
-                                  fontSize="12px"
-                                  fontWeight={500}
-                                  textAlign="center"
-                                  paddingRight={2}
-                                >
-                                  {flightData?.segments[0]?.marketingcareerName}
-                                </Typography>
-                              </Box>
-
-                              <Box className="flight-content-detail">
-                                <h4>Departure From</h4>
-                                <h5>
-                                  ({flightData?.segments[0]?.departure})-
-                                  {flightData?.segments[0]?.departureAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[0]?.departureLocation}
-                                </h5>
-                                <h5>
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[0]?.departureTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Arrival To</h4>
-                                <h5>
-                                  ({flightData?.segments[0]?.arrival})-
-                                  {flightData?.segments[0].arrivalAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[0].arrivalLocation}
-                                </h5>
-                                <h5>
-                                  {" "}
-                                  {/* {flightData?.segments[0]?.arrivalTime} */}
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[0]?.arrivalTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Duration</h4>
-
-                                <h5>
-                                  {flightData?.segments[0].flightduration}
-                                </h5>
-                                <h5>
-                                  <span style={{ color: "tomato" }}>
-                                    {" "}
-                                    {
-                                      flightData?.segments[0].marketingcareer
-                                    }{" "}
-                                    {flightData?.segments[0].marketingflight}{" "}
-                                  </span>
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  Class: {flightData?.segments[0]?.bookingcode}
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  <span>
-                                    Seat: {flightData?.segments[0].seat || 9}
-                                  </span>
-                                </h5>
-                                <h5>
-                                  Baggage:{" "}
-                                  {flightData?.bags === "3" ||
-                                  flightData?.bags === "2" ||
-                                  flightData?.bags === "1" ? (
-                                    <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                  ) : flightData?.bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Box>
-
-                        <Box className="border-content">
-                          <span>
-                            Transit Time<>: </>
-                            {flightData?.transit.transit1}{" "}
-                          </span>
-                        </Box>
-
-                        <Box className="single-flight-parent">
-                          <Grid
-                            className="single-flight-details"
-                            sx={{
-                              justifyContent: "space-between",
-                              alignItems: "flex-start",
-                            }}
-                            container
-                            spacing={{ xs: 2, md: 3 }}
-                            columns={{ xs: 4, sm: 8, md: 12 }}
-                          >
-                            <Grid
-                              sx={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                              }}
-                              item
-                              xs={2}
-                              sm={3}
-                              md={4.5}
-                            >
-                              <Box textAlign="center" paddingRight={2}>
-                                {" "}
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[1].marketingcareer}.png`}
-                                  alt={`${flightData?.segments[1].marketingcareer}`}
-                                />
-                                <Typography
-                                  width="100px"
-                                  fontSize="12px"
-                                  fontWeight={500}
-                                  textAlign="center"
-                                  paddingRight={2}
-                                >
-                                  {flightData?.segments[1]?.marketingcareerName}
-                                </Typography>
-                              </Box>
-                              <Box className="flight-content-detail">
-                                <h4>Departure From</h4>
-                                <h5>
-                                  ({flightData?.segments[1]?.departure})-
-                                  {flightData?.segments[1]?.departureAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[1]?.departureLocation}
-                                </h5>
-                                <h5>
-                                  {/* {flightData?.segments[1]?.departureTime} */}
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[1]?.departureTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Arrival To</h4>
-                                <h5>
-                                  ({flightData?.segments[1]?.arrival})-
-                                  {flightData?.segments[1].arrivalAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[1].arrivalLocation}
-                                </h5>
-                                <h5>
-                                  {" "}
-                                  {/* {flightData?.segments[1]?.arrivalTime} */}
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[1]?.arrivalTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Duration</h4>
-                                <h5>
-                                  {flightData?.segments[1].flightduration}
-                                </h5>
-                                <h5>
-                                  <span style={{ color: "tomato" }}>
-                                    {flightData?.segments[1].marketingcareer}{" "}
-                                    {flightData?.segments[1].marketingflight}{" "}
-                                  </span>
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  Class: {flightData?.segments[1]?.bookingcode}
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  <span>
-                                    Seat: {flightData?.segments[1].seat || 9}
-                                  </span>
-                                </h5>
-                                <h5>
-                                  Baggage:{" "}
-                                  {flightData?.bags === "3" ||
-                                  flightData?.bags === "2" ||
-                                  flightData?.bags === "1" ? (
-                                    <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                  ) : flightData?.bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Box>
-                        <Box className="border-content">
-                          <span>
-                            Transit Time<>: </>
-                            {flightData?.transit.transit2}{" "}
-                          </span>
-                        </Box>
-                        <Box className="single-flight-parent">
-                          <Grid
-                            className="single-flight-details"
-                            sx={{
-                              justifyContent: "space-between",
-                              alignItems: "flex-start",
-                            }}
-                            container
-                            spacing={{ xs: 2, md: 3 }}
-                            columns={{ xs: 4, sm: 8, md: 12 }}
-                          >
-                            <Grid
-                              sx={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                              }}
-                              item
-                              xs={2}
-                              sm={3}
-                              md={4.5}
-                            >
-                              <Box textAlign="center" paddingRight={2}>
-                                {" "}
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[2]?.marketingcareer}.png`}
-                                  alt={`${flightData?.segments[2]?.marketingcareer}`}
-                                />
-                                <Typography
-                                  width="100px"
-                                  fontSize="12px"
-                                  fontWeight={500}
-                                  textAlign="center"
-                                  paddingRight={2}
-                                >
-                                  {flightData?.segments[2]?.marketingcareerName}
-                                </Typography>
-                              </Box>
-                              <Box className="flight-content-detail">
-                                <h4>Departure From</h4>
-                                <h5>
-                                  ({flightData?.segments[2]?.departure})-
-                                  {flightData?.segments[2]?.departureAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[2]?.departureLocation}
-                                </h5>
-                                <h5>
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[2]?.departureTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Arrival To</h4>
-                                <h5>
-                                  ({flightData?.segments[2]?.arrival})-
-                                  {flightData?.segments[2]?.arrivalAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[2]?.arrivalLocation}
-                                </h5>
-                                <h5>
-                                  {" "}
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[2]?.arrivalTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Duration</h4>
-                                <h5>
-                                  {flightData?.segments[2]?.flightduration}
-                                </h5>
-                                <h5>
-                                  <span style={{ color: "tomato" }}>
-                                    {flightData?.segments[2]?.marketingcareer}{" "}
-                                    {flightData?.segments[2]?.marketingflight}{" "}
-                                  </span>
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  Class: {flightData?.segments[2]?.bookingcode}
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  <span>
-                                    Seat: {flightData?.segments[2].seat || 9}
-                                  </span>
-                                </h5>
-                                <h5>
-                                  Baggage:{" "}
-                                  {flightData?.bags === "3" ||
-                                  flightData?.bags === "2" ||
-                                  flightData?.bags === "1" ? (
-                                    <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                  ) : flightData?.bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Box>
-                      </Box>
-                    ) : flightData?.segment === "2" ? (
-                      <Box className="segment-2">
-                        <Box
-                          display="flex"
-                          justifyContent={"center"}
-                          alignItems="center"
-                          pb={2}
-                          gap={2}
+                          {
+                            flightData?.segments[0]?.departureLocation?.split(
+                              ","
+                            )[0]
+                          }
+                        </Typography>
+                        <FlightIcon
+                          style={{
+                            transform: "rotate(90deg)",
+                            color: "var(--primary-color)",
+                          }}
+                        />
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "var(secondary-color)",
+                            fontWeight: 600,
+                          }}
                         >
-                          <Typography
-                            sx={{
-                              fontSize: "16px",
-                              color: "#003566",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {
-                              flightData?.segments[0]?.departureLocation?.split(
-                                ","
-                              )[0]
-                            }
-                          </Typography>
-                          <img src={toimg} alt="to" />
-                          <Typography
-                            sx={{
-                              fontSize: "16px",
-                              color: "#003566",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {
-                              flightData?.segments[1]?.arrivalLocation?.split(
-                                ","
-                              )[0]
-                            }
-                          </Typography>
-                        </Box>
-                        <Box className="single-flight-parent">
-                          <Grid
-                            className="single-flight-details"
-                            sx={{
-                              justifyContent: "space-between",
-                              alignItems: "flex-start",
-                            }}
-                            container
-                            spacing={{ xs: 2, md: 3 }}
-                            columns={{ xs: 4, sm: 8, md: 12 }}
-                          >
-                            <Grid
-                              sx={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                              }}
-                              item
-                              xs={2}
-                              sm={3}
-                              md={4.5}
-                            >
-                              <Box textAlign="center" paddingRight={2}>
-                                {" "}
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[0].marketingcareer}.png`}
-                                  alt={`${flightData?.segments[0].marketingcareer}`}
-                                />
-                                <Typography
-                                  width="100px"
-                                  fontSize="12px"
-                                  fontWeight={500}
-                                  textAlign="center"
-                                  paddingRight={2}
-                                >
-                                  {flightData?.segments[0]?.marketingcareerName}
-                                </Typography>
-                              </Box>
-                              <Box className="flight-content-detail">
-                                <h4>Departure From</h4>
-                                <h5>
-                                  ({flightData?.segments[0]?.departure})-
-                                  {flightData?.segments[0]?.departureAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[0]?.departureLocation}
-                                </h5>
-                                <h5>
-                                  {/* {flightData?.segments[0]?.departureTime} */}
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[0]?.departureTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Arrival To</h4>
-                                <h5>
-                                  ({flightData?.segments[0]?.arrival})-
-                                  {flightData?.segments[0].arrivalAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[0].arrivalLocation}
-                                </h5>
-                                <h5>
-                                  {" "}
-                                  {/* {flightData?.segments[0]?.arrivalTime} */}
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[0]?.arrivalTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Duration</h4>
-                                <h5>
-                                  {flightData?.segments[0].flightduration}
-                                </h5>
-                                <h5>
-                                  <span style={{ color: "tomato" }}>
-                                    {flightData?.segments[0].marketingcareer}{" "}
-                                    {flightData?.segments[0].marketingflight}{" "}
-                                  </span>
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  Class: {flightData?.segments[0]?.bookingcode}
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  <span>
-                                    Seat: {flightData?.segments[0].seat || 9}
-                                  </span>
-                                </h5>
-                                <h5>
-                                  Baggage:{" "}
-                                  {flightData?.bags === "3" ||
-                                  flightData?.bags === "2" ||
-                                  flightData?.bags === "1" ? (
-                                    <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                  ) : flightData?.bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Box>
-
-                        <Box className="border-content">
-                          <span>
-                            Transit Time<>: </>
-                            {flightData?.transit.transit
-                              ? flightData?.transit.transit
-                              : flightData?.transit.transit1}{" "}
-                          </span>
-                        </Box>
-
-                        <Box className="single-flight-parent">
-                          <Grid
-                            className="single-flight-details"
-                            sx={{
-                              justifyContent: "space-between",
-                              alignItems: "flex-start",
-                            }}
-                            container
-                            spacing={{ xs: 2, md: 3 }}
-                            columns={{ xs: 4, sm: 8, md: 12 }}
-                          >
-                            <Grid
-                              sx={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                              }}
-                              item
-                              xs={2}
-                              sm={3}
-                              md={4.5}
-                            >
-                              <Box textAlign="center" paddingRight={2}>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[1].marketingcareer}.png`}
-                                  alt={`${flightData?.segments[1].marketingcareer}`}
-                                />
-                                <Typography
-                                  width="100px"
-                                  fontSize="12px"
-                                  fontWeight={500}
-                                  textAlign="center"
-                                  paddingRight={2}
-                                >
-                                  {flightData?.segments[1]?.marketingcareerName}
-                                </Typography>
-                              </Box>
-                              <Box className="flight-content-detail">
-                                <h4>Departure From</h4>
-                                <h5>
-                                  ({flightData?.segments[1]?.departure})-
-                                  {flightData?.segments[1]?.departureAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[1]?.departureLocation}
-                                </h5>
-                                <h5>
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[1]?.departureTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Arrival To</h4>
-                                <h5>
-                                  ({flightData?.segments[1]?.arrival})-
-                                  {flightData?.segments[1]?.arrivalAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[1]?.arrivalLocation}
-                                </h5>
-                                <h5>
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[1]?.arrivalTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Duration</h4>
-                                <h5>
-                                  {flightData?.segments[1].flightduration}
-                                </h5>
-                                <h5>
-                                  <span style={{ color: "tomato" }}>
-                                    {flightData?.segments[1].marketingcareer}{" "}
-                                    {flightData?.segments[1].marketingflight}{" "}
-                                  </span>
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  Class: {flightData?.segments[1]?.bookingcode}
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  <span>
-                                    Seat: {flightData?.segments[1].seat || 9}
-                                  </span>
-                                </h5>
-                                <h5>
-                                  Baggage:{" "}
-                                  {flightData?.bags === "3" ||
-                                  flightData?.bags === "2" ||
-                                  flightData?.bags === "1" ? (
-                                    <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                  ) : flightData?.bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Box>
+                          {
+                            flightData?.segments[2]?.arrivalLocation?.split(
+                              ","
+                            )[0]
+                          }
+                        </Typography>
                       </Box>
-                    ) : (
-                      <Box className="segment-2">
-                        <Box
-                          display="flex"
-                          justifyContent={"center"}
-                          alignItems="center"
-                          pb={2}
-                          gap={2}
+                      <Box className="single-flight-parent">
+                        <Grid
+                          className="single-flight-details"
+                          sx={{
+                            justifyContent: "space-between",
+                            alignItems: "flex-start",
+                          }}
+                          container
+                          spacing={{ xs: 2, md: 3, lg: 3 }}
+                          columns={{ xs: 4, sm: 8, md: 12 }}
                         >
-                          <Typography
-                            sx={{
-                              fontSize: "16px",
-                              color: "#003566",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {
-                              flightData?.segments[0]?.departureLocation?.split(
-                                ","
-                              )[0]
-                            }
-                          </Typography>
-                          <img src={toimg} alt="to" />
-                          <Typography
-                            sx={{
-                              fontSize: "16px",
-                              color: "#003566",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {
-                              flightData?.segments[0]?.arrivalLocation?.split(
-                                ","
-                              )[0]
-                            }
-                          </Typography>
-                        </Box>
-                        <Box className="single-flight-parent">
                           <Grid
-                            className="single-flight-details"
                             sx={{
-                              justifyContent: "space-between",
+                              display: "flex",
                               alignItems: "flex-start",
                             }}
-                            container
-                            spacing={{ xs: 2, md: 3 }}
-                            columns={{ xs: 4, sm: 8, md: 12 }}
+                            item
+                            xs={2}
+                            sm={3}
+                            md={4.5}
+                            className="flight-content-gap"
                           >
-                            <Grid
-                              sx={{
-                                display: "flex",
-                                alignItems: "flex-start",
-                              }}
-                              item
-                              xs={2}
-                              sm={3}
-                              md={4.5}
-                            >
-                              <Box textAlign="center" paddingRight={2}>
-                                <img
-                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[0].marketingcareer}.png`}
-                                  alt={`${flightData?.segments[0].marketingcareer}`}
-                                />
-                                <Typography
-                                  width="100px"
-                                  fontSize="12px"
-                                  fontWeight={500}
-                                  textAlign="center"
-                                  paddingRight={2}
-                                >
-                                  {flightData?.segments[0]?.marketingcareerName}
-                                </Typography>
-                              </Box>
-                              <Box className="flight-content-detail">
-                                <h4>Departure From</h4>
-                                <h5>
-                                  ({flightData?.segments[0]?.departure})-
-                                  {flightData?.segments[0]?.departureAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[0]?.departureLocation}
-                                </h5>
-                                <h5>
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[0]?.departureTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Arrival To</h4>
-                                <h5>
-                                  ({flightData?.segments[0]?.arrival})-
-                                  {flightData?.segments[0]?.arrivalAirport}
-                                </h5>
-                                <h5>
-                                  {flightData?.segments[0]?.arrivalLocation}
-                                </h5>
-                                <h5>
-                                  {" "}
-                                  {/* {flightData?.segments[0]?.arrivalTime} */}
-                                  {format(
-                                    new Date(
-                                      flightData?.segments[0]?.arrivalTime.toString()
-                                    ),
-                                    "dd MMM yyyy hh:mm a"
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
-                            <Grid item xs={2} sm={2} md={3}>
-                              <Box className="flight-content-detail">
-                                <h4>Duration</h4>
-                                <h5>
-                                  {flightData?.segments[0].flightduration}
-                                </h5>
-                                <h5>
-                                  <span style={{ color: "tomato" }}>
-                                    {flightData?.segments[0].marketingcareer}{" "}
-                                    {flightData?.segments[0].marketingflight}{" "}
-                                  </span>
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  Class: {flightData?.segments[0]?.bookingcode}
-                                  <span
-                                    style={{
-                                      color: "crimson",
-                                      fontSize: "15px",
-                                    }}
-                                  >
-                                    {" | "}
-                                  </span>
-                                  <span>
-                                    Seat: {flightData?.segments[0].seat || 9}
-                                  </span>
-                                </h5>
-                                <h5>
-                                  Baggage:{" "}
-                                  {flightData?.bags === "3" ||
-                                  flightData?.bags === "2" ||
-                                  flightData?.bags === "1" ? (
-                                    <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                  ) : flightData?.bags === " " ? (
-                                    <>0 Kg</>
-                                  ) : (
-                                    <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                  )}
-                                </h5>
-                              </Box>
-                            </Grid>
+                            <Box textAlign="center" paddingRight={2}>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[0].marketingcareer}.png`}
+                                alt={`${flightData?.segments[0].marketingcareer}`}
+                              />
+                              <Typography
+                                width="100px"
+                                fontSize="12px"
+                                fontWeight={500}
+                                textAlign="center"
+                                paddingRight={2}
+                              >
+                                {flightData?.segments[0]?.marketingcareerName}
+                              </Typography>
+                            </Box>
+
+                            <Box className="flight-content-detail">
+                              <h4>Departure From</h4>
+                              <h5>
+                                ({flightData?.segments[0]?.departure})-
+                                {flightData?.segments[0]?.departureAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[0]?.departureLocation}
+                              </h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[0]?.departureTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
                           </Grid>
-                        </Box>
+
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Arrival To</h4>
+                              <h5>
+                                ({flightData?.segments[0]?.arrival})-
+                                {flightData?.segments[0].arrivalAirport}
+                              </h5>
+                              <h5>{flightData?.segments[0].arrivalLocation}</h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[0]?.arrivalTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Duration</h4>
+
+                              <h5>{flightData?.segments[0].flightduration}</h5>
+                              <h5>
+                                <span style={{ color: "tomato" }}>
+                                  {" "}
+                                  {flightData?.segments[0].marketingcareer}{" "}
+                                  {flightData?.segments[0].marketingflight}{" "}
+                                </span>
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                Class: {flightData?.segments[0]?.bookingcode}
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                <span>
+                                  Seat: {flightData?.segments[0].seat || 9}
+                                </span>
+                              </h5>
+                              <h5>
+                                Baggage:{" "}
+                                {flightData?.bags === "3" ||
+                                flightData?.bags === "2" ||
+                                flightData?.bags === "1" ? (
+                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
+                                ) : flightData?.bags === " " ? (
+                                  <>0 Kg</>
+                                ) : (
+                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                        </Grid>
                       </Box>
-                    )}
-                  </TabPanel>
 
-                  <TabPanel value="2" className="tab-class">
-                    <Box className="tab-table" sx={{ m: "5px 0px" }}>
-                      <Box className="flight-search-table">
-                        <table>
-                          <tr>
-                            <th>Pax Type</th>
-                            <th>Base Fare</th>
-                            <th>Tax</th>
-                            <th>Total</th>
-                            <th>Pax Count</th>
-                            <th>Service Fee</th>
-                            <th>Sub Total</th>
-                          </tr>
+                      <Box className="border-content">
+                        <span>
+                          Transit Time<>: </>
+                          {flightData?.transit.transit1}{" "}
+                        </span>
+                      </Box>
 
-                          {adultCount > 0 && childCount > 0 && infant > 0 ? (
-                            <>
-                              <tr>
-                                <td>Adult</td>
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.BaseFare}
-                                </td>
-                                <td>{flightData?.pricebreakdown[0]?.Tax}</td>
-                                <td>
-                                  {parseInt(
+                      <Box className="single-flight-parent">
+                        <Grid
+                          className="single-flight-details"
+                          sx={{
+                            justifyContent: "space-between",
+                            alignItems: "flex-start",
+                          }}
+                          container
+                          spacing={{ xs: 2, md: 3 }}
+                          columns={{ xs: 4, sm: 8, md: 12 }}
+                        >
+                          <Grid
+                            sx={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                            }}
+                            item
+                            xs={2}
+                            sm={3}
+                            md={4.5}
+                          >
+                            <Box textAlign="center" paddingRight={2}>
+                              {" "}
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[1].marketingcareer}.png`}
+                                alt={`${flightData?.segments[1].marketingcareer}`}
+                              />
+                              <Typography
+                                width="100px"
+                                fontSize="12px"
+                                fontWeight={500}
+                                textAlign="center"
+                                paddingRight={2}
+                              >
+                                {flightData?.segments[1]?.marketingcareerName}
+                              </Typography>
+                            </Box>
+                            <Box className="flight-content-detail">
+                              <h4>Departure From</h4>
+                              <h5>
+                                ({flightData?.segments[1]?.departure})-
+                                {flightData?.segments[1]?.departureAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[1]?.departureLocation}
+                              </h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[1]?.departureTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Arrival To</h4>
+                              <h5>
+                                ({flightData?.segments[1]?.arrival})-
+                                {flightData?.segments[1].arrivalAirport}
+                              </h5>
+                              <h5>{flightData?.segments[1].arrivalLocation}</h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[1]?.arrivalTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Duration</h4>
+                              <h5>{flightData?.segments[1].flightduration}</h5>
+                              <h5>
+                                <span style={{ color: "tomato" }}>
+                                  {flightData?.segments[1].marketingcareer}{" "}
+                                  {flightData?.segments[1].marketingflight}{" "}
+                                </span>
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                Class: {flightData?.segments[1]?.bookingcode}
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                <span>
+                                  Seat: {flightData?.segments[1].seat || 9}
+                                </span>
+                              </h5>
+                              <h5>
+                                Baggage:{" "}
+                                {flightData?.bags === "3" ||
+                                flightData?.bags === "2" ||
+                                flightData?.bags === "1" ? (
+                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
+                                ) : flightData?.bags === " " ? (
+                                  <>0 Kg</>
+                                ) : (
+                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                      <Box className="border-content">
+                        <span>
+                          Transit Time<>: </>
+                          {flightData?.transit.transit2}{" "}
+                        </span>
+                      </Box>
+                      <Box className="single-flight-parent">
+                        <Grid
+                          className="single-flight-details"
+                          sx={{
+                            justifyContent: "space-between",
+                            alignItems: "flex-start",
+                          }}
+                          container
+                          spacing={{ xs: 2, md: 3 }}
+                          columns={{ xs: 4, sm: 8, md: 12 }}
+                        >
+                          <Grid
+                            sx={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                            }}
+                            item
+                            xs={2}
+                            sm={3}
+                            md={4.5}
+                          >
+                            <Box textAlign="center" paddingRight={2}>
+                              {" "}
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[2]?.marketingcareer}.png`}
+                                alt={`${flightData?.segments[2]?.marketingcareer}`}
+                              />
+                              <Typography
+                                width="100px"
+                                fontSize="12px"
+                                fontWeight={500}
+                                textAlign="center"
+                                paddingRight={2}
+                              >
+                                {flightData?.segments[2]?.marketingcareerName}
+                              </Typography>
+                            </Box>
+                            <Box className="flight-content-detail">
+                              <h4>Departure From</h4>
+                              <h5>
+                                ({flightData?.segments[2]?.departure})-
+                                {flightData?.segments[2]?.departureAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[2]?.departureLocation}
+                              </h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[2]?.departureTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Arrival To</h4>
+                              <h5>
+                                ({flightData?.segments[2]?.arrival})-
+                                {flightData?.segments[2]?.arrivalAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[2]?.arrivalLocation}
+                              </h5>
+                              <h5>
+                                {" "}
+                                {format(
+                                  new Date(
+                                    flightData?.segments[2]?.arrivalTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Duration</h4>
+                              <h5>{flightData?.segments[2]?.flightduration}</h5>
+                              <h5>
+                                <span style={{ color: "tomato" }}>
+                                  {flightData?.segments[2]?.marketingcareer}{" "}
+                                  {flightData?.segments[2]?.marketingflight}{" "}
+                                </span>
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                Class: {flightData?.segments[2]?.bookingcode}
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                <span>
+                                  Seat: {flightData?.segments[2].seat || 9}
+                                </span>
+                              </h5>
+                              <h5>
+                                Baggage:{" "}
+                                {flightData?.bags === "3" ||
+                                flightData?.bags === "2" ||
+                                flightData?.bags === "1" ? (
+                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
+                                ) : flightData?.bags === " " ? (
+                                  <>0 Kg</>
+                                ) : (
+                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                    </Box>
+                  ) : flightData?.segment === "2" ? (
+                    <Box className="segment-2">
+                      <Box
+                        display="flex"
+                        justifyContent={"center"}
+                        alignItems="center"
+                        pb={2}
+                        gap={2}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "var(--secondary-color)",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {
+                            flightData?.segments[0]?.departureLocation?.split(
+                              ","
+                            )[0]
+                          }
+                        </Typography>
+
+                        <FlightIcon
+                          style={{
+                            transform: "rotate(90deg)",
+                            color: "var(--primary-color)",
+                          }}
+                        />
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "var(--secondary-color)",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {
+                            flightData?.segments[1]?.arrivalLocation?.split(
+                              ","
+                            )[0]
+                          }
+                        </Typography>
+                      </Box>
+                      <Box className="single-flight-parent">
+                        <Grid
+                          className="single-flight-details"
+                          sx={{
+                            justifyContent: "space-between",
+                            alignItems: "flex-start",
+                          }}
+                          container
+                          spacing={{ xs: 2, md: 3 }}
+                          columns={{ xs: 4, sm: 8, md: 12 }}
+                        >
+                          <Grid
+                            sx={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                            }}
+                            item
+                            xs={2}
+                            sm={3}
+                            md={4.5}
+                          >
+                            <Box textAlign="center" paddingRight={2}>
+                              {" "}
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[0].marketingcareer}.png`}
+                                alt={`${flightData?.segments[0].marketingcareer}`}
+                              />
+                              <Typography
+                                width="100px"
+                                fontSize="12px"
+                                fontWeight={500}
+                                textAlign="center"
+                                paddingRight={2}
+                              >
+                                {flightData?.segments[0]?.marketingcareerName}
+                              </Typography>
+                            </Box>
+                            <Box className="flight-content-detail">
+                              <h4>Departure From</h4>
+                              <h5>
+                                ({flightData?.segments[0]?.departure})-
+                                {flightData?.segments[0]?.departureAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[0]?.departureLocation}
+                              </h5>
+                              <h5>
+                                {/* {flightData?.segments[0]?.departureTime} */}
+                                {format(
+                                  new Date(
+                                    flightData?.segments[0]?.departureTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Arrival To</h4>
+                              <h5>
+                                ({flightData?.segments[0]?.arrival})-
+                                {flightData?.segments[0].arrivalAirport}
+                              </h5>
+                              <h5>{flightData?.segments[0].arrivalLocation}</h5>
+                              <h5>
+                                {" "}
+                                {/* {flightData?.segments[0]?.arrivalTime} */}
+                                {format(
+                                  new Date(
+                                    flightData?.segments[0]?.arrivalTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Duration</h4>
+                              <h5>{flightData?.segments[0].flightduration}</h5>
+                              <h5>
+                                <span style={{ color: "tomato" }}>
+                                  {flightData?.segments[0].marketingcareer}{" "}
+                                  {flightData?.segments[0].marketingflight}{" "}
+                                </span>
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                Class: {flightData?.segments[0]?.bookingcode}
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                <span>
+                                  Seat: {flightData?.segments[0].seat || 9}
+                                </span>
+                              </h5>
+                              <h5>
+                                Baggage:{" "}
+                                {flightData?.bags === "3" ||
+                                flightData?.bags === "2" ||
+                                flightData?.bags === "1" ? (
+                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
+                                ) : flightData?.bags === " " ? (
+                                  <>0 Kg</>
+                                ) : (
+                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                        </Grid>
+                      </Box>
+
+                      <Box className="border-content">
+                        <span>
+                          Transit Time<>: </>
+                          {flightData?.transit.transit
+                            ? flightData?.transit.transit
+                            : flightData?.transit.transit1}{" "}
+                        </span>
+                      </Box>
+
+                      <Box className="single-flight-parent">
+                        <Grid
+                          className="single-flight-details"
+                          sx={{
+                            justifyContent: "space-between",
+                            alignItems: "flex-start",
+                          }}
+                          container
+                          spacing={{ xs: 2, md: 3 }}
+                          columns={{ xs: 4, sm: 8, md: 12 }}
+                        >
+                          <Grid
+                            sx={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                            }}
+                            item
+                            xs={2}
+                            sm={3}
+                            md={4.5}
+                          >
+                            <Box textAlign="center" paddingRight={2}>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[1].marketingcareer}.png`}
+                                alt={`${flightData?.segments[1].marketingcareer}`}
+                              />
+                              <Typography
+                                width="100px"
+                                fontSize="12px"
+                                fontWeight={500}
+                                textAlign="center"
+                                paddingRight={2}
+                              >
+                                {flightData?.segments[1]?.marketingcareerName}
+                              </Typography>
+                            </Box>
+                            <Box className="flight-content-detail">
+                              <h4>Departure From</h4>
+                              <h5>
+                                ({flightData?.segments[1]?.departure})-
+                                {flightData?.segments[1]?.departureAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[1]?.departureLocation}
+                              </h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[1]?.departureTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Arrival To</h4>
+                              <h5>
+                                ({flightData?.segments[1]?.arrival})-
+                                {flightData?.segments[1]?.arrivalAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[1]?.arrivalLocation}
+                              </h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[1]?.arrivalTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Duration</h4>
+                              <h5>{flightData?.segments[1].flightduration}</h5>
+                              <h5>
+                                <span style={{ color: "tomato" }}>
+                                  {flightData?.segments[1].marketingcareer}{" "}
+                                  {flightData?.segments[1].marketingflight}{" "}
+                                </span>
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                Class: {flightData?.segments[1]?.bookingcode}
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                <span>
+                                  Seat: {flightData?.segments[1].seat || 9}
+                                </span>
+                              </h5>
+                              <h5>
+                                Baggage:{" "}
+                                {flightData?.bags === "3" ||
+                                flightData?.bags === "2" ||
+                                flightData?.bags === "1" ? (
+                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
+                                ) : flightData?.bags === " " ? (
+                                  <>0 Kg</>
+                                ) : (
+                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                    </Box>
+                  ) : (
+                    <Box className="segment-2">
+                      <Box
+                        display="flex"
+                        justifyContent={"center"}
+                        alignItems="center"
+                        pb={2}
+                        gap={2}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "#003566",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {
+                            flightData?.segments[0]?.departureLocation?.split(
+                              ","
+                            )[0]
+                          }
+                        </Typography>
+                        <FlightIcon
+                          style={{
+                            transform: "rotate(90deg)",
+                            color: "var(--primary-color)",
+                          }}
+                        />
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "#003566",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {
+                            flightData?.segments[0]?.arrivalLocation?.split(
+                              ","
+                            )[0]
+                          }
+                        </Typography>
+                      </Box>
+                      <Box className="single-flight-parent">
+                        <Grid
+                          className="single-flight-details"
+                          sx={{
+                            justifyContent: "space-between",
+                            alignItems: "flex-start",
+                          }}
+                          container
+                          spacing={{ xs: 2, md: 3 }}
+                          columns={{ xs: 4, sm: 8, md: 12 }}
+                        >
+                          <Grid
+                            sx={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                            }}
+                            item
+                            xs={2}
+                            sm={3}
+                            md={4.5}
+                          >
+                            <Box textAlign="center" paddingRight={2}>
+                              <img
+                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${flightData?.segments[0].marketingcareer}.png`}
+                                alt={`${flightData?.segments[0].marketingcareer}`}
+                              />
+                              <Typography
+                                width="100px"
+                                fontSize="12px"
+                                fontWeight={500}
+                                textAlign="center"
+                                paddingRight={2}
+                              >
+                                {flightData?.segments[0]?.marketingcareerName}
+                              </Typography>
+                            </Box>
+                            <Box className="flight-content-detail">
+                              <h4>Departure From</h4>
+                              <h5>
+                                ({flightData?.segments[0]?.departure})-
+                                {flightData?.segments[0]?.departureAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[0]?.departureLocation}
+                              </h5>
+                              <h5>
+                                {format(
+                                  new Date(
+                                    flightData?.segments[0]?.departureTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Arrival To</h4>
+                              <h5>
+                                ({flightData?.segments[0]?.arrival})-
+                                {flightData?.segments[0]?.arrivalAirport}
+                              </h5>
+                              <h5>
+                                {flightData?.segments[0]?.arrivalLocation}
+                              </h5>
+                              <h5>
+                                {" "}
+                                {/* {flightData?.segments[0]?.arrivalTime} */}
+                                {format(
+                                  new Date(
+                                    flightData?.segments[0]?.arrivalTime.toString()
+                                  ),
+                                  "dd MMM yyyy hh:mm a"
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                          <Grid item xs={2} sm={2} md={3}>
+                            <Box className="flight-content-detail">
+                              <h4>Duration</h4>
+                              <h5>{flightData?.segments[0].flightduration}</h5>
+                              <h5>
+                                <span style={{ color: "tomato" }}>
+                                  {flightData?.segments[0].marketingcareer}{" "}
+                                  {flightData?.segments[0].marketingflight}{" "}
+                                </span>
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                Class: {flightData?.segments[0]?.bookingcode}
+                                <span
+                                  style={{
+                                    color: "crimson",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {" | "}
+                                </span>
+                                <span>
+                                  Seat: {flightData?.segments[0].seat || 9}
+                                </span>
+                              </h5>
+                              <h5>
+                                Baggage:{" "}
+                                {flightData?.bags === "3" ||
+                                flightData?.bags === "2" ||
+                                flightData?.bags === "1" ? (
+                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
+                                ) : flightData?.bags === " " ? (
+                                  <>0 Kg</>
+                                ) : (
+                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                                )}
+                              </h5>
+                            </Box>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                    </Box>
+                  )}
+                </TabPanel>
+                {/* //todo:Fare Summery */}
+                <TabPanel value="2" className="tab-class">
+                  <Box className="tab-table" sx={{ m: "5px 0px" }}>
+                    <Box className="flight-search-table">
+                      <table>
+                        <tr>
+                          <th>Pax Type</th>
+                          <th>Base Fare</th>
+                          <th>Tax</th>
+                          <th>Total</th>
+                          <th>Pax Count</th>
+                          <th>Service Fee</th>
+                          <th>Sub Total</th>
+                        </tr>
+
+                        {adultCount > 0 && childCount > 0 && infant > 0 ? (
+                          <>
+                            <tr>
+                              <td>Adult x({adultCount})</td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.BaseFare
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.Tax
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  parseInt(
                                     flightData?.pricebreakdown[0]?.BaseFare
                                   ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[0]?.Tax
-                                    )}
-                                </td>
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.PaxCount}
-                                </td>
+                                    parseInt(flightData?.pricebreakdown[0]?.Tax)
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.PaxCount
+                                )}
+                                ৳
+                              </td>
 
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.ServiceFee}
-                                </td>
-                                <td>
-                                  {(parseInt(
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.ServiceFee
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  (parseInt(
                                     flightData?.pricebreakdown[0]?.BaseFare
                                   ) +
                                     parseInt(
@@ -5319,32 +5230,50 @@ const SingleFlight = ({
                                     parseInt(
                                       flightData?.pricebreakdown[0]?.ServiceFee
                                     )) *
-                                    flightData?.pricebreakdown[0]?.PaxCount}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Child</td>
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.BaseFare}
-                                </td>
-                                <td>{flightData?.pricebreakdown[1]?.Tax}</td>
-                                <td>
-                                  {parseInt(
+                                    flightData?.pricebreakdown[0]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Child x({childCount})</td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.BaseFare
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.Tax
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  parseInt(
                                     flightData?.pricebreakdown[1]?.BaseFare
                                   ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[1]?.Tax
-                                    )}
-                                </td>
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.PaxCount}
-                                </td>
+                                    parseInt(flightData?.pricebreakdown[1]?.Tax)
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.PaxCount
+                                )}
+                                ৳
+                              </td>
 
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.ServiceFee}
-                                </td>
-                                <td>
-                                  {(parseInt(
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.ServiceFee
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  (parseInt(
                                     flightData?.pricebreakdown[1]?.BaseFare
                                   ) +
                                     parseInt(
@@ -5353,32 +5282,50 @@ const SingleFlight = ({
                                     parseInt(
                                       flightData?.pricebreakdown[1]?.ServiceFee
                                     )) *
-                                    flightData?.pricebreakdown[1]?.PaxCount}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Infant</td>
-                                <td>
-                                  {flightData?.pricebreakdown[2]?.BaseFare}
-                                </td>
-                                <td>{flightData?.pricebreakdown[2]?.Tax}</td>
-                                <td>
-                                  {parseInt(
+                                    flightData?.pricebreakdown[1]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Infant x({infant})</td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[2]?.BaseFare
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[2]?.Tax
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  parseInt(
                                     flightData?.pricebreakdown[2]?.BaseFare
                                   ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[2]?.Tax
-                                    )}
-                                </td>
-                                <td>
-                                  {flightData?.pricebreakdown[2]?.PaxCount}
-                                </td>
+                                    parseInt(flightData?.pricebreakdown[2]?.Tax)
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[2]?.PaxCount
+                                )}
+                                ৳
+                              </td>
 
-                                <td>
-                                  {flightData?.pricebreakdown[2]?.ServiceFee}
-                                </td>
-                                <td>
-                                  {(parseInt(
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[2]?.ServiceFee
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  (parseInt(
                                     flightData?.pricebreakdown[2]?.BaseFare
                                   ) +
                                     parseInt(
@@ -5387,471 +5334,567 @@ const SingleFlight = ({
                                     parseInt(
                                       flightData?.pricebreakdown[2]?.ServiceFee
                                     )) *
-                                    flightData?.pricebreakdown[2]?.PaxCount}
-                                </td>
-                              </tr>
-                            </>
-                          ) : adultCount > 0 && childCount > 0 ? (
-                            <>
-                              <tr>
-                                <td>Adult</td>
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.BaseFare}
-                                </td>
-                                <td>{flightData?.pricebreakdown[0]?.Tax}</td>
-                                <td>
-                                  {parseInt(
-                                    flightData?.pricebreakdown[0]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[0]?.Tax
-                                    )}
-                                </td>
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.PaxCount}
-                                </td>
-
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.ServiceFee}
-                                </td>
-                                <td>
-                                  {(parseInt(
-                                    flightData?.pricebreakdown[0]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[0]?.Tax
-                                    ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[0]?.ServiceFee
-                                    )) *
-                                    flightData?.pricebreakdown[0]?.PaxCount}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Child</td>
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.BaseFare}
-                                </td>
-                                <td>{flightData?.pricebreakdown[1]?.Tax}</td>
-                                <td>
-                                  {parseInt(
-                                    flightData?.pricebreakdown[1]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[1]?.Tax
-                                    )}
-                                </td>
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.PaxCount}
-                                </td>
-
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.ServiceFee}
-                                </td>
-                                <td>
-                                  {(parseInt(
-                                    flightData?.pricebreakdown[1]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[1]?.Tax
-                                    ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[1]?.ServiceFee
-                                    )) *
-                                    flightData?.pricebreakdown[1]?.PaxCount}
-                                </td>
-                              </tr>
-                            </>
-                          ) : adultCount > 0 && infant > 0 ? (
-                            <>
-                              <tr>
-                                <td>Adult</td>
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.BaseFare}
-                                </td>
-                                <td>{flightData?.pricebreakdown[0]?.Tax}</td>
-                                <td>
-                                  {parseInt(
-                                    flightData?.pricebreakdown[0]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[0]?.Tax
-                                    )}
-                                </td>
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.PaxCount}
-                                </td>
-
-                                <td>
-                                  {flightData?.pricebreakdown[0]?.ServiceFee}
-                                </td>
-                                <td>
-                                  {(parseInt(
-                                    flightData?.pricebreakdown[0]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[0]?.Tax
-                                    ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[0]?.ServiceFee
-                                    )) *
-                                    flightData?.pricebreakdown[0]?.PaxCount}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Infant</td>
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.BaseFare}
-                                </td>
-                                <td>{flightData?.pricebreakdown[1]?.Tax}</td>
-                                <td>
-                                  {parseInt(
-                                    flightData?.pricebreakdown[1]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[1]?.Tax
-                                    )}
-                                </td>
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.PaxCount}
-                                </td>
-
-                                <td>
-                                  {flightData?.pricebreakdown[1]?.ServiceFee}
-                                </td>
-                                <td>
-                                  {(parseInt(
-                                    flightData?.pricebreakdown[1]?.BaseFare
-                                  ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[1]?.Tax
-                                    ) +
-                                    parseInt(
-                                      flightData?.pricebreakdown[1]?.ServiceFee
-                                    )) *
-                                    flightData?.pricebreakdown[1]?.PaxCount}
-                                </td>
-                              </tr>
-                            </>
-                          ) : (
+                                    flightData?.pricebreakdown[2]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+                            </tr>
+                          </>
+                        ) : adultCount > 0 && childCount > 0 ? (
+                          <>
                             <tr>
-                              <td>Adult</td>
-                              <td>{flightData?.pricebreakdown[0]?.BaseFare}</td>
-                              <td>{flightData?.pricebreakdown[0]?.Tax}</td>
+                              <td>Adult x({adultCount})</td>
                               <td>
-                                {parseInt(
+                                {commaNumber(
                                   flightData?.pricebreakdown[0]?.BaseFare
-                                ) +
-                                  parseInt(flightData?.pricebreakdown[0]?.Tax)}
+                                )}
+                                ৳
                               </td>
-                              <td>{flightData?.pricebreakdown[0]?.PaxCount}</td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.Tax
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  parseInt(
+                                    flightData?.pricebreakdown[0]?.BaseFare
+                                  ) +
+                                    parseInt(flightData?.pricebreakdown[0]?.Tax)
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.PaxCount
+                                )}
+                                ৳
+                              </td>
 
                               <td>
-                                {flightData?.pricebreakdown[0]?.ServiceFee}
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.ServiceFee
+                                )}
+                                ৳
                               </td>
                               <td>
-                                {(parseInt(
+                                {commaNumber(
+                                  (parseInt(
+                                    flightData?.pricebreakdown[0]?.BaseFare
+                                  ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[0]?.Tax
+                                    ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[0]?.ServiceFee
+                                    )) *
+                                    flightData?.pricebreakdown[0]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Child x({childCount})</td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.BaseFare
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.Tax
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  parseInt(
+                                    flightData?.pricebreakdown[1]?.BaseFare
+                                  ) +
+                                    parseInt(flightData?.pricebreakdown[1]?.Tax)
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.ServiceFee
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  (parseInt(
+                                    flightData?.pricebreakdown[1]?.BaseFare
+                                  ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[1]?.Tax
+                                    ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[1]?.ServiceFee
+                                    )) *
+                                    flightData?.pricebreakdown[1]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+                            </tr>
+                          </>
+                        ) : adultCount > 0 && infant > 0 ? (
+                          <>
+                            <tr>
+                              <td>Adult x({adultCount})</td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.BaseFare
+                                )}
+                                ৳
+                              </td>
+                              <td>{flightData?.pricebreakdown[0]?.Tax}৳</td>
+                              <td>
+                                {commaNumber(
+                                  parseInt(
+                                    flightData?.pricebreakdown[0]?.BaseFare
+                                  ) +
+                                    parseInt(flightData?.pricebreakdown[0]?.Tax)
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[0]?.ServiceFee
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  (parseInt(
+                                    flightData?.pricebreakdown[0]?.BaseFare
+                                  ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[0]?.Tax
+                                    ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[0]?.ServiceFee
+                                    )) *
+                                    flightData?.pricebreakdown[0]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Infant x({infant})</td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.BaseFare
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.Tax
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  parseInt(
+                                    flightData?.pricebreakdown[1]?.BaseFare
+                                  ) +
+                                    parseInt(flightData?.pricebreakdown[1]?.Tax)
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+
+                              <td>
+                                {commaNumber(
+                                  flightData?.pricebreakdown[1]?.ServiceFee
+                                )}
+                                ৳
+                              </td>
+                              <td>
+                                {commaNumber(
+                                  (parseInt(
+                                    flightData?.pricebreakdown[1]?.BaseFare
+                                  ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[1]?.Tax
+                                    ) +
+                                    parseInt(
+                                      flightData?.pricebreakdown[1]?.ServiceFee
+                                    )) *
+                                    flightData?.pricebreakdown[1]?.PaxCount
+                                )}
+                                ৳
+                              </td>
+                            </tr>
+                          </>
+                        ) : (
+                          <tr>
+                            <td>Adult x({adultCount})</td>
+                            <td>
+                              {commaNumber(
+                                flightData?.pricebreakdown[0]?.BaseFare
+                              )}
+                              ৳
+                            </td>
+                            <td>
+                              {commaNumber(flightData?.pricebreakdown[0]?.Tax)}৳
+                            </td>
+                            <td>
+                              {commaNumber(
+                                parseInt(
+                                  flightData?.pricebreakdown[0]?.BaseFare
+                                ) + parseInt(flightData?.pricebreakdown[0]?.Tax)
+                              )}
+                              ৳
+                            </td>
+                            <td>
+                              {commaNumber(
+                                flightData?.pricebreakdown[0]?.PaxCount
+                              )}
+                              ৳
+                            </td>
+
+                            <td>
+                              {commaNumber(
+                                flightData?.pricebreakdown[0]?.ServiceFee
+                              )}
+                              ৳
+                            </td>
+                            <td>
+                              {commaNumber(
+                                (parseInt(
                                   flightData?.pricebreakdown[0]?.BaseFare
                                 ) +
                                   parseInt(flightData?.pricebreakdown[0]?.Tax) +
                                   parseInt(
                                     flightData?.pricebreakdown[0]?.ServiceFee
                                   )) *
-                                  flightData?.pricebreakdown[0]?.PaxCount}
-                              </td>
-                            </tr>
-                          )}
-                        </table>
-                      </Box>
-                    </Box>
-                  </TabPanel>
-
-                  <TabPanel value="3" className="tab-class">
-                    <Box className="tab-table" sx={{ m: "5px 0px" }}>
-                      <Box className="flight-search-table">
-                        <table>
-                          <tr>
-                            <th>Customer Invoice</th>
-                            <th>Commission</th>
-                            <th>Agent Invoice</th>
-                            <th>Profit Amount</th>
-                          </tr>
-
-                          <tr>
-                            <td>{clientFare}</td>
-                            <td>7%</td>
-                            <td>{agentFare}</td>
-                            <td>{commission}</td>
-                          </tr>
-                        </table>
-                      </Box>
-                    </Box>
-                  </TabPanel>
-
-                  {/* discount & gross start */}
-
-                  <TabPanel value="4" className="cancelation-1">
-                    <Grid
-                      className="cancellation-content "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">Time Frame </Typography>
-                        <Typography variant="h4">
-                          (From Scheduled Flight Departure)
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Airline Fee + Flyfarint Fee{" "}
-                        </Typography>
-                        <Typography variant="h4">(Per Passenger)</Typography>
-                      </Grid>
-                    </Grid>
-
-                    <Grid
-                      className=" cancellation-content-cus "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          0 hours to 72 hours
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Adult : Airline Policy + 200 BDT
-                        </Typography>
-                      </Grid>
-                    </Grid>
-
-                    <Grid
-                      className=" cancellation-content-cus2  "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          72 hours to 335 hours
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Adult : Airline Policy + 200 BDT
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid
-                      className="cancellation-content"
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">Time Frame </Typography>
-                        <Typography variant="h4">
-                          (From Scheduled Flight Departure)
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Airline Fee + Flyfarint Fee{" "}
-                        </Typography>
-                        <Typography variant="h4">(Per Passenger)</Typography>
-                      </Grid>
-                    </Grid>
-
-                    <Grid
-                      className="cancellation-content-cus3 "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          All Flight Departure
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Adult : Airline Policy + No-Show Charge + 200 BDT
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-                      <Grid item xs={12} sm={12} md={12}>
-                        <Typography
-                          fontSize={"12px"}
-                          border="1px solid red"
-                          py={1}
-                          px={2}
-                          my={1}
-                        >
-                          *Important: This destination may have COVID-19 travel
-                          restriction in place, including specific restriction
-                          for loading Check any nation,local and health
-                          advisories for this destination before you book.
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </TabPanel>
-                  <TabPanel value="5" className="cancelation-1">
-                    <Grid
-                      className="cancellation-content "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">Time Frame </Typography>
-                        <Typography variant="h4">
-                          (From Scheduled Flight Departure)
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Airline Fee + Flyfarint Fee{" "}
-                        </Typography>
-                        <Typography variant="h4">(Per Passenger)</Typography>
-                      </Grid>
-                    </Grid>
-
-                    <Grid
-                      className=" cancellation-content-cus "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          0 hours to 72 hours
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Adult : Airline Policy + 200 BDT
-                        </Typography>
-                      </Grid>
-                    </Grid>
-
-                    <Grid
-                      className=" cancellation-content-cus2  "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          72 hours to 335 hours
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Adult : Airline Policy + 200 BDT
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid
-                      className="cancellation-content"
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">Time Frame </Typography>
-                        <Typography variant="h4">
-                          (From Scheduled Flight Departure)
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Airline Fee + Flyfarint Fee{" "}
-                        </Typography>
-                        <Typography variant="h4">(Per Passenger)</Typography>
-                      </Grid>
-                    </Grid>
-
-                    <Grid
-                      className="cancellation-content-cus3 "
-                      container
-                      columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          All Flight Departure
-                        </Typography>
-                      </Grid>
-
-                      <Grid item xs={4} sm={4} md={6}>
-                        <Typography variant="h4">
-                          Adult : Airline Policy + No-Show Charge + 200 BDT
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-                      <Grid item xs={12} sm={12} md={12}>
-                        <Typography
-                          fontSize={"12px"}
-                          border="1px solid red"
-                          py={1}
-                          px={2}
-                          my={1}
-                        >
-                          *Important: This destination may have COVID-19 travel
-                          restriction in place, including specific restriction
-                          for loading Check any nation,local and health
-                          advisories for this destination before you book.
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </TabPanel>
-
-                  <TabPanel value="6" className="tab-class">
-                    <Box className="tab-table" sx={{ m: "5px 0px" }}>
-                      <Box className="flight-search-table">
-                        <table>
-                          <tr>
-                            <th>Flight</th>
-                            <th>Cabin</th>
-                            <th>Check-In</th>
-                          </tr>
-
-                          <tr>
-                            <td>
-                              {to}-{from}
-                            </td>
-                            <td>
-                              {flightData.system === "Sabre" ? (
-                                <>Economy</>
-                              ) : flightData.system === "FlyHub" ? (
-                                <>Economy</>
-                              ) : (
-                                <>{flightData.class}</>
+                                  flightData?.pricebreakdown[0]?.PaxCount
                               )}
+                              ৳
                             </td>
-                            <td>{adultCount + childCount + infant}</td>
                           </tr>
-                        </table>
-                      </Box>
+                        )}
+                      </table>
                     </Box>
-                  </TabPanel>
-                  <TabPanel value="7" className="tab-class">
-                    <Box className="tab-table" sx={{ m: "5px 0px" }}>
-                      <Box className="flight-search-table">
-                        <table>
-                          <tr>
-                            <th>Baggage</th>
-                            <th>Check-In</th>
-                            <th>Cabin</th>
-                          </tr>
+                  </Box>
+                </TabPanel>
+                {/* //todo:Commission & Invoice */}
+                <TabPanel value="3" className="tab-class">
+                  <Box className="tab-table" sx={{ m: "5px 0px" }}>
+                    <Box className="flight-search-table">
+                      <table>
+                        <tr>
+                          <th>Customer Invoice</th>
+                          <th>Commission</th>
+                          <th>Agent Invoice</th>
+                          <th>Profit Amount</th>
+                        </tr>
 
+                        <tr>
+                          <td>{commaNumber(clientFare)}৳</td>
+                          <td>7%</td>
+                          <td>{commaNumber(agentFare)}৳</td>
+                          <td>{commaNumber(commission)}৳</td>
+                        </tr>
+                      </table>
+                    </Box>
+                  </Box>
+                </TabPanel>
+                {/* <TabPanel value="4" className="cancelation-1">
+                  <Grid
+                    className="cancellation-content "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">Time Frame </Typography>
+                      <Typography variant="h4">
+                        (From Scheduled Flight Departure)
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Airline Fee + Flyfarint Fee{" "}
+                      </Typography>
+                      <Typography variant="h4">(Per Passenger)</Typography>
+                    </Grid>
+                  </Grid>
+
+                  <Grid
+                    className=" cancellation-content-cus "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">0 hours to 72 hours</Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Adult : Airline Policy + 200 BDT
+                      </Typography>
+                    </Grid>
+                  </Grid>
+
+                  <Grid
+                    className=" cancellation-content-cus2  "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        72 hours to 335 hours
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Adult : Airline Policy + 200 BDT
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    className="cancellation-content"
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">Time Frame </Typography>
+                      <Typography variant="h4">
+                        (From Scheduled Flight Departure)
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Airline Fee + Flyfarint Fee{" "}
+                      </Typography>
+                      <Typography variant="h4">(Per Passenger)</Typography>
+                    </Grid>
+                  </Grid>
+
+                  <Grid
+                    className="cancellation-content-cus3 "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">All Flight Departure</Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Adult : Airline Policy + No-Show Charge + 200 BDT
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+                    <Grid item xs={12} sm={12} md={12}>
+                      <Typography
+                        fontSize={"12px"}
+                        border="1px solid red"
+                        py={1}
+                        px={2}
+                        my={1}
+                      >
+                        *Important: This destination may have COVID-19 travel
+                        restriction in place, including specific restriction for
+                        loading Check any nation,local and health advisories for
+                        this destination before you book.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </TabPanel> */}
+                {/*  //todo: Policy*/}
+                <TabPanel value="4" className="cancelation-1">
+                  <Grid
+                    className="cancellation-content "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">Time Frame </Typography>
+                      <Typography variant="h4">
+                        (From Scheduled Flight Departure)
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Airline Fee + Flyfarint Fee{" "}
+                      </Typography>
+                      <Typography variant="h4">(Per Passenger)</Typography>
+                    </Grid>
+                  </Grid>
+
+                  <Grid
+                    className=" cancellation-content-cus "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">0 hours to 72 hours</Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Adult : Airline Policy + 200 BDT
+                      </Typography>
+                    </Grid>
+                  </Grid>
+
+                  <Grid
+                    className=" cancellation-content-cus2  "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        72 hours to 335 hours
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Adult : Airline Policy + 200 BDT
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    className="cancellation-content"
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">Time Frame </Typography>
+                      <Typography variant="h4">
+                        (From Scheduled Flight Departure)
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Airline Fee + Flyfarint Fee{" "}
+                      </Typography>
+                      <Typography variant="h4">(Per Passenger)</Typography>
+                    </Grid>
+                  </Grid>
+
+                  <Grid
+                    className="cancellation-content-cus3 "
+                    container
+                    columns={{ xs: 4, sm: 8, md: 12 }}
+                  >
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">All Flight Departure</Typography>
+                    </Grid>
+
+                    <Grid item xs={4} sm={4} md={6}>
+                      <Typography variant="h4">
+                        Adult : Airline Policy + No-Show Charge + 200 BDT
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+                    <Grid item xs={12} sm={12} md={12}>
+                      <Typography
+                        fontSize={"12px"}
+                        border="1px solid var(--primary-color)"
+                        py={1}
+                        px={2}
+                        my={1}
+                        style={{ color: "var(--sabre)" }}
+                      >
+                        *Important: This destination may have COVID-19 travel
+                        restriction in place, including specific restriction for
+                        loading Check any nation,local and health advisories for
+                        this destination before you book.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </TabPanel>
+                {/* <TabPanel value="6" className="tab-class">
+                  <Box className="tab-table" sx={{ m: "5px 0px" }}>
+                    <Box className="flight-search-table">
+                      <table>
+                        <tr>
+                          <th>Flight</th>
+                          <th>Cabin</th>
+                          <th>Check-In</th>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            {to}-{from}
+                          </td>
+                          <td>
+                            {flightData.system === "Sabre" ? (
+                              <>Economy</>
+                            ) : flightData.system === "FlyHub" ? (
+                              <>Economy</>
+                            ) : (
+                              <>{flightData.class}</>
+                            )}
+                          </td>
+                          <td>{adultCount + childCount + infant}</td>
+                        </tr>
+                      </table>
+                    </Box>
+                  </Box>
+                </TabPanel> */}
+                {/*  //todo: Baggage*/}
+                <TabPanel value="5" className="tab-class">
+                  <Box className="tab-table" sx={{ m: "5px 0px" }}>
+                    <Box className="flight-search-table">
+                      <table>
+                        <tr>
+                          <th>Baggage</th>
+                          <th>Check-In</th>
+                          <th>Cabin</th>
+                        </tr>
+
+                        <tr>
+                          <td>Adult</td>
+                          <td>
+                            {flightData?.bags === "3" ||
+                            flightData?.bags === "2" ||
+                            flightData?.bags === "1" ? (
+                              <>{flightData?.bags?.split(" ")[0]} Piece</>
+                            ) : flightData?.bags === " " ? (
+                              <>0 Kg</>
+                            ) : (
+                              <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                            )}
+                          </td>
+                          <td>{flightData?.class}</td>
+                        </tr>
+                        {childCount > 0 && (
                           <tr>
-                            <td>Adult</td>
+                            <td>Child</td>
                             <td>
                               {flightData?.bags === "3" ||
                               flightData?.bags === "2" ||
@@ -5859,58 +5902,41 @@ const SingleFlight = ({
                                 <>{flightData?.bags?.split(" ")[0]} Piece</>
                               ) : flightData?.bags === " " ? (
                                 <>0 Kg</>
+                              ) : flightData?.bags.length === 6 ? (
+                                <>{flightData?.bags?.slice(2, 4) || 0} Kg </>
                               ) : (
                                 <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
                               )}
                             </td>
                             <td>{flightData?.class}</td>
                           </tr>
-                          {childCount > 0 && (
-                            <tr>
-                              <td>Child</td>
-                              <td>
-                                {flightData?.bags === "3" ||
-                                flightData?.bags === "2" ||
-                                flightData?.bags === "1" ? (
-                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                ) : flightData?.bags === " " ? (
-                                  <>0 Kg</>
-                                ) : flightData?.bags.length === 6 ? (
-                                  <>{flightData?.bags?.slice(2, 4) || 0} Kg </>
-                                ) : (
-                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                )}
-                              </td>
-                              <td>{flightData?.class}</td>
-                            </tr>
-                          )}
-                          {infant > 0 && (
-                            <tr>
-                              <td>Infant</td>
-                              <td>
-                                {flightData?.bags === "3" ||
-                                flightData?.bags === "2" ||
-                                flightData?.bags === "1" ? (
-                                  <>{flightData?.bags?.split(" ")[0]} Piece</>
-                                ) : flightData?.bags === " " ? (
-                                  <>0 Kg</>
-                                ) : flightData?.bags.length === 6 ? (
-                                  <>{flightData?.bags?.slice(4, 6) || 0} Kg </>
-                                ) : (
-                                  <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
-                                )}
-                              </td>
-                              <td>{flightData?.class}</td>
-                            </tr>
-                          )}
-                        </table>
-                      </Box>
+                        )}
+                        {infant > 0 && (
+                          <tr>
+                            <td>Infant</td>
+                            <td>
+                              {flightData?.bags === "3" ||
+                              flightData?.bags === "2" ||
+                              flightData?.bags === "1" ? (
+                                <>{flightData?.bags?.split(" ")[0]} Piece</>
+                              ) : flightData?.bags === " " ? (
+                                <>0 Kg</>
+                              ) : flightData?.bags.length === 6 ? (
+                                <>{flightData?.bags?.slice(4, 6) || 0} Kg </>
+                              ) : (
+                                <>{flightData?.bags?.slice(0, 2) || 0} Kg</>
+                              )}
+                            </td>
+                            <td>{flightData?.class}</td>
+                          </tr>
+                        )}
+                      </table>
                     </Box>
-                  </TabPanel>
-                </TabContext>
-              </Box>
+                  </Box>
+                </TabPanel>
+              </TabContext>
             </Box>
-          </Box>
+          </Container>
         )}
         {/* --------------Flight Details end------------ */}
       </Grid>

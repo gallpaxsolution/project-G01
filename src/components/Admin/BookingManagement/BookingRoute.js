@@ -3,7 +3,21 @@ import React, { useState } from "react";
 import Header from "../../Header/Header";
 import BookingAll from "../BookingPage/BookingAll";
 import BookingHold from "../BookingPage/BookingHold";
+import IssueRequest from "../BookingPage/IssueRequest";
+import Ticketed from "../BookingPage/Ticketed";
+import IssueRejected from "../BookingPage/IssueRejected";
 import "./BookingRoute.css";
+import ReissueRequest from "../BookingPage/ReissueRequest";
+import Reissued from "../BookingPage/Reissued";
+import ReissueRejected from "../BookingPage/ReissueRejected";
+import RefundRequest from "../BookingPage/RefundRequest";
+import Refund from "../BookingPage/Refund";
+import RefundRejected from "../BookingPage/RefundRejected";
+import VoidRequest from "../BookingPage/VoidRequest";
+import Voided from "../BookingPage/Voided";
+import VoidedRejected from "../BookingPage/VoidedRejected";
+import BookingFailed from "../BookingPage/BookingFailed";
+import BookingCancelled from "../BookingPage/BookingCancelled";
 
 const BookingRoute = () => {
   const [optionValue, setOptionValue] = useState("");
@@ -58,13 +72,27 @@ const BookingRoute = () => {
               <option value="Void In Processing">&nbsp;Void Request</option>
               <option value="Voided">&nbsp;Voided</option>
               <option value="Void Rejected">&nbsp;Void Rejected</option>
-              <option value="bookingfailed">&nbsp;Booking Failed</option>
+              <option value="Booking Failed">&nbsp;Booking Failed</option>
               <option value="cancelled">&nbsp;Cancelled</option>
             </select>
           </Grid>
         </Grid>
         {(optionValue === "all" || optionValue === "") && <BookingAll />}
         {optionValue === "hold" && <BookingHold />}
+        {optionValue === "Issue In Processing" && <IssueRequest />}
+        {optionValue === "Ticketed" && <Ticketed />}
+        {optionValue === "Issue Rejected" && <IssueRejected />}
+        {optionValue === "Reissue In Processing" && <ReissueRequest />}
+        {optionValue === "Reissued" && <Reissued />}
+        {optionValue === "Reissue Rejected" && <ReissueRejected />}
+        {optionValue === "Refund In Processing" && <RefundRequest />}
+        {optionValue === "Refunded" && <Refund />}
+        {optionValue === "Refund Rejected" && <RefundRejected />}
+        {optionValue === "Void In Processing" && <VoidRequest />}
+        {optionValue === "Voided" && <Voided />}
+        {optionValue === "Void Rejected" && <VoidedRejected />}
+        {optionValue === "Booking Failed" && <BookingFailed />}
+        {optionValue === "cancelled" && <BookingCancelled />}
       </Container>
     </Box>
   );

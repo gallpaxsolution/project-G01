@@ -1,8 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import commaNumber from "comma-number";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -85,8 +85,8 @@ const AirlinesNameSlider = ({
     slidesToScroll:
       uniqueAirlineNames.length < 1 ? uniqueAirlineNames.length : 1,
     arrows: true,
-    prevArrow: <ArrowCircleLeftIcon />,
-    nextArrow: <ArrowCircleRightIcon />,
+    prevArrow: <ArrowBackIosNewIcon />,
+    nextArrow: <ArrowForwardIosIcon />,
     responsive: [
       {
         breakpoint: 1450,
@@ -126,23 +126,18 @@ const AirlinesNameSlider = ({
             return (
               <Button key={index}>
                 <Box
-                  boxShadow={"0px 0px 4px rgba(42, 164, 218, 0.35)"}
-                  borderRadius="6px"
                   mx={1}
                   sx={{
+                    borderRight: "2px solid var(--secondary-color)",
                     height: "40px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     cursor: "pointer",
-                    transition: "all 0.5s ease-in-out",
-                    "&:hover": {
-                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                    },
                   }}
                   style={{
-                    backgroundColor: item.isActive ? "#edccd3" : "#fff",
-                    color: item.isActive ? "#fff" : "red",
+                    backgroundColor: "transparent",
+                    color: "var(--secondary-color)",
                   }}
                   onClick={() => {
                     handleflightCarear(item.careerName);
@@ -152,12 +147,7 @@ const AirlinesNameSlider = ({
                     src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${item.career}.png`}
                     width="30px"
                     height="30px"
-                    alt="flight icon"
-                    style={{
-                      borderLeft: "2px solid #003566",
-                      borderRight: "2px solid #dc143c",
-                      borderRadius: "100%",
-                    }}
+                    alt="flight-icon"
                   />
                   <Box>
                     <Typography

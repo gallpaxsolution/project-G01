@@ -1,11 +1,11 @@
 .airlines-slider .slick-prev {
-  color: #dc143c;
+  color: var(--gray);
   left: 0px;
   z-index: 1;
 }
 
 .airlines-slider .slick-next {
-  color: #003566;
+  color: var(--gray);
   z-index: 1;
   right: 0px;
 }

@@ -7,16 +7,11 @@
 .select-form-control .MuiSelect-icon {
   color: #fff !important;
 }
-.flight-details-btn .MuiTabScrollButton-root {
-  color: #fff !important;
-}
 
 .select-form-control .MuiSelect-icon {
   color: #fff !important;
 }
-.tab-list-width {
-  margin: auto !important;
-}
+
 .segment-2 {
   padding: 20px 20px 20px 30px;
   margin: auto !important;
@@ -173,14 +168,6 @@
   color: #fff;
 }
 
-.flight-details-btn .css-o4b71y-MuiAccordionSummary-content {
-  min-height: 0px !important;
-  padding-right: 40px;
-  justify-content: end !important;
-}
-.accordion-cursor .MuiAccordionSummary-root {
-  cursor: auto !important;
-}
 .custom-a {
   background-color: white;
   color: white;
@@ -191,10 +178,6 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 25px;
   border-radius: 10px;
-}
-
-.accordian-center .css-1telup9 {
-  margin: auto !important;
 }
 .flight-details {
   margin-bottom: 0px;
@@ -352,21 +335,10 @@
 
 /*  tab list style */
 
-.tablist-btn button {
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 10px;
-}
 .flight-search-accordion .MuiTabs-root {
   margin-top: 10px;
   background: linear-gradient(121.52deg, #5d7f9e 0%, #003566 77.49%);
   border-radius: 5px;
-}
-
-.tab-list-width .Mui-selected {
-  color: #fff !important;
-  background-color: #dc143c !important;
-  font-weight: 600;
 }
 
 /* .css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
@@ -437,7 +409,7 @@
 }
 
 .border-content span {
-  background-color: crimson;
+  background-color: var(--primary-color);
   color: #fff;
   padding: 2px 0px;
   border-radius: 20px;
@@ -451,7 +423,7 @@
 }
 
 .border-content-round span {
-  background-color: crimson;
+  background-color: var(--primary-color);
   color: #fff;
   padding: 2px 0px;
   border-radius: 20px;
@@ -545,11 +517,10 @@
   width: 100%;
 }
 .flight-search-table {
-  /* overflow: x; */
   overflow: auto;
 }
 .flight-search-table table th {
-  background-color: #dc143c !important;
+  background-color: var(--primary-color);
   padding: 8px;
   text-align: center;
   color: #fff;
@@ -559,7 +530,14 @@
   text-align: center;
 }
 .flight-search-table tr:nth-child(even) {
-  background-color: #ececed;
+  background-color: var(--gray);
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+.flight-search-table tr:nth-child(odd) {
+  background-color: var(--white);
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .botom-service span {
@@ -717,9 +695,7 @@
   .fight-detail-icon {
     display: none;
   }
-  .tablist-btn button {
-    font-size: 10px;
-  }
+
   /* Tab List button click after style */
   .single-flight-details img {
     display: none;
@@ -749,11 +725,7 @@
   .botom-service span {
     font-size: 9px;
   }
-  .tab-list-width {
-    overflow: hidden;
-    /* padding: 10px; */
-    /* width: 340px; */
-  }
+
   #b-btn {
     display: none;
   }
@@ -908,9 +880,6 @@
   .flight-heading .book-now-btn {
     margin: 10px 10px 0px 0px;
   }
-  .flight-heading .flight-details-btn {
-    margin-top: 10px;
-  }
 
   .acordion-btn button {
     display: block;
@@ -957,10 +926,6 @@
   }
 
   .flight-content-detail h5 {
-    font-size: 12px;
-  }
-
-  .tablist-btn button {
     font-size: 12px;
   }
 
@@ -1066,10 +1031,6 @@
     font-size: 12px;
   }
   .border-content-round span {
-    font-size: 12px;
-  }
-
-  .tablist-btn button {
     font-size: 12px;
   }
 
