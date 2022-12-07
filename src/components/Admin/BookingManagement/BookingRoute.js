@@ -30,7 +30,6 @@ const BookingRoute = () => {
       {/* <Container maxWidth="lg">
         <Header></Header>
       </Container> */}
-
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
         <Grid container justifyContent={"space-between"} alignItems={"center"}>
           <Grid item xs={6} sm={6} md={6}>

@@ -48,39 +48,44 @@ const DepositeTabs = () => {
   };
   return (
     <Box>
-      <Container  maxWidth="lg" style={{ marginTop: "50px" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={value}
-          
-          onChange={handleChange}
-          sx={{background:'#FFFFFF'}}
-        >
-          <Tab sx={{color:'#2564B8'}} label="All" {...a11yProps(0)} />
-          <Tab sx={{color:'#2564B8'}} label="Cash" {...a11yProps(1)} />
-          <Tab sx={{color:'#2564B8'}} label="Cheque" {...a11yProps(2)} />
-          <Tab sx={{color:'#2564B8'}} label="Bank Transfer" {...a11yProps(3)} />
-          <Tab sx={{color:'#2564B8'}} label="Mobile Banking" {...a11yProps(4)} />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-      <DepositTabsItems/>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-      <DepositTabsItems/>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-      <DepositTabsItems/>
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-      <DepositTabsItems/>
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-      <DepositTabsItems/>
-      </TabPanel>
 
-      </Container>
-
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            sx={{ background: "#FFFFFF" }}
+          >
+            <Tab sx={{ color: "#2564B8" }} label="All" {...a11yProps(0)} />
+            <Tab sx={{ color: "#2564B8" }} label="Cash" {...a11yProps(1)} />
+            <Tab sx={{ color: "#2564B8" }} label="Cheque" {...a11yProps(2)} />
+            <Tab
+              sx={{ color: "#2564B8" }}
+              label="Bank Transfer"
+              {...a11yProps(3)}
+            />
+            <Tab
+              sx={{ color: "#2564B8" }}
+              label="Mobile Banking"
+              {...a11yProps(4)}
+            />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <DepositTabsItems />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <DepositTabsItems />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <DepositTabsItems />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <DepositTabsItems />
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          <DepositTabsItems />
+        </TabPanel>
+  
     </Box>
   );
 };

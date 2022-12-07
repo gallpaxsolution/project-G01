@@ -39,7 +39,7 @@ const SignIn = () => {
                     placeholder="Enter Your Username"
                   />
                 </Box>
-                <Box className="signInInput1" mb={1}>
+                <Box className="signInInput1" mb={2}>
                   <input
                     type="password"
                     style={{
@@ -89,11 +89,9 @@ const SignIn = () => {
                     </label>
                   </Box>
                 </Box>
-
                 <Box className="loginBtn1">
                   <button>Login</button>
                 </Box>
-
                 <Box mt={2}>
                   <Typography style={{ color: "#FFA84D", fontSize: "14px" }}>
                     Don not have a account or Register as agent{" "}
