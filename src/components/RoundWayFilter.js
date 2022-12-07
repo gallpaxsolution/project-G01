@@ -268,7 +268,7 @@ const RoundWayFilter = ({
             fontSize: "18px",
           }}
         >
-          FILTER
+          Sort & Filter
         </Typography>
         <Typography
           onClick={handleResetBtn}

@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Tooltip, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import commaNumber from "comma-number";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -118,58 +118,71 @@ const AirlinesNameSlider = ({
     ],
   };
   return (
-    <div className="airlines-slider">
+    <div
+      className="airlines-slider"
+      style={{
+        background: "rgba(var(--primary-rgb),.5)",
+        width: "100%",
+        height: "100%",
+      }}
+    >
       <Slider {...settings}>
         {uniqueAirlineNames
           .sort((a, b) => a.clientPrice - b.clientPrice)
           .map((item, index) => {
             return (
               <Button key={index}>
-                <Box
-                  mx={1}
-                  sx={{
-                    borderRight: "2px solid var(--secondary-color)",
-                    height: "40px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    cursor: "pointer",
-                  }}
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "var(--secondary-color)",
-                  }}
-                  onClick={() => {
-                    handleflightCarear(item.careerName);
-                  }}
-                >
-                  <img
-                    src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${item.career}.png`}
-                    width="30px"
-                    height="30px"
-                    alt="flight-icon"
-                  />
-                  <Box>
-                    <Typography
-                      marginX={2}
-                      fontSize="12px"
-                      className="activecolor"
-                      color={"crimson"}
-                      fontWeight={500}
-                    >
-                      {item.career}
-                    </Typography>
-                    <Typography
-                      marginX={2}
-                      fontSize="12px"
-                      className="activecolor"
-                      color={"#003566"}
-                      fontWeight={600}
-                    >
-                      {commaNumber(item.clientPrice)}
-                    </Typography>
+                <Tooltip title={item.careerName}>
+                  <Box
+                    mx={1}
+                    sx={{
+                      borderRight: "2px solid var(--secondary-color)",
+                      height: "40px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      cursor: "pointer",
+                    }}
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "var(--secondary-color)",
+                    }}
+                    onClick={() => {
+                      handleflightCarear(item.careerName);
+                    }}
+                  >
+                    <img
+                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${item.career}.png`}
+                      alt="flight-icon"
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        border: "2px solid var(--white)",
+                        borderRadius: "100%",
+                      }}
+                    />
+                    <Box>
+                      <Typography
+                        marginX={2}
+                        fontSize="12px"
+                        className="activecolor"
+                        color={"crimson"}
+                        fontWeight={500}
+                      >
+                        {item.career}
+                      </Typography>
+                      <Typography
+                        marginX={2}
+                        fontSize="12px"
+                        className="activecolor"
+                        color={"#003566"}
+                        fontWeight={600}
+                      >
+                        {commaNumber(item.clientPrice)}
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
+                </Tooltip>
               </Button>
             );
           })}

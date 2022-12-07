@@ -1,4 +1,3 @@
-// import { Button } from "@coreui/coreui";
 import { Button, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React, { useState } from "react";
@@ -30,7 +29,6 @@ const RoundSingleFlight = (props) => {
   const [flightDetails, setFlightDetails] = useState(false);
   const [allFlights, setAllFlight] = useState(true);
   const navigate = useNavigate();
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -125,11 +123,6 @@ const RoundSingleFlight = (props) => {
             clientFare,
           },
         });
-  };
-
-  const calParcent = (num, percentage) => {
-    const result = num * (percentage / 100);
-    return parseFloat(result.toFixed(0));
   };
 
   return (

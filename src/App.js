@@ -53,13 +53,11 @@ function App() {
             <Route path="/addStaff" element={<AddStaff/>} />
 
             {/* -----KB------  */}
-
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/bookingdetails" element={<BookingDetails />} />
             <Route path="/flightdetail" element={<FlightDetails />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/mystaff" element={<MyStaff />} />
-
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}
 

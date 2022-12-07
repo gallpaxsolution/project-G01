@@ -817,7 +817,6 @@ const SearchResult = () => {
                     style={{
                       width: "100%",
                       height: "50px",
-                      background: "rgba(var(--primary-rgb),.5)",
                     }}
                   >
                     <AirlinesNameSlider
