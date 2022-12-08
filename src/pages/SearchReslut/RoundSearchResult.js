@@ -160,7 +160,7 @@ const RoundSearchResult = () => {
     setFromSearchDate(yesterdayDepartureDate);
     setToSearchDate(yesterdayReturnDate);
     setIsLoaded(false);
-    let url = `https://api.flyfarint.net/v.1.0.0/AirSearch/return.php?tripType=${tripType}&journeyfrom=${fromSendData?.replace(
+    let url = `https://api.flyfarint.com/v.1.0.0/AirSearch/return.php?tripType=${tripType}&journeyfrom=${fromSendData?.replace(
       /\s+/g,
       ""
     )}&journeyto=${toSendData}&departuredate=${new Date(
@@ -219,7 +219,7 @@ const RoundSearchResult = () => {
     setIsNextCliked(true);
     setFromSearchDate(tomorrowDepartureDate);
     setToSearchDate(tomorrowReturnDate);
-    let url = `https://api.flyfarint.net/v.1.0.0/AirSearch/return.php?tripType=${tripType}&journeyfrom=${fromSendData?.replace(
+    let url = `https://api.flyfarint.com/v.1.0.0/AirSearch/return.php?tripType=${tripType}&journeyfrom=${fromSendData?.replace(
       /\s+/g,
       ""
     )}&journeyto=${toSendData}&departuredate=${new Date(
@@ -294,7 +294,7 @@ const RoundSearchResult = () => {
     setIsNextCliked(false);
     setIsLoaded(false);
     let subscription = true;
-    let url = `https://api.flyfarint.net/v.1.0.0/AirSearch/return.php?tripType=${tripType}&journeyfrom=${fromSendData?.replace(
+    let url = `https://api.flyfarint.com/v.1.0.0/AirSearch/return.php?tripType=${tripType}&journeyfrom=${fromSendData?.replace(
       /\s+/g,
       ""
     )}&journeyto=${toSendData}&departuredate=${new Date(
