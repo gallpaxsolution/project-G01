@@ -29,6 +29,8 @@ import MyStaff from "./components/Admin/MyAccount/MyStaff";
 import GeneralLedgerRoute from "./pages/General Ledger/GeneralLedgerRoute";
 import AddDepositRoute from "./components/Deposit/AddDepositRoute/AddDepositRoute";
 import DashboardTrack from "./components/Dashboard/DashboardTrack/DashboardTrack";
+import GeneralLedgerReport from './components/GeneralLedger/GeneralLedgerReport';
+
 
 function App() {
   return (
@@ -64,6 +66,8 @@ function App() {
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/bankaccount" element={<BankAccount />} />
             <Route path="/addbankaccount" element={<AddBank />} />
+            <Route path="/generalLedgerReport" element={<GeneralLedgerReport />} />
+
             <Route
               path="/generalledgerroute"
               element={<GeneralLedgerRoute />}
