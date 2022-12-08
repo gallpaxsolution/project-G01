@@ -1004,18 +1004,15 @@ const FlightInformation = (props) => {
                           <Grid container>
                             <Grid item lg={1}>
                               {/* //todo:plane animation part */}
-                              <Box className="round-segment-line0">
+                              <Box className="airline-animation">
                                 <span class="vertical-line"></span>
-                                <Box className="circle-0">
-                                  <CircleIcon
-                                    sx={{
-                                      color: "var(--secondary-color)",
-                                      fontSize: "15px",
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </Box>
-
+                                <CircleIcon
+                                  sx={{
+                                    color: "var(--secondary-color)",
+                                    fontSize: "15px",
+                                    cursor: "pointer",
+                                  }}
+                                />
                                 <Box className="round-segment-flight02">
                                   <FlightIcon
                                     style={{
