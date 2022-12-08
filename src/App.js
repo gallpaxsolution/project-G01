@@ -28,6 +28,7 @@ import AddStaff from "./components/GeneralLedger/AddStaff";
 import MyStaff from "./components/Admin/MyAccount/MyStaff";
 import GeneralLedgerRoute from "./pages/General Ledger/GeneralLedgerRoute";
 import AddDepositRoute from "./components/Deposit/AddDepositRoute/AddDepositRoute";
+import DashboardTrack from "./components/Dashboard/DashboardTrack/DashboardTrack";
 
 function App() {
   return (
@@ -77,6 +78,8 @@ function App() {
             
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
+            <Route path="/dashboardtrack" element={<DashboardTrack />} />
+            
           </Routes>
         </BrowserRouter>
       </AuthProvider>
