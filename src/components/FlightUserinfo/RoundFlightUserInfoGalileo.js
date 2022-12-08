@@ -526,7 +526,7 @@ const RoundFlightUserInfoGalileo = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoaded(false);
-    let url = "https://api.flyfarint.net/v.1.0.0/Galileo/AirBooking.php";
+    let url = "https://api.flyfarint.com/v.1.0.0/Galileo/AirBooking.php";
     e.target.reset();
     await fetch(url, {
       method: "POST",
@@ -570,7 +570,7 @@ const RoundFlightUserInfoGalileo = ({
             timelimit: subtractHours(3, new Date(limitTime)),
           };
           let url =
-            "https://api.flyfarint.net/v.1.0.0/AirBooking/PreBooking.php";
+            "https://api.flyfarint.com/v.1.0.0/AirBooking/PreBooking.php";
 
           fetch(url, {
             method: "POST",
@@ -585,7 +585,7 @@ const RoundFlightUserInfoGalileo = ({
               if (bookingDetails.status === "success") {
                 setIsLoaded(true);
                 let url =
-                  "https://api.flyfarint.net/v.1.0.0/AirMaterials/AddPax.php";
+                  "https://api.flyfarint.com/v.1.0.0/AirMaterials/AddPax.php";
                 let body = {
                   ...flightPassengerData,
                   bookingId: bookingDetails.BookingId,

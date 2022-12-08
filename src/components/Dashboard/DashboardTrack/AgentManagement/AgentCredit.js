@@ -28,7 +28,7 @@ const AgentCredit = () => {
   const [isLoading, setIsloading] = useState(false);
   useEffect(() => {
     setIsloading(false);
-    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
+    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
         const agentRejected = data?.TotalAgentData.filter((data) => {
@@ -52,7 +52,7 @@ const AgentCredit = () => {
     setOpen(true);
     setAgentId(agentId);
     await fetch(
-      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${agentId}`
+      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${agentId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -63,7 +63,7 @@ const AgentCredit = () => {
   const handleClose = () => setOpen(false);
 
   const sendNote = () => {
-    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: agentId,

@@ -33,7 +33,7 @@ const BookingFailed = () => {
 
   useEffect(() => {
     setIsloading(false);
-    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Booking/failed.php?all")
+    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Booking/failed.php?all")
       .then((res) => res.json())
       .then((data) => {
         setBookingData(data);
@@ -42,7 +42,7 @@ const BookingFailed = () => {
       });
 
     // const interval = setInterval(() => {
-    //   const url = "https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php";
+    //   const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
     //   fetch(url)
     //     .then((res) => res.json())
     //     .then((data) => {
@@ -96,7 +96,7 @@ const BookingFailed = () => {
     setOpen(true);
     setBookingId(bookingId);
     await fetch(
-      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
+      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -109,7 +109,7 @@ const BookingFailed = () => {
   const sendNote = () => {
     console.log(bookingId);
     console.log(bookingId, note, user?.user?.username);
-    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: bookingId,

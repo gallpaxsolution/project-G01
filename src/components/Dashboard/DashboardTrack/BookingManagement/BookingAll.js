@@ -42,7 +42,6 @@ const BookingAll = () => {
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
-
     setIsloading(false);
     fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
@@ -66,14 +65,13 @@ const BookingAll = () => {
     // }, [1000]);
 
     // setIsloading(false);
-    // fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
+    // fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
     //   .then((res) => res.json())
     //   .then((data) => {
     //     setBookingData(data?.TotalBookingData);
     //     data?.TotalBookingData.map((item, index) => (item.serial = index + 1));
     //     setIsloading(true);
     //   });
-
   }, []);
 
   const shortEnglishHumanizer = humanizeDuration.humanizer({
@@ -113,7 +111,7 @@ const BookingAll = () => {
     setOpen(true);
     setBookingId(bookingId);
     await fetch(
-      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
+      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -125,7 +123,7 @@ const BookingAll = () => {
 
   const sendNote = () => {
     console.log(bookingId, note, user?.user?.username);
-    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: bookingId,

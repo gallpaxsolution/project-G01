@@ -45,7 +45,7 @@ function Row(props) {
 
   const updateStaffInfoGet = async (staffId) => {
     fetch(
-      `https://api.flyfarint.net/v.1.0.0//Staff/all.php?search=id&agentId=FFA1042&staffId=FFST1006`
+      `https://api.flyfarint.com/v.1.0.0//Staff/all.php?search=id&agentId=FFA1042&staffId=FFST1006`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -61,7 +61,7 @@ function Row(props) {
   };
 
   const updateStaffData = async () => {
-    let url = `https://api.flyfarint.net/v.1.0.0/Staff/edit.php`;
+    let url = `https://api.flyfarint.com/v.1.0.0/Staff/edit.php`;
     let body = JSON.stringify({
       staffId: staffId,
       Name: staffName,
@@ -113,7 +113,7 @@ function Row(props) {
   // delete functionality handle here
   const deleteRequest = () => {
     fetch(
-      `https://api.flyfarint.net/v.1.0.0/Staff/delete.php?staffId=${staffId}&agentId=${agentID}`
+      `https://api.flyfarint.com/v.1.0.0/Staff/delete.php?staffId=${staffId}&agentId=${agentID}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -437,7 +437,7 @@ const MyStaff = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmit(true);
-    let url = "https://api.flyfarint.net/v.1.0.0/Staff/add.php";
+    let url = "https://api.flyfarint.com/v.1.0.0/Staff/add.php";
     let body = JSON.stringify({
       agentId: agentID,
       Name: name,
@@ -498,7 +498,7 @@ const MyStaff = () => {
 
   useEffect(() => {
     setIsLoading(false);
-    let url = `https://api.flyfarint.net/v.1.0.0//Staff/all.php?search=id&agentId=FFA1042&staffId=FFST1006`;
+    let url = `https://api.flyfarint.com/v.1.0.0//Staff/all.php?search=id&agentId=FFA1042&staffId=FFST1006`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

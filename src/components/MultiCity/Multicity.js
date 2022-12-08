@@ -575,7 +575,7 @@ const Multicity = ({
     //   infant: infant,
     //   class: className,
     // });
-    // await fetch("https://api.flyfarint.net/v.1.0.0/AirSearch/savehistory.php", {
+    // await fetch("https://api.flyfarint.com/v.1.0.0/AirSearch/savehistory.php", {
     //   method: "POST",
     //   headers: {
     //     Accept: "application/json",

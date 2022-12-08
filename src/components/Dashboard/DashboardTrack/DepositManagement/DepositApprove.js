@@ -12,7 +12,7 @@ const DepositApprove = () => {
 
   useEffect(() => {
     setIsloading(false);
-    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
+    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
         const approveDepositData = data?.TotalDepositData.filter((data) => {
