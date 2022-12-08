@@ -12,7 +12,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Swal from "sweetalert2";
 // import Loader from "../../../../image/loader/Render.gif";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import secureLocalStorage from "react-secure-storage";
 import { format } from "date-fns";
@@ -535,14 +535,18 @@ const MyStaff = () => {
               bgcolor="#FFA84D"
               color={"#fff"}
               p={"7px 30px"}
-              onClick={handleOpen}
               style={{
                 cursor: "pointer",
                 borderRadius: "5px",
                 fontSize: "14px",
               }}
             >
-              ADD STAFF
+              <Link
+                to={"/addstaff"}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
+                Add Staff
+              </Link>
             </Typography>
           </Grid>
 

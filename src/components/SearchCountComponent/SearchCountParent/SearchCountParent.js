@@ -2,11 +2,13 @@ import { Box, Container, Typography } from "@mui/material";
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
+import "./SearchCountParent.css";
+
 const SearchCountParent = () => {
   return (
     <Box>
       <Container maxWidth="xl" style={{ marginTop: "50px" }}>
-        <Box>
+        <Box> 
           <Box>
             <Typography
               sx={{
