@@ -29,6 +29,7 @@ import MyStaff from "./components/Admin/MyAccount/MyStaff";
 import GeneralLedgerRoute from "./pages/General Ledger/GeneralLedgerRoute";
 import AddDepositRoute from "./components/Deposit/AddDepositRoute/AddDepositRoute";
 import DashboardTrack from "./components/Dashboard/DashboardTrack/DashboardTrack";
+
 import GeneralLedgerReport from "./components/GeneralLedger/GeneralLedgerReport";
 import SearchCountParent from "./components/SearchCountComponent/SearchCountParent/SearchCountParent";
 import TotalStateCount from "./components/SearchCountComponent/StateSearch/TotalStateCount";
@@ -37,6 +38,10 @@ import YesterdayCount from "./components/SearchCountComponent/StateSearch/Yester
 import Last7DaysCount from "./components/SearchCountComponent/StateSearch/Last7DaysCount";
 import Last15DaysCount from "./components/SearchCountComponent/StateSearch/Last15DaysCount";
 import Last1MonthCount from "./components/SearchCountComponent/StateSearch/Last1MonthCount";
+
+// import GeneralLedgerReport from './components/GeneralLedger/GeneralLedgerReport';
+import AgentManagement from "./pages/AgentManagement/AgentManagement";
+import PaymentManagement from "./pages/PaymentManagement/PaymentManagement";
 
 function App() {
   return (
@@ -72,10 +77,18 @@ function App() {
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/bankaccount" element={<BankAccount />} />
             <Route path="/addbankaccount" element={<AddBank />} />
+
             <Route
               path="/generalLedgerReport"
               element={<GeneralLedgerReport />}
             />
+
+            <Route
+              path="/generalLedgerReport"
+              element={<GeneralLedgerReport />}
+            />
+            <Route path="/agentManagement" element={<AgentManagement />} />
+            <Route path="/paymentManagement" element={<PaymentManagement />} />
 
             <Route
               path="/generalledgerroute"
@@ -90,7 +103,7 @@ function App() {
 
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
-            
+
             {/* <Route path="/dashboardtrack" element={<DashboardTrack />} /> */}
 
             {/*  search count all route */}

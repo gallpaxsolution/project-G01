@@ -27,6 +27,7 @@ import FlightUserInfoSabre from "../../components/FlightUserinfo/FlightUserInfoS
 import Loader from "../../images/loader/Render.gif";
 import NotFound from "../../images/undraw/undraw_not_found_re_bh2e.svg";
 import FlightInfoDetails from "../../components/FlightInfoDetails/FlightInfoDetails";
+import FlightIcon from "@mui/icons-material/Flight";
 import "./FlightInformation.css";
 
 const HtmlTooltip = styled(({ className, ...propss }) => (
@@ -523,1147 +524,1130 @@ const FlightInformation = (props) => {
       {Object.keys(loadData).length !== 0 ? (
         <Container>
           <Grid container>
-            <Grid item xs={12} sm={9} md={9} px={"24px"}>
-              <Box width={"100%"}>
-                <Accordion defaultExpanded={true} className="flight-accordian1">
-                  <AccordionSummary
-                    style={{ padding: "0px" }}
-                    expandIcon={<AiFillCaretDown color="#003566" />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography
-                      sx={{
-                        px: "0px",
-                        mx: "0px",
-                        color: "#003566",
-                        fontSize: "18px",
-                        fontWeight: 600,
-                      }}
+            <Grid item xs={12} sm={9} md={12} lg={12}>
+              <Grid container>
+                <Grid item xs={12} sm={3} md={6} lg={6}>
+                  <Box className="flight-accordian1">
+                    <Box style={{ padding: "5px 0" }}>
+                      <Typography
+                        sx={{
+                          px: "0px",
+                          mx: "0px",
+                          color: "#003566",
+                          fontSize: "24px",
+                          fontWeight: 600,
+                        }}
+                      >
+                        Flight Information Details
+                      </Typography>
+                    </Box>
+                    <Box
+                      style={{ padding: "0px" }}
+                      className="flight-accordian2"
                     >
-                      Flight Itinerary Details
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails
-                    style={{ padding: "0px" }}
-                    className="flight-accordian2"
-                  >
-                    {location.state?.flightData.segment === "3" ? (
-                      <Box mb={2}>
-                        <Typography
-                          sx={{
-                            backgroundColor: "crimson",
-                            width: "20%",
-                            fontSize: "12px",
-                            fontWeight: 500,
-                            color: "#fff",
-                            marginBottom: "10px",
-                            p: "5px",
-                            textAlign: "center",
-                            borderRadius: "10px 0px",
-                          }}
-                        >
-                          Departure Flight
-                        </Typography>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid item xs={6}>
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                color: "#000",
-                              }}
-                            >
-                              {location.state?.flightData?.departure} -{" "}
-                              {location.state?.flightData?.departureTime}
-                            </Typography>
+                      {location.state?.flightData.segment === "3" ? (
+                        <Box mb={2}>
+                          {/* <Typography
+                            sx={{
+                              backgroundColor: "crimson",
+                              width: "20%",
+                              fontSize: "12px",
+                              fontWeight: 500,
+                              color: "#fff",
+                              marginBottom: "10px",
+                              p: "5px",
+                              textAlign: "center",
+                              borderRadius: "10px 0px",
+                            }}
+                          >
+                            Departure Flight
+                          </Typography> */}
+                          <Grid container justifyContent={"space-between"}>
+                            <Grid item xs={6}>
+                              <Typography
+                                sx={{
+                                  fontSize: "20px",
+                                  fontWeight: 600,
+                                  color: "#000",
+                                }}
+                              >
+                                {location.state?.flightData?.departure} -{" "}
+                                {location.state?.flightData?.departureTime}
+                              </Typography>
+                            </Grid>
+                            <Grid item xs={6} textAlign="end">
+                              <Typography
+                                sx={{
+                                  fontSize: "20px",
+                                  fontWeight: 600,
+                                  color: "#000",
+                                }}
+                              >
+                                {location.state?.flightData?.arrival} -{" "}
+                                {location.state?.flightData?.arrivalTime}
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={6} textAlign="end">
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                color: "#000",
-                              }}
-                            >
-                              {location.state?.flightData?.arrival} -{" "}
-                              {location.state?.flightData?.arrivalTime}
-                            </Typography>
+                          <Grid container justifyContent={"space-between"}>
+                            <Grid>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 600,
+                                  color: "#003566",
+                                }}
+                              >
+                                {
+                                  location.state?.flightData?.segments[0]?.departureLocation?.split(
+                                    ","
+                                  )[0]
+                                }
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 500,
+                                  color: "#C7C7C7",
+                                }}
+                              >
+                                {location.state?.flightData?.departureDate}
+                              </Typography>
+                            </Grid>
+
+                            <Grid textAlign="center">
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 600,
+                                  color: "#003566",
+                                }}
+                              >
+                                {
+                                  location.state?.flightData?.segments[0]?.arrivalLocation?.split(
+                                    ","
+                                  )[0]
+                                }
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 500,
+                                  color: "#C7C7C7",
+                                }}
+                              >
+                                {departureTime1?.slice(0, 16)}
+                              </Typography>
+                            </Grid>
+                            <Grid textAlign="center">
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 600,
+                                  color: "#003566",
+                                }}
+                              >
+                                {
+                                  location.state?.flightData?.segments[1]?.arrivalLocation?.split(
+                                    ","
+                                  )[0]
+                                }
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 500,
+                                  color: "#C7C7C7",
+                                }}
+                              >
+                                {departureTime2?.slice(0, 16)}
+                              </Typography>
+                            </Grid>
+                            <Grid textAlign="end">
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 600,
+                                  color: "#003566",
+                                }}
+                              >
+                                {
+                                  location.state?.flightData?.segments[2]?.arrivalLocation?.split(
+                                    ","
+                                  )[0]
+                                }
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 500,
+                                  color: "#C7C7C7",
+                                }}
+                              >
+                                {location.state?.flightData?.arrivalDate}
+                              </Typography>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid>
+                          <Grid container justifyContent={"space-around"}>
                             <Typography
                               sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
                                 color: "#003566",
+                                fontSize: "13px",
+                                fontWeight: 500,
                               }}
                             >
                               {
-                                location.state?.flightData?.segments[0]?.departureLocation?.split(
-                                  ","
-                                )[0]
+                                location.state?.flightData?.segments[0]
+                                  ?.flightduration
                               }
                             </Typography>
                             <Typography
                               sx={{
+                                color: "#003566",
                                 fontSize: "13px",
                                 fontWeight: 500,
-                                color: "#C7C7C7",
                               }}
                             >
-                              {location.state?.flightData?.departureDate}
+                              {
+                                location.state?.flightData?.segments[1]
+                                  ?.flightduration
+                              }
+                            </Typography>
+                            <Typography
+                              sx={{
+                                color: "#003566",
+                                fontSize: "13px",
+                                fontWeight: 500,
+                              }}
+                            >
+                              {
+                                location.state?.flightData?.segments[2]
+                                  ?.flightduration
+                              }
                             </Typography>
                           </Grid>
 
-                          <Grid textAlign="center">
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[0]?.arrivalLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {departureTime1?.slice(0, 16)}
-                            </Typography>
-                          </Grid>
-                          <Grid textAlign="center">
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[1]?.arrivalLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {departureTime2?.slice(0, 16)}
-                            </Typography>
-                          </Grid>
-                          <Grid textAlign="end">
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[2]?.arrivalLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {location.state?.flightData?.arrivalDate}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-around"}>
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontSize: "13px",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {
-                              location.state?.flightData?.segments[0]
-                                ?.flightduration
-                            }
-                          </Typography>
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontSize: "13px",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {
-                              location.state?.flightData?.segments[1]
-                                ?.flightduration
-                            }
-                          </Typography>
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontSize: "13px",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {
-                              location.state?.flightData?.segments[2]
-                                ?.flightduration
-                            }
-                          </Typography>
-                        </Grid>
+                          <Box py={2} className="roundway-animation">
+                            <div className="round-segment-line0">
+                              <div className="round-segment-circle">
+                                <div className="circle-0">
+                                  <CircleIcon
+                                    sx={{
+                                      color: "#c7c7c7",
+                                      fontSize: "15px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </div>
+                                <HtmlTooltip
+                                  title={
+                                    <React.Fragment>
+                                      <Typography
+                                        sx={{ color: "#fff", fontSize: "10px" }}
+                                      >
+                                        Layover Time:{" "}
+                                        {
+                                          location?.state?.flightData?.transit
+                                            ?.transit1
+                                        }
+                                      </Typography>
+                                    </React.Fragment>
+                                  }
+                                  followCursor
+                                >
+                                  <span>
+                                    <div className="round-segment-stop"></div>
+                                  </span>
+                                </HtmlTooltip>
+                                <HtmlTooltip
+                                  title={
+                                    <React.Fragment>
+                                      <Typography
+                                        sx={{ color: "#fff", fontSize: "10px" }}
+                                      >
+                                        Layover Time:{" "}
+                                        {
+                                          location?.state?.flightData?.transit
+                                            ?.transit2
+                                        }
+                                      </Typography>
+                                    </React.Fragment>
+                                  }
+                                  followCursor
+                                >
+                                  <span>
+                                    <div className="round-segment-stop"></div>
+                                  </span>
+                                </HtmlTooltip>
 
-                        <Box py={2} className="roundway-animation">
-                          <div className="round-segment-line0">
-                            <div className="round-segment-circle">
-                              <div className="circle-0">
-                                <CircleIcon
-                                  sx={{
-                                    color: "#c7c7c7",
-                                    fontSize: "15px",
-                                    cursor: "pointer",
-                                  }}
-                                />
+                                <div className="circle-0">
+                                  <CircleIcon
+                                    sx={{
+                                      color: "#c7c7c7",
+                                      fontSize: "15px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </div>
                               </div>
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      Layover Time:{" "}
-                                      {
-                                        location?.state?.flightData?.transit
-                                          ?.transit1
-                                      }
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <div className="round-segment-stop"></div>
-                                </span>
-                              </HtmlTooltip>
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      Layover Time:{" "}
-                                      {
-                                        location?.state?.flightData?.transit
-                                          ?.transit2
-                                      }
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
-                              >
-                                <span>
-                                  <div className="round-segment-stop"></div>
-                                </span>
-                              </HtmlTooltip>
-                              {/* <div className="round-segment-stop"></div>
-                                  <div className="round-segment-stop"></div> */}
-                              <div className="circle-0">
-                                <CircleIcon
-                                  sx={{
-                                    color: "#c7c7c7",
-                                    fontSize: "15px",
-                                    cursor: "pointer",
-                                  }}
-                                />
+                              <div className="round-segment-flight03">
+                                {/* <FlightIcon /> */}
+                                <img src={anemy} width="50px" alt="flight" />
                               </div>
                             </div>
-                            <div className="round-segment-flight03">
-                              {/* <FlightIcon /> */}
-                              <img src={anemy} width="50px" alt="flight" />
-                            </div>
-                          </div>
-                        </Box>
+                          </Box>
 
-                        <Grid container justifyContent={"space-around"} mb={2}>
-                          <Grid>
-                            <Grid container alignItems={"center"}>
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[0]?.marketingcareer}.png`}
-                                width="40px"
-                                height="40px"
-                                className={
-                                  location.state?.flightData?.system === "Sabre"
-                                    ? "img-border-sabre"
-                                    : location.state?.flightData?.system ===
-                                      "FlyHub"
-                                    ? "img-border-flyhub"
-                                    : "img-border-galileo"
-                                }
-                                alt="flight icon"
-                              />{" "}
-                              &nbsp;
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingcareerName
-                                  }
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontSize: "13px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingcareer
-                                  }
-                                  &nbsp;
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingflight
-                                  }
-                                </Typography>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                          <Grid>
-                            <Grid container alignItems={"center"}>
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[1]?.marketingcareer}.png`}
-                                width="40px"
-                                height="40px"
-                                className={
-                                  location.state?.flightData?.system === "Sabre"
-                                    ? "img-border-sabre"
-                                    : location.state?.flightData?.system ===
-                                      "FlyHub"
-                                    ? "img-border-flyhub"
-                                    : "img-border-galileo"
-                                }
-                                alt="flight icon"
-                              />
-                              &nbsp;
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[1]
-                                      ?.marketingcareerName
-                                  }
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontSize: "13px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[1]
-                                      ?.marketingcareer
-                                  }
-                                  &nbsp;
-                                  {
-                                    location.state?.flightData?.segments[1]
-                                      ?.marketingflight
-                                  }
-                                </Typography>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                          <Grid>
-                            <Grid container alignItems={"center"}>
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[2]?.marketingcareer}.png`}
-                                width="40px"
-                                height="40px"
-                                className={
-                                  location.state?.flightData?.system === "Sabre"
-                                    ? "img-border-sabre"
-                                    : location.state?.flightData?.system ===
-                                      "FlyHub"
-                                    ? "img-border-flyhub"
-                                    : "img-border-galileo"
-                                }
-                                alt="flight icon"
-                              />
-                              &nbsp;
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[2]
-                                      ?.marketingcareerName
-                                  }
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontSize: "13px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[2]
-                                      ?.marketingcareer
-                                  }
-                                  &nbsp;
-                                  {
-                                    location.state?.flightData?.segments[2]
-                                      ?.marketingflight
-                                  }
-                                </Typography>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-between"}>
                           <Grid
-                            md={6}
                             container
-                            justifyContent={"space-between"}
-                            alignItems="end"
+                            justifyContent={"space-around"}
+                            mb={2}
                           >
-                            <Typography
-                              sx={{
-                                color: "#000",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                              }}
-                            >
-                              Class: {location.state?.flightData?.class}
-                            </Typography>
-                            <Typography>
-                              {location.state?.flightData?.refundable ===
-                              "Refundable" ? (
-                                <Typography
-                                  sx={{
-                                    color: "green",
-                                    fontSize: "12px",
-                                  }}
-                                >
-                                  <>Refundable</>
-                                </Typography>
-                              ) : (
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                  }}
-                                >
-                                  Non Refundable
-                                </Typography>
-                              )}
-                            </Typography>
-
-                            <Typography
-                              sx={{
-                                color: "#000",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                              }}
-                            >
-                              <img src={seat1} width="18px" alt="seat" />{" "}
-                              {location.state?.flightData?.segments[0]?.seat}{" "}
-                              Seat
-                            </Typography>
+                            <Grid>
+                              <Grid container alignItems={"center"}>
+                                <img
+                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[0]?.marketingcareer}.png`}
+                                  width="40px"
+                                  height="40px"
+                                  className={`${location.state?.flightData?.system.toLowerCase()}`}
+                                  alt={`${location?.state?.flightData?.segments[0]?.marketingcareer}`}
+                                />{" "}
+                                &nbsp;
+                                <Box>
+                                  <Typography
+                                    sx={{
+                                      color: "#DC143C",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[0]
+                                        ?.marketingcareerName
+                                    }
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      color: "#003566",
+                                      fontSize: "13px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[0]
+                                        ?.marketingcareer
+                                    }
+                                    &nbsp;
+                                    {
+                                      location.state?.flightData?.segments[0]
+                                        ?.marketingflight
+                                    }
+                                  </Typography>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                            <Grid>
+                              <Grid container alignItems={"center"}>
+                                <img
+                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[1]?.marketingcareer}.png`}
+                                  width="40px"
+                                  height="40px"
+                                  className={`${location.state?.flightData?.system.toLowerCase()}`}
+                                  alt={`${location?.state?.flightData?.segments[1]?.marketingcareer}`}
+                                />
+                                &nbsp;
+                                <Box>
+                                  <Typography
+                                    sx={{
+                                      color: "#DC143C",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[1]
+                                        ?.marketingcareerName
+                                    }
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      color: "#003566",
+                                      fontSize: "13px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[1]
+                                        ?.marketingcareer
+                                    }
+                                    &nbsp;
+                                    {
+                                      location.state?.flightData?.segments[1]
+                                        ?.marketingflight
+                                    }
+                                  </Typography>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                            <Grid>
+                              <Grid container alignItems={"center"}>
+                                <img
+                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[2]?.marketingcareer}.png`}
+                                  width="40px"
+                                  height="40px"
+                                  className={`${location.state?.flightData?.system?.toLowerCase()}`}
+                                  alt={`${location.state?.flightData?.segments[2]?.marketingcareer}`}
+                                />
+                                &nbsp;
+                                <Box>
+                                  <Typography
+                                    sx={{
+                                      color: "#DC143C",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[2]
+                                        ?.marketingcareerName
+                                    }
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      color: "#003566",
+                                      fontSize: "13px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[2]
+                                        ?.marketingcareer
+                                    }
+                                    &nbsp;
+                                    {
+                                      location.state?.flightData?.segments[2]
+                                        ?.marketingflight
+                                    }
+                                  </Typography>
+                                </Box>
+                              </Grid>
+                            </Grid>
                           </Grid>
-                          <Grid item md={2.5} textAlign={"center"}>
+                          <Grid container justifyContent={"space-between"}>
+                            <Grid
+                              md={6}
+                              container
+                              justifyContent={"space-between"}
+                              alignItems="end"
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#000",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                Class: {location.state?.flightData?.class}
+                              </Typography>
+                              <Typography>
+                                {location.state?.flightData?.refundable ===
+                                "Refundable" ? (
+                                  <Typography
+                                    sx={{
+                                      color: "green",
+                                      fontSize: "12px",
+                                    }}
+                                  >
+                                    <>Refundable</>
+                                  </Typography>
+                                ) : (
+                                  <Typography
+                                    sx={{
+                                      color: "#DC143C",
+                                      fontSize: "12px",
+                                    }}
+                                  >
+                                    Non Refundable
+                                  </Typography>
+                                )}
+                              </Typography>
+
+                              <Typography
+                                sx={{
+                                  color: "#000",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                <img src={seat1} width="18px" alt="seat" />{" "}
+                                {location.state?.flightData?.segments[0]?.seat}{" "}
+                                Seat
+                              </Typography>
+                            </Grid>
+                            <Grid item md={2.5} textAlign={"center"}>
+                              <Typography
+                                sx={{
+                                  color: "#fff",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                  bgcolor: "#003566",
+                                  borderRadius: "12px 0px",
+                                  padding: "8px",
+                                }}
+                              >
+                                Flight Duration{" "}
+                                {location.state?.flightData?.flightduration}
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      ) : location.state?.flightData.segment === "2" ? (
+                        <Box>
+                          <Grid container>
+                            <Grid item lg={1}>
+                              {/* //todo:plane animation part */}
+                              <Box className="round-segment-line0">
+                                <span class="vertical-line"></span>
+                                <Box className="circle-0">
+                                  <CircleIcon
+                                    sx={{
+                                      color: "var(--secondary-color)",
+                                      fontSize: "15px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </Box>
+
+                                <Box className="round-segment-flight02">
+                                  <FlightIcon
+                                    style={{
+                                      color: "var(--gray)",
+                                      transform: "rotate(180deg)",
+                                    }}
+                                  />
+                                </Box>
+                              </Box>
+                            </Grid>
+                            <Grid item lg={11}>
+                              {/* //todo: literary details part */}
+                              <Grid container justifyContent={"space-between"}>
+                                <Grid>
+                                  <Typography
+                                    sx={{
+                                      fontSize: "20px",
+                                      fontWeight: 600,
+                                      color: "#000",
+                                    }}
+                                  >
+                                    {location.state?.flightData?.departure} -{" "}
+                                    {location.state?.flightData?.departureTime}
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      fontSize: "13px",
+                                      fontWeight: 600,
+                                      color: "#003566",
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[0]?.departureLocation?.split(
+                                        ","
+                                      )[0]
+                                    }
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      fontSize: "13px",
+                                      fontWeight: 500,
+                                      color: "#C7C7C7",
+                                    }}
+                                  >
+                                    {location.state?.flightData?.departureDate}
+                                  </Typography>
+                                </Grid>
+                                <Grid>
+                                  <Typography
+                                    sx={{
+                                      textAlign: "center",
+                                      fontSize: "13px",
+                                      fontWeight: 600,
+                                      color: "#003566",
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[0]?.arrivalLocation?.split(
+                                        ","
+                                      )[0]
+                                    }
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      textAlign: "center",
+                                      fontSize: "13px",
+                                      fontWeight: 500,
+                                      color: "#C7C7C7",
+                                    }}
+                                  >
+                                    {departureTime1?.slice(0, 16)}
+                                  </Typography>
+                                </Grid>
+                                <Grid textAlign="end">
+                                  <Typography
+                                    sx={{
+                                      fontSize: "20px",
+                                      fontWeight: 600,
+                                      color: "#000",
+                                    }}
+                                  >
+                                    {location.state?.flightData?.arrival} -{" "}
+                                    {location.state?.flightData?.arrivalTime}
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      fontSize: "13px",
+                                      fontWeight: 600,
+                                      color: "#003566",
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[1]?.arrivalLocation?.split(
+                                        ","
+                                      )[0]
+                                    }
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      fontSize: "13px",
+                                      fontWeight: 500,
+                                      color: "#C7C7C7",
+                                    }}
+                                  >
+                                    {location.state?.flightData?.arrivalDate}
+                                  </Typography>
+                                </Grid>
+                              </Grid>
+                              {/* //todo:flight duration part */}
+                              <Grid container justifyContent={"space-around"}>
+                                <Typography
+                                  sx={{
+                                    color: "#003566",
+                                    fontSize: "13px",
+                                    fontWeight: 500,
+                                  }}
+                                >
+                                  {
+                                    location.state?.flightData?.segments[0]
+                                      ?.flightduration
+                                  }
+                                </Typography>
+                                <Typography
+                                  sx={{
+                                    color: "#003566",
+                                    fontSize: "13px",
+                                    fontWeight: 500,
+                                  }}
+                                >
+                                  {
+                                    location.state?.flightData?.segments[1]
+                                      ?.flightduration
+                                  }
+                                </Typography>
+                              </Grid>
+
+                              {/* //todo:flight icon part */}
+                              <Grid
+                                container
+                                justifyContent={"space-around"}
+                                mb={2}
+                              >
+                                <Grid item lg={6}>
+                                  <Box
+                                    style={{ width: "40px", height: "40px" }}
+                                  >
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[0]?.marketingcareer}.png`}
+                                      className={`${location.state?.flightData?.system.toLowerCase()}`}
+                                      alt={`${location?.state?.flightData?.segments[0]?.marketingcareer}`}
+                                    />
+                                  </Box>
+                                  &nbsp;
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        color: "#DC143C",
+                                        fontSize: "12px",
+                                        fontWeight: 500,
+                                      }}
+                                    >
+                                      {
+                                        location.state?.flightData?.segments[0]
+                                          ?.marketingcareerName
+                                      }
+                                    </Typography>
+                                    <Typography
+                                      sx={{
+                                        color: "#003566",
+                                        fontSize: "13px",
+                                        fontWeight: 500,
+                                      }}
+                                    >
+                                      {
+                                        location.state?.flightData?.segments[0]
+                                          ?.marketingcareer
+                                      }
+                                      &nbsp;
+                                      {
+                                        location.state?.flightData?.segments[0]
+                                          ?.marketingflight
+                                      }
+                                    </Typography>
+                                  </Box>
+                                </Grid>
+
+                                <Grid item lg={6}>
+                                  <Box
+                                    style={{
+                                      width: "40px",
+                                      height: "40px",
+                                    }}
+                                  >
+                                    <img
+                                      src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[1]?.marketingcareer}.png`}
+                                      className={`${location.state?.flightData?.system.toLowerCase()}`}
+                                      alt={`${location.state?.flightData?.segments[1]?.marketingcareer}`}
+                                    />
+                                  </Box>
+                                  &nbsp;
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        color: "#DC143C",
+                                        fontSize: "12px",
+                                        fontWeight: 500,
+                                      }}
+                                    >
+                                      {
+                                        location.state?.flightData?.segments[0]
+                                          ?.marketingcareerName
+                                      }
+                                    </Typography>
+                                    <Typography
+                                      sx={{
+                                        color: "#003566",
+                                        fontSize: "13px",
+                                        fontWeight: 500,
+                                      }}
+                                    >
+                                      {
+                                        location.state?.flightData?.segments[1]
+                                          ?.marketingcareer
+                                      }
+                                      &nbsp;
+                                      {
+                                        location.state?.flightData?.segments[1]
+                                          ?.marketingflight
+                                      }
+                                    </Typography>
+                                  </Box>
+                                </Grid>
+                              </Grid>
+                              {/* //todo: seat and class part */}
+                              <Grid container justifyContent={"space-between"}>
+                                <Grid
+                                  md={6}
+                                  container
+                                  justifyContent={"space-between"}
+                                  alignItems="end"
+                                >
+                                  <Typography
+                                    sx={{
+                                      color: "#000",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {location.state?.flightData?.class ===
+                                    "Sabre" ? (
+                                      <>Economy</>
+                                    ) : location.state?.flightData?.class ===
+                                      "FlyHub" ? (
+                                      <>Economy</>
+                                    ) : (
+                                      <>
+                                        Class:{" "}
+                                        {location.state?.flightData?.class}
+                                      </>
+                                    )}
+                                  </Typography>
+                                  <Typography>
+                                    {location.state?.flightData?.refundable ===
+                                    "Refundable" ? (
+                                      <Typography
+                                        sx={{
+                                          color: "green",
+                                          fontSize: "12px",
+                                        }}
+                                      >
+                                        <>Refundable</>
+                                      </Typography>
+                                    ) : (
+                                      <Typography
+                                        sx={{
+                                          color: "#DC143C",
+                                          fontSize: "12px",
+                                        }}
+                                      >
+                                        Non Refundable
+                                      </Typography>
+                                    )}
+                                  </Typography>
+
+                                  <Typography
+                                    sx={{
+                                      color: "#000",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    <img src={seat1} width="18px" alt="seat" />{" "}
+                                    {
+                                      location.state?.flightData?.segments[0]
+                                        ?.seat
+                                    }{" "}
+                                    Seat
+                                  </Typography>
+                                </Grid>
+                                <Grid item md={2.5} textAlign={"center"}>
+                                  <Typography
+                                    sx={{
+                                      color: "#fff",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                      bgcolor: "#003566",
+                                      borderRadius: "12px 0px",
+                                      padding: "8px",
+                                    }}
+                                  >
+                                    Flight Duration{" "}
+                                    {location.state?.flightData?.flightduration}
+                                  </Typography>
+                                </Grid>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      ) : (
+                        <Box mb={2}>
+                          <Typography
+                            sx={{
+                              backgroundColor: "crimson",
+                              width: "20%",
+                              fontSize: "12px",
+                              fontWeight: 500,
+                              color: "#fff",
+                              marginBottom: "10px",
+                              p: "5px",
+                              textAlign: "center",
+                              borderRadius: "10px 0px",
+                            }}
+                          >
+                            Departure Flight
+                          </Typography>
+                          <Grid container justifyContent={"space-between"}>
+                            <Grid item xs={6}>
+                              <Typography
+                                sx={{
+                                  fontSize: "20px",
+                                  fontWeight: 600,
+                                  color: "#000",
+                                }}
+                              >
+                                {location.state?.flightData?.departure} -{" "}
+                                {location.state?.flightData?.departureTime}
+                              </Typography>
+                            </Grid>
+                            <Grid item xs={6} textAlign="end">
+                              <Typography
+                                sx={{
+                                  fontSize: "20px",
+                                  fontWeight: 600,
+                                  color: "#000",
+                                }}
+                              >
+                                {location.state?.flightData?.arrival} -{" "}
+                                {location.state?.flightData?.arrivalTime}
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                          <Grid container justifyContent={"space-between"}>
+                            <Grid>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 600,
+                                  color: "#003566",
+                                }}
+                              >
+                                {
+                                  location.state?.flightData?.segments[0]?.departureLocation?.split(
+                                    ","
+                                  )[0]
+                                }
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 500,
+                                  color: "#C7C7C7",
+                                }}
+                              >
+                                {location.state?.flightData?.departureDate}
+                              </Typography>
+                            </Grid>
+
+                            <Grid textAlign="end">
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 600,
+                                  color: "#003566",
+                                }}
+                              >
+                                {
+                                  location.state?.flightData?.segments[0]?.arrivalLocation?.split(
+                                    ","
+                                  )[0]
+                                }
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "13px",
+                                  fontWeight: 500,
+                                  color: "#C7C7C7",
+                                }}
+                              >
+                                {location.state?.flightData?.arrivalDate}
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                          <Grid container justifyContent={"space-around"}>
                             <Typography
                               sx={{
-                                color: "#fff",
-                                fontSize: "12px",
+                                color: "#003566",
+                                fontSize: "13px",
                                 fontWeight: 500,
-                                bgcolor: "#003566",
-                                borderRadius: "12px 0px",
-                                padding: "8px",
                               }}
                             >
-                              Flight Duration{" "}
                               {location.state?.flightData?.flightduration}
                             </Typography>
                           </Grid>
-                        </Grid>
-                      </Box>
-                    ) : location.state?.flightData.segment === "2" ? (
-                      <Box mb={2}>
-                        <Typography
-                          sx={{
-                            backgroundColor: "crimson",
-                            width: "20%",
-                            fontSize: "12px",
-                            fontWeight: 500,
-                            color: "#fff",
-                            marginBottom: "10px",
-                            p: "5px",
-                            textAlign: "center",
-                            borderRadius: "10px 0px",
-                          }}
-                        >
-                          Departure Flight
-                        </Typography>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid item xs={6}>
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                color: "#000",
-                              }}
-                            >
-                              {location.state?.flightData?.departure} -{" "}
-                              {location.state?.flightData?.departureTime}
-                            </Typography>
-                          </Grid>
-                          <Grid item xs={6} textAlign="end">
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                color: "#000",
-                              }}
-                            >
-                              {location.state?.flightData?.arrival} -{" "}
-                              {location.state?.flightData?.arrivalTime}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[0]?.departureLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {location.state?.flightData?.departureDate}
-                            </Typography>
-                          </Grid>
-                          <Grid>
-                            <Typography
-                              sx={{
-                                textAlign: "center",
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[0]?.arrivalLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                textAlign: "center",
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {/* {
-                                    location.state?.flightData?.segments[0]?.arrivalTime?.split(
-                                      "T"
-                                    )[0]
-                                  } */}
-                              {departureTime1?.slice(0, 16)}
-                            </Typography>
-                          </Grid>
 
-                          <Grid textAlign="end">
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[1]?.arrivalLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {location.state?.flightData?.arrivalDate}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-around"}>
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontSize: "13px",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {
-                              location.state?.flightData?.segments[0]
-                                ?.flightduration
-                            }
-                          </Typography>
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontSize: "13px",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {
-                              location.state?.flightData?.segments[1]
-                                ?.flightduration
-                            }
-                          </Typography>
-                        </Grid>
-
-                        <Box py={2} className="roundway-animation">
-                          <div className="round-segment-line0">
-                            <div className="round-segment-circle">
-                              <div className="circle-0">
-                                <CircleIcon
-                                  sx={{
-                                    color: "#c7c7c7",
-                                    fontSize: "15px",
-                                    cursor: "pointer",
-                                  }}
-                                />
+                          <Box py={2} className="roundway-animation">
+                            <div className="round-segment-line0">
+                              <div className="round-segment-circle">
+                                <div className="circle-0">
+                                  <CircleIcon
+                                    sx={{
+                                      color: "#c7c7c7",
+                                      fontSize: "15px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </div>
+                                <div className="circle-0">
+                                  <CircleIcon
+                                    sx={{
+                                      color: "#c7c7c7",
+                                      fontSize: "15px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </div>
                               </div>
-                              <HtmlTooltip
-                                title={
-                                  <React.Fragment>
-                                    <Typography
-                                      sx={{ color: "#fff", fontSize: "10px" }}
-                                    >
-                                      Layover Time:{" "}
-                                      {
-                                        location?.state?.flightData?.transit
-                                          ?.transit1
-                                      }
-                                    </Typography>
-                                  </React.Fragment>
-                                }
-                                followCursor
+                              <div className="round-segment-flight01">
+                                {/* <FlightIcon /> */}
+                                <img src={anemy} width="50px" alt="flight" />
+                              </div>
+                            </div>
+                          </Box>
+
+                          <Grid
+                            container
+                            justifyContent={"space-around"}
+                            mb={2}
+                          >
+                            <Grid>
+                              <Grid container alignItems={"center"}>
+                                <img
+                                  src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[0]?.marketingcareer}.png`}
+                                  width="40px"
+                                  height="40px"
+                                  className={
+                                    location.state?.flightData?.system ===
+                                    "Sabre"
+                                      ? "img-border-sabre"
+                                      : location.state?.flightData?.system ===
+                                        "FlyHub"
+                                      ? "img-border-flyhub"
+                                      : "img-border-galileo"
+                                  }
+                                  alt="flight icon"
+                                />
+                                &nbsp;
+                                <Box>
+                                  <Typography
+                                    sx={{
+                                      color: "#DC143C",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[0]
+                                        ?.marketingcareerName
+                                    }
+                                  </Typography>
+                                  <Typography
+                                    sx={{
+                                      color: "#003566",
+                                      fontSize: "13px",
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {
+                                      location.state?.flightData?.segments[0]
+                                        ?.marketingcareer
+                                    }
+                                    &nbsp;
+                                    {
+                                      location.state?.flightData?.segments[0]
+                                        ?.marketingflight
+                                    }
+                                  </Typography>
+                                </Box>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                          <Grid container justifyContent={"space-between"}>
+                            <Grid
+                              md={6}
+                              container
+                              justifyContent={"space-between"}
+                              alignItems="end"
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#000",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                }}
                               >
-                                <span>
-                                  <div className="round-segment-stop"></div>
-                                </span>
-                              </HtmlTooltip>
-                              <div className="circle-0">
-                                <CircleIcon
-                                  sx={{
-                                    color: "#c7c7c7",
-                                    fontSize: "15px",
-                                    cursor: "pointer",
-                                  }}
-                                />
-                              </div>
-                            </div>
-                            <div className="round-segment-flight02">
-                              {/* <FlightIcon /> */}
-                              <img src={anemy} width="50px" alt="flight" />
-                            </div>
-                          </div>
+                                {location.state?.flightData?.class ===
+                                "Sabre" ? (
+                                  <>Economy</>
+                                ) : location.state?.flightData?.class ===
+                                  "FlyHub" ? (
+                                  <>Economy</>
+                                ) : (
+                                  <>
+                                    Class: {location.state?.flightData?.class}
+                                  </>
+                                )}
+                              </Typography>
+                              <Typography>
+                                {location.state?.flightData?.refundable ===
+                                "Refundable" ? (
+                                  <Typography
+                                    sx={{
+                                      color: "green",
+                                      fontSize: "12px",
+                                    }}
+                                  >
+                                    <>Refundable</>
+                                  </Typography>
+                                ) : (
+                                  <Typography
+                                    sx={{
+                                      color: "#DC143C",
+                                      fontSize: "12px",
+                                    }}
+                                  >
+                                    Non Refundable
+                                  </Typography>
+                                )}
+                              </Typography>
+
+                              <Typography
+                                sx={{
+                                  color: "#000",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                }}
+                              >
+                                <img src={seat1} width="18px" alt="seat" />{" "}
+                                {location.state?.flightData?.segments[0]?.seat}{" "}
+                                Seat
+                              </Typography>
+                            </Grid>
+                            <Grid item md={2.5} textAlign={"center"}>
+                              <Typography
+                                sx={{
+                                  color: "#fff",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                  bgcolor: "#003566",
+                                  borderRadius: "12px 0px",
+                                  padding: "8px",
+                                }}
+                              >
+                                Flight Duration{" "}
+                                {location.state?.flightData?.flightduration}
+                              </Typography>
+                            </Grid>
+                          </Grid>
                         </Box>
-
-                        <Grid container justifyContent={"space-around"} mb={2}>
-                          <Grid>
-                            <Grid container alignItems={"center"}>
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[0]?.marketingcareer}.png`}
-                                width="40px"
-                                height="40px"
-                                className={
-                                  location.state?.flightData?.system === "Sabre"
-                                    ? "img-border-sabre"
-                                    : location.state?.flightData?.system ===
-                                      "FlyHub"
-                                    ? "img-border-flyhub"
-                                    : "img-border-galileo"
-                                }
-                                alt="flight icon"
-                              />
-                              &nbsp;
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingcareerName
-                                  }
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontSize: "13px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingcareer
-                                  }
-                                  &nbsp;
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingflight
-                                  }
-                                </Typography>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                          <Grid>
-                            <Grid container alignItems={"center"}>
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[1]?.marketingcareer}.png`}
-                                width="40px"
-                                height="40px"
-                                className={
-                                  location.state?.flightData?.system === "Sabre"
-                                    ? "img-border-sabre"
-                                    : location.state?.flightData?.system ===
-                                      "FlyHub"
-                                    ? "img-border-flyhub"
-                                    : "img-border-galileo"
-                                }
-                                alt="flight icon"
-                              />
-                              &nbsp;
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingcareerName
-                                  }
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontSize: "13px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[1]
-                                      ?.marketingcareer
-                                  }
-                                  &nbsp;
-                                  {
-                                    location.state?.flightData?.segments[1]
-                                      ?.marketingflight
-                                  }
-                                </Typography>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid
-                            md={6}
-                            container
-                            justifyContent={"space-between"}
-                            alignItems="end"
-                          >
-                            <Typography
-                              sx={{
-                                color: "#000",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                              }}
-                            >
-                              {location.state?.flightData?.class === "Sabre" ? (
-                                <>Economy</>
-                              ) : location.state?.flightData?.class ===
-                                "FlyHub" ? (
-                                <>Economy</>
-                              ) : (
-                                <>Class: {location.state?.flightData?.class}</>
-                              )}
-                            </Typography>
-                            <Typography>
-                              {location.state?.flightData?.refundable ===
-                              "Refundable" ? (
-                                <Typography
-                                  sx={{
-                                    color: "green",
-                                    fontSize: "12px",
-                                  }}
-                                >
-                                  <>Refundable</>
-                                </Typography>
-                              ) : (
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                  }}
-                                >
-                                  Non Refundable
-                                </Typography>
-                              )}
-                            </Typography>
-
-                            <Typography
-                              sx={{
-                                color: "#000",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                              }}
-                            >
-                              <img src={seat1} width="18px" alt="seat" />{" "}
-                              {location.state?.flightData?.segments[0]?.seat}{" "}
-                              Seat
-                            </Typography>
-                          </Grid>
-                          <Grid item md={2.5} textAlign={"center"}>
-                            <Typography
-                              sx={{
-                                color: "#fff",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                                bgcolor: "#003566",
-                                borderRadius: "12px 0px",
-                                padding: "8px",
-                              }}
-                            >
-                              Flight Duration{" "}
-                              {location.state?.flightData?.flightduration}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </Box>
-                    ) : (
-                      <Box mb={2}>
-                        <Typography
-                          sx={{
-                            backgroundColor: "crimson",
-                            width: "20%",
-                            fontSize: "12px",
-                            fontWeight: 500,
-                            color: "#fff",
-                            marginBottom: "10px",
-                            p: "5px",
-                            textAlign: "center",
-                            borderRadius: "10px 0px",
-                          }}
-                        >
-                          Departure Flight
-                        </Typography>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid item xs={6}>
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                color: "#000",
-                              }}
-                            >
-                              {location.state?.flightData?.departure} -{" "}
-                              {location.state?.flightData?.departureTime}
-                            </Typography>
-                          </Grid>
-                          <Grid item xs={6} textAlign="end">
-                            <Typography
-                              sx={{
-                                fontSize: "20px",
-                                fontWeight: 600,
-                                color: "#000",
-                              }}
-                            >
-                              {location.state?.flightData?.arrival} -{" "}
-                              {location.state?.flightData?.arrivalTime}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[0]?.departureLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {location.state?.flightData?.departureDate}
-                            </Typography>
-                          </Grid>
-
-                          <Grid textAlign="end">
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "#003566",
-                              }}
-                            >
-                              {
-                                location.state?.flightData?.segments[0]?.arrivalLocation?.split(
-                                  ","
-                                )[0]
-                              }
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: "13px",
-                                fontWeight: 500,
-                                color: "#C7C7C7",
-                              }}
-                            >
-                              {location.state?.flightData?.arrivalDate}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-around"}>
-                          <Typography
-                            sx={{
-                              color: "#003566",
-                              fontSize: "13px",
-                              fontWeight: 500,
-                            }}
-                          >
-                            {location.state?.flightData?.flightduration}
-                          </Typography>
-                        </Grid>
-
-                        <Box py={2} className="roundway-animation">
-                          <div className="round-segment-line0">
-                            <div className="round-segment-circle">
-                              <div className="circle-0">
-                                <CircleIcon
-                                  sx={{
-                                    color: "#c7c7c7",
-                                    fontSize: "15px",
-                                    cursor: "pointer",
-                                  }}
-                                />
-                              </div>
-                              <div className="circle-0">
-                                <CircleIcon
-                                  sx={{
-                                    color: "#c7c7c7",
-                                    fontSize: "15px",
-                                    cursor: "pointer",
-                                  }}
-                                />
-                              </div>
-                            </div>
-                            <div className="round-segment-flight01">
-                              {/* <FlightIcon /> */}
-                              <img src={anemy} width="50px" alt="flight" />
-                            </div>
-                          </div>
-                        </Box>
-
-                        <Grid container justifyContent={"space-around"} mb={2}>
-                          <Grid>
-                            <Grid container alignItems={"center"}>
-                              <img
-                                src={`https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/airlines-logo/${location.state?.flightData?.segments[0]?.marketingcareer}.png`}
-                                width="40px"
-                                height="40px"
-                                className={
-                                  location.state?.flightData?.system === "Sabre"
-                                    ? "img-border-sabre"
-                                    : location.state?.flightData?.system ===
-                                      "FlyHub"
-                                    ? "img-border-flyhub"
-                                    : "img-border-galileo"
-                                }
-                                alt="flight icon"
-                              />
-                              &nbsp;
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingcareerName
-                                  }
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#003566",
-                                    fontSize: "13px",
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingcareer
-                                  }
-                                  &nbsp;
-                                  {
-                                    location.state?.flightData?.segments[0]
-                                      ?.marketingflight
-                                  }
-                                </Typography>
-                              </Box>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                        <Grid container justifyContent={"space-between"}>
-                          <Grid
-                            md={6}
-                            container
-                            justifyContent={"space-between"}
-                            alignItems="end"
-                          >
-                            <Typography
-                              sx={{
-                                color: "#000",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                              }}
-                            >
-                              {location.state?.flightData?.class === "Sabre" ? (
-                                <>Economy</>
-                              ) : location.state?.flightData?.class ===
-                                "FlyHub" ? (
-                                <>Economy</>
-                              ) : (
-                                <>Class: {location.state?.flightData?.class}</>
-                              )}
-                            </Typography>
-                            <Typography>
-                              {location.state?.flightData?.refundable ===
-                              "Refundable" ? (
-                                <Typography
-                                  sx={{
-                                    color: "green",
-                                    fontSize: "12px",
-                                  }}
-                                >
-                                  <>Refundable</>
-                                </Typography>
-                              ) : (
-                                <Typography
-                                  sx={{
-                                    color: "#DC143C",
-                                    fontSize: "12px",
-                                  }}
-                                >
-                                  Non Refundable
-                                </Typography>
-                              )}
-                            </Typography>
-
-                            <Typography
-                              sx={{
-                                color: "#000",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                              }}
-                            >
-                              <img src={seat1} width="18px" alt="seat" />{" "}
-                              {location.state?.flightData?.segments[0]?.seat}{" "}
-                              Seat
-                            </Typography>
-                          </Grid>
-                          <Grid item md={2.5} textAlign={"center"}>
-                            <Typography
-                              sx={{
-                                color: "#fff",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                                bgcolor: "#003566",
-                                borderRadius: "12px 0px",
-                                padding: "8px",
-                              }}
-                            >
-                              Flight Duration{" "}
-                              {location.state?.flightData?.flightduration}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      </Box>
-                    )}
-                  </AccordionDetails>
-                </Accordion>
-              </Box>
+                      )}
+                    </Box>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={3} md={6} lg={6}>
+                  {/*// todo: price breakdown section */}
+                  <FlightInfoDetails
+                    loadData={loadData}
+                    searchData={location?.state}
+                    adultCount={location?.state?.adultCount}
+                    childCount={location?.state?.childCount}
+                    infant={location?.state?.infant}
+                    adultPrice={adultPrice}
+                    childPrice={childPrice}
+                    infPrice={infPrice}
+                    adultTaxPrice={adultTaxPrice}
+                    childTaxPrice={childTaxPrice}
+                    infTaxPrice={infTaxPrice}
+                    serviceFeeAdult={serviceFeeAdult}
+                    serviceFeeChild={serviceFeeChild}
+                    serviceFeeInfant={serviceFeeInfant}
+                    totalBaseFare={totalBaseFare}
+                    totalTax={totalTax}
+                    totalFare={totalFare}
+                    inTotalBaseFare={inTotalBaseFare}
+                    limitTime={limitTime}
+                    clientFare={location.state.clientFare}
+                    agentTotal={agentTotal}
+                    discount={discount}
+                    coupon={coupon}
+                    setCoupon={setCoupon}
+                    couponAppliedMessage={couponAppliedMessage}
+                    setCouponAppliedMessage={setCouponAppliedMessage}
+                    adultBaggage={adultBaggage}
+                    setAdultBaggage={setAdultBaggage}
+                    childBaggage={childBaggage}
+                    setChildBaggage={setChildBaggage}
+                    infantBaggage={infantBaggage}
+                    setInfantBaggage={setInfantBaggage}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} sm={9} md={12} lg={12}>
               <Box mt={3}>
                 {location.state?.flightData?.system === "Galileo" ? (
                   <FlightUserInfo
@@ -1766,43 +1750,6 @@ const FlightInformation = (props) => {
                   />
                 )}
               </Box>
-            </Grid>
-            <Grid item xs={12} sm={3} md={3} lg={3}>
-              {/*// todo --------------------- */}
-              <FlightInfoDetails
-                loadData={loadData}
-                searchData={location?.state}
-                adultCount={location?.state?.adultCount}
-                childCount={location?.state?.childCount}
-                infant={location?.state?.infant}
-                adultPrice={adultPrice}
-                childPrice={childPrice}
-                infPrice={infPrice}
-                adultTaxPrice={adultTaxPrice}
-                childTaxPrice={childTaxPrice}
-                infTaxPrice={infTaxPrice}
-                serviceFeeAdult={serviceFeeAdult}
-                serviceFeeChild={serviceFeeChild}
-                serviceFeeInfant={serviceFeeInfant}
-                totalBaseFare={totalBaseFare}
-                totalTax={totalTax}
-                totalFare={totalFare}
-                inTotalBaseFare={inTotalBaseFare}
-                limitTime={limitTime}
-                clientFare={location.state.clientFare}
-                agentTotal={agentTotal}
-                discount={discount}
-                coupon={coupon}
-                setCoupon={setCoupon}
-                couponAppliedMessage={couponAppliedMessage}
-                setCouponAppliedMessage={setCouponAppliedMessage}
-                adultBaggage={adultBaggage}
-                setAdultBaggage={setAdultBaggage}
-                childBaggage={childBaggage}
-                setChildBaggage={setChildBaggage}
-                infantBaggage={infantBaggage}
-                setInfantBaggage={setInfantBaggage}
-              />
             </Grid>
           </Grid>
         </Container>

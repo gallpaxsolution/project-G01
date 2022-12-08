@@ -201,7 +201,7 @@ const FlightInfoDetails = ({
   return (
     <Container>
       <Box>
-        <Accordion defaultExpanded={true} className="flight-accordian1">
+        <Accordion defaultExpanded={false} className="flight-accordian1">
           <AccordionSummary
             expandIcon={<AiFillCaretDown color="#003566" />}
             aria-controls="panel1a-content"

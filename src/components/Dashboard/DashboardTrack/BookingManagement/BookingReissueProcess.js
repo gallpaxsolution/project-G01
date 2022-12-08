@@ -31,7 +31,7 @@ const BookingReissueProcess = () => {
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
-    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
+    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
         const reissueFilterData = data?.TotalBookingData.filter(
@@ -47,7 +47,7 @@ const BookingReissueProcess = () => {
       });
 
     // const interval = setInterval(() => {
-    //   const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
+    //   const url = "https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php";
     //   fetch(url)
     //     .then((res) => res.json())
     //     .then((data) => {
@@ -102,7 +102,7 @@ const BookingReissueProcess = () => {
     setOpen(true);
     setBookingId(bookingId);
     await fetch(
-      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
+      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -114,7 +114,7 @@ const BookingReissueProcess = () => {
 
   const sendNote = () => {
     console.log(bookingId, note, user?.user?.username);
-    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: bookingId,

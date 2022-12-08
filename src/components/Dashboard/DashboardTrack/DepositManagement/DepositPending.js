@@ -30,7 +30,7 @@ const DepositPending = () => {
 
   useEffect(() => {
     setIsloading(false);
-    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
+    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
         const pendingDataFilter = data?.TotalDepositData.filter((data) => {
@@ -71,7 +71,7 @@ const DepositPending = () => {
     setOpen(true);
     setDepositId(depositId);
     await fetch(
-      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${depositId}`
+      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${depositId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -83,7 +83,7 @@ const DepositPending = () => {
 
   const sendNote = () => {
     console.log(depositId, note, user?.user?.username);
-    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: depositId,

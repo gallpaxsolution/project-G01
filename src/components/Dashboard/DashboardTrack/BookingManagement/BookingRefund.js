@@ -13,7 +13,7 @@ const BookingRefund = () => {
   const [isLoading, setIsloading] = useState(false);
   useEffect(() => {
     setIsloading(false);
-    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
+    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
         const refundFilterData = data?.TotalBookingData.filter((refundData) => {
@@ -26,7 +26,7 @@ const BookingRefund = () => {
       });
 
     // const interval = setInterval(() => {
-    //   const url = "https://api.flyfarint.com/v.1.0.0/Admin/Booking/all.php?all";
+    //   const url = "https://api.flyfarint.net/v.1.0.0/Admin/Booking/all.php?all";
     //   fetch(url)
     //     .then((res) => res.json())
     //     .then((data) => {
