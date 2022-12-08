@@ -617,7 +617,7 @@ const Oneway = ({
       searchBy: users?.user?.name || "No Record",
     });
     await fetch(
-      "https://api.flyfarint.net/v.1.0.0/SearchHistory/addHistory.php",
+      "https://api.flyfarint.com/v.1.0.0/SearchHistory/addHistory.php",
       {
         method: "POST",
         headers: {

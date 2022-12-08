@@ -2,8 +2,8 @@ import { Grid, Typography, Box, Button } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import { AiFillCaretDown } from "react-icons/ai";
 import commaNumber from "comma-number";
+import AddIcon from "@mui/icons-material/Add";
 import secureLocalStorage from "react-secure-storage";
 import "./FlightInfoDetails.css";
 import { useEffect, useState } from "react";
@@ -47,7 +47,7 @@ const FlightInfoDetails = ({
 
   const submitCoupon = (e) => {
     e.preventDefault();
-    let url = "https://api.flyfarint.net/v.1.0.0/Coupon/check.php";
+    let url = "https://api.flyfarint.com/v.1.0.0/Coupon/check.php";
     let body = JSON.stringify({
       agentId,
       coupon,
@@ -200,26 +200,23 @@ const FlightInfoDetails = ({
   }, []);
   return (
     <Container>
-      <Box>
+      <Box style={{ marginTop: "20px" }}>
         <Accordion defaultExpanded={false} className="flight-accordian1">
           <AccordionSummary
-            expandIcon={<AiFillCaretDown color="#003566" />}
-            aria-controls="panel1a-content"
+            style={{ backgroundColor: "var(--secondary-color)" }}
+            expandIcon={<AddIcon style={{ color: "var(--white)" }} />}
             id="panel1a-header"
           >
-            <Grid container justifyContent={"space-between"}>
-              <Typography
-                sx={{
-                  color: "#003566",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  width: "100%",
-                }}
-              >
-                Price Break Down
-                <Box className="eticket-title-line"></Box>
-              </Typography>
-            </Grid>
+            <Typography
+              sx={{
+                color: "var(--white)",
+                fontSize: "16px",
+                fontWeight: 600,
+                width: "100%",
+              }}
+            >
+              Price Break Down
+            </Typography>
           </AccordionSummary>
           <AccordionDetails className="flight-accordian2">
             {adultCount >= 1 && childCount >= 1 && infant >= 1 ? (
@@ -227,7 +224,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -237,7 +234,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -246,7 +243,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -257,7 +254,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -266,7 +263,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -277,7 +274,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -286,7 +283,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -300,7 +297,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -310,7 +307,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -319,7 +316,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -330,7 +327,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -339,7 +336,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -350,7 +347,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -359,7 +356,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -373,7 +370,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -383,7 +380,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -392,7 +389,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(-black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -403,7 +400,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -412,7 +409,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -423,7 +420,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -432,7 +429,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -447,7 +444,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -457,7 +454,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -466,7 +463,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -477,7 +474,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -486,7 +483,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -497,7 +494,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -506,7 +503,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -519,7 +516,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -529,7 +526,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -538,7 +535,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -549,7 +546,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -558,7 +555,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -569,7 +566,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -578,7 +575,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -594,7 +591,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -604,7 +601,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -613,7 +610,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -624,7 +621,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -633,7 +630,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -644,7 +641,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -653,7 +650,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -666,7 +663,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -676,7 +673,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -685,7 +682,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -696,7 +693,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -705,7 +702,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -716,7 +713,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -964,23 +961,20 @@ const FlightInfoDetails = ({
         {/* //TODO: Baggage Policy */}
         <Accordion defaultExpanded={false} className="flight-accordian1">
           <AccordionSummary
-            expandIcon={<AiFillCaretDown color="#003566" />}
-            aria-controls="panel1a-content"
+            style={{ backgroundColor: "var(--secondary-color)" }}
+            expandIcon={<AddIcon style={{ color: "var(--white)" }} />}
             id="panel1a-header"
           >
-            <Grid container justifyContent={"space-between"}>
-              <Typography
-                sx={{
-                  color: "#003566",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  width: "100%",
-                }}
-              >
-                Baggage Policy
-                <Box className="eticket-title-line"></Box>
-              </Typography>
-            </Grid>
+            <Typography
+              sx={{
+                color: "var(--white)",
+                fontSize: "16px",
+                fontWeight: 600,
+                width: "100%",
+              }}
+            >
+              Baggage Policy
+            </Typography>
           </AccordionSummary>
           <AccordionDetails className="flight-accordian2">
             <Box
@@ -1123,23 +1117,22 @@ const FlightInfoDetails = ({
         {/* //Todo: Cancellation Policy Section */}
         <Accordion defaultExpanded={false} className="flight-accordian1">
           <AccordionSummary
-            expandIcon={<AiFillCaretDown color="#003566" />}
-            aria-controls="panel1a-content"
+            expandIcon={<AddIcon style={{ color: "var(--white)" }} />}
             id="panel1a-header"
+            style={{
+              backgroundColor: "var(--secondary-color)",
+            }}
           >
-            <Grid container justifyContent={"space-between"}>
-              <Typography
-                sx={{
-                  color: "#003566",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  width: "100%",
-                }}
-              >
-                Cancellation Policy
-                <Box className="eticket-title-line"></Box>
-              </Typography>
-            </Grid>
+            <Typography
+              sx={{
+                color: "var(--white)",
+                fontSize: "16px",
+                fontWeight: 600,
+                width: "100%",
+              }}
+            >
+              Cancellation Policy
+            </Typography>
           </AccordionSummary>
           <AccordionDetails className="flight-accordian2">
             <Typography>

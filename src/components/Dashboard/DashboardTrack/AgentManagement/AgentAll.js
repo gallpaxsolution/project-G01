@@ -27,7 +27,6 @@ const AgentAll = () => {
   const [agentAllData, setAgentAllData] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   useEffect(() => {
-
     setIsloading(false);
     fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
@@ -52,7 +51,7 @@ const AgentAll = () => {
     // };
 
     // setIsloading(false);
-    // fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
+    // fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
     //   .then((res) => res.json())
     //   .then((data) => {
     //     data?.TotalAgentData?.map((item, index) => (item.serial = index + 1));
@@ -61,7 +60,7 @@ const AgentAll = () => {
     //   });
 
     const interval = setInterval(() => {
-      const url = "https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php";
+      const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
@@ -73,7 +72,6 @@ const AgentAll = () => {
     return () => {
       clearInterval(interval);
     };
-
   }, []);
 
   //  modal
@@ -88,7 +86,7 @@ const AgentAll = () => {
     setOpen(true);
     setAgentId(agentId);
     await fetch(
-      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${agentId}`
+      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${agentId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -99,7 +97,7 @@ const AgentAll = () => {
   const handleClose = () => setOpen(false);
 
   const sendNote = () => {
-    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: agentId,

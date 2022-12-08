@@ -60,7 +60,7 @@ const BookingHold = () => {
   };
 
   useEffect(() => {
-    const url = "https://api.flyfarint.net/v.1.0.0/Admin/Booking/all.php?all";
+    const url = "https://api.flyfarint.com/v.1.0.0/Admin/Booking/all.php?all";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -111,7 +111,7 @@ const BookingHold = () => {
     setOpen(true);
     setBookingId(bookingId);
     await fetch(
-      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
+      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -123,7 +123,7 @@ const BookingHold = () => {
 
   const sendNote = () => {
     console.log(bookingId, note, user?.user?.username);
-    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: bookingId,

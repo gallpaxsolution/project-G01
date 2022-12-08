@@ -6,6 +6,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 /* -----------segment 1---- */
 .round-segment-line0 {
   position: relative;
@@ -14,12 +15,27 @@
   background-color: #c7c7c7;
   margin-top: 10px;
 }
+.airline-animation {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+.vertical-line {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 100%;
+  width: 2px;
+  background-color: var(--primary-color);
+}
 .round-segment-flight01 {
   margin-top: -14px;
   position: absolute;
   animation: rdsegmentone ease 5s infinite;
   color: #003566;
 }
+
 @keyframes rdsegmentone {
   0% {
     left: 0%;
@@ -42,6 +58,35 @@
   position: absolute;
   animation: rdsegmenttwo ease 5s infinite;
   color: #003566;
+}
+.air-icon {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  color: var(--gray);
+  transform: translate(-50%, 0) rotate(180deg);
+  z-index: 999;
+  animation: air-animation ease 5s infinite;
+}
+@keyframes air-animation {
+  0% {
+    left: 50%;
+    top: 0px;
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+
+  50% {
+    top: 50%;
+    opacity: 1;
+  }
+  98% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 95%;
+    opacity: 0;
+  }
 }
 @keyframes rdsegmenttwo {
   0% {

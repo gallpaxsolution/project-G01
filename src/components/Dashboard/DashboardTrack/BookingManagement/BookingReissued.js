@@ -14,7 +14,7 @@ const BookingReissued = () => {
 
   useEffect(() => {
     setIsloding(false);
-    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
+    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
         const reissueFilterData = data?.TotalBookingData.filter(
@@ -28,7 +28,7 @@ const BookingReissued = () => {
       });
 
     // const interval = setInterval(() => {
-    //   const url = "https://api.flyfarint.net/v.1.0.0/Admin/Booking/all.php?all";
+    //   const url = "https://api.flyfarint.com/v.1.0.0/Admin/Booking/all.php?all";
     //   fetch(url)
     //     .then((res) => res.json())
     //     .then((data) => {

@@ -10,7 +10,6 @@ const SearchAll = () => {
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
-
     setIsloading(false);
     fetch(`https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php`)
       .then((res) => res.json())
@@ -35,15 +34,13 @@ const SearchAll = () => {
     // };
 
     // setIsloading(false);
-    // fetch(`https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php`)
+    // fetch(`https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php`)
     //   .then((res) => res.json())
     //   .then((data) => {
     //     data?.allsearchlist?.map((item, index) => (item.serial = index + 1));
     //     setSearchData(data?.allsearchlist);
     //     setIsloading(true);
     //   });
-
-
   }, []);
 
   return (
