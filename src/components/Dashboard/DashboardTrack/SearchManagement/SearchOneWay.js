@@ -26,7 +26,7 @@ const SearchOneWay = () => {
   }, []);
 
   return (
-    <Box className="DestinaTionWise">
+    <Box className="DestinaTionWise1">
       <table>
         <tr>
           <th>Sl no</th>

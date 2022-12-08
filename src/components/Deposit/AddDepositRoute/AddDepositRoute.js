@@ -9,8 +9,8 @@ const AddDepositRoute = () => {
   return (
     <Box>
       <Container maxWidth="lg" style={{ marginTop: "50px" }}>
-        <Box className=" destinationWise">
-          <Box className="parent-destinationWise">
+        <Box className=" DestinaTionWise1">
+          <Box className="parent-DestinaTionWise1">
             <Box>
               <Tabs
                 selectedIndex={desire}
@@ -39,7 +39,7 @@ const AddDepositRoute = () => {
 
                 <TabPanel>
                   <TabContext>
-                    <Box className="DestinaTionWise" marginTop={"20px"}>
+                    <Box className="DestinaTionWise1" marginTop={"20px"}>
                       <table>
                         <tr>
                           <th>From</th>
@@ -63,7 +63,7 @@ const AddDepositRoute = () => {
                   <TabContext>
                     {" "}
                     <TabContext>
-                      <Box className="DestinaTionWise" marginTop={"20px"}>
+                      <Box className="DestinaTionWise1" marginTop={"20px"}>
                         <table>
                           <tr>
                             <th>From</th>

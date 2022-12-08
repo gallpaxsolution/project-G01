@@ -3,7 +3,7 @@ import React from "react";
 
 const DepositPendingAmount = () => {
   return (
-    <Box className="DestinaTionWise">
+    <Box className="DestinaTionWise1">
       <table>
         <tr>
           <th>SL No</th>
