@@ -17,6 +17,18 @@ const AddTraveller = () => {
             // gap: 4,
           }}
         >
+
+          {/* 
+          
+          <Typography 
+          style={{color:'#789abc'}}
+          
+          >
+
+          
+          </Typography>
+          
+          */}
           <Grid container spacing={2}>
             <Box>
               <Typography
@@ -44,19 +56,27 @@ const AddTraveller = () => {
                   <Grid item md={4}>
                     <Typography>First/Given Name</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Your First Name" />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Your First Name"
+                      />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Last/Surname</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Your Last Name" />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Your Last Name"
+                      />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Gender</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <select name="Male" id="Male">
+                      <select required name="Male" id="Male">
                         <option value="Select  ">Select </option>
                         <option value="Male">Male </option>
                         <option value="Female">Female</option>
@@ -67,13 +87,13 @@ const AddTraveller = () => {
                   <Grid item md={4}>
                     <Typography>Nationality</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Bangladesh" />
+                      <input required type="text" placeholder="Bangladesh" />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Passenger Type</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <select name="Adult" id="Adult">
+                      <select required name="Adult" id="Adult">
                         <option value="Select">Select </option>
                         <option value="Adult">Adult </option>
                         <option value="Child">Child</option>
@@ -86,6 +106,7 @@ const AddTraveller = () => {
                     <Typography>Date of Birth</Typography>
                     <Box style={{ marginTop: "5px" }}>
                       <input
+                        required
                         type="date"
                         placeholder="Find traveler to auto fill"
                       />
@@ -94,13 +115,18 @@ const AddTraveller = () => {
                   <Grid item md={4}>
                     <Typography>Passport No</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Your Passport Number" />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Your Passport Number"
+                      />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Passport Expire Date</Typography>
                     <Box style={{ marginTop: "5px" }}>
                       <input
+                        required
                         type="date"
                         placeholder="Find traveler to auto fill"
                       />
@@ -110,6 +136,7 @@ const AddTraveller = () => {
                     <Typography>Email</Typography>
                     <Box style={{ marginTop: "5px" }}>
                       <input
+                        required
                         type="email"
                         placeholder="Find traveler to auto fill"
                       />
@@ -119,6 +146,7 @@ const AddTraveller = () => {
                     <Typography>Contact Number</Typography>
                     <Box style={{ marginTop: "5px" }}>
                       <input
+                        required
                         type="email"
                         placeholder="Find traveler to auto fill"
                       />
@@ -128,6 +156,7 @@ const AddTraveller = () => {
                     <Typography>Choose Passport Copy</Typography>
                     <Box style={{ marginTop: "5px" }}>
                       <input
+                        required
                         style={{
                           backgroundColor: "#2564B8",
                           color: "#fff",

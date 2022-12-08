@@ -181,7 +181,7 @@ const SearchResult = () => {
     setIsPrevCliked(true);
     setIsLoaded(false);
     modifyHandleClose();
-    let url = `https://api.flyfarint.net/v.1.0.0/AirSearch/oneway.php?tripType=${tripType}&journeyfrom=${fromSendData?.trim()}&journeyto=${toSendData}&departuredate=${new Date(
+    let url = `https://api.flyfarint.com/v.1.0.0/AirSearch/oneway.php?tripType=${tripType}&journeyfrom=${fromSendData?.trim()}&journeyto=${toSendData}&departuredate=${new Date(
       yesterday
     ).toLocaleDateString(
       "sv"
@@ -235,7 +235,7 @@ const SearchResult = () => {
     setFromSearchDate(tomorrow);
     setIsLoaded(false);
     modifyHandleClose();
-    let url = `https://api.flyfarint.net/v.1.0.0/AirSearch/oneway.php?tripType=${tripType}&journeyfrom=${fromSendData?.trim()}&journeyto=${toSendData}&departuredate=${new Date(
+    let url = `https://api.flyfarint.com/v.1.0.0/AirSearch/oneway.php?tripType=${tripType}&journeyfrom=${fromSendData?.trim()}&journeyto=${toSendData}&departuredate=${new Date(
       tomorrow
     ).toLocaleDateString(
       "sv"
@@ -286,7 +286,7 @@ const SearchResult = () => {
   // Flyfarint. com s departure location
   useEffect(() => {
     fetch(
-      `https://api.flyfarint.net/v.1.0.0/AirMaterials/airports.php?search=${departureLocationCode}`
+      `https://api.flyfarint.com/v.1.0.0/AirMaterials/airports.php?search=${departureLocationCode}`
     )
       .then((res) => res.json())
       .then((data) => setDepartureLocation(data[0]));
@@ -295,7 +295,7 @@ const SearchResult = () => {
   // Send the airport location.
   useEffect(() => {
     fetch(
-      `https://api.flyfarint.net/v.1.0.0/AirMaterials/airports.php?search=${
+      `https://api.flyfarint.com/v.1.0.0/AirMaterials/airports.php?search=${
         location?.state?.toSendData || searchData.toSendData
       }`
     )
@@ -310,7 +310,7 @@ const SearchResult = () => {
     setIsNextCliked(false);
     setIsLoaded(false);
     modifyHandleClose();
-    let url = `https://api.flyfarint.net/v.1.0.0/AirSearch/oneway.php?tripType=${tripType}&journeyfrom=${fromSendData?.trim()}&journeyto=${toSendData}&departuredate=${new Date(
+    let url = `https://api.flyfarint.com/v.1.0.0/AirSearch/oneway.php?tripType=${tripType}&journeyfrom=${fromSendData?.trim()}&journeyto=${toSendData}&departuredate=${new Date(
       departureDate
     ).toLocaleDateString(
       "sv"
