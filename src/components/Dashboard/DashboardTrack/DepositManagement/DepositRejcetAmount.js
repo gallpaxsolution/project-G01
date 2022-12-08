@@ -1,9 +1,9 @@
-import { Box } from '@mui/material';
-import React from 'react';
+import { Box } from "@mui/material";
+import React from "react";
 
 const DepositRejcetAmount = () => {
-    return (
-        <Box className="DestinaTionWise">
+  return (
+    <Box className="DestinaTionWise1">
       <table>
         <tr>
           <th>SL No</th>
@@ -17,7 +17,7 @@ const DepositRejcetAmount = () => {
         </tr>
       </table>
     </Box>
-    );
+  );
 };
 
 export default DepositRejcetAmount;

@@ -143,7 +143,7 @@ const BookingFailed = () => {
   };
 
   return (
-    <Box className="DestinaTionWise">
+    <Box className="DestinaTionWise1">
       <table width={"100%"}>
         <tr>
           <th>Sl no</th>

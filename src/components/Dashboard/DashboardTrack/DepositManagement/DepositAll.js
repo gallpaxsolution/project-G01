@@ -28,30 +28,31 @@ const DepositAll = () => {
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
-    // setIsloading(false);
-    // fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     data?.TotalDepositData?.map((item, index) => (item.serial = index + 1));
-    //     setAllDepositData(data?.TotalDepositData);
-    //     setIsloading(true);
-    //   });
+    setIsloading(false);
+    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
+      .then((res) => res.json())
+      .then((data) => {
+        data?.TotalDepositData?.map((item, index) => (item.serial = index + 1));
+        setAllDepositData(data?.TotalDepositData);
+        setIsloading(true);
+      });
 
-    const interval = setInterval(() => {
-      const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          data?.TotalDepositData?.map(
-            (item, index) => (item.serial = index + 1)
-          );
-          setAllDepositData(data?.TotalDepositData);
-          setIsloading(true);
-        });
-    }, [1000]);
-    return () => {
-      clearInterval(interval);
-    };
+    // const interval = setInterval(() => {
+    //   const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
+    //   fetch(url)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       data?.TotalDepositData?.map(
+    //         (item, index) => (item.serial = index + 1)
+    //       );
+    //       setAllDepositData(data?.TotalDepositData);
+    //       setIsloading(true);
+    //     });
+    // }, [1000]);
+    // return () => {
+    //   clearInterval(interval);
+    // };
+
   }, []);
 
   //  modal
@@ -112,7 +113,7 @@ const DepositAll = () => {
   };
 
   return (
-    <Box className="DestinaTionWise">
+    <Box className="DestinaTionWise1">
       <table>
         <tr>
           <th>SL No</th>

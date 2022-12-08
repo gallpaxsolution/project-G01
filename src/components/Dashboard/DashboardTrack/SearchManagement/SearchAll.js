@@ -10,33 +10,32 @@ const SearchAll = () => {
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
-    // setIsloading(false);
-    // fetch(`https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     data?.allsearchlist?.map((item, index) => (item.serial = index + 1));
-    //     setSearchData(data?.allsearchlist);
-    //     setIsloading(true);
-    //   });
+    setIsloading(false);
+    fetch(`https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php`)
+      .then((res) => res.json())
+      .then((data) => {
+        data?.allsearchlist?.map((item, index) => (item.serial = index + 1));
+        setSearchData(data?.allsearchlist);
+        setIsloading(true);
+      });
 
-    const interval = setInterval(() => {
-      const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          data?.allsearchlist?.map((item, index) => (item.serial = index + 1));
-          setSearchData(data?.allsearchlist);
-          setIsloading(true);
-        });
-    }, [1000]);
-    return () => {
-      clearInterval(interval);
-    };
-    
+    // const interval = setInterval(() => {
+    //   const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
+    //   fetch(url)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       data?.allsearchlist?.map((item, index) => (item.serial = index + 1));
+    //       setSearchData(data?.allsearchlist);
+    //       setIsloading(true);
+    //     });
+    // }, [1000]);
+    // return () => {
+    //   clearInterval(interval);
+    // };
   }, []);
 
   return (
-    <Box className="DestinaTionWise">
+    <Box className="DestinaTionWise1">
       <table>
         <tr>
           <th>Sl No</th>

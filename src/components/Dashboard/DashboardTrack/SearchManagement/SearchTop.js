@@ -12,14 +12,14 @@ const SearchTop = () => {
     fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
-        data?.destinationwise?.map((item, index) => (item.serial = index + 1));
-        setTOpSearch(data?.destinationwise);
+        data?.DestinaTionWise1?.map((item, index) => (item.serial = index + 1));
+        setTOpSearch(data?.DestinaTionWise1);
         setIsloding(true);
       });
   }, []);
 
   return (
-    <Box className="DestinaTionWise">
+    <Box className="DestinaTionWise1">
       <table>
         <tr>
           <th>Sl no</th>
