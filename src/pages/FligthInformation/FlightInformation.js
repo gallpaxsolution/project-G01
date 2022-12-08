@@ -27,6 +27,7 @@ import FlightUserInfoSabre from "../../components/FlightUserinfo/FlightUserInfoS
 import Loader from "../../images/loader/Render.gif";
 import NotFound from "../../images/undraw/undraw_not_found_re_bh2e.svg";
 import FlightInfoDetails from "../../components/FlightInfoDetails/FlightInfoDetails";
+import FlightIcon from "@mui/icons-material/Flight";
 import "./FlightInformation.css";
 
 const HtmlTooltip = styled(({ className, ...propss }) => (
@@ -72,7 +73,7 @@ const FlightInformation = (props) => {
   let url;
   let body;
   if (location.state?.flightData?.system === "Sabre") {
-    url = "https://api.flyfarint.com/v.1.0.0/Sabre/AirPrice.php";
+    url = "https://api.flyfarint.net/v.1.0.0/Sabre/AirPrice.php";
     body = {
       adultCount: adultCount,
       childCount: childCount,
@@ -168,13 +169,13 @@ const FlightInformation = (props) => {
             ],
     };
   } else if (location.state?.flightData.system === "FlyHub") {
-    url = "https://api.flyfarint.com/v.1.0.0/FlyHub/AirPrice.php";
+    url = "https://api.flyfarint.net/v.1.0.0/FlyHub/AirPrice.php";
     body = {
       SearchID: location.state?.flightData?.SearchID,
       ResultID: location.state?.flightData?.ResultID,
     };
   } else if (location.state?.flightData.system === "Galileo") {
-    url = "https://api.flyfarint.com/v.1.0.0/Galileo/AirPrice.php";
+    url = "https://api.flyfarint.net/v.1.0.0/Galileo/AirPrice.php";
     body = {
       adultCount: adultCount,
       childCount: childCount,
@@ -1001,65 +1002,31 @@ const FlightInformation = (props) => {
                       ) : location.state?.flightData.segment === "2" ? (
                         <Box>
                           <Grid container>
-                            <Grid item lg={2}>
+                            <Grid item lg={1}>
                               {/* //todo:plane animation part */}
-                              <Box py={2} className="roundway-animation">
-                                <Box className="round-segment-line0">
-                                  <Box className="round-segment-circle">
-                                    <Box className="circle-0">
-                                      <CircleIcon
-                                        sx={{
-                                          color: "#c7c7c7",
-                                          fontSize: "15px",
-                                          cursor: "pointer",
-                                        }}
-                                      />
-                                    </Box>
-                                    <HtmlTooltip
-                                      title={
-                                        <React.Fragment>
-                                          <Typography
-                                            sx={{
-                                              color: "#fff",
-                                              fontSize: "10px",
-                                            }}
-                                          >
-                                            Layover Time:{" "}
-                                            {
-                                              location?.state?.flightData
-                                                ?.transit?.transit1
-                                            }
-                                          </Typography>
-                                        </React.Fragment>
-                                      }
-                                      followCursor
-                                    >
-                                      <span>
-                                        <Box className="round-segment-stop"></Box>
-                                      </span>
-                                    </HtmlTooltip>
-                                    <Box className="circle-0">
-                                      <CircleIcon
-                                        sx={{
-                                          color: "#c7c7c7",
-                                          fontSize: "15px",
-                                          cursor: "pointer",
-                                        }}
-                                      />
-                                    </Box>
-                                  </Box>
-                                  <Box className="round-segment-flight02">
-                                    {/* <FlightIcon /> */}
-                                    <img
-                                      src={anemy}
-                                      width="50px"
-                                      alt="flight"
-                                    />
-                                  </Box>
+                              <Box className="round-segment-line0">
+                                <span class="vertical-line"></span>
+                                <Box className="circle-0">
+                                  <CircleIcon
+                                    sx={{
+                                      color: "var(--secondary-color)",
+                                      fontSize: "15px",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </Box>
+
+                                <Box className="round-segment-flight02">
+                                  <FlightIcon
+                                    style={{
+                                      color: "var(--gray)",
+                                      transform: "rotate(180deg)",
+                                    }}
+                                  />
                                 </Box>
                               </Box>
                             </Grid>
-                            <Grid item lg={10}>
+                            <Grid item lg={11}>
                               {/* //todo: literary details part */}
                               <Grid container justifyContent={"space-between"}>
                                 <Grid>
@@ -1191,7 +1158,7 @@ const FlightInformation = (props) => {
                                 justifyContent={"space-around"}
                                 mb={2}
                               >
-                                <Grid item lg={4}>
+                                <Grid item lg={6}>
                                   <Box
                                     style={{ width: "40px", height: "40px" }}
                                   >
@@ -1235,7 +1202,7 @@ const FlightInformation = (props) => {
                                   </Box>
                                 </Grid>
 
-                                <Grid item lg={4}>
+                                <Grid item lg={6}>
                                   <Box
                                     style={{
                                       width: "40px",

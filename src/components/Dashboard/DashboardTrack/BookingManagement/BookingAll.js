@@ -43,7 +43,7 @@ const BookingAll = () => {
 
   useEffect(() => {
     // setIsloading(false);
-    // fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
+    // fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
     //   .then((res) => res.json())
     //   .then((data) => {
     //     setBookingData(data?.TotalBookingData);
@@ -52,7 +52,7 @@ const BookingAll = () => {
     //   });
 
     const interval = setInterval(() => {
-      const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
+      const url = "https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php";
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
@@ -106,7 +106,7 @@ const BookingAll = () => {
     setOpen(true);
     setBookingId(bookingId);
     await fetch(
-      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
+      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${bookingId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -118,7 +118,7 @@ const BookingAll = () => {
 
   const sendNote = () => {
     console.log(bookingId, note, user?.user?.username);
-    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: bookingId,

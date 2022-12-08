@@ -29,7 +29,7 @@ const DepositAll = () => {
 
   useEffect(() => {
     // setIsloading(false);
-    // fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
+    // fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
     //   .then((res) => res.json())
     //   .then((data) => {
     //     data?.TotalDepositData?.map((item, index) => (item.serial = index + 1));
@@ -38,7 +38,7 @@ const DepositAll = () => {
     //   });
 
     const interval = setInterval(() => {
-      const url = "https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php";
+      const url = "https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php";
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
@@ -66,7 +66,7 @@ const DepositAll = () => {
     setOpen(true);
     setDepositId(depositId);
     await fetch(
-      `https://api.flyfarint.com/v.1.0.0/Admin/Notes/allNote.php?ref=${depositId}`
+      `https://api.flyfarint.net/v.1.0.0/Admin/Notes/allNote.php?ref=${depositId}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -78,7 +78,7 @@ const DepositAll = () => {
 
   const sendNote = () => {
     console.log(depositId, note, user?.user?.username);
-    let url = `https://api.flyfarint.com/v.1.0.0/Admin/Notes/addNote.php`;
+    let url = `https://api.flyfarint.net/v.1.0.0/Admin/Notes/addNote.php`;
 
     let body = JSON.stringify({
       ref: depositId,

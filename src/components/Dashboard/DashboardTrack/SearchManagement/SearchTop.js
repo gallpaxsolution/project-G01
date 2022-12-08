@@ -9,7 +9,7 @@ const SearchTop = () => {
 
   useEffect(() => {
     setIsloding(false);
-    fetch("https://api.flyfarint.com/v.1.0.0/Admin/Stats/Dashboard.php")
+    fetch("https://api.flyfarint.net/v.1.0.0/Admin/Stats/Dashboard.php")
       .then((res) => res.json())
       .then((data) => {
         data?.destinationwise?.map((item, index) => (item.serial = index + 1));
