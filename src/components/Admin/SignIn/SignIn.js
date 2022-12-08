@@ -26,6 +26,7 @@ const SignIn = () => {
                 </Typography>
                 <Box className="signInInput1" mb={2}>
                   <input
+                    required
                     type="text"
                     style={{
                       border: "none",
@@ -41,6 +42,7 @@ const SignIn = () => {
                 </Box>
                 <Box className="signInInput1" mb={2}>
                   <input
+                    required
                     type="password"
                     style={{
                       border: "none",
@@ -76,7 +78,7 @@ const SignIn = () => {
                       value="Bike"
                     /> */}
 
-                    <Checkbox {...label} />
+                    <Checkbox required {...label} />
 
                     <label for="vehicle1" style={{ color: "#FFA84D" }}>
                       {" "}

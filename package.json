@@ -17,6 +17,7 @@
     "country-dropdown-with-flags-for-react": "^1.1.4",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
+    "humanize-duration": "^3.27.3",
     "notiflix": "^3.2.5",
     "react": "^18.2.0",
     "react-countdown": "^2.3.5",

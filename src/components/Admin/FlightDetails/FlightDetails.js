@@ -9,7 +9,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import SearchIcon from "@mui/icons-material/Search";
+import Checkbox from "@mui/material/Checkbox";
 import "./FlightDetails.css";
+
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const FlightDetails = () => {
   const [expanded, setExpanded] = React.useState(false);
@@ -966,6 +969,7 @@ const FlightDetails = () => {
                     <Typography>Find Traveler</Typography>
                     <Box style={{ display: "flex", marginTop: "5px" }}>
                       <input
+                        required
                         type="text"
                         placeholder="Find traveler to auto fill"
                       />
@@ -984,19 +988,27 @@ const FlightDetails = () => {
                   <Grid item md={4}>
                     <Typography>First/Given Name</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Your First Name" />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Your First Name"
+                      />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Last/Surname</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Your Last Name" />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Your Last Name"
+                      />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Gender</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <select name="python" id="django">
+                      <select required name="python" id="django">
                         <option value="Python  ">Python </option>
                         <option value="Django">Django</option>
                       </select>
@@ -1005,13 +1017,14 @@ const FlightDetails = () => {
                   <Grid item md={4}>
                     <Typography>Nationality</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Bangladesh" />
+                      <input required type="text" placeholder="Bangladesh" />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Date of Birth</Typography>
                     <Box style={{ marginTop: "5px" }}>
                       <input
+                        required
                         type="text"
                         placeholder="Find traveler to auto fill"
                       />
@@ -1020,13 +1033,18 @@ const FlightDetails = () => {
                   <Grid item md={4}>
                     <Typography>Passport No</Typography>
                     <Box style={{ marginTop: "5px" }}>
-                      <input type="text" placeholder="Your Passport Number" />
+                      <input
+                        required
+                        type="text"
+                        placeholder="Your Passport Number"
+                      />
                     </Box>
                   </Grid>
                   <Grid item md={4}>
                     <Typography>Expires On</Typography>
                     <Box style={{ marginTop: "5px" }}>
                       <input
+                        required
                         type="text"
                         placeholder="Find traveler to auto fill"
                       />
@@ -1034,16 +1052,8 @@ const FlightDetails = () => {
                   </Grid>
                 </Grid>
               </Box>
-              <Box
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
-                mt={2}
-              >
-                <input
-                  type="checkbox"
-                  id="vehicle1"
-                  name="vehicle1"
-                  value="Bike"
-                />
+              <Box style={{ display: "flex", alignItems: "center" }} mt={2}>
+                <Checkbox required {...label} />
                 <label
                   for="vehicle1"
                   style={{ color: "#72AFD3", fontSize: "13px" }}
