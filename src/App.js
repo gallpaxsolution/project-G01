@@ -23,7 +23,6 @@ import AddBank from "./components/BankAccount/AddBank";
 import FlightDetails from "./components/Admin/FlightDetails/FlightDetails";
 import SignIn from "./components/Admin/SignIn/SignIn";
 import GeneralLedger from "./pages/General Ledger/GeneralLedger";
-import AddStaff from "./components/GeneralLedger/AddStaff";
 
 import MyStaff from "./components/Admin/MyAccount/MyStaff";
 import GeneralLedgerRoute from "./pages/General Ledger/GeneralLedgerRoute";
@@ -42,6 +41,7 @@ import Last1MonthCount from "./components/SearchCountComponent/StateSearch/Last1
 // import GeneralLedgerReport from './components/GeneralLedger/GeneralLedgerReport';
 import AgentManagement from "./pages/AgentManagement/AgentManagement";
 import PaymentManagement from "./pages/PaymentManagement/PaymentManagement";
+import AddStaff from "./components/Admin/MyAccount/AddStaff";
 
 function App() {
   return (
@@ -67,6 +67,8 @@ function App() {
             <Route path="/flightdetail" element={<FlightDetails />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/mystaff" element={<MyStaff />} />
+            <Route path="/addstaff" element={<AddStaff />} />
+
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}
 
@@ -104,7 +106,7 @@ function App() {
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
 
-            {/* <Route path="/dashboardtrack" element={<DashboardTrack />} /> */}
+            <Route path="/dashboardtrack" element={<DashboardTrack />} />
 
             {/*  search count all route */}
 
