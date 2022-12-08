@@ -1,13 +1,13 @@
-import { Grid, Typography, Box, Button } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import commaNumber from "comma-number";
 import AddIcon from "@mui/icons-material/Add";
 import secureLocalStorage from "react-secure-storage";
-import "./FlightInfoDetails.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Container } from "@mui/system";
+import "./FlightInfoDetails.css";
 
 const FlightInfoDetails = ({
   loadData,
@@ -738,7 +738,7 @@ const FlightInfoDetails = ({
                 <Box>
                   <Typography
                     sx={{
-                      color: "#DC143C",
+                      color: "var(--primary-color)",
                       fontSize: "15px",
                       fontWeight: 600,
                     }}
@@ -748,7 +748,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -757,7 +757,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -768,7 +768,7 @@ const FlightInfoDetails = ({
                   <Grid container justifyContent="space-between">
                     <Typography
                       sx={{
-                        color: "#003566",
+                        color: "var(--secondary-color)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}
@@ -777,7 +777,7 @@ const FlightInfoDetails = ({
                     </Typography>
                     <Typography
                       sx={{
-                        color: "#000",
+                        color: "var(--black)",
                         fontSize: "13px",
                         fontWeight: 500,
                       }}

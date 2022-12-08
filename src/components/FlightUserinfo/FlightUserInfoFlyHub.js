@@ -873,7 +873,7 @@ const FlightUserInfo = ({
             className="right-overflow1"
           >
             <Box>
-              <h4 className="flight-h4"> Passenger Details</h4>
+              <h4 className="flight-h4"> Passenger Information Details</h4>
 
               {/* <Grid
                 item
@@ -893,7 +893,7 @@ const FlightUserInfo = ({
                   return (
                     <Box key={index}>
                       <Box className="adult-h4">
-                        <h4>Adult-{index + 1}</h4>
+                        <h4>Adult :0{index + 1}</h4>
                       </Box>
                       <Box className="adult-info">
                         <Grid
@@ -1210,7 +1210,7 @@ const FlightUserInfo = ({
                 {flightPassengerData.child.map((item, index) => (
                   <Box>
                     <Box className="adult-h4">
-                      <h4>Child-{index + 1}</h4>
+                      <h4>Child :{index + 1}</h4>
                     </Box>
 
                     <Box className="adult-info">
@@ -1471,7 +1471,7 @@ const FlightUserInfo = ({
                 {flightPassengerData.infant.map((item, index) => (
                   <Box>
                     <Box className="adult-h4">
-                      <h4>Infant-{index + 1}</h4>
+                      <h4>Infant :0{index + 1}</h4>
                     </Box>
 
                     <Box className="adult-info">

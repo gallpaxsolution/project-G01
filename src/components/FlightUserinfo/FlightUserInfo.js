@@ -613,7 +613,7 @@ const FlightUserInfo = ({
               {flightPassengerData.adult.map((item, index) => (
                 <Box key={index}>
                   <Box className="adult-h4">
-                    <h4>Adult-{index + 1}</h4>
+                    <h4>Adult:0{index + 1}</h4>
                   </Box>
 
                   <Box className="adult-info">
