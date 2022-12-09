@@ -51,6 +51,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />☻
             <Route path="/searchresult" element={<SearchResult />} />
             <Route path="/roundsearchresult" element={<RoundSearchResult />} />
             <Route path="/flightinformation" element={<FlightInformation />} />
@@ -60,7 +61,6 @@ function App() {
             />
             <Route path="/bankaccount" element={<BankAccount />} />
             <Route path="/addbankaccount" element={<AddBank />} />
-
             {/* -----KB------  */}
             <Route path="/bookingroute" element={<BookingRoute />} />
             <Route path="/bookingdetails" element={<BookingDetails />} />
@@ -68,48 +68,37 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/mystaff" element={<MyStaff />} />
             <Route path="/addstaff" element={<AddStaff />} />
-
             {/* <Route path="/bookingroute" element={<BookingRoute />} /> */}
             {/* <Route path="/queuedetail" element={<BookingDetails />} /> */}
-
             {/* -----KB------  */}
-
             {/*  */}
             <Route path="/traveller" element={<Traveller />} />
             <Route path="/addtraveller" element={<AddTraveller />} />
             <Route path="/bankaccount" element={<BankAccount />} />
             <Route path="/addbankaccount" element={<AddBank />} />
-
             <Route
               path="/generalLedgerReport"
               element={<GeneralLedgerReport />}
             />
-
             <Route
               path="/generalLedgerReport"
               element={<GeneralLedgerReport />}
             />
             <Route path="/agentManagement" element={<AgentManagement />} />
             <Route path="/paymentManagement" element={<PaymentManagement />} />
-
             <Route
               path="/generalledgerroute"
               element={<GeneralLedgerRoute />}
             />
-
             {/* <Route path="/generalledger" element={<GeneralLedger />} /> */}
             {/* <Route path="/addStaff" element={<AddStaff />} /> */}
             {/* <Route path="/deposite" element={<Deposite />} /> */}
             {/* <Route path="/traveller" element={<Traveller />} /> */}
             {/* <Route path="/addtraveller" element={<AddTraveller />} /> */}
-
             <Route path="/deposite" element={<Deposite />} />
             <Route path="/adddeposite" element={<AddDeposite />} />
-
             <Route path="/dashboardtrack" element={<DashboardTrack />} />
-
             {/*  search count all route */}
-
             <Route
               path="/dashboard/searchcount"
               element={<SearchCountParent />}
@@ -139,7 +128,6 @@ function App() {
                 element={<Last1MonthCount />}
               />
             </Route>
-
             {/*  search count all route end */}
           </Routes>
         </BrowserRouter>
